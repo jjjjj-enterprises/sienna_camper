@@ -554,7 +554,7 @@ Two coordinate conventions, each picked to match how you'd actually stand at the
 | NTC temp sensor | C | ~18.2 (just inside the fridge's exhaust wall) | ~12.2 | 8.8 |
 | Control cluster (switches, surge protector, W1209) | C | 40.4–45.4 | 35.75 (Panel C's FRONT wall) | 3.5–14.5 — on the wall's Panel-B face, standing ~2" off it into Panel B's bay |
 | Power strip 2 (cooktop) | C | ~34.5–37.5 | ~26 (kitchen unit's front face) | ~1.5 |
-| Right drawer (the only one) | A | 23.75–43.75 | 2–27 | 0–13.75 |
+| Right drawer (the only one) | A | 23.75–43.75 | 3.5–25.5 | 0–13.75 |
 | Center divider | A | 22.25–23.75 | 1.5–27.5 | 0–16.25 |
 | Rear pantry: 2×2 IRIS drawer cluster (bought) | C | driver 0–24.2 | 0–14.3 | 18.5–35.3 |
 | Rear pantry: pot/pan crate + hold-down cleats/strap | C | passenger 24.2–46 | 0–14 | 18.5 (on the deck) |
@@ -651,7 +651,7 @@ Honest trade, and how it ended: the swap reshuffled the plywood so it needed 3/8
 | Deck bearer cleats | 4 | 3/4" x 3/4" strips: 2 x 33" + 2 x 40" (ripped from the offcut; screwed to Panel C's rails' inner faces, tops 3/4" below the rail tops). **Interrupt the FRONT cleat at the 2 lapped front legs** — their tops come up into the deck plane on that face; cut it as 3 short runs rather than one 40" strip |
 | Rear-pantry hold-down cleats | ~4 | ~1" x 1" x 12–14" strips (ripped from the offcut; cab-side + both sides of the drawer cluster) |
 | **Battery drawer side wall** | 2 | **22" x 14.5"** — one out of the 47" x 19" strip, one out of the anchor board's **gap A** (16.85" x 27", so it comes out rotated). 3/4" (was 3/8"): glue + **2× R3** per corner |
-| **Battery drawer front/back wall** | 2 | **20" x 14.5"** — one out of the same 47" x 19" strip beside the side wall (25 + 20 = 45 of the 47), one out of the anchor board's **gap B** (20.5" x 27", also rotated). 3/4", 2× R3 per corner |
+| **Battery drawer front/back wall** | 2 | **20" x 14.5"** — one out of the same 47" x 19" strip beside the side wall (22 + 20 = 42 of the 47), one out of the anchor board's **gap B** (20.5" x 27", also rotated). 3/4", 2× R3 per corner |
 
 **1/2" sheet** — the kitchen drawer box + its 2 hanging cheeks and the battery drawer's bottom (the plywood-pantry carcass is deleted — that frees most of this sheet):
 
@@ -659,7 +659,7 @@ Honest trade, and how it ended: the swap reshuffled the plywood so it needed 3/8
 |---|---|---|
 | Kitchen drawer box | 5 pieces | bottom **18" x 26"**; 2 sides 26" x 4"; front/back **17" x 4"** (4.5" exterior height). **Widened Aug 2026 — was a 16" box; the assembly was sitting 2" shy of the kitchen's inboard edge for no reason** |
 | Kitchen drawer hanging cheeks | 2 | 26" x 5.45" (1/2" — screwed up into Panel C's recessed deck, flanking the drawer) |
-| Battery drawer bottom (Panel A right) | 1 | 20" x 25" (1/2" — the base under the 48 lb stack) |
+| Battery drawer bottom (Panel A right) | 1 | 20" x 22" (1/2" — the base under the 48 lb stack; 22" not 25", the lapped legs shortened the box) |
 | **Panel C front wall** | 1 | **46" x 17"** (1/2", was 3/8") — 120mm fan hole + two 1" grommet holes, positions in the Panel C Front Wall render. Cut ~1/8" oversize and trim to the frame |
 | **Fridge tray** | 1 | **17.72" x 28.74"** (1/2", was 3/8") + two 1x3 side aprons, 28¾" each, glued+screwed to its edges — the slides' moving members screw to them and their top edges are the fridge's anti-shift lip. Cut from a 29 x 18 blank, **cross-grain** (see the buy note above) |
 
@@ -667,7 +667,7 @@ Honest trade, and how it ended: the swap reshuffled the plywood so it needed 3/8
 
 | Piece | Qty | Dimensions |
 |---|---|---|
-| WAVE 3 overhead shelf | 1 | ~20.75" x 14" — 1/2" offcut (the 27" x 25" piece left beside the battery-drawer bottom) |
+| WAVE 3 overhead shelf | 1 | ~20.75" x 14" — 1/2" offcut (the 27" x 22" piece left beside the battery-drawer bottom) |
 | WAVE 3 glide strips (scrap, not from these sheets) | 2 | 20" x 1", UHMW or laminate offcut |
 
 #### The sheets, as actually cut — from the shop (Sept 9–11 2026)
