@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- ARTIFACT-BODY-START -->
+<title>DELTA 3 Power Drawer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#E9ECE7; --surface:#FBFCFA; --surface-2:#F1F4EF;
+  --ink:#16201C; --ink-2:#4E5A55; --ink-3:#79857F;
+  --rule:#C6CDC5; --rule-strong:#8E9A93;
+  --ply:#9A7A3E; --ply-fill:rgba(200,164,107,.30);
+  --amber:#B8661A; --amber-fill:rgba(201,118,27,.15);
+  --alert:#9E2C1B; --alert-fill:rgba(158,44,27,.09);
+  --good:#2C6349;
+  --font-d:Archivo,"Helvetica Neue",Arial,sans-serif;
+  --font-b:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+    --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+    --rule:#2F3833; --rule-strong:#56615A;
+    --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+    --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+    --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+    --good:#5FB78D;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+  --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+  --rule:#2F3833; --rule-strong:#56615A;
+  --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+  --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+  --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+  --good:#5FB78D;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-b); font-size:15px; line-height:1.55;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+.sheet{max-width:1080px; margin:0 auto; padding-block:28px 64px; padding-left:20px; padding-right:20px}
+
+/* ---- title block: a drawing title block, not a hero ---- */
+.tb{border:1.5px solid var(--ink); background:var(--surface)}
+.tb-head{display:flex; flex-wrap:wrap; align-items:flex-end; gap:6px 20px; padding:18px 20px 14px; border-bottom:1.5px solid var(--ink)}
+.tb-head h1{
+  font-family:var(--font-d); font-weight:700; font-size:clamp(25px,4.6vw,38px);
+  line-height:1.03; letter-spacing:-.018em; margin:0; text-wrap:balance;
+}
+.tb-head p{margin:0; color:var(--ink-2); font-size:14.5px; max-width:56ch}
+.tb-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr))}
+.tb-cell{padding:10px 14px 12px; border-right:1px solid var(--rule); border-top:1px solid var(--rule)}
+.tb-cell:first-child{border-top:0}
+.tb-cell .k{
+  font-family:var(--font-m); font-size:10.5px; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:3px;
+}
+.tb-cell .v{font-family:var(--font-m); font-size:15px; font-weight:500; font-variant-numeric:tabular-nums}
+.tb-cell .v small{font-family:var(--font-b); font-size:12.5px; color:var(--ink-2); display:block; font-weight:400; letter-spacing:0}
+
+/* ---- section headings ---- */
+section{margin-top:44px}
+.sec-h{display:flex; align-items:baseline; gap:12px; border-bottom:1.5px solid var(--ink); padding-bottom:7px; margin-bottom:18px}
+.sec-h .n{
+  font-family:var(--font-m); font-size:12px; font-weight:600; color:var(--ink-3);
+  letter-spacing:.09em; flex:none;
+}
+.sec-h h2{font-family:var(--font-d); font-weight:600; font-size:20px; letter-spacing:-.01em; margin:0; text-wrap:balance}
+.sec-h .aside{margin-left:auto; font-family:var(--font-m); font-size:11.5px; color:var(--ink-3); text-align:right}
+
+p{margin:0 0 12px; max-width:68ch}
+.lede{color:var(--ink-2)}
+a{color:inherit}
+code{font-family:var(--font-m); font-size:.92em; background:var(--surface-2); padding:1px 4px; border-radius:2px}
+strong{font-weight:600}
+
+/* ---- flags ---- */
+.flags{display:grid; gap:14px}
+.flag{
+  border:1px solid var(--alert); border-left-width:4px; background:var(--alert-fill);
+  padding:14px 16px 15px;
+}
+.flag h3{
+  font-family:var(--font-d); font-size:15.5px; font-weight:600; margin:0 0 7px;
+  color:var(--alert); display:flex; gap:9px; align-items:baseline; text-wrap:balance;
+}
+.flag h3 .tag{
+  font-family:var(--font-m); font-size:10px; letter-spacing:.1em; border:1px solid currentColor;
+  padding:1px 5px; flex:none; text-transform:uppercase;
+}
+.flag p{margin:0 0 8px; font-size:14px}
+.flag p:last-child{margin-bottom:0}
+.flag .math{
+  font-family:var(--font-m); font-size:13px; font-variant-numeric:tabular-nums;
+  background:var(--surface); border:1px solid var(--rule); padding:8px 11px; margin:9px 0;
+  display:block; overflow-x:auto; white-space:nowrap; color:var(--ink);
+}
+.flag .verdict{font-weight:600}
+
+/* ---- figures ---- */
+.figs{display:grid; gap:26px}
+@media (min-width:780px){ .figs.two{grid-template-columns:1fr 1fr} }
+figure{margin:0; border:1px solid var(--rule-strong); background:var(--surface); display:flex; flex-direction:column}
+figure svg{display:block; width:100%; height:auto; padding:10px 8px 0}
+figcaption{
+  border-top:1px solid var(--rule); padding:9px 13px 11px; font-size:13px; color:var(--ink-2);
+  margin-top:auto;
+}
+figcaption b{font-family:var(--font-m); font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink); display:block; margin-bottom:3px}
+
+svg .ply{fill:var(--ply-fill); stroke:var(--ink); stroke-width:1.7}
+svg .cav{fill:var(--surface); stroke:var(--ink); stroke-width:1.7}
+svg .unit{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.9}
+svg .blk{fill:var(--ink-2); stroke:none}
+svg .slide{fill:var(--ink); stroke:none}
+svg .ln{fill:none; stroke:var(--ink); stroke-width:1.7}
+svg .thin{fill:none; stroke:var(--rule-strong); stroke-width:1}
+svg .dash{fill:none; stroke:var(--ink-2); stroke-width:1.4; stroke-dasharray:6 4}
+svg .strap{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.5; stroke-dasharray:5 3}
+svg .strapln{fill:none; stroke:var(--amber); stroke-width:2.2}
+svg .ring{fill:none; stroke:var(--ink); stroke-width:2.4}
+svg .hole{fill:var(--paper); stroke:var(--ink); stroke-width:1.7}
+svg text{font-family:var(--font-m); fill:var(--ink-2)}
+svg .t-dim{font-size:12.5px; font-weight:500; font-variant-numeric:tabular-nums}
+svg .t-lab{font-size:12px; fill:var(--ink)}
+svg .t-sm{font-size:10.5px; fill:var(--ink-3)}
+svg .keydot{fill:var(--ink)}
+svg .keynum{font-size:11.5px; font-weight:600; fill:var(--surface)}
+
+/* ---- legend ---- */
+.legend{margin-top:16px; border:1px solid var(--rule); background:var(--surface)}
+.legend li{display:flex; gap:11px; padding:8px 13px; border-top:1px solid var(--rule); align-items:baseline}
+.legend li:first-child{border-top:0}
+.legend ol{margin:0; padding:0; list-style:none}
+.legend .n{
+  font-family:var(--font-m); font-size:11px; font-weight:600; color:var(--surface);
+  background:var(--ink); width:19px; height:19px; border-radius:50%; flex:none;
+  display:inline-flex; align-items:center; justify-content:center; transform:translateY(2px);
+}
+.legend .d{font-size:13.5px}
+.legend .d b{font-weight:600}
+.legend .d span{color:var(--ink-2)}
+
+/* ---- tables ---- */
+.tw{overflow-x:auto; border:1px solid var(--rule-strong); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:13.5px}
+th,td{padding:8px 12px; text-align:left; border-top:1px solid var(--rule); vertical-align:top}
+thead th{
+  border-top:0; border-bottom:1.5px solid var(--ink); font-family:var(--font-m);
+  font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:500;
+  white-space:nowrap;
+}
+td.num,th.num{font-family:var(--font-m); font-variant-numeric:tabular-nums; white-space:nowrap}
+tbody tr:nth-child(even){background:var(--surface-2)}
+td .note{display:block; color:var(--ink-2); font-size:12.5px; margin-top:2px}
+.ok{color:var(--good); font-weight:600}
+.tight{color:var(--alert); font-weight:600}
+
+/* ---- steps ---- */
+.steps{counter-reset:s; display:grid; gap:0; border:1px solid var(--rule-strong); background:var(--surface)}
+.step{display:grid; grid-template-columns:52px 1fr; border-top:1px solid var(--rule)}
+.step:first-child{border-top:0}
+.step .sn{
+  counter-increment:s; font-family:var(--font-m); font-size:16px; font-weight:600; color:var(--ink-3);
+  padding:14px 0 14px 16px; border-right:1px solid var(--rule); font-variant-numeric:tabular-nums;
+}
+.step .sn::before{content:counter(s,decimal-leading-zero)}
+.step .sb{padding:13px 16px 15px}
+.step h3{font-family:var(--font-d); font-size:15px; font-weight:600; margin:0 0 4px; text-wrap:balance}
+.step p{margin:0; font-size:13.8px; color:var(--ink-2); max-width:70ch}
+.step p + p{margin-top:7px}
+.step .hold{
+  display:inline-block; font-family:var(--font-m); font-size:10.5px; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--alert); border:1px solid var(--alert); padding:1px 5px; margin-bottom:6px;
+}
+
+footer{margin-top:52px; border-top:1px solid var(--rule); padding-top:14px; color:var(--ink-3); font-size:12.5px}
+footer p{max-width:72ch; margin:0 0 6px}
+
+@media print{
+  /* Letter with the same 0.65in margin as the main build plan, so these
+     pages sit flush with it when build_pdf.py appends them — and so the
+     stamped footer at 30pt lands clear of the content. */
+  @page{size:Letter; margin:0.65in}
+  :root{--paper:#fff; --surface:#fff; --surface-2:#f4f4f4}
+  body{font-size:10.5pt}
+  .sheet{max-width:none; padding:0}
+  section{break-inside:auto; margin-top:22px}
+  figure,.flag,.step,.tw{break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="tb">
+  <div class="tb-head">
+    <h1>DELTA 3 Power Drawer</h1>
+    <p>Panel A, passenger-side bay. The ¾" plywood box that carries the EcoFlow DELTA 3 Plus + Smart Extra Battery on a pair of 20" full-extension slides.</p>
+  </div>
+  <div class="tb-grid">
+    <div class="tb-cell"><span class="k">Assembly</span><span class="v">Comp. 2 · step 3–4<small>with Component 8, step 1</small></span></div>
+    <div class="tb-cell"><span class="k">Box, outer</span><span class="v">20 × 22 × 13¾"<small>W (travel) × D (fore-aft) × H</small></span></div>
+    <div class="tb-cell"><span class="k">Box, clear</span><span class="v">18½ × 20½ × 13¼"<small>inside the ¾" walls</small></span></div>
+    <div class="tb-cell"><span class="k">Load</span><span class="v">~78 lb<small>48 lb stack + box + contents</small></span></div>
+    <div class="tb-cell"><span class="k">Slides</span><span class="v">20" full-ext.<small>100 lb class pair, ~22% margin</small></span></div>
+    <div class="tb-cell"><span class="k">Joinery</span><span class="v">2 × R3 + glue<small>per corner; bottom in a rabbet</small></span></div>
+    <div class="tb-cell"><span class="k">Drawn from</span><span class="v">Sept 2026 plan<small>Sections 3, 6 · params.scad</small></span></div>
+    <div class="tb-cell"><span class="k">Status</span><span class="v">1 open<small>plan + cut list now agree</small></span></div>
+  </div>
+</div>
+
+<section>
+  <div class="sec-h"><span class="n">A</span><h2>Check before you cut</h2><span class="aside">2 fixed · 1 still open</span></div>
+  <p class="lede">Five stale dimensions were corrected in <code>sienna_camper_build_plan.md</code> and <code>cut_list.html</code> in September 2026, and the PDF was rebuilt — the first two entries below record <em>why</em>, and the plan now matches this sheet. The third is still open and needs a tape measure on the frame.</p>
+
+  <div class="flags">
+    <div class="flag">
+      <h3><span class="tag">Fixed</span> The 14½" wall height predated the deck recess</h3>
+      <p>The cut list and Component 2's parts list both called the four walls <strong>14½"</strong> tall. Panel A's bay is not that tall any more. When the deck recess dropped Panels A and B's legs by ¾" (<code>deck_drop = panel_thickness</code>), the bay went with them:</p>
+      <span class="math">bay = leg_height_ab 16.25 − top rail 1.5 − bottom rail 1.0 = 13.75"</span>
+      <p>And 14½" is exactly what that same expression gave <em>before</em> the recess: <code>17 − 1.5 − 1.0 = 14.5</code>. The wall height simply never followed the legs down.</p>
+      <p class="verdict">Cut the walls <strong>13¾"</strong>, not 14½". A 14½" box is ¾" too tall to go under the deck at all. — <em>now corrected in the plan, the cut list and the PDF.</em></p>
+      <p><b>Knock-on worth checking:</b> Section 3 argues the walls must be ¾" ply because "nothing left on the ½" sheet has a 14.5" dimension." At <strong>13¾"</strong> that argument needs re-running — if the ½" sheet's offcuts do hold them, the drawer sheds roughly 6 lb of the ~12 lb the ¾" walls cost, on a slide pair whose margin the plan already calls thin.</p>
+    </div>
+
+    <div class="flag">
+      <h3><span class="tag">Settled</span> 22" + 20" walls can't both run full length</h3>
+      <p>The cut list gives two side walls at <strong>22"</strong> and two front/back walls at <strong>20"</strong> — the box's full depth and its full width. On a 20 × 22 outer box only one pair can run the whole way; the other has to be short by two wall thicknesses.</p>
+      <span class="math">22 − 2(¾) = 20½ clear depth   ·   20 − 2(¾) = 18½ clear width   ✓ matches the plan's own clear figures</span>
+      <p>The plan never said which pair gives way. <strong>Settled (owner, Sept 2026): the 22" side walls run the full depth, and the two 20" front/back walls are cut back.</strong> That is also the right way round structurally — the slides screw to the side walls' outer faces, and a slide wants one continuous, full-length wall under it, not a wall interrupted at both ends by end grain.</p>
+      <span class="math">20 − 1½ = 18½"   ·   one cut per piece, ×2   ·   1½ = two wall thicknesses (2 × ¾), NOT 1½ off each end</span>
+      <p class="verdict">Final: sides <strong>2 @ 22 × 13¾</strong>, front/back <strong>2 @ 18½ × 13¾</strong>. Cut the side walls first and trim the front/back pair to the box they actually make — ¾" ply runs over and under its nominal thickness, and 1/32" at each corner is 1/16" out of square.</p>
+    </div>
+
+    <div class="flag">
+      <h3><span class="tag">Open</span> As built, the frame reads 16" floor to rail bottom</h3>
+      <p>Measured on the assembled frame, feet included — the model expects 16¼". Because the legs are lapped flush with the rail top and the bottom rail hangs off the leg's <em>wood</em> bottom, that ¼" splits into two questions that have different answers:</p>
+      <span class="math">floor→rail bottom = foot exposure f + leg wood L − 1.5 = 16.0"   →   f + L = 17.5"</span>
+      <p><b>The deck plane depends on f — and f is adjustable.</b> Rail top is sitting at 17½" instead of 17¾", so the bed platform lands at <strong>18¼"</strong>, a ¼" below Panel C's fixed 18½" deck: a step at the B/C seam, directly under the mattress. <strong>Turn all four feet out ¼"</strong> and it is gone. This is exactly what the leveling feet are for, and it costs nothing.</p>
+      <p><b>The drawer bay does not depend on f at all.</b> The bottom rail rises and falls with the leg, so the bay is set by the leg's wood length alone:</p>
+      <span class="math">bay = L − 1.5 (top rail) − 1.5 (bottom rail) = L − 3</span>
+      <p class="verdict">So it comes down to what the legs were actually cut to:</p>
+      <p>• <strong>L = 16¾" as specified</strong> → bay <strong>13¾"</strong>, this sheet stands exactly as drawn, and the feet are simply threaded in to ¾" instead of 1".<br>
+      • <strong>L = 16½" (cut ¼" short)</strong> → bay <strong>13½"</strong>: walls 13½", clear height 13", dead air over the stack 1.84" — and the lift-out tray comes down to <strong>1½"</strong> or less.</p>
+      <p><b>One measurement settles it:</b> the clear opening in the bay — top of the bottom rail up to the underside of the top rail. It reads either 13¾" or 13½". Everything on this sheet follows from that number, and it is unaffected by however you end up setting the feet.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">B</span><h2>Plan view</h2><span class="aside">looking down into the open box · 1:1 proportions</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="-46 0 566 496" role="img" aria-label="Plan view of the power drawer showing the DELTA 3 Plus outboard, the Smart Extra Battery inboard, four locating cleats, the cam strap and D-rings, and the cable grommet in a fore-aft wall">
+        <!-- slides on the outer faces of the two 22in side walls -->
+        <rect class="slide" x="71" y="72" width="9" height="320"/>
+        <rect class="slide" x="400" y="72" width="9" height="320"/>
+
+        <!-- box -->
+        <rect class="ply" x="80" y="56" width="320" height="352"/>
+        <rect class="cav" x="92" y="68" width="296" height="328"/>
+
+        <!-- locating cleats, 3/4in blocks bracketing the stack footprint -->
+        <rect class="blk" x="100.4" y="94.4" width="12" height="12"/>
+        <rect class="blk" x="367.6" y="94.4" width="12" height="12"/>
+        <rect class="blk" x="100.4" y="357.6" width="12" height="12"/>
+        <rect class="blk" x="367.6" y="357.6" width="12" height="12"/>
+
+        <!-- the two units -->
+        <rect class="unit" x="112.4" y="106.4" width="127.2" height="251.2"/>
+        <rect class="unit" x="239.6" y="106.4" width="128" height="251.2"/>
+        <text class="t-lab" x="176" y="168" text-anchor="middle" transform="rotate(-90 176 168)">DELTA 3 PLUS</text>
+        <text class="t-sm"  x="192" y="168" text-anchor="middle" transform="rotate(-90 192 168)">7.95 × 15.7 · ~28 lb</text>
+        <text class="t-lab" x="303" y="168" text-anchor="middle" transform="rotate(-90 303 168)">EXTRA BATTERY</text>
+        <text class="t-sm"  x="319" y="168" text-anchor="middle" transform="rotate(-90 319 168)">8.0 × 15.7 · ~20 lb</text>
+
+        <!-- cam strap across the width, into two screw-eye D-rings -->
+        <rect class="strap" x="99" y="226" width="282" height="12"/>
+        <circle class="ring" cx="99" cy="232" r="6"/>
+        <circle class="ring" cx="381" cy="232" r="6"/>
+
+        <!-- 1in cable grommet, in a fore-aft wall (the side pair carries the slides) -->
+        <circle class="hole" cx="340" cy="62" r="8"/>
+
+        <!-- pull direction -->
+        <path class="ln" d="M67 232 H-12"/>
+        <path class="ln" d="M-24 232 l12 -6 v12 z" fill="var(--ink)"/>
+        <text class="t-sm" x="22" y="220" text-anchor="middle">PULLS OUT</text>
+        <text class="t-sm" x="22" y="252" text-anchor="middle">side door</text>
+
+        <!-- dimensions: unit widths across the top -->
+        <path class="thin" d="M112.4 46 V32 M239.6 46 V32 M367.6 46 V32"/>
+        <path class="thin" d="M112.4 40 H239.6 M239.6 40 H367.6"/>
+        <text class="t-dim" x="176" y="27" text-anchor="middle">7.95"</text>
+        <text class="t-dim" x="303.6" y="27" text-anchor="middle">8.0"</text>
+
+        <!-- overall width -->
+        <path class="thin" d="M80 412 V452 M400 412 V452"/>
+        <path class="thin" d="M80 448 H400"/>
+        <text class="t-dim" x="240" y="441" text-anchor="middle">20" OUTER (travel)</text>
+        <!-- clear width -->
+        <path class="thin" d="M92 452 V476 M388 452 V476"/>
+        <path class="thin" d="M92 472 H388"/>
+        <text class="t-dim" x="240" y="465" text-anchor="middle">18½" CLEAR</text>
+
+        <!-- overall depth -->
+        <path class="thin" d="M413 56 H464 M413 408 H464"/>
+        <path class="thin" d="M460 56 V408"/>
+        <text class="t-dim" x="478" y="232" text-anchor="middle" transform="rotate(-90 478 232)">22" OUTER (fore-aft)</text>
+
+        <!-- keys -->
+        <g>
+          <circle class="keydot" cx="176" cy="300" r="9.5"/><text class="keynum" x="176" y="304" text-anchor="middle">1</text>
+          <circle class="keydot" cx="303" cy="300" r="9.5"/><text class="keynum" x="303" y="304" text-anchor="middle">2</text>
+          <path class="thin" d="M74 100 H100"/><circle class="keydot" cx="62" cy="100" r="9.5"/><text class="keynum" x="62" y="104" text-anchor="middle">3</text>
+          <path class="thin" d="M240 240 V256"/><circle class="keydot" cx="240" cy="268" r="9.5"/><text class="keynum" x="240" y="272" text-anchor="middle">4</text>
+          <path class="thin" d="M350 62 H434"/><circle class="keydot" cx="446" cy="62" r="9.5"/><text class="keynum" x="446" y="66" text-anchor="middle">5</text>
+          <path class="thin" d="M74 330 H86"/><circle class="keydot" cx="62" cy="330" r="9.5"/><text class="keynum" x="62" y="334" text-anchor="middle">6</text>
+          <path class="thin" d="M110 410 V418"/><circle class="keydot" cx="110" cy="430" r="9.5"/><text class="keynum" x="110" y="434" text-anchor="middle">7</text>
+          <path class="thin" d="M410 300 H424"/><circle class="keydot" cx="436" cy="300" r="9.5"/><text class="keynum" x="436" y="304" text-anchor="middle">8</text>
+        </g>
+      </svg>
+      <figcaption><b>Fig 1 — plan, box open</b>DELTA 3 Plus outboard against the pull wall (it is what the WAVE 3 and the fridge line plug into), Smart Extra Battery inboard. 2.55" of spare width and 4.8" of spare depth around the pair.</figcaption>
+    </figure>
+  </div>
+
+  <div class="legend">
+    <ol>
+      <li><span class="n">1</span><span class="d"><b>EcoFlow DELTA 3 Plus</b> — 7.95 × 15.7 × 11.16", ~28 lb. <span>Outboard, at the pull wall: it carries the 12V outlet for the fridge line (P1) and the AC input.</span></span></li>
+      <li><span class="n">2</span><span class="d"><b>Smart Extra Battery</b> — 8.0 × 15.7 × 7.8", ~20 lb. <span>Inboard — runtime only, reached far less often.</span></span></li>
+      <li><span class="n">3</span><span class="d"><b>Locating cleats ×4</b> — 1×1 pine blocks, glue + 1¼" screws. <span>Bracket the 15.95 × 15.7" footprint at its corners so the stack cannot walk on the slide.</span></span></li>
+      <li><span class="n">4</span><span class="d"><b>Cam strap + 2 screw-eye D-rings</b> <span>— strap runs across the 20" width, over both units, into a D-ring at each side wall.</span></span></li>
+      <li><span class="n">5</span><span class="d"><b>1" cable grommet</b> <span>— in a <em>fore-aft</em> wall, not a side wall: the side pair's outer faces are where the slides land. Leave slack for full extension.</span></span></li>
+      <li><span class="n">6</span><span class="d"><b>Side wall ×2 — 22 × 13¾"</b>, ¾" ply. <span>Full depth, continuous under the slide. See Flag 2.</span></span></li>
+      <li><span class="n">7</span><span class="d"><b>Front/back wall ×2 — 18½ × 13¾"</b>, ¾" ply. <span>Between the side walls. Cut list says 20 × 14½; see both flags.</span></span></li>
+      <li><span class="n">8</span><span class="d"><b>20" full-extension slide pair</b>, 100 lb class. <span>One side to the frame's outer rail, the other to Panel A's centre divider.</span></span></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">C</span><h2>Section &amp; corner detail</h2><span class="aside">where the height goes</span></div>
+  <div class="figs two">
+    <figure>
+      <svg viewBox="0 0 500 372" role="img" aria-label="Cross-section through the drawer showing the half-inch bottom in a rabbet, the DELTA 3 Plus at 11.16 inches, the battery at 7.8 inches, and the lift-out tray in the remaining dead air">
+        <!-- side walls with the bottom rabbet notched out -->
+        <path class="ply" d="M80 80 H92 V292 H86 V300 H80 Z"/>
+        <path class="ply" d="M400 80 H388 V292 H394 V300 H400 Z"/>
+        <!-- bottom, 1/2in ply into the rabbets -->
+        <rect class="ply" x="86" y="292" width="308" height="8"/>
+        <!-- cleats -->
+        <rect class="blk" x="100.4" y="280" width="12" height="12"/>
+        <rect class="blk" x="367.6" y="280" width="12" height="12"/>
+        <!-- units -->
+        <rect class="unit" x="112.4" y="113.44" width="127.2" height="178.56"/>
+        <rect class="unit" x="239.6" y="167.2" width="128" height="124.8"/>
+        <text class="t-lab" x="176" y="200" text-anchor="middle">DELTA 3 PLUS</text>
+        <text class="t-dim" x="176" y="217" text-anchor="middle">11.16" H</text>
+        <text class="t-lab" x="303.6" y="228" text-anchor="middle">BATTERY</text>
+        <text class="t-dim" x="303.6" y="245" text-anchor="middle">7.8" H</text>
+        <!-- cam strap draped over both -->
+        <path class="strapln" d="M99 286 L112.4 113.44 H239.6 V167.2 H367.6 L381 286"/>
+        <circle class="ring" cx="99" cy="288" r="5"/>
+        <circle class="ring" cx="381" cy="288" r="5"/>
+        <!-- lift-out tray in the dead air -->
+        <rect class="dash" x="92" y="81.44" width="296" height="32"/>
+        <text class="t-sm" x="240" y="102" text-anchor="middle">LIFT-OUT TRAY — 2.0" as planned</text>
+        <!-- overall height -->
+        <path class="thin" d="M64 80 H92 M64 300 H92"/>
+        <path class="thin" d="M70 80 V300"/>
+        <text class="t-dim" x="52" y="190" text-anchor="middle" transform="rotate(-90 52 190)">13¾" OUTER</text>
+        <!-- clear height -->
+        <path class="thin" d="M388 80 H436 M394 292 H436"/>
+        <path class="thin" d="M430 80 V292"/>
+        <text class="t-dim" x="452" y="186" text-anchor="middle" transform="rotate(-90 452 186)">13¼" CLEAR</text>
+        <!-- dead air -->
+        <path class="thin" d="M240 113.44 V81.44"/>
+        <text class="t-dim" x="240" y="72" text-anchor="middle">dead air 2.09" — see fit check</text>
+        <!-- bottom note -->
+        <path class="thin" d="M200 296 H200 M160 296 L150 330"/>
+        <text class="t-sm" x="146" y="344" text-anchor="start">½" ply bottom, glued into a ⅜" rabbet</text>
+        <!-- width -->
+        <path class="thin" d="M80 304 V320 M400 304 V320"/>
+        <path class="thin" d="M80 316 H400"/>
+        <text class="t-dim" x="300" y="311" text-anchor="middle">20"</text>
+      </svg>
+      <figcaption><b>Fig 2 — section, looking fore-aft</b>The whole height budget: ½" of it goes to the bottom, 11.16" to the DELTA 3 Plus, and what's left is the tray's. The strap drapes over both units, <em>under</em> the tray — so it eats into the same 2.09".</figcaption>
+    </figure>
+
+    <figure>
+      <svg viewBox="0 0 500 372" role="img" aria-label="Corner joinery detail showing the butt joint with two R3 biscuits and an elevation of the biscuit heights">
+        <!-- plan-view corner: side wall runs full depth, front wall butts its inner face -->
+        <rect class="ply" x="60" y="40" width="45" height="230"/>
+        <rect class="ply" x="105" y="40" width="200" height="45"/>
+        <!-- biscuit shown edge-on crossing the joint -->
+        <rect class="dash" x="88" y="54" width="34" height="11" rx="5"/>
+        <text class="t-sm" x="132" y="63" text-anchor="start">R3 biscuit, edge-on</text>
+        <!-- thickness dims -->
+        <path class="thin" d="M60 282 V296 M105 282 V296"/>
+        <path class="thin" d="M60 292 H105"/>
+        <text class="t-dim" x="82" y="312" text-anchor="middle">¾"</text>
+        <path class="thin" d="M318 40 H336 M318 85 H336"/>
+        <path class="thin" d="M330 40 V85"/>
+        <text class="t-dim" x="350" y="67" text-anchor="start">¾"</text>
+        <text class="t-lab" x="200" y="112" text-anchor="middle">FRONT / BACK — 18½"</text>
+        <text class="t-lab" x="82" y="200" text-anchor="middle" transform="rotate(-90 82 200)">SIDE — 22", full depth</text>
+        <text class="t-sm" x="126" y="132" text-anchor="start">butts the side wall's inner face</text>
+        <text class="t-sm" x="126" y="148" text-anchor="start">glue the slot AND the mating face</text>
+
+        <!-- elevation strip: biscuit heights up the 13.75in joint -->
+        <rect class="ply" x="404" y="52" width="34" height="220"/>
+        <ellipse class="dash" cx="421" cy="240" rx="13" ry="5.5"/>
+        <ellipse class="dash" cx="421" cy="84" rx="13" ry="5.5"/>
+        <path class="thin" d="M444 272 H462 M444 240 H462"/>
+        <path class="thin" d="M456 272 V240"/>
+        <text class="t-dim" x="470" y="260" text-anchor="start">2"</text>
+        <path class="thin" d="M444 52 H462 M444 84 H462"/>
+        <path class="thin" d="M456 52 V84"/>
+        <text class="t-dim" x="470" y="72" text-anchor="start">2"</text>
+        <text class="t-sm" x="421" y="292" text-anchor="middle">joint, 13¾"</text>
+        <text class="t-sm" x="421" y="307" text-anchor="middle">elevation</text>
+        <text class="t-sm" x="421" y="40" text-anchor="middle">2 per corner</text>
+      </svg>
+      <figcaption><b>Fig 3 — corner joint, ×8</b>Butt corner, <strong>2 × R3 biscuits + glue</strong> — R3, not R1: R1 is thin-stock sizing and is lost in ¾" ply. Biscuit heights follow the plan's own rule, 2" in from each end of the joint.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">D</span><h2>Where it sits</h2><span class="aside">Panel A, looking forward</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 580 336" role="img" aria-label="Panel A cross-section: WAVE 3 open bay on the driver side, the power drawer on the passenger side, divided by the centre divider">
+        <!-- bed platform / deck plane -->
+        <rect class="ply" x="40" y="85" width="460" height="7.5"/>
+        <!-- top rails at each end -->
+        <rect class="ply" x="40" y="92.5" width="15" height="15"/>
+        <rect class="ply" x="485" y="92.5" width="15" height="15"/>
+        <!-- legs, inset 3.5in, flush with the rail top -->
+        <rect class="ply" x="75" y="92.5" width="15" height="167.5"/>
+        <rect class="ply" x="450" y="92.5" width="15" height="167.5"/>
+        <rect class="blk" x="77" y="260" width="11" height="10"/>
+        <rect class="blk" x="452" y="260" width="11" height="10"/>
+        <!-- centre divider -->
+        <rect class="ply" x="262.5" y="92.5" width="15" height="177.5"/>
+        <!-- floor line -->
+        <path class="ln" d="M20 270 H540"/>
+
+        <!-- driver bay: WAVE 3 on glide strips + found-storage shelf -->
+        <rect class="unit" x="55" y="134" width="204" height="132"/>
+        <text class="t-lab" x="157" y="196" text-anchor="middle">WAVE 3</text>
+        <text class="t-sm" x="157" y="212" text-anchor="middle">20.4 × 13.2 · no box</text>
+        <rect class="blk" x="60" y="266" width="30" height="4"/>
+        <rect class="blk" x="224" y="266" width="30" height="4"/>
+        <rect class="ply" x="55" y="125.5" width="204" height="7.5"/>
+        <text class="t-sm" x="157" y="119" text-anchor="middle">shelf @ 13.7" on 1×1 cleats</text>
+
+        <!-- passenger bay: the drawer -->
+        <rect class="slide" x="279" y="112" width="6" height="120"/>
+        <rect class="slide" x="479" y="112" width="6" height="120"/>
+        <rect class="ply" x="285" y="107.5" width="200" height="137.5"/>
+        <rect class="cav" x="292.5" y="115" width="185" height="122.5"/>
+        <rect class="unit" x="300" y="126" width="79.5" height="106"/>
+        <rect class="unit" x="379.5" y="154" width="80" height="78"/>
+        <text class="t-sm" x="385" y="253" text-anchor="middle">DELTA 3 power drawer — this sheet</text>
+
+        <!-- labels -->
+        <text class="t-lab" x="157" y="300" text-anchor="middle">DRIVER — open bay</text>
+        <text class="t-lab" x="385" y="300" text-anchor="middle">PASSENGER — drawer</text>
+        <text class="t-sm" x="270" y="300" text-anchor="middle">divider</text>
+
+        <!-- deck + drawer dims -->
+        <path class="thin" d="M506 85 H540 M506 270 H540"/>
+        <path class="thin" d="M534 85 V270"/>
+        <text class="t-dim" x="556" y="178" text-anchor="middle" transform="rotate(-90 556 178)">18½" deck</text>
+        <path class="thin" d="M20 107.5 H36 M20 245 H36"/>
+        <path class="thin" d="M28 107.5 V245"/>
+        <text class="t-dim" x="12" y="176" text-anchor="middle" transform="rotate(-90 12 176)">13¾"</text>
+      </svg>
+      <figcaption><b>Fig 4 — Panel A, front elevation</b>Schematic, to scale in both axes. The drawer is the only actual drawer in Panel A: the driver bay has no box at all, because the WAVE 3's 20.4" width will not go inside an 18½" clear one. The two heavy items sit on opposite sides and counterbalance each other.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">E</span><h2>Cut list</h2><span class="aside">5 pieces · cut the anchor board comb first</span></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Piece</th><th class="num">Qty</th><th class="num">Cut to</th><th class="num">Superseded</th><th>Stock &amp; source</th></tr></thead>
+      <tbody>
+        <tr><td><b>Side wall</b><span class="note">full depth, carries the slide</span></td><td class="num">2</td><td class="num">22 × 13¾</td><td class="num">22 × 14½</td><td>¾" Baltic birch — one from the 47 × 19 strip, one from the anchor board's <b>gap A</b> (16.85 × 27, comes out rotated: mind the grain)</td></tr>
+        <tr><td><b>Front / back wall</b><span class="note">between the side walls — trim 1½" off each</span></td><td class="num">2</td><td class="num">18½ × 13¾</td><td class="num">20 × 14½</td><td>¾" Baltic birch — one from the same 47 × 19 strip, one from the anchor board's <b>gap B</b> (20.5 × 27, also rotated). Cut at 20" with the rest, then take 1½" off each in one cut once the side walls are made</td></tr>
+        <tr><td><b>Bottom</b><span class="note">into a glued ⅜" rabbet</span></td><td class="num">1</td><td class="num">19¼ × 21¼</td><td class="num">20 × 22</td><td>½" Baltic birch — <b>piece C</b> of the ½" sheet (S2 crosscuts 25" off the trimmed 47 × 95 blank; rip it to width at S6). <b>20 × 22 is the box's full outer footprint</b> — the size for a bottom that sits <em>under</em> the walls; the plan's joinery houses it in a rabbet instead, and a ⅜" rabbet takes ¾" off each way. Cut it last, off the glued-up box. <b>The store-copy cut sequence used to call this 20 × 25</b> — three inches stale; corrected Sept 2026.</td></tr>
+        <tr><td><b>Lift-out tray, if built</b><span class="note">same sheet, same piece</span></td><td class="num">1</td><td class="num">18¼ × 20¼ base</td><td class="num">—</td><td>½" birch — out of piece C's own 27¾ × 25 keep, right beside the bottom. Walls ≤1¾" tall. A bought shallow bin does the same job.</td></tr>
+        <tr><td><b>Locating cleats</b></td><td class="num">4</td><td class="num">small blocks</td><td class="num">small blocks</td><td>1×1 pine, off the frame stock</td></tr>
+        <tr><td><b>Lift-out tray</b><span class="note">found storage, optional</span></td><td class="num">1</td><td class="num">≤ 1¾" tall</td><td class="num">2" tall</td><td>½" ply offcut — see the fit check; 2" leaves 0.09"</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:12px"><strong>Order of operations:</strong> two of the four walls come out of the anchor board's comb gaps, so <strong>cut the comb before the drawer box</strong>. Rip the 47 × 19 strip to the wall height first, then crosscut; the leftover band is pantry-cleat stock.</p>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">F</span><h2>Fit check</h2><span class="aside">every number traced to its source</span></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Axis</th><th class="num">Available</th><th class="num">Needed</th><th class="num">Spare</th><th>Where it comes from</th></tr></thead>
+      <tbody>
+        <tr><td>Width</td><td class="num">18½" clear</td><td class="num">15.95"</td><td class="num ok">2.55"</td><td>DELTA 3 Plus 7.95 + Extra Battery 8.0, side by side</td></tr>
+        <tr><td>Depth</td><td class="num">20½" clear</td><td class="num">15.7"</td><td class="num ok">4.80"</td><td>Both units share the same 15.7" depth</td></tr>
+        <tr><td>Height, to the stack</td><td class="num">13¼" clear</td><td class="num">11.16"</td><td class="num ok">2.09"</td><td>13¾ box − ½" bottom; the taller unit is the Plus</td></tr>
+        <tr><td>Height, with the tray</td><td class="num">2.09" dead air</td><td class="num">2.0"</td><td class="num tight">0.09"</td><td>The plan sized this tray against a 13.375" clear height, which assumed the deleted ⅜" bottom. At ½" the margin all but vanishes — and the cam strap runs under the tray. <b>Build the tray 1¾" or shallower.</b></td></tr>
+        <tr><td>Load</td><td class="num">100 lb pair</td><td class="num">~78 lb</td><td class="num ok">~22%</td><td>48 lb of EcoFlow + ~12 lb of ¾" box + contents. Margin was ~34% before the walls went ¾" (Flag 1's knock-on)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">G</span><h2>Assembly order</h2><span class="aside">Component 2 step 3 → Component 8 step 1</span></div>
+  <div class="steps">
+    <div class="step"><div class="sn"></div><div class="sb">
+      <span class="hold">Do this first</span>
+      <h3>Cut the anchor board comb</h3>
+      <p>Two of the four walls are its gaps, not its offcuts — gap A gives a side wall, gap B a front/back wall. Jigsaw or router the comb out of the 46 × 33 blank before anything here gets cut to size.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Cut the five pieces</h3>
+      <p>Walls to the bay height — <strong>13¾"</strong>, or 13½" if Flag 3's bay measurement says so. Side walls 22", front/back <strong>trimmed 1½" to 18½"</strong> (Flag 2). Bottom 20 × 22 out of the ½" sheet. Label each piece the moment it comes off the saw — two of them arrive rotated out of the comb and the grain direction is not recoverable by eye later.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Rabbet the four walls for the bottom</h3>
+      <p>⅜" deep × ½" wide along the bottom inside edge of all four walls, so the ½" bottom lands flush with the box's underside. Cut these before the biscuit slots — it is far easier on a loose board.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Slot the corners — 2 × R3 each</h3>
+      <p>Eight slots in total, centred on the ¾" thickness, 2" in from each end of the joint. <strong>R3, not R1:</strong> R1 is thin-stock sizing and disappears in ¾" ply. Set the DBJ50's fence to 90° and check the depth on an offcut first.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Dry-fit the whole box</h3>
+      <p>All four walls plus the bottom, no glue. Measure both diagonals — they should match. This is the last cheap moment to find out that the wall height or the corner convention is off.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Glue up</h3>
+      <p>Glue every biscuit slot <em>and</em> the mating faces, and the bottom's rabbet all the way round. Clamp, re-check the diagonals before the glue grabs, and leave it. The bottom is structural here — it is what stops a 48 lb load racking the box on the slide.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Hang it on the slides</h3>
+      <p>20" full-extension pair: one slide to the frame's outer rail, the other to Panel A's centre divider, both on the <em>side</em> walls' outer faces. Run it out fully and back a few times loaded with a sandbag before you trust it with the batteries.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Add the catch</h3>
+      <p>Friction catch or a small turn latch. Not optional — 48 lb rolling itself open on a corner is the failure that takes the slide with it.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Fit the drawer's fixtures</h3>
+      <p>Four 1×1 cleats glued and screwed to the floor, bracketing the 15.95 × 15.7" footprint. Two screw-eye D-rings at the side walls on the strap's line. The 1" grommet goes in a <strong>fore-aft</strong> wall — the side walls' outer faces belong to the slides — with enough cable slack for full extension.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Load and strap</h3>
+      <p>DELTA 3 Plus outboard at the pull wall, Smart Extra Battery inboard, both down over the cleats. Cam strap across the width, through both D-rings, cinched. Shallow tray on top last, if you build one.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Connect it</h3>
+      <p>Fridge DC line to the Plus's 12V car-power outlet via its fused car-plug→SAE adapter (connection point P1), and the AC charging cord to the AC input. From here the drawer runs the fridge and fans continuously and recharges off the front console while you drive.</p>
+    </div></div>
+  </div>
+</section>
+
+<footer>
+  <p>Drawn from <code>sienna_camper_build_plan.md</code> (Sections 3 and 6, Components 2 and 8) and <code>params.scad</code>, September 2026. Figures are to scale in both axes; they are assembly drawings, not templates — do not scale off a print.</p>
+  <p>Five stale dimensions — wall height, wall length, bottom size, tray height and the store copy's rip — were corrected in the plan and the cut list in September 2026, and <code>Project_Smores.pdf</code> was rebuilt from them. The one item still open is the as-built 16" frame height: measure the bay before cutting the walls.</p>
+  <p><b>Not yet reconciled:</b> <code>params.scad</code> still carries <code>delta3_tray_h = 2</code> and two stale comments, and <code>renders/sheet-cut-2.svg</code> still draws the old bottom on the ½" sheet. Both need OpenSCAD, which is not installed on this machine.</p>
+</footer>
+
+</div>
+<!-- ARTIFACT-BODY-END -->
+</body>
+</html>

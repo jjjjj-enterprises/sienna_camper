@@ -29,6 +29,12 @@ MD_PATH = ROOT / "sienna_camper_build_plan.md"
 HTML_PATH = ROOT / "build_plan.html"
 PDF_PATH = ROOT / "Project_Smores.pdf"
 
+# Standalone shop drawings that are hand-built HTML (inline SVG) rather than
+# markdown sections, so they cannot go through the markdown pipeline above.
+# Chrome prints each one on its own and the pages are concatenated onto the
+# end of the plan — see append_drawing_sheets().
+DRAWING_SHEETS = [ROOT / "power_drawer_assembly.html"]
+
 CSS = """
 @page { size: Letter; margin: 0.65in; }
 * { box-sizing: border-box; }
@@ -295,6 +301,48 @@ def build_toc(headings):
     return f'<div class="toc"><strong>Contents</strong><ul>{items}</ul></div>'
 
 
+def append_drawing_sheets(pdf_path, sheets):
+    """Append the standalone HTML shop drawings to the end of the plan.
+
+    Runs BEFORE stamp_footers so the footer's "page N of M" counts the
+    whole document — appending after stamping would leave these pages
+    unnumbered and make M wrong on every page before them.
+    """
+    appended = 0
+    for html in sheets:
+        if not html.exists():
+            print(f"drawing sheet {html.name} not found — skipping")
+            continue
+        out = html.with_suffix(".sheet.pdf")
+        result = subprocess.run(
+            [
+                "google-chrome", "--headless=new", "--disable-gpu",
+                "--no-pdf-header-footer",
+                f"--print-to-pdf={out}",
+                "--print-to-pdf-no-header",
+                "--virtual-time-budget=10000",
+                f"file://{html}",
+            ],
+            capture_output=True, text=True, cwd=ROOT,
+        )
+        if result.returncode != 0 or not out.exists():
+            print(f"Chrome PDF export failed on {html.name}:",
+                  result.returncode, file=sys.stderr)
+            print(result.stderr, file=sys.stderr)
+            sys.exit(1)
+
+        writer = PdfWriter()
+        for page in PdfReader(pdf_path).pages:
+            writer.add_page(page)
+        for page in PdfReader(out).pages:
+            writer.add_page(page)
+            appended += 1
+        with open(pdf_path, "wb") as handle:
+            writer.write(handle)
+        out.unlink()
+    return appended
+
+
 def stamp_footers(pdf_path, skip_first=True):
     """Draw a footer (title / page N of M / risk note) on each page.
 
@@ -518,6 +566,9 @@ printed text size, it was holding its own lines — and every label on the drawi
         print(result.stdout, file=sys.stderr)
         print(result.stderr, file=sys.stderr)
         sys.exit(1)
+    extra = append_drawing_sheets(PDF_PATH, DRAWING_SHEETS)
+    if extra:
+        print(f"appended {extra} shop-drawing page(s)")
     numbered = stamp_footers(PDF_PATH)
     print(f"wrote {PDF_PATH} ({PDF_PATH.stat().st_size} bytes) "
           f"— cover sheet + {numbered} numbered pages")
