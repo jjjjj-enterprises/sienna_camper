@@ -302,6 +302,13 @@ bed_bhalf_slat_l = bed_bhalf_width - 2 * bed_rail_width; // 17.5 — short slats
 // alongside frame_rail_sz itself so the two can never drift apart.
 bed_bearer_w   = 3;                  // two 2x2s side by side (= 2 x frame_rail_sz)
 bed_bearer_len = panel_b_length - 3; // 26 — fits between Panel B's 1.5in end rails
+// DROP-IN (owner, 26 Sept 2026): the bearer rests on 4x 1in corner
+// braces on the end rails' inner faces and lifts out; it is cut to the
+// measured gap less 1/4in. Screwed in, it split the top opening into
+// two ~20 x 26in holes, and the 28.5in spare can't pass either one
+// edge-on. The assert on the bearer (below frame_rail_sz) checks the
+// spare against the opening with the bearer OUT.
+bed_bearer_play = 0.25;
 // 5 slats per piece: 4 would leave 5.0in gaps, the widest unsupported
 // span in the build and right where a side-sleeper's shoulder and hip
 // load the foam. 5 holds every gap to 2.9in.
@@ -335,6 +342,8 @@ frame_rail_sz  = 1.5;   // 2x2 pine actual dimension (Section 3)
 // section (it is assigned before this line) — keep the two in step
 assert(bed_bearer_w == 2 * frame_rail_sz && bed_bearer_len == panel_b_length - 2 * frame_rail_sz,
        "Bed centre-bearer literals have drifted from frame_rail_sz — fix the bed section");
+assert(spare_dia <= panel_width - 2 * frame_rail_sz && spare_w <= panel_b_length - 2 * frame_rail_sz,
+       "Spare can't pass Panel B's top opening even with the drop-in bearer out");
 leg_inset      = vent_intrusion_width; // legs sit inset this much from the deck's outer edge so they land clear of the floor-level vent intrusion
 
 // DECK RECESS (owner, July 2026 — the one real headroom lever left):
@@ -401,6 +410,14 @@ function leg_y_lap(inset)   = leg_is_lapped(inset) ? leg_lap : 0;
 // tailgate at floor level, and their bays occupy both sides' floor
 // runs). The existing diagonal corner braces stay on top.
 bottom_rail_z  = 1;     // underside of the bottom rails — dropped to the leg bottoms (owner, July 2026): as low as they go without hitting the leveling feet (0-1in) below, giving the tallest box section (marginally stiffer) and the lowest floor-edge curb. Leaves room at the corners to get a wrench onto the feet's hex collars.
+// Panel B's SIDE pair only sits higher (owner, 26 Sept 2026): its screws come
+// through the leg's outer face fore-aft, like the end rails', so with both
+// at the leg bottom four screws and the 1/2in foot bore shared the leg's
+// lowest 1-7/16in. Raised to just above the bore (1.75in deep from the leg
+// bottom), its screws land ~2.5in up in clear wood. The END rails can't
+// rise instead: the 28.5in spare overhangs them (26 1/8in between) and
+// only clears their 2.5in tops on its 3in cleats.
+bottom_side_rail_z = bottom_rail_z + 1.75;
 
 // Leg leveling feet — back at the FLOOR (the between-layers
 // adjusters cost 1.25in of headroom for no real gain): each leg is
@@ -608,7 +625,9 @@ pcwall_grommet_dia = 1; // fridge DC line pass-through
 // one, and the drawing was still showing the deleted second hole.
 // It sits in the driver-side strip OUTBOARD of the front leg (leg occupies
 // x 3.5-5.0), a natural cord chase, clear of the bottom rail and the louver.
-pcwall_grommet_x  = 3;   // center X from the driver edge
+pcwall_grommet_x  = 2.25; // center X from the driver edge. Was 3 (Sept 2026): the wall now sits on the lapped
+                         // legs' BACK faces, and the leg starts at 3-7/16in on the far side, so a hole to 3.5in
+                         // put the grommet's flange on the leg. 2.25 clears it by more than 1/2in.
 pcwall_grommet_z  = 4;   // fridge DC line — 1.0in of ply above the bottom rail
 
 // Passive cooling vents (owner, July 2026 refinements). Both are
@@ -1048,16 +1067,15 @@ wave3_weight = 33.7; // lb, unit only
 wave3_bay_width = panel_width/2 - frame_rail_sz - drawer_divider_t/2; // raw open-storage bay width, no box/slide clearance subtracted — same formula as drawer_travel before its 0.75in slide allowance
 
 // FOUND STORAGE (owner, July 2026) — reclaim the dead headroom above
-// two units, no structural change:
-//  - the DELTA 3 stack is 11.16in tall in a 14.5in drawer -> ~3in of
-//    clear headroom above it takes a shallow lift-out TRAY (cables,
-//    the DELTA 3's own cords, dongles);
-//  - the WAVE 3 is 13.2in tall in the 17in left bay -> a thin SHELF
-//    on cleats just above it holds flat soft goods / the WAVE 3's
-//    hoses+remote, and the WAVE 3 still slides out beneath it.
+// the DELTA 3 stack, no structural change: it is 11.16in tall in its
+// drawer, so the clear headroom above it takes a shallow lift-out TRAY
+// (cables, the DELTA 3's own cords, dongles).
+// The matching shelf over the WAVE 3 was DROPPED (owner, Sept 2026),
+// along with its glide strips: the unit sits straight on the bay floor
+// under a cam strap between 2 D-rings on Panel A's frame, and its
+// hoses live on the hook in Panel C's utility bay.
 delta3_tray_h  = 2;                       // shallow tray on top of the DELTA 3 stack (was 3 — the deck recess cut the drawer's clear height to 13.375in over the 11.16in stack)
-wave3_shelf_z  = wave3_height + 0.5;       // 13.7 — cleat-mounted shelf just above the WAVE 3
-wave3_shelf_clear = leg_height_ab - wave3_shelf_z - panel_thickness/2; // ~2.2in usable above the shelf (was ~2.9 before the deck recess)
+wave3_strap_w  = 1;                        // low-profile cam strap over the WAVE 3, D-ring to D-ring
 wave3_intake_hose_dia  = 6; // in
 wave3_exhaust_hose_dia = 5; // in
 

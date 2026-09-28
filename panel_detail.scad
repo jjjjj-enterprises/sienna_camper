@@ -121,13 +121,15 @@ module drawing_ab() {
     ifill(COL_LATCH) translate([DT/2 + drawer_side_clear + pull + drw_w * 0.5 - 0.5, RS + 0.5 + drw_d - 0.9, drw_h * 0.4]) cube([1, 0.9, 0.9]);
 
     if (is_a) {
-        // left bay: WAVE 3 open storage, resting in place, + glide strips
+        // left bay: WAVE 3 open storage on the bay floor, cam-strapped
+        // fore-aft to 2 D-rings on the end bottom rails
         wv_y0 = RS + (L - 2 * RS - wave3_depth) / 2;
         wv_x0 = -DT/2 - wave3_width;
         wbox([wv_x0, wv_y0, 0], [wave3_width, wave3_depth, wave3_height]);
-        ifill(INK) {
-            translate([wv_x0 + 1, wv_y0, 0]) cube([wave3_width - 2, 1, 0.125]);
-            translate([wv_x0 + 1, wv_y0 + wave3_depth - 1, 0]) cube([wave3_width - 2, 1, 0.125]);
+        ifill("Crimson") {
+            translate([wv_x0 + (wave3_width - wave3_strap_w)/2, wv_y0, wave3_height]) cube([wave3_strap_w, wave3_depth, 0.3]);
+            translate([wv_x0 + (wave3_width - wave3_strap_w)/2, wv_y0 - 0.3, 2.5]) cube([wave3_strap_w, 0.3, wave3_height - 2.2]);
+            translate([wv_x0 + (wave3_width - wave3_strap_w)/2, wv_y0 + wave3_depth, 2.5]) cube([wave3_strap_w, 0.3, wave3_height - 2.2]);
         }
     } else {
         // left drawer — same construction as the right, pulled out too
@@ -263,7 +265,7 @@ module drawing() {
             ["4", "Drawer box (right, DELTA 3 side)", str(drw_w, "\" x ", drw_d, "\" x ", drw_h, "\", ", inch_frac(drawer_box_t), "\" walls, 1/2\" bottom"), "5 pieces, glued + 2x R3 per corner at this thickness"],
             ["5", "Drawer slide (right)", str(drawer_slide_length, "\" full-extension pair"), "box-to-rail + box-to-divider"],
             ["6", "Drawer catch (right)", "friction catch or small turn latch", "keeps the drawer shut in transit"],
-            ["7", "WAVE 3 + glide strips (left)", "2x glide strip, UHMW/laminate scrap", "no box, no slide — rests directly on the bay floor"],
+            ["7", "WAVE 3 hold-down (left)", "2x D-ring + 1 low-profile cam strap", "no box, no slide — sits on the bay floor, strapped fore-aft"],
             ["8", "Bottom rails (x2, END faces only)", str("2x2 pine, underside at ", bottom_rail_z, "\""), "the SIDE faces stay open — the drawer + WAVE 3 exit there at floor level"],
         ]);
     }

@@ -33,7 +33,7 @@ PDF_PATH = ROOT / "Project_Smores.pdf"
 # markdown sections, so they cannot go through the markdown pipeline above.
 # Chrome prints each one on its own and the pages are concatenated onto the
 # end of the plan — see append_drawing_sheets().
-DRAWING_SHEETS = [ROOT / "power_drawer_assembly.html"]
+DRAWING_SHEETS = [ROOT / "power_drawer_assembly.html", ROOT / "panel_b_assembly.html", ROOT / "panel_c_assembly.html"]
 
 CSS = """
 @page { size: Letter; margin: 0.65in; }

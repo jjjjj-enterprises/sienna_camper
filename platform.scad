@@ -101,7 +101,7 @@ module module_frame(length, width, frame_leg_inset = 0, bottom_front = false, bo
                 cube([width - 2 * r_inset, frame_rail_sz, frame_rail_sz]);
         if (bottom_sides)
             for (x = [-width/2 + frame_leg_inset, width/2 - frame_rail_sz - frame_leg_inset])
-                translate([x, frame_rail_sz + leg_y_lap(frame_leg_inset), bottom_rail_z])
+                translate([x, frame_rail_sz + leg_y_lap(frame_leg_inset), bottom_side_rail_z])
                     cube([frame_rail_sz, length - 2 * frame_rail_sz
                                         - leg_y_lap(frame_leg_inset) - leg_y_lap(r_inset),
                           frame_rail_sz]);
@@ -244,21 +244,19 @@ module panel_module(length, width, y_offset, wireframe = false, has_kitchen_frid
 // than a boxed drawer's 19in clear interior, but fits the raw 20.75in
 // bay (params.scad, wave3_bay_width). Centered fore-aft in the bay,
 // flush against the center divider the same way a closed drawer would
-// sit. A couple of thin glide strips on the bay floor (Section 6) cut
-// friction sliding it in/out by hand through the driver's side door —
-// cosmetic-only in this model, not modeled as separate geometry.
+// sit. Nothing under it (the glide strips were dropped, Sept 2026): a
+// low-profile cam strap over the top, hooked to 2 D-rings on the frame,
+// holds it down and in for transit.
 module wave3_bay_module(length, y_offset, wireframe = false) {
     y0 = y_offset + frame_rail_sz + (length - 2 * frame_rail_sz - wave3_depth) / 2;
     x0 = -drawer_divider_t/2 - wave3_width;
     color("DimGray", 0.85)
         translate([x0, y0, 0])
             bx(wave3_width, wave3_depth, wave3_height, wireframe);
-    // FOUND-STORAGE shelf on cleats just above the WAVE 3 (the unit
-    // still slides out beneath it) — flat soft goods / hoses
-    bx0 = -drawer_divider_t/2 - wave3_bay_width;
-    color("BurlyWood")
-        translate([bx0, y_offset + frame_rail_sz, wave3_shelf_z])
-            bx(wave3_bay_width, length - 2 * frame_rail_sz, panel_thickness, wireframe);
+    // transit hold-down: cam strap over the top, fore-aft, D-ring to D-ring
+    color("DarkOrange")
+        translate([x0 + (wave3_width - wave3_strap_w) / 2, y0, wave3_height])
+            bx(wave3_strap_w, wave3_depth, 0.1, wireframe);
 }
 
 // One sliding drawer box: side = -1 (left, -X) or 1 (right, +X).

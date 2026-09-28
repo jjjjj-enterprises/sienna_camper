@@ -3,10 +3,11 @@
 // and EcoFlow WAVE 3 (Panel A left bay) — EXPLODED ISOMETRIC
 // (woodworking-plan line-art, see steps/lego_lib.scad).
 // The right drawer is drawn pulled out the side door with the DELTA 3
-// stack inside (Plus outboard, Battery inboard); the WAVE 3 rests in
-// the left bay on its glide strips. Found-storage (the reclaimed dead
-// headroom: a lift-out tray over the DELTA stack, a shelf over the
-// WAVE 3) is shown lifted above each. Clearances are in the side list.
+// stack inside (Plus outboard, Battery inboard); the WAVE 3 sits on
+// the left bay's floor under a cam strap, hooked to 2 D-rings on the
+// end bottom rails (the overhead shelf and the glide strips were
+// dropped, Sept 2026). The DELTA's found-storage tray is shown lifted
+// above the stack. Clearances are in the side list.
 //
 // Render with: openscad -o renders/delta3-wave3-detail.svg delta3_wave3_detail.scad
 // ============================================================
@@ -61,14 +62,20 @@ module drawing() {
     iarrow([dx0 + pull - 1.5, RS + drw_d/2, drw_h/2], [dx0 + 2, RS + drw_d/2, drw_h/2], 0.6);
     color(INK) dash2d(p2([dx0 + pull, RS + drw_d/2, 0.5]), p2([dx0, RS + drw_d/2, 0.5]), 0.16, 1.4);
 
-    // ---- left (driver) bay: WAVE 3 open storage on glide strips ----
+    // ---- left (driver) bay: WAVE 3 on the bay floor, strapped down ----
     wv_x0 = -DT/2 - wave3_width;
     wv_y0 = RS + (LA - 2*RS - wave3_depth)/2;
-    wbox([wv_x0, wv_y0, 0.4], [wave3_width, wave3_depth, wave3_height]);
-    ifill(INK) { translate([wv_x0 + 1, wv_y0, 0]) cube([wave3_width - 2, 1, 0.2]);
-                 translate([wv_x0 + 1, wv_y0 + wave3_depth - 1, 0]) cube([wave3_width - 2, 1, 0.2]); }
-    // found-storage shelf on cleats above the WAVE 3 (unit still slides out beneath)
-    wbox([wv_x0, wv_y0, wave3_shelf_z], [wave3_width, wave3_depth, PT]);
+    wbox([wv_x0, wv_y0, 0], [wave3_width, wave3_depth, wave3_height]);
+    // cam strap fore-aft over the top, down each end face to a D-ring
+    // on the end bottom rail (top of the bottom rail ~2.5" up)
+    sx = wv_x0 + (wave3_width - wave3_strap_w)/2;
+    ifill("Crimson") {
+        translate([sx, wv_y0, wave3_height]) cube([wave3_strap_w, wave3_depth, 0.3]);
+        translate([sx, wv_y0 - 0.3, 2.5]) cube([wave3_strap_w, 0.3, wave3_height - 2.2]);
+        translate([sx, wv_y0 + wave3_depth, 2.5]) cube([wave3_strap_w, 0.3, wave3_height - 2.2]);
+        translate([sx, RS, 2.2]) cube([wave3_strap_w, wv_y0 - RS, 0.3]);
+        translate([sx, wv_y0 + wave3_depth, 2.2]) cube([wave3_strap_w, LA - RS - wv_y0 - wave3_depth, 0.3]);
+    }
 
     // ---- markers ---------------------------------------------------
     // Anchors 5 and 6 share an x,y (the WAVE 3 bay) and differ only in
@@ -80,7 +87,7 @@ module drawing() {
     marker3d(3, [dx0 + pull + drw_w/2, RS + delta3_length/2, 1 + delta3_plus_height + delta3_tray_h/2], [2, 13]);
     marker3d(4, [dx0 + pull + drw_w, RS + delta3_length*0.5, drw_h + 1], [12, -5]);
     marker3d(5, [wv_x0 + wave3_width/2, wv_y0 + wave3_depth/2, wave3_height], [-14, -3]);
-    marker3d(6, [wv_x0 + wave3_width/2, wv_y0 + wave3_depth/2, wave3_shelf_z + PT], [-13, 10]);
+    marker3d(6, [sx, wv_y0 + wave3_depth, wave3_height], [-13, 10]);
 
     // ---- title block + parts list, STACKED BELOW the drawing -------
     // This sheet renders at 2500x4700 (portrait). The title lines used
@@ -96,11 +103,10 @@ module drawing() {
     cap("Panel A, exploded — Components 2 & 8", TX, -24.2, 1.35, "left");
     cap("DELTA 3 Plus outboard (the WAVE 3 plugs into it), Extra Battery", TX, -27.4, 1.2, "left");
     cap("inboard; ~48 lb in a normal drawer — no E-track. The WAVE 3", TX, -29.6, 1.2, "left");
-    cap("rests in the raw bay on 2 glide strips.", TX, -31.8, 1.2, "left");
+    cap("sits on the raw bay floor, cam-strapped to 2 D-rings.", TX, -31.8, 1.2, "left");
     cap(str("Found storage: a ~", round((drawer_height - delta3_plus_height)*10)/10,
             "\" lift-out tray tops the DELTA stack,"), TX, -35, 1.2, "left");
-    cap(str("and a shelf @ ", round(wave3_shelf_z*10)/10,
-            "\" tops the WAVE 3 — it still slides out beneath."), TX, -37.2, 1.2, "left");
+    cap("The WAVE 3's hoses live on the hook in Panel C's utility bay.", TX, -37.2, 1.2, "left");
 
     side_list(TX, -42, [
         [str("DELTA 3 Plus — ", delta3_plus_width, "\"x", delta3_length, "\"x", delta3_plus_height, "\", ~28 lb"), "outboard (pull wall); cam-strapped over locating cleats"],
@@ -108,7 +114,7 @@ module drawing() {
         [str("Lift-out tray — reclaims ~", round((drawer_height - delta3_plus_height)*10)/10, "\" dead air"), "cables, the DELTA's own cords, dongles"],
         ["Cam strap + D-rings + 1\" grommet", "strap over both units; WAVE 3 charge cable exits the grommet"],
         [str("WAVE 3 — ", wave3_width, "\"x", wave3_depth, "\"x", wave3_height, "\", ", wave3_weight, " lb"), str("raw bay, ", round((wave3_bay_width - wave3_width)*100)/100, "\" clear — a boxed drawer would NOT fit")],
-        [str("Overhead shelf @ ", round(wave3_shelf_z*10)/10, "\" on 1x1 cleats"), "flat soft goods + the WAVE 3's own hoses ride up here"],
+        ["Cam strap + 2 D-rings (WAVE 3)", "fore-aft over the top, D-rings on the end bottom rails — no bounce, no walk-out"],
     ]);
 }
 

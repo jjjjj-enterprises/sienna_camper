@@ -57,9 +57,6 @@ module hero_c2() {
     wbox([-PW/2 + leg_inset, LA - RS, bottom_rail_z], [PW - 2*leg_inset, RS, RS]);
     wbox([-DT/2, RS, 0], [DT, LA - 2*RS, LH]);                          // divider
     wbox([DT/2 + 0.6, RS + 0.6, 0.6], [drw_w, drw_d, drw_h]);           // right drawer (closed)
-    // WAVE 3 glide strips, left bay floor
-    ifill(INK) { translate([-DT/2 - PW*0.36, RS + 1, 0]) cube([PW*0.30, 1, 0.2]);
-                 translate([-DT/2 - PW*0.36, LA - RS - 2, 0]) cube([PW*0.30, 1, 0.2]); }
     // bed platform, lightly exploded UP so the frame beneath reads
     zb = LH + RS + 13;
     for (x = [-PW/2 + 2, PW/2 - 2 - 0.75]) wbox([x, 0, zb], [0.75, LA, 3.5]);      // side rails
@@ -72,9 +69,8 @@ module hero_c2() {
     part_badge("04", [-PW*0.12, RS/2, bottom_rail_z + RS], [-9, -7], 2.7);   // bottom rail
     part_badge("05", [0, LA*0.5, LH*0.62], [-11, 3], 2.7);            // divider
     part_badge("06", [DT/2 + 0.6 + drw_w/2, RS + drw_d/2, drw_h*0.6], [9, -6], 2.7); // drawer box
-    part_badge("07", [-DT/2 - PW*0.22, RS + 1.5, 0.2], [-11, -7], 2.7);      // glide strip
-    part_badge("08", [PW/2 - 2, LA*0.5, zb + 2], [11, 5], 2.7);       // bed rail
-    part_badge("09", [-PW*0.15, 1.5, zb + 0.75], [-3, 9], 2.7);       // bed slat
+    part_badge("07", [PW/2 - 2, LA*0.5, zb + 2], [11, 5], 2.7);       // bed rail
+    part_badge("08", [-PW*0.15, 1.5, zb + 0.75], [-3, 9], 2.7);       // bed slat
 }
 
 module accessory_c2() {
@@ -83,7 +79,7 @@ module accessory_c2() {
     labels = [
         ["A", "corner bkt 4\"", "x4"], ["B", "diag brace", "x2"], ["C", "wood screw 2\"", "x16"],
         ["D", "leveling foot", "x4"], ["E", "3/8-16 insert", "x4"], ["F", "slide 20\" pr", "x1"],
-        ["G", "drawer catch", "x1"], ["H", "D-ring", "x2"], ["I", "cam strap 1\"", "x1"],
+        ["G", "drawer catch", "x1"], ["H", "D-ring", "x4"], ["I", "cam strap 1\"", "x2"],
         ["J", "grommet 1\"", "x1"], ["K", "pocket scr 1¼", "x16"], ["L", "biscuit R1", "x8"],
         ["M", "pine cleat", "x1"], ["N", "bubble level", "x2"],
     ];
@@ -103,15 +99,15 @@ module partlist_c2() {
     names = [
         ["01", "end rail 46\"", "2x"], ["02", "side rail 29\"", "2x"], ["03", "leg 16\"", "4x"],
         ["04", "btm rail 46\"", "2x"], ["05", "divider 26\"", "1x"], ["06", "drawer box", "1x"],
-        ["07", "glide strip", "2x"], ["08", "bed rail 58\"", "2x"], ["09", "bed slat 45\"", "8x"],
+        ["07", "bed rail 58\"", "2x"], ["08", "bed slat 45\"", "8x"],
     ];
     for (i = [0 : len(names) - 1])
         translate([gx(i, cols, cw), gy(i, cols, ch, top)])
             part_cell(names[i][0], names[i][1], names[i][2],
-                      [0.30, 0.42, 0.75, 0.30, 0.44, 0.34, 0.40, 0.26, 0.32][i], cw, ch) {
+                      [0.30, 0.42, 0.75, 0.30, 0.44, 0.34, 0.26, 0.32][i], cw, ch) {
                 if (i==0) piso([46, RS, RS]); else if (i==1) piso([RS, LA, RS]); else if (i==2) piso([RS, RS, 16]);
                 else if (i==3) piso([46, RS, RS]); else if (i==4) piso([RS, 26, RS]); else if (i==5) piso([drw_w, drw_d, drw_h]);
-                else if (i==6) piso([PW*0.30, 1, 0.4]); else if (i==7) piso([58, 3.5, 0.75]); else piso([45, 3.5, 0.75]);
+                else if (i==6) piso([58, 3.5, 0.75]); else piso([45, 3.5, 0.75]);
             }
 }
 
@@ -160,8 +156,8 @@ module hero_c3() {
     // full-cube bottom rails (all 4 faces)
     wbox([-PW/2 + leg_inset, 0, bottom_rail_z], [PW - 2*leg_inset, RS, RS]);
     wbox([-PW/2 + leg_inset, LB - RS, bottom_rail_z], [PW - 2*leg_inset, RS, RS]);
-    wbox([-PW/2 + leg_inset, RS, bottom_rail_z], [RS, LB - 2*RS, RS]);
-    wbox([PW/2 - leg_inset - RS, RS, bottom_rail_z], [RS, LB - 2*RS, RS]);
+    wbox([-PW/2 + leg_inset, RS, bottom_side_rail_z], [RS, LB - 2*RS, RS]);
+    wbox([PW/2 - leg_inset - RS, RS, bottom_side_rail_z], [RS, LB - 2*RS, RS]);
     ifill("SaddleBrown") for (y = [3, LB/2 - 1, LB - 7]) translate([-15, y, 0.5]) cube([30, 3, 2.5]); // cradle skid
     wbox([-14, 2, 3.2], [28, 25, 6]);                                // spare tire (flat slab on skid)
     // 2 totes, lightly exploded UP so the spare + frame read
@@ -173,7 +169,7 @@ module hero_c3() {
     part_badge("02", [PW/2 - RS/2, LB*0.42, LH + RS], [10, 3], 2.7); // side rail
     part_badge("03", [-PW/2 + leg_inset + RS/2, 0, LH*0.5], [-11, -3], 2.7); // leg
     part_badge("04", [-PW*0.12, RS/2, bottom_rail_z + RS], [-9, -7], 2.7);   // btm rail 46
-    part_badge("05", [PW/2 - leg_inset - RS/2, LB*0.5, bottom_rail_z + RS], [11, -3], 2.7); // btm rail 26
+    part_badge("05", [PW/2 - leg_inset - RS/2, LB*0.5, bottom_side_rail_z + RS], [11, -3], 2.7); // btm rail 26
     part_badge("06", [8, LB/2, 1.5], [10, -5], 2.7);               // cradle skid
     part_badge("07", [-12, 9, zt + 9], [-3, 8], 2.7);             // Sterilite tote
     part_badge("08", [0, 14, 5], [3, -8], 2.7);                  // spare tire
@@ -371,34 +367,33 @@ module hero_c8() {
     wbox([3, 4, 1], [14, 8, 11]);                                   // DELTA 3 Plus
     wbox([3, 13, 1], [11, 8, 11]);                                  // Extra battery
     wbox([3, 4, 12.5], [14, 8, 3]);                                 // found-storage drawer tray (over DELTA)
-    wbox([-20, 5, 1], [18, 13, 13]);                                // WAVE 3 left bay
-    wbox([-20, 5, LH - 3.5], [18, 13, PT]);                         // found-storage shelf (over WAVE 3)
+    wbox([-20, 5, 0], [18, 13, 13]);                                // WAVE 3 left bay, on the floor
+    ifill("Crimson") translate([-11.5, 5, 13]) cube([1, 13, 0.3]);  // cam strap over it, D-ring to D-ring
     // numbered callouts -> PART LIST
     part_badge("01", [10, 8, 6], [9, -5], 2.7);                     // DELTA 3 Plus
     part_badge("02", [8.5, 17, 6], [10, 4], 2.7);                  // Extra Battery
     part_badge("03", [-11, 11, 6], [-11, -4], 2.7);              // WAVE 3
-    part_badge("04", [-11, 11, LH - 3.5], [-11, 5], 2.7);        // overhead shelf
-    part_badge("05", [10, 8, 14], [3, 9], 2.7);                 // drawer tray
+    part_badge("04", [10, 8, 14], [3, 9], 2.7);                 // drawer tray
 }
 module accessory_c8() {
     cols = 4; cw = 14.5; ch = 17.0; top = HH - 5.5;
     labels = [["A","hose/cord hook","x1"],["B","non-slip mat","x1"],["C","Car Vent Kit","x1"],
-              ["D","1x1 cleat","x2"],["E","utility bin","x2"]];
+              ["D","strap + D-rings","x1"],["E","utility bin","x2"]];
     for (i = [0:len(labels)-1]) translate([gx(i,cols,cw), gy(i,cols,ch,top)])
         accessory_cell(labels[i][0],labels[i][1],labels[i][2],cw-0.6,ch-0.7) {
             if (i==0) ic_box("hook"); else if (i==1) ic_box("mat"); else if (i==2) ic_box("vent");
-            else if (i==3) ic_cleat(); else ic_box("bin");
+            else if (i==3) ic_cam_strap(); else ic_box("bin");
         }
 }
 module partlist_c8() {
     cols = 4; cw = 17.5; ch = 17.5; top = HH - 5.5;
     names = [["01","DELTA 3 Plus","1x"],["02","Extra Battery","1x"],["03","WAVE 3","1x"],
-             ["04","overhead shelf","1x"],["05","drawer tray","1x"]];
-    sc = [0.5,0.55,0.42,0.45,0.55];
+             ["04","drawer tray","1x"]];
+    sc = [0.5,0.55,0.42,0.55];
     for (i = [0:len(names)-1]) translate([gx(i,cols,cw), gy(i,cols,ch,top)])
         part_cell(names[i][0],names[i][1],names[i][2],sc[i],cw,ch) {
             if (i==0) piso([15,8,11]); else if (i==1) piso([12,8,11]); else if (i==2) piso([20,13,13]);
-            else if (i==3) piso([20,10,0.5]); else piso([15,8,3]);
+            else piso([15,8,3]);
         }
 }
 

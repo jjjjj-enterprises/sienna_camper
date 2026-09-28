@@ -23,7 +23,7 @@
 //   3  drawer box(es) on slides + catch(es)        (A: 1 drawer + WAVE 3 open bay; B: 2 drawers)
 //
 // Part letters: A end rail, B side rail, C leg, D divider,
-// E drawer box, F slide, G catch, H WAVE 3 glide strip (Panel A only).
+// E drawer box, F slide, G catch, H WAVE 3 cam strap + D-rings (Panel A only).
 // ============================================================
 
 include <lego_lib.scad>
@@ -73,7 +73,8 @@ module s2_assembly() {
 // ---- step 3: drawers ---------------------------------------------
 // Panel B (default): both bays get a drawer box (n=2). Panel A: only
 // the right (DELTA 3) bay gets a drawer box (n=1) — the left bay is
-// WAVE 3 open storage instead, no box or slide, just 2 glide strips.
+// WAVE 3 open storage instead, no box or slide — the unit sits on the bay
+// floor under a cam strap hooked to 2 D-rings on the end bottom rails.
 is_a = (panel == "A");
 n_drawers = is_a ? 1 : 2;
 
@@ -86,8 +87,10 @@ module s3_parts() {
     wbox([0, 0, 0], [1.6, 0.9, 0.9], [48, -14]);
     cap(str("G  ", n_drawers, "x catch"), 54, -16, 2.6);
     if (is_a) {
-        wbox([0, 0, 0], [wave3_width, 1, 0.125], [16, -28]);
-        cap("H  2x glide strip, UHMW/laminate scrap, left bay floor", 16, -34, 2.4);
+        wbox([0, 0, 0], [wave3_strap_w, 20, 0.2], [16, -28]);
+        wbox([0, 0, 0], [1.2, 0.4, 1.2], [22, -28]);
+        wbox([0, 0, 0], [1.2, 0.4, 1.2], [26, -28]);
+        cap("H  cam strap + 2x D-ring, WAVE 3 hold-down", 16, -34, 2.4);
     }
 }
 module s3_assembly() {
@@ -97,15 +100,16 @@ module s3_assembly() {
 
     if (is_a) {
         // left bay: WAVE 3 open storage, no drawer box — shown resting
-        // in place, plus the 2 glide strips it slides on
+        // in place on the bay floor, strapped down to 2 D-rings
         wv_y0 = RS + (L - 2 * RS - wave3_depth) / 2;
         wv_x0 = -DT/2 - wave3_width;
         wbox([wv_x0, wv_y0, 0], [wave3_width, wave3_depth, wave3_height], [0, 0], true);
-        ifill(INK) {
-            translate([wv_x0 + 1, wv_y0, 0]) cube([wave3_width - 2, 1, 0.125]);
-            translate([wv_x0 + 1, wv_y0 + wave3_depth - 1, 0]) cube([wave3_width - 2, 1, 0.125]);
+        ifill("Crimson") {
+            translate([wv_x0 + (wave3_width - wave3_strap_w)/2, wv_y0, wave3_height]) cube([wave3_strap_w, wave3_depth, 0.3]);
+            translate([wv_x0 + (wave3_width - wave3_strap_w)/2, wv_y0 - 0.3, 2.5]) cube([wave3_strap_w, 0.3, wave3_height - 2.2]);
+            translate([wv_x0 + (wave3_width - wave3_strap_w)/2, wv_y0 + wave3_depth, 2.5]) cube([wave3_strap_w, 0.3, wave3_height - 2.2]);
         }
-        callout("H", [wv_x0 + 1, wv_y0, 0], [-6, 3]);
+        callout("H", [wv_x0 + wave3_width/2, wv_y0 + wave3_depth/2, wave3_height], [-6, 3]);
         cap("Left bay: WAVE 3 open storage (shown in place for reference) — no box, no slide", 0, -22, 1.8);
     } else {
         drawer_geom(-DT/2 - drawer_side_clear - drw_w);      // left drawer installed

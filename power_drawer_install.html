@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- ARTIFACT-BODY-START -->
+<title>Power Drawer Install</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#E9ECE7; --surface:#FBFCFA; --surface-2:#F1F4EF;
+  --ink:#16201C; --ink-2:#4E5A55; --ink-3:#79857F;
+  --rule:#C6CDC5; --rule-strong:#8E9A93;
+  --ply:#9A7A3E; --ply-fill:rgba(200,164,107,.30);
+  --amber:#B8661A; --amber-fill:rgba(201,118,27,.15);
+  --alert:#9E2C1B; --alert-fill:rgba(158,44,27,.09);
+  --good:#2C6349;
+  --font-d:Archivo,"Helvetica Neue",Arial,sans-serif;
+  --font-b:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+    --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+    --rule:#2F3833; --rule-strong:#56615A;
+    --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+    --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+    --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+    --good:#5FB78D;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+  --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+  --rule:#2F3833; --rule-strong:#56615A;
+  --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+  --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+  --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+  --good:#5FB78D;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-b); font-size:15px; line-height:1.55;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+.sheet{max-width:1080px; margin:0 auto; padding-block:28px 64px; padding-left:20px; padding-right:20px}
+
+/* ---- title block: a drawing title block, not a hero ---- */
+.tb{border:1.5px solid var(--ink); background:var(--surface)}
+.tb-head{display:flex; flex-wrap:wrap; align-items:flex-end; gap:6px 20px; padding:18px 20px 14px; border-bottom:1.5px solid var(--ink)}
+.tb-head h1{
+  font-family:var(--font-d); font-weight:700; font-size:clamp(25px,4.6vw,38px);
+  line-height:1.03; letter-spacing:-.018em; margin:0; text-wrap:balance;
+}
+.tb-head p{margin:0; color:var(--ink-2); font-size:14.5px; max-width:56ch}
+.tb-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr))}
+.tb-cell{padding:10px 14px 12px; border-right:1px solid var(--rule); border-top:1px solid var(--rule)}
+.tb-cell:first-child{border-top:0}
+.tb-cell .k{
+  font-family:var(--font-m); font-size:10.5px; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:3px;
+}
+.tb-cell .v{font-family:var(--font-m); font-size:15px; font-weight:500; font-variant-numeric:tabular-nums}
+.tb-cell .v small{font-family:var(--font-b); font-size:12.5px; color:var(--ink-2); display:block; font-weight:400; letter-spacing:0}
+
+/* ---- section headings ---- */
+section{margin-top:44px}
+.sec-h{display:flex; align-items:baseline; gap:12px; border-bottom:1.5px solid var(--ink); padding-bottom:7px; margin-bottom:18px}
+.sec-h .n{
+  font-family:var(--font-m); font-size:12px; font-weight:600; color:var(--ink-3);
+  letter-spacing:.09em; flex:none;
+}
+.sec-h h2{font-family:var(--font-d); font-weight:600; font-size:20px; letter-spacing:-.01em; margin:0; text-wrap:balance}
+.sec-h .aside{margin-left:auto; font-family:var(--font-m); font-size:11.5px; color:var(--ink-3); text-align:right}
+
+p{margin:0 0 12px; max-width:68ch}
+.lede{color:var(--ink-2)}
+a{color:inherit}
+code{font-family:var(--font-m); font-size:.92em; background:var(--surface-2); padding:1px 4px; border-radius:2px}
+strong{font-weight:600}
+
+/* ---- flags ---- */
+.flags{display:grid; gap:14px}
+.flag{
+  border:1px solid var(--alert); border-left-width:4px; background:var(--alert-fill);
+  padding:14px 16px 15px;
+}
+.flag h3{
+  font-family:var(--font-d); font-size:15.5px; font-weight:600; margin:0 0 7px;
+  color:var(--alert); display:flex; gap:9px; align-items:baseline; text-wrap:balance;
+}
+.flag h3 .tag{
+  font-family:var(--font-m); font-size:10px; letter-spacing:.1em; border:1px solid currentColor;
+  padding:1px 5px; flex:none; text-transform:uppercase;
+}
+.flag p{margin:0 0 8px; font-size:14px}
+.flag p:last-child{margin-bottom:0}
+.flag .math{
+  font-family:var(--font-m); font-size:13px; font-variant-numeric:tabular-nums;
+  background:var(--surface); border:1px solid var(--rule); padding:8px 11px; margin:9px 0;
+  display:block; overflow-x:auto; white-space:nowrap; color:var(--ink);
+}
+.flag .verdict{font-weight:600}
+
+/* ---- figures ---- */
+.figs{display:grid; gap:26px}
+@media (min-width:780px){ .figs.two{grid-template-columns:1fr 1fr} }
+figure{margin:0; border:1px solid var(--rule-strong); background:var(--surface); display:flex; flex-direction:column}
+figure svg{display:block; width:100%; height:auto; padding:10px 8px 0}
+figcaption{
+  border-top:1px solid var(--rule); padding:9px 13px 11px; font-size:13px; color:var(--ink-2);
+  margin-top:auto;
+}
+figcaption b{font-family:var(--font-m); font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink); display:block; margin-bottom:3px}
+
+svg .ply{fill:var(--ply-fill); stroke:var(--ink); stroke-width:1.7}
+svg .cav{fill:var(--surface); stroke:var(--ink); stroke-width:1.7}
+svg .unit{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.9}
+svg .blk{fill:var(--ink-2); stroke:none}
+svg .slide{fill:var(--ink); stroke:none}
+svg .ln{fill:none; stroke:var(--ink); stroke-width:1.7}
+svg .thin{fill:none; stroke:var(--rule-strong); stroke-width:1}
+svg .dash{fill:none; stroke:var(--ink-2); stroke-width:1.4; stroke-dasharray:6 4}
+svg .strap{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.5; stroke-dasharray:5 3}
+svg .strapln{fill:none; stroke:var(--amber); stroke-width:2.2}
+svg .ring{fill:none; stroke:var(--ink); stroke-width:2.4}
+svg .hole{fill:var(--paper); stroke:var(--ink); stroke-width:1.7}
+svg text{font-family:var(--font-m); fill:var(--ink-2)}
+svg .t-dim{font-size:12.5px; font-weight:500; font-variant-numeric:tabular-nums}
+svg .t-lab{font-size:12px; fill:var(--ink)}
+svg .t-sm{font-size:10.5px; fill:var(--ink-3)}
+svg .keydot{fill:var(--ink)}
+svg .keynum{font-size:11.5px; font-weight:600; fill:var(--surface)}
+
+/* ---- legend ---- */
+.legend{margin-top:16px; border:1px solid var(--rule); background:var(--surface)}
+.legend li{display:flex; gap:11px; padding:8px 13px; border-top:1px solid var(--rule); align-items:baseline}
+.legend li:first-child{border-top:0}
+.legend ol{margin:0; padding:0; list-style:none}
+.legend .n{
+  font-family:var(--font-m); font-size:11px; font-weight:600; color:var(--surface);
+  background:var(--ink); width:19px; height:19px; border-radius:50%; flex:none;
+  display:inline-flex; align-items:center; justify-content:center; transform:translateY(2px);
+}
+.legend .d{font-size:13.5px}
+.legend .d b{font-weight:600}
+.legend .d span{color:var(--ink-2)}
+
+/* ---- tables ---- */
+.tw{overflow-x:auto; border:1px solid var(--rule-strong); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:13.5px}
+th,td{padding:8px 12px; text-align:left; border-top:1px solid var(--rule); vertical-align:top}
+thead th{
+  border-top:0; border-bottom:1.5px solid var(--ink); font-family:var(--font-m);
+  font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:500;
+  white-space:nowrap;
+}
+td.num,th.num{font-family:var(--font-m); font-variant-numeric:tabular-nums; white-space:nowrap}
+tbody tr:nth-child(even){background:var(--surface-2)}
+td .note{display:block; color:var(--ink-2); font-size:12.5px; margin-top:2px}
+.ok{color:var(--good); font-weight:600}
+.tight{color:var(--alert); font-weight:600}
+
+/* ---- steps ---- */
+.steps{counter-reset:s; display:grid; gap:0; border:1px solid var(--rule-strong); background:var(--surface)}
+.step{display:grid; grid-template-columns:52px 1fr; border-top:1px solid var(--rule)}
+.step:first-child{border-top:0}
+.step .sn{
+  counter-increment:s; font-family:var(--font-m); font-size:16px; font-weight:600; color:var(--ink-3);
+  padding:14px 0 14px 16px; border-right:1px solid var(--rule); font-variant-numeric:tabular-nums;
+}
+.step .sn::before{content:counter(s,decimal-leading-zero)}
+.step .sb{padding:13px 16px 15px}
+.step h3{font-family:var(--font-d); font-size:15px; font-weight:600; margin:0 0 4px; text-wrap:balance}
+.step p{margin:0; font-size:13.8px; color:var(--ink-2); max-width:70ch}
+.step p + p{margin-top:7px}
+.step .hold{
+  display:inline-block; font-family:var(--font-m); font-size:10.5px; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--alert); border:1px solid var(--alert); padding:1px 5px; margin-bottom:6px;
+}
+
+footer{margin-top:52px; border-top:1px solid var(--rule); padding-top:14px; color:var(--ink-3); font-size:12.5px}
+footer p{max-width:72ch; margin:0 0 6px}
+
+@media print{
+  /* Letter with the same 0.65in margin as the main build plan, so these
+     pages sit flush with it when build_pdf.py appends them — and so the
+     stamped footer at 30pt lands clear of the content. */
+  @page{size:Letter; margin:0.65in}
+  :root{--paper:#fff; --surface:#fff; --surface-2:#f4f4f4}
+  body{font-size:10.5pt}
+  .sheet{max-width:none; padding:0}
+  section{break-inside:auto; margin-top:22px}
+  figure,.flag,.step,.tw{break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+<style>.math.multi{white-space:pre}</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="tb">
+  <div class="tb-head">
+    <h1>Power Drawer Install</h1>
+    <p>Hanging the DELTA 3 drawer in Panel A's passenger bay — which walls carry the slides, where the slides land, and what has to be added to the frame first.</p>
+  </div>
+  <div class="tb-grid">
+    <div class="tb-cell"><span class="k">Assembly</span><span class="v">Comp. 2 · step 3<small>box built — see the build sheet</small></span></div>
+    <div class="tb-cell"><span class="k">Travel</span><span class="v">20" · +X<small>out the passenger side door</small></span></div>
+    <div class="tb-cell"><span class="k">Slide line</span><span class="v">y = 3" / 26"<small>the legs' inner faces, fore-aft</small></span></div>
+    <div class="tb-cell"><span class="k">Clear span</span><span class="v">23"<small>between the legs, fore-aft</small></span></div>
+    <div class="tb-cell"><span class="k">Drawer depth</span><span class="v">22"<small>leaving exactly ½" a side</small></span></div>
+    <div class="tb-cell"><span class="k">Slides</span><span class="v">20" full-ext.<small>100 lb pair, ~78 lb load</small></span></div>
+    <div class="tb-cell"><span class="k">Hang height</span><span class="v">top at 16¼"<small>box bottom lands at 2½"</small></span></div>
+    <div class="tb-cell"><span class="k">Status</span><span class="v" style="color:var(--alert)">2 blockers<small>read before cutting or buying</small></span></div>
+  </div>
+</div>
+
+<section>
+  <div class="sec-h"><span class="n">A</span><h2>Stop before you trim</h2><span class="aside">this reverses the build sheet</span></div>
+
+  <div class="flags">
+    <div class="flag">
+      <h3><span class="tag">Correction</span> The slides go on the 20" walls, not the 22" ones</h3>
+      <p>I had this backwards on the build sheet, and the trim instruction that came out of it was wrong. The drawer travels in <strong>+X</strong>, out the side door. A side-mount slide runs <em>along</em> the travel direction, so it lands on the drawer faces whose flat side points fore-and-aft — the walls that span X. Those are the <strong>20" walls</strong>, the ones the cut list calls front/back.</p>
+      <p>The model agrees to the thousandth, which is what settles it:</p>
+      <span class="math multi">clear span between the legs = 26.0 − 3.0        = 23"
+drawer depth                                    = 22"   → ½" each side, exactly slide clearance
+drawer X width = slide length = drawer travel   = 20"   → a 20" slide on a 20" wall</span>
+      <p>A 20" slide cannot sit on an 18½" wall, and the ½" gaps at the leg line exist for exactly one reason. So:</p>
+      <p class="verdict">The <strong>20" walls stay 20"</strong> — full width, they carry the slides. The <strong>22" walls trim to 20½"</strong> and fit between them. If you already trimmed the 20" pair to 18½", those two pieces are now short and need recutting; the 22" pair is untouched and still good.</p>
+    </div>
+
+    <div class="flag">
+      <h3><span class="tag">Blocker</span> There is nothing to screw the slides to</h3>
+      <p>The slide's cabinet member has to land on a continuous, plumb, fore-aft face at <strong>y = 3"</strong> and <strong>y = 26"</strong>, running the full 20" of travel in X. Look at what is actually there at those lines:</p>
+      <p>• <strong>The legs</strong> are in the right plane — their inner faces <em>are</em> y = 3" and y = 26" — but a leg is only <strong>1½" wide in X</strong>. That is 1½" of bearing under a 20" slide carrying ~39 lb.<br>
+      • <strong>The centre divider and the side rail</strong> run fore-aft, square across the travel direction. They are the drawer's end stops, not slide mounts. The plan's Component 2 caption says to mount the slides on them — <strong>that instruction cannot be followed</strong>, and it is the one line in the build manual that does not survive contact with the geometry.<br>
+      • <strong>The side rail</strong> is also only 1½" tall and lives at the very top of the bay (z 16¼–17¾), 2" outboard of the legs.</p>
+      <p class="verdict">You need to add two <strong>slide-mounting boards</strong> before the drawer can hang. They are not in the cut list, the BOM, or any render. Sizes are in section D.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">B</span><h2>The bay, looking down</h2><span class="aside">Panel A, right half · 1:1 proportions</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 470 510" role="img" aria-label="Plan view of Panel A's right bay showing the legs, the 23 inch clear span, the 22 inch drawer and the half-inch slide gaps">
+        <!-- deck outline, right half -->
+        <rect class="thin" x="70" y="60" width="299" height="377" fill="none"/>
+        <!-- top end rails (run in X, full width) -->
+        <rect class="ply" x="70" y="60" width="299" height="19.5"/>
+        <rect class="ply" x="70" y="417.5" width="299" height="19.5"/>
+        <!-- side rail (runs in Y) -->
+        <rect class="ply" x="349.5" y="79.5" width="19.5" height="338"/>
+        <!-- centre divider -->
+        <rect class="ply" x="70" y="79.5" width="9.75" height="338"/>
+        <!-- legs -->
+        <rect class="blk" x="304" y="79.5" width="19.5" height="19.5"/>
+        <rect class="blk" x="304" y="398" width="19.5" height="19.5"/>
+        <!-- drawer box -->
+        <rect class="unit" x="79.75" y="105.5" width="260" height="286"/>
+        <text class="t-lab" x="209" y="245" text-anchor="middle">DRAWER BOX</text>
+        <text class="t-dim" x="209" y="263" text-anchor="middle">20" × 22"</text>
+        <!-- the two slides, running in X at the leg line -->
+        <rect class="slide" x="79.75" y="99" width="260" height="6.5"/>
+        <rect class="slide" x="79.75" y="391.5" width="260" height="6.5"/>
+        <!-- travel arrow -->
+        <path class="ln" d="M345 356 H410"/>
+        <path class="ln" d="M420 356 l-12 -6 v12 z" fill="var(--ink)"/>
+        <text class="t-sm" x="384" y="346" text-anchor="middle">TRAVEL +X</text>
+        <text class="t-sm" x="384" y="372" text-anchor="middle">20"</text>
+        <!-- labels -->
+        <text class="t-sm" x="313" y="74" text-anchor="middle">LEG</text>
+        <text class="t-sm" x="359" y="250" text-anchor="middle" transform="rotate(-90 359 250)">SIDE RAIL (top only)</text>
+        <text class="t-sm" x="62" y="250" text-anchor="middle" transform="rotate(-90 62 250)">DIVIDER</text>
+        <text class="t-sm" x="209" y="52" text-anchor="middle">END RAIL — top, runs in X</text>
+        <!-- clear span dim, left -->
+        <path class="thin" d="M30 99 H70 M30 398 H70"/>
+        <path class="thin" d="M40 99 V398"/>
+        <text class="t-dim" x="24" y="248" text-anchor="middle" transform="rotate(-90 24 248)">23" CLEAR BETWEEN LEGS</text>
+        <!-- half-inch slide gaps -->
+        <path class="thin" d="M396 99 H430 M396 105.5 H430"/>
+        <text class="t-dim" x="436" y="106" text-anchor="start">½"</text>
+        <path class="thin" d="M396 391.5 H430 M396 398 H430"/>
+        <text class="t-dim" x="436" y="399" text-anchor="start">½"</text>
+        <!-- slide length dim, bottom -->
+        <path class="thin" d="M79.75 445 V470 M339.75 445 V470"/>
+        <path class="thin" d="M79.75 464 H339.75"/>
+        <text class="t-dim" x="209" y="458" text-anchor="middle">20" SLIDE, ON THE 20" WALL</text>
+        <text class="t-sm" x="209" y="487" text-anchor="middle">the slide runs in X, the direction the drawer moves</text>
+      </svg>
+      <figcaption><b>Fig 1 — the bay in plan</b>Everything follows from this: the legs set a 23" clear span, the 22" box leaves ½" a side for the slides, and the slides run in X along the 20" walls. The divider and the side rail sit square across the travel — they stop the drawer, they cannot carry it.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">C</span><h2>Hang height</h2><span class="aside">looking forward · to scale</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 470 350" role="img" aria-label="Front elevation of the bay showing the deck at 18.5 inches, rail bottom at 16.25, the box hanging from 16.25 down to 2.5, and the floor">
+        <!-- deck / bed platform -->
+        <rect class="ply" x="70" y="59.5" width="299" height="9.5"/>
+        <!-- side rail -->
+        <rect class="ply" x="349.5" y="69" width="19.5" height="19.75"/>
+        <!-- divider -->
+        <rect class="ply" x="70" y="88.75" width="9.75" height="211.25"/>
+        <!-- leg, ghosted: it is at the bay's ends, not in this plane -->
+        <rect class="dash" x="304" y="69" width="19.5" height="231"/>
+        <text class="t-sm" x="313" y="316" text-anchor="middle">leg (beyond)</text>
+        <!-- drawer box -->
+        <rect class="unit" x="79.75" y="88.75" width="260" height="178.75"/>
+        <text class="t-lab" x="209" y="172" text-anchor="middle">DRAWER BOX — 13¾" TALL</text>
+        <text class="t-sm" x="209" y="190" text-anchor="middle">hangs from the slides at the top</text>
+        <!-- floor -->
+        <path class="ln" d="M40 300 H420"/>
+        <text class="t-sm" x="430" y="304" text-anchor="start">floor</text>
+        <!-- height dims -->
+        <path class="thin" d="M40 59.5 H70 M40 300 H70"/>
+        <path class="thin" d="M50 59.5 V300"/>
+        <text class="t-dim" x="32" y="180" text-anchor="middle" transform="rotate(-90 32 180)">18½" DECK</text>
+        <path class="thin" d="M375 88.75 H420 M375 267.5 H420"/>
+        <path class="thin" d="M410 88.75 V267.5"/>
+        <text class="t-dim" x="440" y="178" text-anchor="middle" transform="rotate(-90 440 178)">13¾" BOX</text>
+        <text class="t-dim" x="392" y="84" text-anchor="middle">16¼"</text>
+        <text class="t-dim" x="392" y="280" text-anchor="middle">2½"</text>
+      </svg>
+      <figcaption><b>Fig 2 — elevation</b>The box hangs with its top at <b>16¼"</b>, tight under the rail plane, and its bottom lands at <b>2½"</b> — level with the top of the end bottom rails, which is where the 13¾" came from. Set the height off the top, not the floor.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">D</span><h2>The two boards you have to add</h2><span class="aside">not in the cut list or the BOM</span></div>
+  <p>One at each leg line, giving the slide a continuous face exactly in the leg's plane. Screwed to the leg, the divider and the side rail, so the load goes into the frame and not into the board's own fasteners.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Piece</th><th class="num">Qty</th><th class="num">Size</th><th>Where &amp; why</th></tr></thead>
+      <tbody>
+        <tr><td><b>Slide-mounting board</b></td><td class="num">2</td><td class="num">20¾ × 3 × ¾"</td><td>Spans the bay in X, from the divider face to the side rail's inner face. <b>Its inner face must land flush with the leg's inner face</b> — y = 3" at the front, y = 26" at the back. Set it with its top at 16¼" so the slide and the box top share one datum. ¾" birch off the sheet.</td></tr>
+        <tr><td><b>Packer behind each board</b></td><td class="num">2</td><td class="num">20¾ × 3 × ¾"</td><td>Only if you fix the board to the leg's <em>outer</em> face (y = 1½ / 27½) instead of notching it in. Two ¾" layers = the leg's 1½" width, bringing the face back to exactly 3". Same stock, same cut — rip a 6" strip and crosscut four.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:12px"><strong>Why flush with the leg matters:</strong> the drawer's 22" depth was derived from the 23" clear span between the legs. Land the board's face anywhere else and you lose that ½" a side — ¾" proud and the drawer will not go in at all.</p>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">E</span><h2>Install order</h2><span class="aside">frame first, drawer last</span></div>
+  <div class="steps">
+    <div class="step"><div class="sn"></div><div class="sb">
+      <span class="hold">Before anything</span>
+      <h3>Recut the two 20" walls if you already trimmed them</h3>
+      <p>They carry the slides and must be the full 20". The 22" pair trims to 20½" instead. Section A has the arithmetic.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Make and fit the two mounting boards</h3>
+      <p>Dry-fit both, then check the gap between their faces reads <strong>23"</strong> at the front of the bay, the middle and the back. This is the one measurement that decides whether the drawer goes in — get it before any glue.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Screw the boards home</h3>
+      <p>Into the leg first, then the divider and the side rail. Check plumb on each board with a short level before the last screws — a board leaning in at the top pinches the drawer at the top of its travel and nowhere else, which is a maddening fault to chase later.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Mount the cabinet members</h3>
+      <p>Top edge of each slide at <strong>16¼"</strong>, front end flush with the outboard edge of the bay so the drawer pulls clear. Use a spacer block cut to the height rather than measuring each screw — two slides that differ by 1/16" will bind.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Mount the drawer members on the box</h3>
+      <p>On the outer faces of the <strong>20" walls</strong>, at whatever offset down from the box top your slide's instructions give. Same spacer block, same reference edge, both sides.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Hang it empty and run it</h3>
+      <p>Full travel, twenty times. It should coast the last few inches shut under its own weight. If it drags at one end, the boards are not parallel; if it drags at the top of travel, one is out of plumb.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Load-test before you trust it</h3>
+      <p>50 lb of sandbag, full extension, leave it out for an hour. ~78 lb on a 100 lb pair is a ~22% margin — thin enough to be worth proving before two EcoFlows are riding on it.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Fit the catch</h3>
+      <p>Friction catch or turn latch at the outboard wall. Not optional: 48 lb rolling itself open on a bend is what takes the slides with it.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Fixtures, then the units</h3>
+      <p>Four cleats bracketing the 15.95 × 15.7" footprint, two D-rings on the <strong>22" walls</strong> (the strap runs across the 20" width), and the 1" grommet in a <strong>20" wall</strong> — not a 22" one, those faces now carry the slides.</p>
+      <p>DELTA 3 Plus outboard at the pull wall, Smart Extra Battery inboard, both down over the cleats, strap cinched.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Connect and dress the cable</h3>
+      <p>Fridge DC to the Plus's 12V outlet via the fused car-plug→SAE adapter (P1); AC charging cord to the AC input. Pull the drawer to <strong>full extension</strong> and leave a loop of slack there — a cable dressed with the drawer shut is a cable that unplugs itself the first time you open it.</p>
+    </div></div>
+  </div>
+</section>
+
+<footer>
+  <p>Geometry read from <code>platform.scad</code> (<code>drawer_module</code>, the leg placement in <code>module_frame</code>) and <code>params.scad</code>, September 2026. Figures are to scale in both axes.</p>
+  <p><b>Two things here contradict the build plan and are not yet fixed in it:</b> Component 2's step-3 caption puts the slides on the centre divider and the outer rail, which the travel direction rules out; and the two slide-mounting boards appear in no cut list, BOM or render. The drawer's own dimensions are right — it is the mounting that was never specified.</p>
+</footer>
+
+</div>
+<!-- ARTIFACT-BODY-END -->
+</body>
+</html>

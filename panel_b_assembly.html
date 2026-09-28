@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- ARTIFACT-BODY-START -->
+<title>Panel B Frame</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#E9ECE7; --surface:#FBFCFA; --surface-2:#F1F4EF;
+  --ink:#16201C; --ink-2:#4E5A55; --ink-3:#79857F;
+  --rule:#C6CDC5; --rule-strong:#8E9A93;
+  --ply:#9A7A3E; --ply-fill:rgba(200,164,107,.30);
+  --amber:#B8661A; --amber-fill:rgba(201,118,27,.15);
+  --alert:#9E2C1B; --alert-fill:rgba(158,44,27,.09);
+  --good:#2C6349;
+  --font-d:Archivo,"Helvetica Neue",Arial,sans-serif;
+  --font-b:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+    --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+    --rule:#2F3833; --rule-strong:#56615A;
+    --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+    --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+    --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+    --good:#5FB78D;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+  --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+  --rule:#2F3833; --rule-strong:#56615A;
+  --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+  --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+  --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+  --good:#5FB78D;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-b); font-size:15px; line-height:1.55;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+.sheet{max-width:1080px; margin:0 auto; padding-block:28px 64px; padding-left:20px; padding-right:20px}
+
+/* ---- title block: a drawing title block, not a hero ---- */
+.tb{border:1.5px solid var(--ink); background:var(--surface)}
+.tb-head{display:flex; flex-wrap:wrap; align-items:flex-end; gap:6px 20px; padding:18px 20px 14px; border-bottom:1.5px solid var(--ink)}
+.tb-head h1{
+  font-family:var(--font-d); font-weight:700; font-size:clamp(25px,4.6vw,38px);
+  line-height:1.03; letter-spacing:-.018em; margin:0; text-wrap:balance;
+}
+.tb-head p{margin:0; color:var(--ink-2); font-size:14.5px; max-width:56ch}
+.tb-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr))}
+.tb-cell{padding:10px 14px 12px; border-right:1px solid var(--rule); border-top:1px solid var(--rule)}
+.tb-cell:first-child{border-top:0}
+.tb-cell .k{
+  font-family:var(--font-m); font-size:10.5px; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:3px;
+}
+.tb-cell .v{font-family:var(--font-m); font-size:15px; font-weight:500; font-variant-numeric:tabular-nums}
+.tb-cell .v small{font-family:var(--font-b); font-size:12.5px; color:var(--ink-2); display:block; font-weight:400; letter-spacing:0}
+
+/* ---- section headings ---- */
+section{margin-top:44px}
+.sec-h{display:flex; align-items:baseline; gap:12px; border-bottom:1.5px solid var(--ink); padding-bottom:7px; margin-bottom:18px}
+.sec-h .n{
+  font-family:var(--font-m); font-size:12px; font-weight:600; color:var(--ink-3);
+  letter-spacing:.09em; flex:none;
+}
+.sec-h h2{font-family:var(--font-d); font-weight:600; font-size:20px; letter-spacing:-.01em; margin:0; text-wrap:balance}
+.sec-h .aside{margin-left:auto; font-family:var(--font-m); font-size:11.5px; color:var(--ink-3); text-align:right}
+
+p{margin:0 0 12px; max-width:68ch}
+.lede{color:var(--ink-2)}
+a{color:inherit}
+code{font-family:var(--font-m); font-size:.92em; background:var(--surface-2); padding:1px 4px; border-radius:2px}
+strong{font-weight:600}
+
+/* ---- flags ---- */
+.flags{display:grid; gap:14px}
+.flag{
+  border:1px solid var(--alert); border-left-width:4px; background:var(--alert-fill);
+  padding:14px 16px 15px;
+}
+.flag h3{
+  font-family:var(--font-d); font-size:15.5px; font-weight:600; margin:0 0 7px;
+  color:var(--alert); display:flex; gap:9px; align-items:baseline; text-wrap:balance;
+}
+.flag h3 .tag{
+  font-family:var(--font-m); font-size:10px; letter-spacing:.1em; border:1px solid currentColor;
+  padding:1px 5px; flex:none; text-transform:uppercase;
+}
+.flag p{margin:0 0 8px; font-size:14px}
+.flag p:last-child{margin-bottom:0}
+.flag .math{
+  font-family:var(--font-m); font-size:13px; font-variant-numeric:tabular-nums;
+  background:var(--surface); border:1px solid var(--rule); padding:8px 11px; margin:9px 0;
+  display:block; overflow-x:auto; white-space:nowrap; color:var(--ink);
+}
+.flag .verdict{font-weight:600}
+
+/* ---- figures ---- */
+.figs{display:grid; gap:26px}
+@media (min-width:780px){ .figs.two{grid-template-columns:1fr 1fr} }
+figure{margin:0; border:1px solid var(--rule-strong); background:var(--surface); display:flex; flex-direction:column}
+figure svg{display:block; width:100%; height:auto; padding:10px 8px 0}
+figcaption{
+  border-top:1px solid var(--rule); padding:9px 13px 11px; font-size:13px; color:var(--ink-2);
+  margin-top:auto;
+}
+figcaption b{font-family:var(--font-m); font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink); display:block; margin-bottom:3px}
+
+svg .ply{fill:var(--ply-fill); stroke:var(--ink); stroke-width:1.7}
+svg .cav{fill:var(--surface); stroke:var(--ink); stroke-width:1.7}
+svg .unit{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.9}
+svg .blk{fill:var(--ink-2); stroke:none}
+svg .slide{fill:var(--ink); stroke:none}
+svg .ln{fill:none; stroke:var(--ink); stroke-width:1.7}
+svg .thin{fill:none; stroke:var(--rule-strong); stroke-width:1}
+svg .dash{fill:none; stroke:var(--ink-2); stroke-width:1.4; stroke-dasharray:6 4}
+svg .strap{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.5; stroke-dasharray:5 3}
+svg .strapln{fill:none; stroke:var(--amber); stroke-width:2.2}
+svg .ring{fill:none; stroke:var(--ink); stroke-width:2.4}
+svg .hole{fill:var(--paper); stroke:var(--ink); stroke-width:1.7}
+svg text{font-family:var(--font-m); fill:var(--ink-2)}
+svg .t-dim{font-size:12.5px; font-weight:500; font-variant-numeric:tabular-nums}
+svg .t-lab{font-size:12px; fill:var(--ink)}
+svg .t-sm{font-size:10.5px; fill:var(--ink-3)}
+svg .keydot{fill:var(--ink)}
+svg .keynum{font-size:11.5px; font-weight:600; fill:var(--surface)}
+
+/* ---- legend ---- */
+.legend{margin-top:16px; border:1px solid var(--rule); background:var(--surface)}
+.legend li{display:flex; gap:11px; padding:8px 13px; border-top:1px solid var(--rule); align-items:baseline}
+.legend li:first-child{border-top:0}
+.legend ol{margin:0; padding:0; list-style:none}
+.legend .n{
+  font-family:var(--font-m); font-size:11px; font-weight:600; color:var(--surface);
+  background:var(--ink); width:19px; height:19px; border-radius:50%; flex:none;
+  display:inline-flex; align-items:center; justify-content:center; transform:translateY(2px);
+}
+.legend .d{font-size:13.5px}
+.legend .d b{font-weight:600}
+.legend .d span{color:var(--ink-2)}
+
+/* ---- tables ---- */
+.tw{overflow-x:auto; border:1px solid var(--rule-strong); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:13.5px}
+th,td{padding:8px 12px; text-align:left; border-top:1px solid var(--rule); vertical-align:top}
+thead th{
+  border-top:0; border-bottom:1.5px solid var(--ink); font-family:var(--font-m);
+  font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:500;
+  white-space:nowrap;
+}
+td.num,th.num{font-family:var(--font-m); font-variant-numeric:tabular-nums; white-space:nowrap}
+tbody tr:nth-child(even){background:var(--surface-2)}
+td .note{display:block; color:var(--ink-2); font-size:12.5px; margin-top:2px}
+.ok{color:var(--good); font-weight:600}
+.tight{color:var(--alert); font-weight:600}
+
+/* ---- steps ---- */
+.steps{counter-reset:s; display:grid; gap:0; border:1px solid var(--rule-strong); background:var(--surface)}
+.step{display:grid; grid-template-columns:52px 1fr; border-top:1px solid var(--rule)}
+.step:first-child{border-top:0}
+.step .sn{
+  counter-increment:s; font-family:var(--font-m); font-size:16px; font-weight:600; color:var(--ink-3);
+  padding:14px 0 14px 16px; border-right:1px solid var(--rule); font-variant-numeric:tabular-nums;
+}
+.step .sn::before{content:counter(s,decimal-leading-zero)}
+.step .sb{padding:13px 16px 15px}
+.step h3{font-family:var(--font-d); font-size:15px; font-weight:600; margin:0 0 4px; text-wrap:balance}
+.step p{margin:0; font-size:13.8px; color:var(--ink-2); max-width:70ch}
+.step p + p{margin-top:7px}
+.step .hold{
+  display:inline-block; font-family:var(--font-m); font-size:10.5px; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--alert); border:1px solid var(--alert); padding:1px 5px; margin-bottom:6px;
+}
+
+footer{margin-top:52px; border-top:1px solid var(--rule); padding-top:14px; color:var(--ink-3); font-size:12.5px}
+footer p{max-width:72ch; margin:0 0 6px}
+
+@media print{
+  /* Letter with the same 0.65in margin as the main build plan, so these
+     pages sit flush with it when build_pdf.py appends them — and so the
+     stamped footer at 30pt lands clear of the content. */
+  @page{size:Letter; margin:0.65in}
+  :root{--paper:#fff; --surface:#fff; --surface-2:#f4f4f4}
+  body{font-size:10.5pt}
+  .sheet{max-width:none; padding:0}
+  section{break-inside:auto; margin-top:22px}
+  figure,.flag,.step,.tw{break-inside:avoid}
+  .sec-h{break-after:avoid; page-break-after:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="tb">
+  <div class="tb-head">
+    <h1>Panel B Frame</h1>
+    <p>The middle module: the full 2×2 cube over the rear axle, with no divider and no drawers. It carries the two lift-out bed halves on a centre bearer and holds the spare tire and totes underneath.</p>
+  </div>
+  <div class="tb-grid">
+    <div class="tb-cell"><span class="k">Assembly</span><span class="v">Comp. 3 · step 1<small>+ centre bearer, Comp. 2 / Phase 6</small></span></div>
+    <div class="tb-cell"><span class="k">Frame, outer</span><span class="v">46 × 29"<small>W (across van) × L (fore-aft)</small></span></div>
+    <div class="tb-cell"><span class="k">Rail top</span><span class="v">17¾"<small>floor to rail top, feet set · match Panel A</small></span></div>
+    <div class="tb-cell"><span class="k">Bay, clear</span><span class="v">13⅞" tall<small>bottom-rail top → top-rail underside</small></span></div>
+    <div class="tb-cell"><span class="k">Stock</span><span class="v">1-7/16" 2×2<small>measured · sets every between-length</small></span></div>
+    <div class="tb-cell"><span class="k">Screws</span><span class="v">32 × 2½"<small>SPAX #8 Torx · from the 133 box</small></span></div>
+    <div class="tb-cell"><span class="k">Drawn from</span><span class="v">Sept 2026 plan<small>Sections 3, 6 · params.scad · Panel A as built</small></span></div>
+    <div class="tb-cell"><span class="k">Status</span><span class="v">Ready to cut<small>bearer: drop-in, decided 26 Sept</small></span></div>
+  </div>
+</div>
+
+<section>
+  <div class="sec-h"><span class="n">A</span><h2>Check before you cut</h2><span class="aside">1 decision made · 1 change · 1 carry-over</span></div>
+  <p class="lede">Panel B is Panel A's frame with bottom rails on all four faces and no divider, so most of it is a repeat of what you already built. Three things are new: the bearer goes in drop-in, the bottom side rails sit higher than Panel A's, and the rail top gets set against Panel A.</p>
+
+  <div class="flags">
+    <div class="flag">
+      <h3><span class="tag">Decided</span> The centre bearer drops in, because a screwed-in one locks the spare tire in</h3>
+      <p>The plan screws the centre bearer (two 2×2s side by side, at the centreline) between the end rails. That splits the top opening, the only way into Panel B, into two holes:</p>
+      <span class="math">(46 − 2 × 1-7/16 − 2⅞ bearer) ÷ 2 = 20⅛" wide  ×  26⅛" fore-aft   ·   each</span>
+      <p>The spare is a 28½" disc, 6.4" thick. To pass through a hole it has to go through edge-on, and at 6.4" thick the largest disc that fits a 20⅛ × 26⅛" hole at any angle is <strong>27.0"</strong>. The spare is <strong>1½" too big</strong>. It can't be loaded, and in an emergency it can't come out. You can't unscrew the bearer in the van either, because its screws go in through the end rails' outer faces, and those sit tight against Panels A and C.</p>
+      <p>The plan's spare-access sequence ("lift the slats off … tilt the spare upright") was written before the bearer existed (Aug 2026). The bearer was added for the bed halves, and nobody re-checked the spare against it. <code>params.scad</code>'s assert only compares the spare to the panel's <em>outer</em> 29", so it passes.</p>
+      <p class="verdict">Decided 26 Sept 2026: the bearer is <strong>drop-in</strong>. It rests on four 1" steel corner braces (L-brackets) screwed to the end rails' inner faces, as in Fig 4. It carries the halves exactly as before, since the load is straight down. Take the halves off, lift the bearer out, and the full 43⅛ × 26⅛" opening is back. That passes discs up to 45". No tools needed, and it costs about $4.</p>
+      <p><b>Why 1" braces and not 1½":</b> the bearer sits on the brace's flat leg, so a brace set flush with the rail's underside leaves the bearer proud by the steel's thickness (about 1/16"). The bed halves would rock on it. And a 1½" brace's upright leg is taller than the 1-7/16" rail, so its tip can reach the rail top. Fit the braces with the frame <strong>upside down</strong> (step 09): the bearer's top and the rail tops both lie on the floor, so they come out flush whatever the steel is.</p>
+      <p><b>While you're checking the spare:</b> lying flat it's 28½" against 26⅛" between the end rails. It fits only because it sits on its 3" cleats, above the bottom rails, and its edge can pass under the top end rails. That leaves ¼" to the frame's outer face at each end, so centre the skid fore-aft.</p>
+    </div>
+
+    <div class="flag">
+      <h3><span class="tag">Changed</span> The bottom side rails go 1¾" up the legs, so their screws miss everything</h3>
+      <p>Panel A only had end bottom rails. Panel B also has the two side bottom rails, which butt into the legs' inner faces between them. Their only fixing is through the leg from its outer face, fore-aft, the same direction as the end rails' screws.</p>
+      <p>With both rails at the leg bottom, four screws had to share the lower 1-7/16" of each leg with the ½" leveling-insert bore, and they had to go in a fixed order. So the side pair now sits with its underside <strong>1¾" above the leg bottom</strong>, just above the top of the bore. Its screws land about 2½" up, in solid wood, with nothing else nearby. The end rails stay at the leg bottom, exactly as on Panel A.</p>
+      <span class="math">end-rail pair: ~¾" up, ⅜" either side of centre (as Panel A)   ·   side-rail pair: ~2½" up, ⅜" either side of centre   ·   any order</span>
+      <p><b>Why not raise the 46" end rails instead:</b> the spare is 28½" across and there's only 26⅛" between the end rails, so its rim overhangs the bottom end rails at both ends. It clears them only because it rides on 3" cleats over their 2-7/16" tops. Any higher and the spare can't lie flat. The side rails are 4" outboard of the spare's edge, so raising them costs nothing.</p>
+      <p class="verdict">Set the side rails with a 1¾" spacer block under each end, and pilot every hole.</p>
+    </div>
+
+    <div class="flag">
+      <h3><span class="tag">Carry-over</span> Set the rail top to Panel A, not to the tape measure</h3>
+      <p>Panel A reads 16" from the floor to the rail bottom as built, so its rail top is about 17½". The deck plane needs 17¾" so the bed lands at 18½", flush with Panel C. Both panels share one mattress, so <strong>Panel B's rail top has to match Panel A's</strong>, whatever that turns out to be. Set Panel B's feet with the two frames side by side on the garage floor and a straightedge across the seam. Then raise both together by the same turn.</p>
+      <p>The bay height doesn't change with the feet: <code>bay = L − 2 × 1-7/16 = 13⅞"</code> for the 16¾" legs. The spare stack is 15.3" from the floor, which clears the top rail's underside by about 1" with the feet at 1".</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">B</span><h2>Plan view</h2><span class="aside">looking down on the frame · to scale</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 660 450" role="img" aria-label="Plan view of Panel B's frame: two 46-inch end rails, two 26-and-an-eighth-inch side rails between them, four lapped legs inset 3-7/16 inches from the sides, dashed bottom side rails between the legs, the drop-in centre bearer at the centreline, and two diagonal braces on the underside at opposite corners">
+        <!-- bottom side rails, below the top frame (dashed) -->
+        <rect class="dash" x="97.8" y="81.6" width="15.8" height="255.8"/>
+        <rect class="dash" x="512.4" y="81.6" width="15.8" height="255.8"/>
+
+        <!-- top ring: end rails full width, side rails between -->
+        <rect class="ply" x="60" y="50" width="506" height="15.8"/>
+        <rect class="ply" x="60" y="353.2" width="506" height="15.8"/>
+        <rect class="ply" x="60" y="65.8" width="15.8" height="287.4"/>
+        <rect class="ply" x="550.2" y="65.8" width="15.8" height="287.4"/>
+
+        <!-- legs, lapped behind the end rails -->
+        <rect class="blk" x="97.8" y="65.8" width="15.8" height="15.8"/>
+        <rect class="blk" x="512.4" y="65.8" width="15.8" height="15.8"/>
+        <rect class="blk" x="97.8" y="337.4" width="15.8" height="15.8"/>
+        <rect class="blk" x="512.4" y="337.4" width="15.8" height="15.8"/>
+
+        <!-- centre bearer, drop-in, on corner braces at each end -->
+        <rect class="unit" x="297.2" y="67.9" width="31.6" height="283.2"/>
+        <path class="ln" d="M313 67.9 V351.1"/>
+        <rect class="slide" x="298" y="65.8" width="30" height="3.5"/>
+        <rect class="slide" x="298" y="349.7" width="30" height="3.5"/>
+
+        <!-- diagonal braces, underside, opposite corners -->
+        <path class="dash" d="M75.8 96 L106 65.8"/>
+        <path class="dash" d="M550.2 323 L520 353.2"/>
+
+        <!-- openings -->
+        <text class="t-sm" x="210" y="206" text-anchor="middle">TOP OPENING</text>
+        <text class="t-dim" x="210" y="224" text-anchor="middle">20⅛ × 26⅛"</text>
+        <text class="t-sm" x="440" y="206" text-anchor="middle">TOP OPENING</text>
+        <text class="t-dim" x="440" y="224" text-anchor="middle">20⅛ × 26⅛"</text>
+
+        <!-- dims: overall width -->
+        <path class="thin" d="M60 373 V412 M566 373 V412"/>
+        <path class="thin" d="M60 408 H566"/>
+        <text class="t-dim" x="313" y="401" text-anchor="middle">46" — end rails, full width</text>
+        <!-- leg inset -->
+        <path class="thin" d="M60 373 V432 M97.8 373 V432"/>
+        <path class="thin" d="M60 428 H97.8"/>
+        <text class="t-dim" x="104" y="441" text-anchor="start">3-7/16" to leg (rail + 2" block)</text>
+        <!-- overall depth -->
+        <path class="thin" d="M570 50 H616 M570 369 H616"/>
+        <path class="thin" d="M612 50 V369"/>
+        <text class="t-dim" x="630" y="210" text-anchor="middle" transform="rotate(-90 630 210)">29" outer (fore-aft)</text>
+        <!-- side rail length -->
+        <path class="thin" d="M24 65.8 H56 M24 353.2 H56"/>
+        <path class="thin" d="M30 65.8 V353.2"/>
+        <text class="t-dim" x="20" y="210" text-anchor="middle" transform="rotate(-90 20 210)">26⅛" side rail, between</text>
+        <!-- between legs -->
+        <path class="thin" d="M122 81.6 H138 M122 337.4 H138"/>
+        <path class="thin" d="M130 81.6 V337.4"/>
+        <text class="t-dim" x="138" y="300" text-anchor="start">23¼"</text>
+        <text class="t-sm" x="138" y="314" text-anchor="start">bottom side rail</text>
+
+        <!-- keys -->
+        <g>
+          <circle class="keydot" cx="220" cy="34" r="9.5"/><text class="keynum" x="220" y="38" text-anchor="middle">1</text>
+          <circle class="keydot" cx="68" cy="140" r="9.5"/><text class="keynum" x="68" y="144" text-anchor="middle">2</text>
+          <path class="thin" d="M113.6 73.7 H136"/><circle class="keydot" cx="148" cy="73.7" r="9.5"/><text class="keynum" x="148" y="77.7" text-anchor="middle">3</text>
+          <circle class="keydot" cx="520" cy="250" r="9.5"/><text class="keynum" x="520" y="254" text-anchor="middle">4</text>
+          <path class="thin" d="M329 140 H356"/><circle class="keydot" cx="368" cy="140" r="9.5"/><text class="keynum" x="368" y="144" text-anchor="middle">5</text>
+          <path class="thin" d="M328 67.5 H356"/><circle class="keydot" cx="368" cy="92" r="9.5"/><text class="keynum" x="368" y="96" text-anchor="middle">6</text>
+          <path class="thin" d="M91 81 L128 112"/><circle class="keydot" cx="138" cy="120" r="9.5"/><text class="keynum" x="138" y="124" text-anchor="middle">7</text>
+        </g>
+      </svg>
+      <figcaption><b>Fig 1 — plan</b>The end rails are the outboard pair and set the 46"; everything else fits between them and is cut to measure. The 46" bottom end rails sit directly under the top end rails, so they hide in this view. The dashed pair between the legs are the bottom side rails.</figcaption>
+    </figure>
+  </div>
+
+  <div class="legend">
+    <ol>
+      <li><span class="n">1</span><span class="d"><b>End rail ×2 — 46"</b>, 2×2. <span>The outboard pair: the legs lap against their inner face and the corner screws go through their outer face.</span></span></li>
+      <li><span class="n">2</span><span class="d"><b>Side rail ×2 — 26⅛"</b> <span>(29 − 2 × 1-7/16). Flush with the frame's outer edge. Stand the end rails up at 29" outer and cut to the gap you measure.</span></span></li>
+      <li><span class="n">3</span><span class="d"><b>Leg ×4 — 16¾"</b>, already bored and footed. <span>Lapped to the end rail's inner face, top flush with the rail top, and set with the 2" block against the side rail.</span></span></li>
+      <li><span class="n">4</span><span class="d"><b>Bottom side rail ×2 — 23¼"</b> <span>(dashed). Between the legs, on the legs' line, underside 1¾" above the leg bottoms, clear of the foot bore. Cut to the measured gap once the legs are on.</span></span></li>
+      <li><span class="n">5</span><span class="d"><b>Centre bearer — 2 × 2×2, ~25⅞"</b>, glued face to face into one 2⅞" beam. <span>Top flush with the rail tops. Drop-in on the corner braces (Flag 1), cut to the measured gap between the end rails less ¼".</span></span></li>
+      <li><span class="n">6</span><span class="d"><b>Corner braces ×4 — 1" zinc L-brackets</b>, two at each end. <span>Screwed to the end rails' inner faces with the flat leg pointing inboard, set against the bearer with the frame upside down. One under each 2×2 of the bearer.</span></span></li>
+      <li><span class="n">7</span><span class="d"><b>Diagonal braces ×2 — 4" flat strap</b> <span>(dashed), on the underside at two opposite corners, as on Panel A. About 2¾" along each rail, with the screws clear of the corner bracket's.</span></span></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">C</span><h2>End elevation</h2><span class="aside">looking fore-aft at the B/C face · to scale</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 700 300" role="img" aria-label="End elevation of Panel B showing the top end rail at 16-5/16 to 17-3/4 inches, the bottom end rail from 1 to 2-7/16 inches, the legs on leveling feet, and the spare tire stack of cleats, tire and totes inside, topping out at 15.3 inches with about one inch of clearance">
+        <!-- floor -->
+        <path class="ln" d="M60 270 H640"/>
+        <!-- feet -->
+        <rect class="blk" x="108" y="259" width="15" height="11"/>
+        <rect class="blk" x="523" y="259" width="15" height="11"/>
+        <!-- legs (behind the rails) -->
+        <rect class="cav" x="107.8" y="74.8" width="15.8" height="184.2"/>
+        <rect class="cav" x="522.4" y="74.8" width="15.8" height="184.2"/>
+        <!-- spare stack -->
+        <rect class="strap" x="283" y="237" width="80" height="33"/>
+        <rect class="unit" x="166.25" y="166.6" width="313.5" height="70.4"/>
+        <rect class="unit" x="137.1" y="101.7" width="185.9" height="64.9"/>
+        <rect class="unit" x="323" y="101.7" width="185.9" height="64.9"/>
+        <text class="t-lab" x="323" y="206" text-anchor="middle">SPARE, FLAT — 28½" × 6.4"</text>
+        <text class="t-sm" x="230" y="138" text-anchor="middle">TOTE</text>
+        <text class="t-sm" x="416" y="138" text-anchor="middle">TOTE</text>
+        <text class="t-sm" x="323" y="290" text-anchor="middle">3" cleats, behind the bottom rail</text>
+        <!-- rails -->
+        <rect class="ply" x="70" y="75" width="506" height="15.8"/>
+        <rect class="ply" x="70" y="243.2" width="506" height="15.8"/>
+        <text class="t-sm" x="323" y="86" text-anchor="middle">TOP END RAIL</text>
+        <text class="t-sm" x="200" y="255" text-anchor="middle">BOTTOM END RAIL</text>
+
+        <!-- height dims -->
+        <path class="thin" d="M580 75 H640 M580 90.8 H622 M580 101.7 H604 M580 243.2 H622 M580 259 H640"/>
+        
+        <text class="t-dim" x="644" y="80" text-anchor="start">17¾</text>
+        <text class="t-dim" x="628" y="95" text-anchor="start">16-5/16</text>
+        <text class="t-dim" x="608" y="112" text-anchor="start">15.3</text>
+        <text class="t-dim" x="628" y="247" text-anchor="start">2-7/16</text>
+        <text class="t-dim" x="644" y="263" text-anchor="start">1</text>
+        <text class="t-sm" x="4" y="99" text-anchor="start">~1" clear</text>
+        <path class="thin" d="M56 90.8 H68 M56 101.7 H68"/>
+      </svg>
+      <figcaption><b>Fig 2 — elevation, feet at 1"</b>Heights in inches from the van floor. The legs stand behind the end rails because they're lapped inboard. The spare's 3" cleats clear the 2-7/16" bottom-rail curb by about ½". If the feet go out much past 1¼", re-check that the curb still clears.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">D</span><h2>Details</h2><span class="aside">not to the same scale</span></div>
+  <div class="figs two">
+    <figure>
+      <svg viewBox="0 0 360 300" role="img" aria-label="Leg bottom seen from outside the end face: the half-inch bore running 1-3/4 inches up the centre, the bottom end rail band across the lower 1-7/16 inches with its two screws three-eighths of an inch either side of centre, and the bottom side rail behind the leg from 1-3/4 inches up, with its two screws at about 2-1/2 inches">
+        <!-- leg -->
+        <rect class="cav" x="134" y="22" width="92" height="244"/>
+        <rect class="dash" x="134" y="62" width="92" height="92"/>
+        <!-- bore, 1.75 deep -->
+        <rect class="dash" x="164" y="154" width="32" height="112"/>
+        <!-- bottom end rail band, see-through -->
+        <rect class="ply" x="40" y="174" width="280" height="92" opacity=".55"/>
+        <!-- side-rail screws, 2.5 up -->
+        <circle class="hole" cx="156" cy="106" r="6"/>
+        <circle class="hole" cx="204" cy="106" r="6"/>
+        <!-- end-rail screws, 0.75 up -->
+        <circle class="ring" cx="156" cy="218" r="6"/>
+        <circle class="ring" cx="204" cy="218" r="6"/>
+        <path class="thin" d="M40 266 H320"/>
+        <text class="t-sm" x="236" y="96">side rail,</text>
+        <text class="t-sm" x="236" y="109">behind the leg</text>
+        <text class="t-sm" x="236" y="222">end rail</text>
+        <text class="t-sm" x="46" y="150">bore top</text>
+        <path class="thin" d="M96 154 H160"/>
+        <!-- height dims, left -->
+        <path class="thin" d="M4 266 H40 M22 154 H40 M4 106 H40"/>
+        <path class="thin" d="M28 154 V266 M9 106 V266"/>
+        <text class="t-dim" x="44" y="168">1¾</text>
+        <text class="t-dim" x="13" y="100">2½</text>
+        <!-- x dims -->
+        <path class="thin" d="M156 280 V290 M180 280 V290 M204 280 V290"/>
+        <path class="thin" d="M156 285 H204"/>
+        <text class="t-dim" x="180" y="278" text-anchor="middle">⅜ | ⅜</text>
+        <text class="t-sm" x="180" y="15" text-anchor="middle">LEG, 1-7/16" square</text>
+      </svg>
+      <figcaption><b>Fig 3 — leg bottom, from outside</b>Heights from the leg's bottom end. The shaded band is the bottom end rail, drawn see-through, and its two screws sit either side of the ½" insert bore. The side rail butts the leg's far face from 1¾" up, just above the bore, and its two screws come through the leg about 2½" up. The two pairs are about 1¾" apart, so either can go in first.</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 360 300" role="img" aria-label="Section through the end rail at the centreline: a steel L-bracket screwed to the rail's inner face with its horizontal leg flush with the rail underside, the drop-in bearer resting on it with its top flush with the rail top, and a bed half's rail sitting across both">
+        <!-- end rail section -->
+        <rect class="ply" x="60" y="120" width="72" height="72"/>
+        <text class="t-sm" x="96" y="160" text-anchor="middle">END</text>
+        <text class="t-sm" x="96" y="173" text-anchor="middle">RAIL</text>
+        <!-- bracket -->
+        <path class="slide" d="M132 126 h5 v66 h60 v5 h-65 z"/>
+        <circle class="hole" cx="134.5" cy="140" r="3"/>
+        <!-- bearer -->
+        <rect class="unit" x="140" y="120" width="190" height="72"/>
+        <text class="t-lab" x="235" y="160" text-anchor="middle">BEARER — lifts out</text>
+        <!-- bed half on top -->
+        <rect class="dash" x="60" y="82" width="270" height="37"/>
+        <text class="t-sm" x="195" y="104" text-anchor="middle">bed half's inner rail, sits across both</text>
+        <!-- flush line -->
+        <path class="thin" d="M30 120 H56 M30 192 H56"/>
+        <text class="t-sm" x="30" y="114">flush</text>
+        <text class="t-sm" x="30" y="210">flush</text>
+        <text class="t-sm" x="140" y="226">1" L-bracket, flat leg set against</text>
+        <text class="t-sm" x="140" y="240">the bearer, frame upside down</text>
+        <text class="t-sm" x="140" y="262">~1/16" play at each end, past the steel</text>
+      </svg>
+      <figcaption><b>Fig 4 — drop-in bearer, section at an end</b>The bracket's upright leg is screwed to the end rail and its flat leg is the ledge. The bearer is cut to the measured gap less ¼". The braces' steel takes about ⅛" of that, so it drops in and lifts straight out. Nothing is screwed into it. The bed halves hold it down, and nothing else can move it.</figcaption>
+    </figure>
+  </div>
+
+  <div class="figs" style="margin-top:26px">
+    <figure>
+      <svg viewBox="0 0 660 310" role="img" aria-label="The 1-inch corner brace to buy: a side view showing two 1-inch legs of about 1/16-inch steel, a face view of one leg with its countersunk screw hole, and a flat-head screw that sits flush beside a pan-head screw that would stick out and jam the bearer">
+        <!-- side view -->
+        <text class="t-sm" x="150" y="28" text-anchor="middle">SIDE VIEW</text>
+        <path class="slide" d="M100 130 H108 V242 H220 V250 H100 Z"/>
+        <path class="thin" d="M80 130 H96 M80 250 H96"/>
+        <path class="thin" d="M86 130 V250"/>
+        <text class="t-dim" x="76" y="194" text-anchor="end">1"</text>
+        <path class="thin" d="M100 256 V276 M220 256 V276"/>
+        <path class="thin" d="M100 270 H220"/>
+        <text class="t-dim" x="160" y="292" text-anchor="middle">1"</text>
+        <path class="thin" d="M112 110 L108 128"/>
+        <text class="t-sm" x="114" y="106">~1/16" steel</text>
+        <text class="t-sm" x="128" y="180">upright leg:</text>
+        <text class="t-sm" x="128" y="194">screws to the end rail</text>
+        <text class="t-sm" x="128" y="222">flat leg: bearer</text>
+        <text class="t-sm" x="128" y="236">sits on it</text>
+
+        <!-- face view -->
+        <text class="t-sm" x="350" y="28" text-anchor="middle">FACE OF A LEG</text>
+        <rect class="slide" x="320" y="130" width="60" height="120" rx="3"/>
+        <circle cx="350" cy="190" r="15" fill="var(--surface)" stroke="none" opacity=".35"/>
+        <circle class="hole" cx="350" cy="190" r="8.5"/>
+        <path class="thin" d="M320 262 V278 M380 262 V278"/>
+        <path class="thin" d="M320 272 H380"/>
+        <text class="t-dim" x="350" y="292" text-anchor="middle">½–¾" wide</text>
+        <text class="t-sm" x="350" y="116" text-anchor="middle">countersunk hole</text>
+
+        <!-- screws -->
+        <text class="t-sm" x="540" y="28" text-anchor="middle">THE SCREW</text>
+        <path class="ln" d="M470 150 H500 L493 160 V204 L485 218 L477 204 V160 Z"/>
+        <path class="thin" d="M456 150 H514"/>
+        <text class="t-lab" x="485" y="240" text-anchor="middle">flat head</text>
+        <text class="t-sm" x="485" y="254" text-anchor="middle">sits flush</text>
+        <path class="ln" d="M570 150 Q570 139 585 139 Q600 139 600 150 Z M578 150 V204 L585 218 L592 204 V150"/>
+        <path class="thin" d="M556 150 H614"/>
+        <path d="M566 130 L604 168 M604 130 L566 168" fill="none" stroke="var(--alert)" stroke-width="2"/>
+        <text class="t-lab" x="585" y="240" text-anchor="middle">not pan head</text>
+        <text class="t-sm" x="585" y="254" text-anchor="middle">~3/32" proud</text>
+        <text class="t-sm" x="535" y="276" text-anchor="middle">#6 × ½" or ⅝" wood screw</text>
+      </svg>
+      <figcaption><b>Fig 5 — the corner brace to buy</b>A 1" zinc-plated corner brace. Only three things matter. The upright leg has to be shorter than the 1-7/16" rail (1" leaves about ½" to spare, and 1¼" still works). The hole has to be countersunk. And the screw has to be flat-head, because its head faces the bearer's end, which has only about 1/16" of play. The flat leg's hole stays empty.</figcaption>
+    </figure>
+  </div>
+  <div class="tw" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Check</th><th>Buy</th><th>Not</th></tr></thead>
+      <tbody>
+        <tr><td>Leg length</td><td class="ok">1" (1¼" is fine)</td><td>1½" or 2": the upright reaches the rail top</td></tr>
+        <tr><td>Holes</td><td class="ok">Countersunk, one or two per leg</td><td>Plain punched holes: the screw head stands proud</td></tr>
+        <tr><td>Screw</td><td><span class="ok">#6 flat-head wood screw, ½"–⅝"</span><span class="note">usually in the pack; ¾" is the most the rail takes</span></td><td>Pan-head or washer-head</td></tr>
+        <tr><td>Qty</td><td class="ok">4 (one 4-pack)</td><td>—</td></tr>
+        <tr><td>Where</td><td colspan="2">Home Depot hardware aisle, with the mending plates and corner braces. About $4 a 4-pack, zinc or stainless.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">E</span><h2>Cut list</h2><span class="aside">2×2 stock measured at 1-7/16"</span></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Piece</th><th class="num">Qty</th><th class="num">Length</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>End rail</td><td class="num">2</td><td class="num">46"</td><td>Cut first. Everything else is measured off these.</td></tr>
+        <tr><td>Side rail</td><td class="num">2</td><td class="num">26⅛"</td><td>Design figure. <span class="note">Cut to the gap between the end rails, standing at 29" outer.</span></td></tr>
+        <tr><td>Leg</td><td class="num">4</td><td class="num">16¾"</td><td class="ok">Done: cut, bored, feet in.</td></tr>
+        <tr><td>Bottom end rail</td><td class="num">2</td><td class="num">46"</td><td>Under the top end rails, across the legs' outer faces.</td></tr>
+        <tr><td>Bottom side rail</td><td class="num">2</td><td class="num">23¼"</td><td>Design figure, 1¾" up the legs. <span class="note">Cut to the gap between the legs once they're on.</span></td></tr>
+        <tr><td>Centre bearer</td><td class="num">2</td><td class="num">~25⅞"</td><td>Glued face to face. <span class="note">Drop-in: cut the glued beam to the measured end-rail gap less ¼". Rough-cut the two pieces at 26⅛" first.</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:18px"><strong>Off the saw, four 8-ft boards.</strong> Cut the fixed 46" pieces now. Rough-cut the fitted pieces a little long and trim each one to its measured gap as you reach it in the build order.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Board</th><th>Cut into</th><th class="num">Used</th><th>When</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>46" + 46" <span class="note">top end rails</span></td><td class="num">92"</td><td>Now, off a stop block</td></tr>
+        <tr><td>2</td><td>46" + 46" <span class="note">bottom end rails</span></td><td class="num">92"</td><td>Now, off the same stop</td></tr>
+        <tr><td>3</td><td>26⅜" + 26⅜" + 23½" <span class="note">side rails + one bottom side rail, rough</span></td><td class="num">~76½"</td><td>Trim the side rails at step 01 and the bottom side rail at step 05</td></tr>
+        <tr><td>4</td><td>23½" + 26⅛" + 26⅛" <span class="note">other bottom side rail + the bearer pair, rough</span></td><td class="num">~76"</td><td>Trim at step 05, and the bearer at step 09</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">F</span><h2>Hardware</h2><span class="aside">Panel B only</span></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Item</th><th class="num">Qty</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>SPAX #8 × 2½" Torx</td><td class="num">32</td><td>8 corners · 8 leg laps · 8 bottom side rails · 8 bottom end rails</td></tr>
+        <tr><td>Flat corner bracket + its short Philips screws</td><td class="num">4</td><td>Inside each top corner, after the screws</td></tr>
+        <tr><td>4" steel flat strap (diagonal brace)</td><td class="num">2</td><td>Underside, two opposite corners</td></tr>
+        <tr><td>1" zinc corner brace (L-bracket) + its ½" screws</td><td class="num">4</td><td class="tight">To buy: about $4 a 4-pack. For the drop-in bearer (Flag 1). Not the 2" stainless spares, which are taller than the rail.</td></tr>
+        <tr><td>Wood glue</td><td class="num">—</td><td>Every wood-to-wood joint, plus the bearer's two halves</td></tr>
+        <tr><td>1" footman loop + #10 × ¾" screws</td><td class="num">2</td><td>Spare-stack strap, on the inside faces of the bottom rails. Easier now, while the frame is upside down.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">G</span><h2>Build order</h2><span class="aside">same bench method as Panel A</span></div>
+  <div class="steps">
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Cut the end rails, then measure for the side rails</h3>
+      <p>Two at 46". Stand them 29" apart outside to outside and cut the side rails to the gap, which should be about 26⅛". SPF varies board to board, so measure this panel's own gap.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Glue up the ring flat, in four corner clamps</h3>
+      <p>Build it on the garage floor, like Panel A. Check the diagonals while the glue is still wet: both should read <strong>54⅜"</strong>. Equal diagonals are what let the A/B and B/C seams close flat later.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Two screws a corner, then the brackets</h3>
+      <p>Pilot and countersink through the clamp, then drive 2 × 2½" SPAX through the end rail's face into the side rail's end, pulled below flush. The flat bracket goes inside the corner afterwards.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Lap the four legs</h3>
+      <p>Put the 2" block against the side rail's inner face and the leg against the block. Lap the leg against the end rail's inner face with its top flush with the rail top. Clamp it, pilot, and drive 2 × 2½" through the rail face into the leg's side. The feet are already in, so skip that step.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Flip it, then fit the bottom side rails, 1¾" up</h3>
+      <p>Measure between the legs (about 23¼") and cut. Cut a 1¾" spacer block. With the frame upside down, stand the spacer on each leg's bottom end and rest the rail on it, on the legs' line. That puts its underside 1¾" up from the leg bottom. Glue it, then drive 2 screws through each leg's outer face into the rail's end, about 2½" up and ⅜" either side of centre (Fig 3).</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>The 46" bottom end rails</h3>
+      <p>Across the legs' outer faces, directly under the top end rails, with the underside flush with the leg bottoms, glued, exactly as on Panel A. Drive 2 screws per leg, about ¾" up and ⅜" either side of centre, to miss the insert bore. They sit well below the side-rail screws, so this step and the last can go in either order.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Diagonal braces on the underside</h3>
+      <p>Two 4" straps at two opposite corners, on the underside of the top ring. Never on the rail tops, because the bed halves land there.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Footman loops, while it's upside down</h3>
+      <p>Two 1" loops on the inside faces of the bottom rails, one each side of where the spare stack sits, for its cam strap. Optional now, but it's awkward to reach later.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>The centre bearer, drop-in</h3>
+      <p>Glue the two 2×2s face to face and let them cure clamped. Measure the gap between the end rails at the centreline, and cut the beam to that <strong>less ¼"</strong>, about 25⅞".</p>
+      <p>With the frame still upside down, sit the bearer in the gap at the centreline, top face down on the floor, so it's flush with the rail tops. Set a 1" brace in each corner where the bearer meets an end rail: upright leg on the end rail's inner face, flat leg on the bearer's underside. Pilot and screw the braces to the rail only, never to the bearer. Lift the bearer out and back in once to check it drops freely.</p>
+      </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Set the feet against Panel A</h3>
+      <p>Stand it right way up beside Panel A and put a straightedge across the seam. Turn Panel B's feet until its rail tops match Panel A's, then take both to 17¾" together. The alignment pins and seam latches come later (Phase 7), once the three panels are mated.</p>
+    </div></div>
+  </div>
+</section>
+
+<footer>
+  <p>Geometry from <code>params.scad</code> (<code>panel_b_length</code>, <code>panel_width</code>, <code>leg_inset</code>, <code>bed_bearer_*</code>, the spare dims) and <code>platform.scad</code>'s <code>module_frame</code>, with lengths corrected to the measured 1-7/16" stock per Section 3, and Panel A's bench photos for method. September 2026.</p>
+  <p>Where the model and this sheet differ: <code>module_frame</code> draws the bottom end rails as 39" pieces on the legs' own line, which passes through the legs. The cut list's 46" and Panel A as built put them across the legs' outer faces, and this sheet follows the build. The spare-fit assert compares the disc to the outer 29", not the openings, which is why the bearer conflict never tripped it.</p>
+</footer>
+
+</div>
+</body>
+</html>

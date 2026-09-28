@@ -83,7 +83,7 @@ module drawing() {
         translate([pys[i], 0]) rect_outline(frame_rail_sz, plh[i]);
         translate([pys[i] + plen[i] - frame_rail_sz, 0]) rect_outline(frame_rail_sz, plh[i]);
         translate([pys[i], plh[i]]) rect_outline(plen[i], frame_rail_sz);
-        label(pnm[i], pys[i] + frame_rail_sz + 2, plh[i] - 1.1, 1.35, "left"); // corner tag, tucked under the top rail clear of the shelf lines
+        label(pnm[i], pys[i] + frame_rail_sz + 2, plh[i] - 1.1, 1.35, "left"); // corner tag, tucked under the top rail clear of the strap line
     }
     // Panel B is a bare deep-storage cube (nothing exits it sideways)
     label("bare-frame deep storage", y_b + panel_b_length/2, leg_height_ab/2, 1.5);
@@ -98,9 +98,9 @@ module drawing() {
         translate([wy, 0]) dash_box(wave3_depth, wave3_height);
         label("WAVE 3 A/C", wy + wave3_depth/2, wave3_height/2 + 1.6, 1.5);
         label("(open bay,", wy + wave3_depth/2, wave3_height/2 - 0.3, 1.4);
-        label("hand-slid)", wy + wave3_depth/2, wave3_height/2 - 2.2, 1.4);
-        // found-storage shelf above it (cleat-mounted)
-        color("SaddleBrown") translate([y_a + frame_rail_sz, wave3_shelf_z]) square([drawer_depth, 0.3]);
+        label("strapped)", wy + wave3_depth/2, wave3_height/2 - 2.2, 1.4);
+        // cam strap over the top, D-ring to D-ring
+        color("DarkOrange") translate([wy, wave3_height]) square([wave3_depth, 0.25]);
     } else {
         // DELTA 3 drawer
         dy = y_a + frame_rail_sz + 1;
