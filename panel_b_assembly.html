@@ -217,31 +217,30 @@ footer p{max-width:72ch; margin:0 0 6px}
     <div class="tb-cell"><span class="k">Bay, clear</span><span class="v">13⅞" tall<small>bottom-rail top → top-rail underside</small></span></div>
     <div class="tb-cell"><span class="k">Stock</span><span class="v">1-7/16" 2×2<small>measured · sets every between-length</small></span></div>
     <div class="tb-cell"><span class="k">Screws</span><span class="v">32 × 2½"<small>SPAX #8 Torx · from the 133 box</small></span></div>
-    <div class="tb-cell"><span class="k">Drawn from</span><span class="v">Sept 2026 plan<small>Sections 3, 6 · params.scad · Panel A as built</small></span></div>
-    <div class="tb-cell"><span class="k">Status</span><span class="v">Ready to cut<small>bearer: drop-in, decided 26 Sept</small></span></div>
+    <div class="tb-cell"><span class="k">Drawn from</span><span class="v">Build plan<small>Sections 3, 6 · params.scad · Panel A as built</small></span></div>
+    <div class="tb-cell"><span class="k">Status</span><span class="v">Ready to cut<small>drop-in bearer, 1" braces</small></span></div>
   </div>
 </div>
 
 <section>
-  <div class="sec-h"><span class="n">A</span><h2>Check before you cut</h2><span class="aside">1 decision made · 1 change · 1 carry-over</span></div>
+  <div class="sec-h"><span class="n">A</span><h2>Check before you cut</h2><span class="aside">2 methods · 1 carry-over</span></div>
   <p class="lede">Panel B is Panel A's frame with bottom rails on all four faces and no divider, so most of it is a repeat of what you already built. Three things are new: the bearer goes in drop-in, the bottom side rails sit higher than Panel A's, and the rail top gets set against Panel A.</p>
 
   <div class="flags">
     <div class="flag">
-      <h3><span class="tag">Decided</span> The centre bearer drops in, because a screwed-in one locks the spare tire in</h3>
-      <p>The plan screws the centre bearer (two 2×2s side by side, at the centreline) between the end rails. That splits the top opening, the only way into Panel B, into two holes:</p>
+      <h3><span class="tag">Method</span> The centre bearer drops in, so the spare tire can get past it</h3>
+      <p>The centre bearer (two 2×2s side by side, at the centreline) splits the top opening, the only way into Panel B, into two holes:</p>
       <span class="math">(46 − 2 × 1-7/16 − 2⅞ bearer) ÷ 2 = 20⅛" wide  ×  26⅛" fore-aft   ·   each</span>
-      <p>The spare is a 28½" disc, 6.4" thick. To pass through a hole it has to go through edge-on, and at 6.4" thick the largest disc that fits a 20⅛ × 26⅛" hole at any angle is <strong>27.0"</strong>. The spare is <strong>1½" too big</strong>. It can't be loaded, and in an emergency it can't come out. You can't unscrew the bearer in the van either, because its screws go in through the end rails' outer faces, and those sit tight against Panels A and C.</p>
-      <p>The plan's spare-access sequence ("lift the slats off … tilt the spare upright") was written before the bearer existed (Aug 2026). The bearer was added for the bed halves, and nobody re-checked the spare against it. <code>params.scad</code>'s assert only compares the spare to the panel's <em>outer</em> 29", so it passes.</p>
-      <p class="verdict">Decided 26 Sept 2026: the bearer is <strong>drop-in</strong>. It rests on four 1" steel corner braces (L-brackets) screwed to the end rails' inner faces, as in Fig 4. It carries the halves exactly as before, since the load is straight down. Take the halves off, lift the bearer out, and the full 43⅛ × 26⅛" opening is back. That passes discs up to 45". No tools needed, and it costs about $4.</p>
+      <p>The spare is a 28½" disc, 6.4" thick. To pass through a hole it has to go through edge-on, and at 6.4" thick the largest disc that fits a 20⅛ × 26⅛" hole at any angle is <strong>27.0"</strong>. The spare is <strong>1½" too big</strong>. With the bearer fixed in place, the spare couldn't be loaded or pulled out in an emergency, and a screwed bearer can't be undone in the van: its screws would go in through the end rails' outer faces, tight against Panels A and C.</p>
+      <p class="verdict">So the bearer is <strong>drop-in</strong>. It rests on four 1" steel corner braces (L-brackets) screwed to the end rails' inner faces, as in Fig 4. It carries the halves exactly as before, since the load is straight down. Take the halves off, lift the bearer out, and the full 43⅛ × 26⅛" opening is back. That passes discs up to 45". No tools needed.</p>
       <p><b>Why 1" braces and not 1½":</b> the bearer sits on the brace's flat leg, so a brace set flush with the rail's underside leaves the bearer proud by the steel's thickness (about 1/16"). The bed halves would rock on it. And a 1½" brace's upright leg is taller than the 1-7/16" rail, so its tip can reach the rail top. Fit the braces with the frame <strong>upside down</strong> (step 09): the bearer's top and the rail tops both lie on the floor, so they come out flush whatever the steel is.</p>
       <p><b>While you're checking the spare:</b> lying flat it's 28½" against 26⅛" between the end rails. It fits only because it sits on its 3" cleats, above the bottom rails, and its edge can pass under the top end rails. That leaves ¼" to the frame's outer face at each end, so centre the skid fore-aft.</p>
     </div>
 
     <div class="flag">
-      <h3><span class="tag">Changed</span> The bottom side rails go 1¾" up the legs, so their screws miss everything</h3>
-      <p>Panel A only had end bottom rails. Panel B also has the two side bottom rails, which butt into the legs' inner faces between them. Their only fixing is through the leg from its outer face, fore-aft, the same direction as the end rails' screws.</p>
-      <p>With both rails at the leg bottom, four screws had to share the lower 1-7/16" of each leg with the ½" leveling-insert bore, and they had to go in a fixed order. So the side pair now sits with its underside <strong>1¾" above the leg bottom</strong>, just above the top of the bore. Its screws land about 2½" up, in solid wood, with nothing else nearby. The end rails stay at the leg bottom, exactly as on Panel A.</p>
+      <h3><span class="tag">Method</span> The bottom side rails sit 1¾" up the legs, so their screws miss everything</h3>
+      <p>Unlike Panel A, Panel B has side bottom rails as well as end ones. The side rails butt into the legs' inner faces between them, and their only fixing is through the leg from its outer face, fore-aft, the same direction as the end rails' screws.</p>
+      <p>At the leg bottom, four screws would share the lower 1-7/16" of each leg with the ½" leveling-insert bore. So the side pair sits with its underside <strong>1¾" above the leg bottom</strong>, just above the top of the bore. Its screws land about 2½" up, in solid wood, with nothing else nearby. The end rails stay at the leg bottom, exactly as on Panel A.</p>
       <span class="math">end-rail pair: ~¾" up, ⅜" either side of centre (as Panel A)   ·   side-rail pair: ~2½" up, ⅜" either side of centre   ·   any order</span>
       <p><b>Why not raise the 46" end rails instead:</b> the spare is 28½" across and there's only 26⅛" between the end rails, so its rim overhangs the bottom end rails at both ends. It clears them only because it rides on 3" cleats over their 2-7/16" tops. Any higher and the spare can't lie flat. The side rails are 4" outboard of the spare's edge, so raising them costs nothing.</p>
       <p class="verdict">Set the side rails with a 1¾" spacer block under each end, and pilot every hole.</p>
@@ -603,8 +602,8 @@ footer p{max-width:72ch; margin:0 0 6px}
 </section>
 
 <footer>
-  <p>Geometry from <code>params.scad</code> (<code>panel_b_length</code>, <code>panel_width</code>, <code>leg_inset</code>, <code>bed_bearer_*</code>, the spare dims) and <code>platform.scad</code>'s <code>module_frame</code>, with lengths corrected to the measured 1-7/16" stock per Section 3, and Panel A's bench photos for method. September 2026.</p>
-  <p>Where the model and this sheet differ: <code>module_frame</code> draws the bottom end rails as 39" pieces on the legs' own line, which passes through the legs. The cut list's 46" and Panel A as built put them across the legs' outer faces, and this sheet follows the build. The spare-fit assert compares the disc to the outer 29", not the openings, which is why the bearer conflict never tripped it.</p>
+  <p>Geometry from <code>params.scad</code> (<code>panel_b_length</code>, <code>panel_width</code>, <code>leg_inset</code>, <code>bed_bearer_*</code>, the spare dims) and <code>platform.scad</code>'s <code>module_frame</code>, with lengths set to the measured 1-7/16" stock per Section 3, and Panel A's bench photos for method.</p>
+  <p>Where the model and this sheet differ: <code>module_frame</code> draws the bottom end rails as 39" pieces on the legs' own line, which passes through the legs. The cut list's 46" and Panel A as built put them across the legs' outer faces, and this sheet follows the build. <code>params.scad</code> checks that the spare passes the open top with the bearer out.</p>
 </footer>
 
 </div>

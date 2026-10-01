@@ -216,45 +216,32 @@ footer p{max-width:72ch; margin:0 0 6px}
     <div class="tb-cell"><span class="k">Load</span><span class="v">~78 lb<small>48 lb stack + box + contents</small></span></div>
     <div class="tb-cell"><span class="k">Slides</span><span class="v">20" full-ext.<small>100 lb class pair, ~22% margin</small></span></div>
     <div class="tb-cell"><span class="k">Joinery</span><span class="v">2 × R3 + glue<small>per corner; bottom in a rabbet</small></span></div>
-    <div class="tb-cell"><span class="k">Drawn from</span><span class="v">Sept 2026 plan<small>Sections 3, 6 · params.scad</small></span></div>
-    <div class="tb-cell"><span class="k">Status</span><span class="v">1 open<small>plan + cut list now agree</small></span></div>
+    <div class="tb-cell"><span class="k">Drawn from</span><span class="v">Build plan<small>Sections 3, 6 · params.scad</small></span></div>
+    <div class="tb-cell"><span class="k">Status</span><span class="v">Built<small>bay set by the legs' wood length</small></span></div>
   </div>
 </div>
 
 <section>
-  <div class="sec-h"><span class="n">A</span><h2>Check before you cut</h2><span class="aside">2 fixed · 1 still open</span></div>
-  <p class="lede">Five stale dimensions were corrected in <code>sienna_camper_build_plan.md</code> and <code>cut_list.html</code> in September 2026, and the PDF was rebuilt — the first two entries below record <em>why</em>, and the plan now matches this sheet. The third is still open and needs a tape measure on the frame.</p>
+  <div class="sec-h"><span class="n">A</span><h2>What sets the sizes</h2><span class="aside">2 rules · 1 adjustment</span></div>
 
   <div class="flags">
     <div class="flag">
-      <h3><span class="tag">Fixed</span> The 14½" wall height predated the deck recess</h3>
-      <p>The cut list and Component 2's parts list both called the four walls <strong>14½"</strong> tall. Panel A's bay is not that tall any more. When the deck recess dropped Panels A and B's legs by ¾" (<code>deck_drop = panel_thickness</code>), the bay went with them:</p>
-      <span class="math">bay = leg_height_ab 16.25 − top rail 1.5 − bottom rail 1.0 = 13.75"</span>
-      <p>And 14½" is exactly what that same expression gave <em>before</em> the recess: <code>17 − 1.5 − 1.0 = 14.5</code>. The wall height simply never followed the legs down.</p>
-      <p class="verdict">Cut the walls <strong>13¾"</strong>, not 14½". A 14½" box is ¾" too tall to go under the deck at all. — <em>now corrected in the plan, the cut list and the PDF.</em></p>
-      <p><b>Knock-on worth checking:</b> Section 3 argues the walls must be ¾" ply because "nothing left on the ½" sheet has a 14.5" dimension." At <strong>13¾"</strong> that argument needs re-running — if the ½" sheet's offcuts do hold them, the drawer sheds roughly 6 lb of the ~12 lb the ¾" walls cost, on a slide pair whose margin the plan already calls thin.</p>
+      <h3><span class="tag">Rule</span> The walls are as tall as the bay: 13¾"</h3>
+      <p>Panel A's bay runs from the top of the bottom rail to the underside of the top rail. The bottom rail hangs off the leg's wood bottom and rises with it, so the bay is set by the leg's wood length L alone:</p>
+      <span class="math">bay = L − 1.5 (top rail) − 1.5 (bottom rail) = L − 3   ·   L = 16¾"  →  13¾"</span>
+      <p class="verdict">If the legs ever measure 16½", the bay is 13½": walls 13½", 1.84" of air over the stack, and the lift-out tray 1½" or less. Measure the bay opening itself; the feet don't change it.</p>
     </div>
 
     <div class="flag">
-      <h3><span class="tag">Settled</span> 22" + 20" walls can't both run full length</h3>
-      <p>The cut list gives two side walls at <strong>22"</strong> and two front/back walls at <strong>20"</strong> — the box's full depth and its full width. On a 20 × 22 outer box only one pair can run the whole way; the other has to be short by two wall thicknesses.</p>
-      <span class="math">22 − 2(¾) = 20½ clear depth   ·   20 − 2(¾) = 18½ clear width   ✓ matches the plan's own clear figures</span>
-      <p>The plan never said which pair gives way. <strong>Settled (owner, Sept 2026): the 22" side walls run the full depth, and the two 20" front/back walls are cut back.</strong> That is also the right way round structurally — the slides screw to the side walls' outer faces, and a slide wants one continuous, full-length wall under it, not a wall interrupted at both ends by end grain.</p>
-      <span class="math">20 − 1½ = 18½"   ·   one cut per piece, ×2   ·   1½ = two wall thicknesses (2 × ¾), NOT 1½ off each end</span>
-      <p class="verdict">Final: sides <strong>2 @ 22 × 13¾</strong>, front/back <strong>2 @ 18½ × 13¾</strong>. Cut the side walls first and trim the front/back pair to the box they actually make — ¾" ply runs over and under its nominal thickness, and 1/32" at each corner is 1/16" out of square.</p>
+      <h3><span class="tag">Rule</span> The 22" side walls run full depth; the front and back fit between them</h3>
+      <p>On a 20 × 22 outer box only one pair can run the whole way. The side walls do, because the slides screw to their outer faces and a slide wants one continuous wall under it, not one interrupted by end grain at both ends.</p>
+      <span class="math">22 − 2(¾) = 20½ clear depth   ·   20 − 2(¾) = 18½ clear width   ·   front/back = 20 − 1½ = 18½"</span>
+      <p class="verdict">Sides <strong>2 @ 22 × 13¾</strong>, front/back <strong>2 @ 18½ × 13¾</strong>. Cut the side walls first and trim the front/back pair to the box they actually make: ¾" ply runs over and under its nominal thickness.</p>
     </div>
 
     <div class="flag">
-      <h3><span class="tag">Open</span> As built, the frame reads 16" floor to rail bottom</h3>
-      <p>Measured on the assembled frame, feet included — the model expects 16¼". Because the legs are lapped flush with the rail top and the bottom rail hangs off the leg's <em>wood</em> bottom, that ¼" splits into two questions that have different answers:</p>
-      <span class="math">floor→rail bottom = foot exposure f + leg wood L − 1.5 = 16.0"   →   f + L = 17.5"</span>
-      <p><b>The deck plane depends on f — and f is adjustable.</b> Rail top is sitting at 17½" instead of 17¾", so the bed platform lands at <strong>18¼"</strong>, a ¼" below Panel C's fixed 18½" deck: a step at the B/C seam, directly under the mattress. <strong>Turn all four feet out ¼"</strong> and it is gone. This is exactly what the leveling feet are for, and it costs nothing.</p>
-      <p><b>The drawer bay does not depend on f at all.</b> The bottom rail rises and falls with the leg, so the bay is set by the leg's wood length alone:</p>
-      <span class="math">bay = L − 1.5 (top rail) − 1.5 (bottom rail) = L − 3</span>
-      <p class="verdict">So it comes down to what the legs were actually cut to:</p>
-      <p>• <strong>L = 16¾" as specified</strong> → bay <strong>13¾"</strong>, this sheet stands exactly as drawn, and the feet are simply threaded in to ¾" instead of 1".<br>
-      • <strong>L = 16½" (cut ¼" short)</strong> → bay <strong>13½"</strong>: walls 13½", clear height 13", dead air over the stack 1.84" — and the lift-out tray comes down to <strong>1½"</strong> or less.</p>
-      <p><b>One measurement settles it:</b> the clear opening in the bay — top of the bottom rail up to the underside of the top rail. It reads either 13¾" or 13½". Everything on this sheet follows from that number, and it is unaffected by however you end up setting the feet.</p>
+      <h3><span class="tag">Adjust</span> Set Panel A's deck plane with the feet</h3>
+      <p>As built, the frame reads 16" from the floor to the rail bottom, so the rail top sits at 17½" and the bed platform lands at 18¼", ¼" below Panel C's fixed 18½" deck. <strong>Turn all four feet out ¼"</strong> to remove the step at the B/C seam. This only moves the deck plane: the bay, and so the drawer, are unaffected.</p>
     </div>
   </div>
 </section>
@@ -343,8 +330,8 @@ footer p{max-width:72ch; margin:0 0 6px}
       <li><span class="n">3</span><span class="d"><b>Locating cleats ×4</b> — 1×1 pine blocks, glue + 1¼" screws. <span>Bracket the 15.95 × 15.7" footprint at its corners so the stack cannot walk on the slide.</span></span></li>
       <li><span class="n">4</span><span class="d"><b>Cam strap + 2 screw-eye D-rings</b> <span>— strap runs across the 20" width, over both units, into a D-ring at each side wall.</span></span></li>
       <li><span class="n">5</span><span class="d"><b>1" cable grommet</b> <span>— in a <em>fore-aft</em> wall, not a side wall: the side pair's outer faces are where the slides land. Leave slack for full extension.</span></span></li>
-      <li><span class="n">6</span><span class="d"><b>Side wall ×2 — 22 × 13¾"</b>, ¾" ply. <span>Full depth, continuous under the slide. See Flag 2.</span></span></li>
-      <li><span class="n">7</span><span class="d"><b>Front/back wall ×2 — 18½ × 13¾"</b>, ¾" ply. <span>Between the side walls. Cut list says 20 × 14½; see both flags.</span></span></li>
+      <li><span class="n">6</span><span class="d"><b>Side wall ×2 — 22 × 13¾"</b>, ¾" ply. <span>Full depth, continuous under the slide (Flag 2).</span></span></li>
+      <li><span class="n">7</span><span class="d"><b>Front/back wall ×2 — 18½ × 13¾"</b>, ¾" ply. <span>Between the side walls (Flag 2).</span></span></li>
       <li><span class="n">8</span><span class="d"><b>20" full-extension slide pair</b>, 100 lb class. <span>One side to the frame's outer rail, the other to Panel A's centre divider.</span></span></li>
     </ol>
   </div>
@@ -493,17 +480,16 @@ footer p{max-width:72ch; margin:0 0 6px}
 </section>
 
 <section>
-  <div class="sec-h"><span class="n">E</span><h2>Cut list</h2><span class="aside">5 pieces · cut the anchor board comb first</span></div>
+  <div class="sec-h"><span class="n">E</span><h2>Cut list</h2><span class="aside">5 parts · cut the anchor board comb first</span></div>
   <div class="tw">
     <table>
-      <thead><tr><th>Piece</th><th class="num">Qty</th><th class="num">Cut to</th><th class="num">Superseded</th><th>Stock &amp; source</th></tr></thead>
+      <thead><tr><th>Piece</th><th class="num">Qty</th><th class="num">Cut to</th><th>Stock &amp; source</th></tr></thead>
       <tbody>
-        <tr><td><b>Side wall</b><span class="note">full depth, carries the slide</span></td><td class="num">2</td><td class="num">22 × 13¾</td><td class="num">22 × 14½</td><td>¾" Baltic birch — one from the 47 × 19 strip, one from the anchor board's <b>gap A</b> (16.85 × 27, comes out rotated: mind the grain)</td></tr>
-        <tr><td><b>Front / back wall</b><span class="note">between the side walls — trim 1½" off each</span></td><td class="num">2</td><td class="num">18½ × 13¾</td><td class="num">20 × 14½</td><td>¾" Baltic birch — one from the same 47 × 19 strip, one from the anchor board's <b>gap B</b> (20.5 × 27, also rotated). Cut at 20" with the rest, then take 1½" off each in one cut once the side walls are made</td></tr>
-        <tr><td><b>Bottom</b><span class="note">into a glued ⅜" rabbet</span></td><td class="num">1</td><td class="num">19¼ × 21¼</td><td class="num">20 × 22</td><td>½" Baltic birch — <b>piece C</b> of the ½" sheet (S2 crosscuts 25" off the trimmed 47 × 95 blank; rip it to width at S6). <b>20 × 22 is the box's full outer footprint</b> — the size for a bottom that sits <em>under</em> the walls; the plan's joinery houses it in a rabbet instead, and a ⅜" rabbet takes ¾" off each way. Cut it last, off the glued-up box. <b>The store-copy cut sequence used to call this 20 × 25</b> — three inches stale; corrected Sept 2026.</td></tr>
-        <tr><td><b>Lift-out tray, if built</b><span class="note">same sheet, same piece</span></td><td class="num">1</td><td class="num">18¼ × 20¼ base</td><td class="num">—</td><td>½" birch — out of piece C's own 27¾ × 25 keep, right beside the bottom. Walls ≤1¾" tall. A bought shallow bin does the same job.</td></tr>
-        <tr><td><b>Locating cleats</b></td><td class="num">4</td><td class="num">small blocks</td><td class="num">small blocks</td><td>1×1 pine, off the frame stock</td></tr>
-        <tr><td><b>Lift-out tray</b><span class="note">found storage, optional</span></td><td class="num">1</td><td class="num">≤ 1¾" tall</td><td class="num">2" tall</td><td>½" ply offcut — see the fit check; 2" leaves 0.09"</td></tr>
+        <tr><td><b>Side wall</b><span class="note">full depth, carries the slide</span></td><td class="num">2</td><td class="num">22 × 13¾</td><td>¾" Baltic birch — one from the 47 × 19 strip, one from the anchor board's <b>gap A</b> (16.85 × 27, comes out rotated: mind the grain)</td></tr>
+        <tr><td><b>Front / back wall</b><span class="note">between the side walls — trim 1½" off each</span></td><td class="num">2</td><td class="num">18½ × 13¾</td><td>¾" Baltic birch — one from the same 47 × 19 strip, one from the anchor board's <b>gap B</b> (20.5 × 27, also rotated). Cut at 20" with the rest, then take 1½" off each in one cut once the side walls are made</td></tr>
+        <tr><td><b>Bottom</b><span class="note">into a glued ⅜" rabbet</span></td><td class="num">1</td><td class="num">19¼ × 21¼</td><td>½" Baltic birch — <b>piece C</b> of the ½" sheet (S2 crosscuts 25" off the trimmed 47 × 95 blank; rip it to width at S6). It sits in a ⅜" rabbet, which takes ¾" off the 20 × 22 outer footprint each way. Cut it last, off the glued-up box.</td></tr>
+        <tr><td><b>Lift-out tray, if built</b><span class="note">same sheet, same piece</span></td><td class="num">1</td><td class="num">18¼ × 20¼ base</td><td>½" birch — out of piece C's own 27¾ × 25 keep, right beside the bottom. Walls ≤1¾" tall. A bought shallow bin does the same job.</td></tr>
+        <tr><td><b>Locating cleats</b></td><td class="num">4</td><td class="num">small blocks</td><td>1×1 pine, off the frame stock</td></tr>
       </tbody>
     </table>
   </div>
@@ -519,8 +505,8 @@ footer p{max-width:72ch; margin:0 0 6px}
         <tr><td>Width</td><td class="num">18½" clear</td><td class="num">15.95"</td><td class="num ok">2.55"</td><td>DELTA 3 Plus 7.95 + Extra Battery 8.0, side by side</td></tr>
         <tr><td>Depth</td><td class="num">20½" clear</td><td class="num">15.7"</td><td class="num ok">4.80"</td><td>Both units share the same 15.7" depth</td></tr>
         <tr><td>Height, to the stack</td><td class="num">13¼" clear</td><td class="num">11.16"</td><td class="num ok">2.09"</td><td>13¾ box − ½" bottom; the taller unit is the Plus</td></tr>
-        <tr><td>Height, with the tray</td><td class="num">2.09" dead air</td><td class="num">2.0"</td><td class="num tight">0.09"</td><td>The plan sized this tray against a 13.375" clear height, which assumed the deleted ⅜" bottom. At ½" the margin all but vanishes — and the cam strap runs under the tray. <b>Build the tray 1¾" or shallower.</b></td></tr>
-        <tr><td>Load</td><td class="num">100 lb pair</td><td class="num">~78 lb</td><td class="num ok">~22%</td><td>48 lb of EcoFlow + ~12 lb of ¾" box + contents. Margin was ~34% before the walls went ¾" (Flag 1's knock-on)</td></tr>
+        <tr><td>Height, with the tray</td><td class="num">2.09" dead air</td><td class="num">2.0"</td><td class="num tight">0.09"</td><td>The cam strap runs under the tray, so a 2" tray leaves almost nothing. <b>Build the tray 1¾" or shallower.</b></td></tr>
+        <tr><td>Load</td><td class="num">100 lb pair</td><td class="num">~78 lb</td><td class="num ok">~22%</td><td>48 lb of EcoFlow + ~12 lb of ¾" box + contents</td></tr>
       </tbody>
     </table>
   </div>
@@ -536,7 +522,7 @@ footer p{max-width:72ch; margin:0 0 6px}
     </div></div>
     <div class="step"><div class="sn"></div><div class="sb">
       <h3>Cut the five pieces</h3>
-      <p>Walls to the bay height — <strong>13¾"</strong>, or 13½" if Flag 3's bay measurement says so. Side walls 22", front/back <strong>trimmed 1½" to 18½"</strong> (Flag 2). Bottom 20 × 22 out of the ½" sheet. Label each piece the moment it comes off the saw — two of them arrive rotated out of the comb and the grain direction is not recoverable by eye later.</p>
+      <p>Walls to the bay height — <strong>13¾"</strong>, or 13½" if the bay measures that (Flag 1). Side walls 22", front/back <strong>trimmed 1½" to 18½"</strong> (Flag 2). Bottom 19¼ × 21¼ out of the ½" sheet, cut last to fit the rabbets. Label each piece the moment it comes off the saw — two of them arrive rotated out of the comb and the grain direction is not recoverable by eye later.</p>
     </div></div>
     <div class="step"><div class="sn"></div><div class="sb">
       <h3>Rabbet the four walls for the bottom</h3>
@@ -578,9 +564,8 @@ footer p{max-width:72ch; margin:0 0 6px}
 </section>
 
 <footer>
-  <p>Drawn from <code>sienna_camper_build_plan.md</code> (Sections 3 and 6, Components 2 and 8) and <code>params.scad</code>, September 2026. Figures are to scale in both axes; they are assembly drawings, not templates — do not scale off a print.</p>
-  <p>Five stale dimensions — wall height, wall length, bottom size, tray height and the store copy's rip — were corrected in the plan and the cut list in September 2026, and <code>Project_Smores.pdf</code> was rebuilt from them. The one item still open is the as-built 16" frame height: measure the bay before cutting the walls.</p>
-  <p><b>Not yet reconciled:</b> <code>params.scad</code> still carries <code>delta3_tray_h = 2</code> and two stale comments, and <code>renders/sheet-cut-2.svg</code> still draws the old bottom on the ½" sheet. Both need OpenSCAD, which is not installed on this machine.</p>
+  <p>Drawn from <code>sienna_camper_build_plan.md</code> (Sections 3 and 6, Components 2 and 8) and <code>params.scad</code>. Figures are to scale in both axes; they are assembly drawings, not templates — do not scale off a print.</p>
+  <p><b>Model not yet matched:</b> <code>params.scad</code> carries <code>delta3_tray_h = 2</code>, and <code>renders/sheet-cut-2.svg</code> draws a 20 × 22 bottom on the ½" sheet. Where they differ from this sheet, this sheet is right.</p>
 </footer>
 
 </div>
