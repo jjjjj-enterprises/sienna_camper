@@ -618,6 +618,9 @@ function inch_frac(v) =
 
 pcwall_t = 0.5;         // NO-3/8"-BUY (owner, Aug 2026): 3/8in -> 1/2in ply (+~2.5lb, giving back July's weight swap). Cut from the 1/2in sheet's big 47x44 leftover instead of buying 3/8in stock — still non-structural, just holds the intake fan + grommets
 pcwall_h = leg_height;  // 17 — van floor up to the front rail's underside
+pcwall_z0 = 0.5;        // the wall hangs from the front legs with its bottom edge 1/2in above the floor
+                        // (1/2in below the leg bottoms), so it never touches the floor before the feet do.
+                        // Wall coordinates (fan, vents, grommet) run from that bottom edge.
 pcwall_grommet_dia = 1; // fridge DC line pass-through
 // ONE grommet, not two. The verified-outlet round (the van has exactly 2 AC
 // outlets) moved Power strip 1 onto the REAR outlet, so its line no longer
@@ -639,26 +642,19 @@ pcwall_grommet_z  = 4;   // fridge DC line — 1.0in of ply above the bottom rai
 //  - a LOW louver in the utility-cabinet door gives the exhaust fan's
 //    warm air a direct path OUT low toward the tailgate instead of
 //    only bleeding around the door edges.
-// RE-LAID OUT Aug 2026. The old numbers (7x2.5 at x=5.5, z=5) put three
-// openings on top of each other in one corner of a 3/8in wall: the upper
-// grommet was drilled INSIDE the vent cut-out, the lower grommet's edge
-// landed on the bottom rail (top at 2.5, not 3.5 as the old comment said),
-// and the vent's top edge left 0.18in of ply against the fan hole. The vent
-// now sits squarely UNDER the fan, on the fan's centerline, with the cord
-// grommets moved into the clear driver-side strip outboard of the front leg.
-// Widened 7 -> 9 so the passive area (18 sq in) still covers the 120mm fan's
-// own aperture (17.7 sq in) despite losing 0.5in of height.
-intake_vent_w = 9;    // low front-wall intake louver — width
-intake_vent_h = 2;    // height — set by the gap between bottom rail and fan hole
-intake_vent_x = 11.11; // center X = the fan's center (cross-checked by assert below).
-                       // Moved 10.86 -> 11.11 when fridge_slide_margin went
-                       // 0.5 -> 0.75: the fridge bay's centreline moved with it,
-                       // and the louver is specified to sit on the fan's line.
-                       // A literal, not derived, because x_fridge_module is
-                       // assigned ~450 lines below this and OpenSCAD evaluates
-                       // in order — hence the cross-check assert, which is what
-                       // caught this drift.
-intake_vent_z = 4.4;  // center Z: 0.9in of ply over the bottom rail, 1.0in under the fan hole
+// Three 3in round snap-in soffit vents in a row, centred on the fan's
+// line, below the fan hole. The 4-pack on hand sets the hole size; three
+// give ~21 sq in of passive area, more than the 120mm fan's own aperture.
+intake_vent_n     = 3;
+intake_vent_dia   = 3;     // hole size of the snap-in soffit vent (check the package)
+intake_vent_pitch = 3.75;  // centre to centre: 3/4in of ply between holes
+intake_vent_x = 11.11; // centre of the row = the fan's centre (cross-checked by assert below).
+                       // A literal, not derived, because x_fridge_module is assigned
+                       // ~450 lines below and OpenSCAD evaluates in order.
+intake_vent_z = 4.125; // hole centres, up from the wall's bottom edge
+// The row's bounding box, so the clearance asserts below treat it as one opening.
+intake_vent_w = (intake_vent_n - 1) * intake_vent_pitch + intake_vent_dia;  // 10.5
+intake_vent_h = intake_vent_dia;
 // (cabinet_vent_w/h/z lived here — the low exhaust louver in the utility
 // cabinet's hinged DOOR. The door was cut from the design when it turned out to
 // be trapping the exhaust air it existed to vent, and the last of it went Aug 2
@@ -1395,9 +1391,9 @@ assert((pcwall_fan_z - intake_fan_dia/2) - (intake_vent_z + intake_vent_h/2) >= 
            "in of ply between the intake louver's top edge and the fan hole — need ",
            pcwall_web_min, "in"));
 // vent bottom edge -> bottom rail top face (the rail backs the wall there)
-assert((intake_vent_z - intake_vent_h/2) - (bottom_rail_z + frame_rail_sz) >= pcwall_web_min * 0.8,
+assert((intake_vent_z - intake_vent_h/2) - (bottom_rail_z + frame_rail_sz - pcwall_z0) >= pcwall_web_min * 0.8,
        str("The intake louver's bottom edge is ",
-           (intake_vent_z - intake_vent_h/2) - (bottom_rail_z + frame_rail_sz),
+           (intake_vent_z - intake_vent_h/2) - (bottom_rail_z + frame_rail_sz - pcwall_z0),
            "in above the bottom rail's top face — it will break through into the rail"));
 // grommets clear of the vent in X (they are in the driver-side strip)
 assert((intake_vent_x - intake_vent_w/2) - (pcwall_grommet_x + pcwall_grommet_dia/2) >= pcwall_web_min,
@@ -1405,9 +1401,9 @@ assert((intake_vent_x - intake_vent_w/2) - (pcwall_grommet_x + pcwall_grommet_di
            " run into the intake louver, which starts at x=",
            intake_vent_x - intake_vent_w/2));
 // grommets clear of the bottom rail and of each other
-assert((pcwall_grommet_z - pcwall_grommet_dia/2) - (bottom_rail_z + frame_rail_sz) >= pcwall_web_min * 0.8,
+assert((pcwall_grommet_z - pcwall_grommet_dia/2) - (bottom_rail_z + frame_rail_sz - pcwall_z0) >= pcwall_web_min * 0.8,
        str("The DC grommet's bottom edge is only ",
-           (pcwall_grommet_z - pcwall_grommet_dia/2) - (bottom_rail_z + frame_rail_sz),
+           (pcwall_grommet_z - pcwall_grommet_dia/2) - (bottom_rail_z + frame_rail_sz - pcwall_z0),
            "in above the bottom rail's top face"));
 // everything stays on the wall
 assert(pcwall_grommet_z + pcwall_grommet_dia/2 <= pcwall_h &&
@@ -1415,8 +1411,10 @@ assert(pcwall_grommet_z + pcwall_grommet_dia/2 <= pcwall_h &&
        intake_vent_x + intake_vent_w/2 <= panel_width,
        "An opening in the Panel C front wall falls off the edge of the wall");
 // the passive louver should be worth cutting: at least the fan's own aperture
-assert(intake_vent_w * intake_vent_h >= 3.14159 * pow(intake_fan_dia/2, 2) * 0.95,
-       str("The passive louver is only ", intake_vent_w * intake_vent_h,
+assert(intake_vent_pitch - intake_vent_dia >= pcwall_web_min,
+       "The intake vent holes are closer together than the minimum web");
+assert(intake_vent_n * 3.14159 * pow(intake_vent_dia/2, 2) >= 3.14159 * pow(intake_fan_dia/2, 2) * 0.95,
+       str("The passive vents are only ", intake_vent_n * 3.14159 * pow(intake_vent_dia/2, 2),
            " sq in against the fan's ", 3.14159 * pow(intake_fan_dia/2, 2),
            " sq in — widen it or it chokes the fan"));
 

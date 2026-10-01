@@ -35,6 +35,7 @@ fan_z  = fridge_tray_gap + fridge_tray_t + fridge_ext_height/2; // 8.8 — cente
 gr_d   = pcwall_grommet_dia;                          // 1 — fridge DC line
 gr_x   = pcwall_grommet_x;   // driver-side cord chase, outboard of the front leg
 gr_z   = pcwall_grommet_z;   // fridge DC line
+vent_xs = [for (k = [0 : intake_vent_n - 1]) intake_vent_x + (k - (intake_vent_n - 1)/2) * intake_vent_pitch];
 // (a 2nd grommet for Power strip 1's line used to sit above this one; the
 // verified-outlet round put that strip on the van's rear outlet instead)
 
@@ -82,33 +83,23 @@ module drawing() {
         translate([stroke, stroke]) square([WW - 2*stroke, WH - 2*stroke]);
         translate([fan_x, fan_z]) circle(r = fan_d/2, $fn = 48);
         translate([gr_x, gr_z]) circle(r = gr_d/2, $fn = 32);
-        translate([intake_vent_x - intake_vent_w/2, intake_vent_z - intake_vent_h/2])
-            square([intake_vent_w, intake_vent_h]);
+        for (vx = vent_xs) translate([vx, intake_vent_z]) circle(r = intake_vent_dia/2, $fn = 48);
     }
     // hole edges
     translate([fan_x, fan_z]) ring(fan_d/2);
     translate([gr_x, gr_z]) ring(gr_d/2);
-    // low intake vent: rectangular opening with louver hints
-    color("black") difference() {
-        translate([intake_vent_x - intake_vent_w/2 - stroke, intake_vent_z - intake_vent_h/2 - stroke])
-            square([intake_vent_w + 2*stroke, intake_vent_h + 2*stroke]);
-        translate([intake_vent_x - intake_vent_w/2, intake_vent_z - intake_vent_h/2])
-            square([intake_vent_w, intake_vent_h]);
-    }
-    color("DimGray") for (i = [1 : 3])
-        translate([intake_vent_x - intake_vent_w/2 + 0.4, intake_vent_z - intake_vent_h/2 + i * intake_vent_h/4])
-            square([intake_vent_w - 0.8, 0.12]); // louver slats
+    // low intake vents: three round holes for the snap-in soffit vents
+    for (vx = vent_xs) translate([vx, intake_vent_z]) ring(intake_vent_dia/2);
     // fan mounting screw holes: 105mm (4.13in) square pattern,
     // standard 120mm fan bolt circle
     for (dx = [-2.07, 2.07]) for (dz = [-2.07, 2.07])
         translate([fan_x + dx, fan_z + dz]) ring(0.11);
-    // perimeter mounting screws: into the front legs (2 per leg) +
-    // up into the front rail zone (2, top edge) + into the front
-    // BOTTOM rail (2, low — the cube-frame rail behind the wall)
-    for (p = [[leg_inset + frame_rail_sz/2, 3], [leg_inset + frame_rail_sz/2, 13],
-              [WW - leg_inset - frame_rail_sz/2, 3], [WW - leg_inset - frame_rail_sz/2, 13],
-              [WW * 0.33, WH - 0.75], [WW * 0.67, WH - 0.75],
-              [WW * 0.33, bottom_rail_z + frame_rail_sz/2], [WW * 0.67, bottom_rail_z + frame_rail_sz/2]])
+    // mounting screws, 7: 2 into each front leg (the wall hangs on the
+    // legs' back faces) + 1 into each of the 3 back blocks behind the
+    // bottom rail, ~1.25in up from the wall's bottom edge
+    for (p = [[leg_inset + frame_rail_sz/2, 6], [leg_inset + frame_rail_sz/2, 13],
+              [WW - leg_inset - frame_rail_sz/2, 6], [WW - leg_inset - frame_rail_sz/2, 13],
+              [14, 1.25], [23, 1.25], [32, 1.25]])
         translate(p) ring(0.11);
 
     // centerline crosses on both holes
@@ -138,9 +129,10 @@ module drawing() {
     // grommets are all in the driver third.
     // stacked in one column in the wall's empty upper-right quadrant, in the
     // same top-to-bottom order as the features they point at
-    callout(str("FAN ", fan_d, "\" dia"), fan_x + fan_d/2, fan_z + 1.4, 21, 7);
-    callout(str("LOUVER ", intake_vent_w, "\" x ", intake_vent_h, "\""),
-            intake_vent_x + intake_vent_w/2, intake_vent_z, 21, 4.4);
+    callout(str("FAN ", fan_d, "\" dia"), fan_x + fan_d/2, fan_z + 1.4, 21, 8);
+    label(str(intake_vent_pitch, "\" c/c, ", intake_vent_z, "\" up"), 21, 4.0, 1.3, "left");
+    callout(str(intake_vent_n, " x ", intake_vent_dia, "\" VENTS"),
+            intake_vent_x + intake_vent_w/2 - intake_vent_dia/2 + intake_vent_dia/2 * 0.7, intake_vent_z + intake_vent_dia/2 * 0.7, 21, 5.6);
     callout("DC GROMMET 1\"", gr_x + gr_d/2, gr_z, 21, 1.8);
 
     // The control cluster mounts on THIS wall's far (Panel-B) face — dashed,
