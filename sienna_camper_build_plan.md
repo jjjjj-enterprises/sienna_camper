@@ -387,7 +387,7 @@ The one wall any panel gets, as a flat pattern with **every hole dimensioned**: 
 - **DC CORD GROMMET 1" dia** — carries the fridge DC line, in the driver-side cord chase outboard of the front leg. Just the one: Power strip 1 is on the van's rear outlet, so its line never crosses this wall.
 - **3 × 3" VENTS** — passive scoops admitting cool floor-level air, in a row under the fan and centered on its line: centers 3.75" apart, 4.125" up. They take the 3" round snap-in soffit vents on hand; check the hole size on the package. ~21 sq in, which covers the 120mm fan's own 17.7 sq in aperture.
 - **Opening spacing.** `params.scad` asserts a 3/4" minimum web between every pair of openings.
-- **Fastening** — 7× #8 × 1-1/4" screws: 2 into each front leg, and 1 into each of the three 6" back blocks glued behind the bottom rail. The wall sits 1-7/16" behind the rails, so it can't screw to them.
+- **Fastening** — 7× #8 × 1-1/4" screws: 2 into each front leg, and 1 into each of the three 6" back blocks glued behind the bottom rail. The wall sits 1-7/16" behind the rails, so it can't screw to them. Cut the wall's two tongue notches with its other openings (3" wide × 1" up from the bottom edge, at 12¾–15¾" and 30¼–33¼" from the driver end), and drive the block screws at least 1¼" up from the bottom edge, clear of them.
 
 ---
 
@@ -1257,7 +1257,7 @@ Same frame construction as Panel A — and that's the whole build. **Panel B has
 - Side rails — 2, **26⅛"** cut, 2x2 pine (BETWEEN the end rails)
 - End rails — 2, 46" cut, 2x2 pine (outboard, full deck width)
 - Legs — 4, **16.75"** cut, 2x2 pine (leveling feet make up the inch; lapped to the end rails, tops flush with the rail tops)
-- Bottom rails — 4: 2x 46" + 2x **23¼"** (all four faces — the full cube; the side pair is 23¼" and not 26⅛" because the lapped legs sit 1.4375" inboard at each end)
+- Bottom rails — 4: 2x 46" + 2x **23¼"** (all four faces — the full cube; the side pair is 23¼" and not 26⅛" because the lapped legs sit 1.4375" inboard at each end) — the 46" end rail that meets Panel C: notch it before assembly for the anchor board's tongues, ½" deep × 3" wide at 12¾–15¾" and 30¼–33¼" from the driver end, and keep screws out of those bands (Tongue Notches sheet)
 - Corner brackets — 4
 - Diagonal corner braces — 2 (**underside**, like Panel A's — see Component 2)
 - Deep-storage totes — 2x Sterilite 28-Qt under-bed lidded (23.5" x 16.9" x 5.9"), restacked ON the spare (plain lidded, NOT slide-drawer — no side access to use a drawer front)
@@ -1294,7 +1294,7 @@ Build this one before Component 1 (Rear Pantry) — the prefab drawer cluster si
 - Side rails — 2, **32⅞"** cut, 2x2 pine (BETWEEN the end rails: 35.75" panel − 2 × 1.4375" measured stock)
 - End rails — 2, 46" cut, 2x2 pine (outboard, full deck width)
 - Legs — 4 in **two lengths**, 2x2 pine (leveling feet make up the inch): FRONT pair **17.5"**, lapped to the front rail's inner face, tops flush with the rail top; REAR pair **16"**, butt-under at the TRUE corners — the one pair in the build that cannot be lapped (Section 3)
-- Bottom rail — 1, 46" cut, 2x2 pine (FRONT face only, on the front legs' line — 1.5" inboard of the front face)
+- Bottom rail — 1, 46" cut, 2x2 pine (FRONT face only, on the front legs' line — 1.5" inboard of the front face) — notch it before assembly for the anchor board's tongues, ½" deep × 3" wide at 12¾–15¾" and 30¼–33¼" from the driver end, and keep screws out of those bands (Tongue Notches sheet); the two outer back blocks get the same notch
 - Steel angle brackets — 2 extra, one per REAR corner leg (that bracket is the joint; the screws into end grain are alignment only)
 - Corner brackets — 4
 - Front wall — 1, 46" x 17", 1/2" ply, with the 120mm fan hole + one 1" grommet hole + three 3" low intake vent holes pre-cut (Panel C Front Wall render — every opening dimensioned)
@@ -2085,8 +2085,8 @@ The order to build in — **dependency-first, not the Component numbering.** Wor
 
 **Phase 2 — Build the three frames** (Components 2/3/4, step 1)
 1. Panel A frame: rails + 4 legs + divider + 2 END-face bottom rails (underside 1") + 2 diagonal braces (**on the frame's underside**, same face as the corner brackets). Corners: 2× 2½" screws + bracket + glue.
-2. Panel B frame — the full cube: bottom rails on ALL 4 faces, no divider/drawers.
-3. Panel C frame: front pair inset 3.5", REAR pair at the true corners; FRONT-face bottom rail only.
+2. Panel B frame — the full cube: bottom rails on ALL 4 faces, no divider/drawers. Notch the C-end bottom rail for the tongues BEFORE fitting it (½" × 3" at 12¾–15¾" and 30¼–33¼" from the driver end); no screws in those bands.
+3. Panel C frame: front pair inset 3.5", REAR pair at the true corners; FRONT-face bottom rail only. Notch the bottom rail and the two outer back blocks (½" × 3") and the front wall (1" × 3") for the tongues BEFORE assembly, at 12¾–15¾" and 30¼–33¼" from the driver end; no screws in those bands.
 4. Install the 12 leveling feet (no knobs — the collar is the adjustment).
 
 **Phase 3 — Panel C build-out (fridge / kitchen / cooling)** (Components 4 + 7)
