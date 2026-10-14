@@ -61,7 +61,7 @@ module side_list(list_x, top_y, items) {
     }
     for (i = [0 : len(items) - 1]) {
         y = top_y - 12 - i * 11;
-        // numeral BESIDE the swatch — a white numeral centred in a filled
+        // numeral BESIDE the swatch — a white numeral centered in a filled
         // circle merges with it (OpenSCAD unions touching 2D shapes and paints
         // them one colour) and the marker reads as an anonymous blob
         color(marker_col(i + 1)) translate([list_x, y + 4.6]) circle(r = 1.1);

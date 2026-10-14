@@ -108,7 +108,7 @@ module van_base() {
     // Body, glass, wheels, front seats, sliding doors and the hatch all
     // come from the SHARED plan geometry, so this and the platform
     // floorplan are literally the same vehicle. van_plan.scad's frame is
-    // X = fore-aft from the REAR bumper, Y = lateral from the centreline;
+    // X = fore-aft from the REAR bumper, Y = lateral from the centerline;
     // this sheet runs fore-aft the other way (+Y survey = forward = -X
     // sheet), hence the mirror. Mirroring keeps the driver side on low y,
     // where this sheet labels it, and the steering wheel with it.
@@ -144,7 +144,7 @@ module van_base() {
     txt("PANEL C", sx(16), FLOOR_Y1 + 4, 3.5, "center", GRY);
     txt("STRIKERS", sx(STRIKER_Y), FLOOR_Y1 + 4, 3.4, "center", GRY);
     txt("WELL", sx(19), FLOOR_Y1 + 9.2, 3.4, "center", GRY);
-    // Sits between the two rails (sy 23 is just under the centreline) and well
+    // Sits between the two rails (sy 23 is just under the centerline) and well
     // FORWARD, at sx(100). Every section's red overlay lives at the tailgate end
     // (sx < ~55: the strikers on F4, the 3rd row on F6, Panel C on F5), and at
     // sx(82) the red labels F4b/F6a were landing on this one. "FRONT SEATS" is

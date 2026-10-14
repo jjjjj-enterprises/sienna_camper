@@ -71,7 +71,7 @@ module marker(n, x, y) {
 module mlabel(txt, x, y, size = 2.8) {
     color("black") translate([x, y]) mirror([1, 0, 0]) text(txt, size = size, halign = "center", valign = "center");
 }
-// Numeral BESIDE the icon. A white numeral centred in a filled circle vanishes:
+// Numeral BESIDE the icon. A white numeral centered in a filled circle vanishes:
 // OpenSCAD merges touching 2D shapes into one polygon set and paints them one
 // colour. The plan is drawn MIRRORED, so the mirror goes outside the offset —
 // which puts the numeral on the icon's left as seen on the sheet.

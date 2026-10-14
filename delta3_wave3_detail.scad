@@ -91,7 +91,7 @@ module drawing() {
 
     // ---- title block + parts list, STACKED BELOW the drawing -------
     // This sheet renders at 2500x4700 (portrait). The title lines used
-    // to be centred on page x=0 and the parts list sat out at page
+    // to be centered on page x=0 and the parts list sat out at page
     // x=45, which made the content ~150 units wide and ~50 tall — a 3:1
     // landscape block in a 1:1.9 portrait frame. OpenSCAD's --viewall
     // could not frame that, and both the captions and the list got

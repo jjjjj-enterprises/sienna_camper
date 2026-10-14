@@ -17,7 +17,7 @@
 //
 // Canonical frame:
 //   X = fore-aft, 0 at the REAR BUMPER face, +X toward the front
-//   Y = lateral,  0 on the CENTRELINE, +Y toward the PASSENGER side
+//   Y = lateral,  0 on the CENTERLINE, +Y toward the PASSENGER side
 // so a caller wanting front-at-top just does rotate(90).
 //
 // The outline is ILLUSTRATIVE — published Sienna exterior figures

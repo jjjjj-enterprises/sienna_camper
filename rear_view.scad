@@ -54,7 +54,7 @@ module label_left(txt, x, y, size = 2.08) {
 // numbered, hue-coded marker (marker_col, colors.scad) — same
 // convention as the detail views: the number pairs the marker to
 // its legend row, the distinct color separates markers at a glance
-// A white numeral centred in a filled circle disappears: OpenSCAD merges
+// A white numeral centered in a filled circle disappears: OpenSCAD merges
 // touching 2D shapes into one polygon set and paints them one colour. The
 // numeral goes beside the icon.
 module marker(n, x, y, nx = 1.3) {

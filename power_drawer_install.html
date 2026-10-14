@@ -241,7 +241,7 @@ drawer X width = slide length = drawer travel   = 20"   → a 20" slide on a 20"
       <h3><span class="tag">Blocker</span> There is nothing to screw the slides to</h3>
       <p>The slide's cabinet member has to land on a continuous, plumb, fore-aft face at <strong>y = 3"</strong> and <strong>y = 26"</strong>, running the full 20" of travel in X. Look at what is actually there at those lines:</p>
       <p>• <strong>The legs</strong> are in the right plane — their inner faces <em>are</em> y = 3" and y = 26" — but a leg is only <strong>1½" wide in X</strong>. That is 1½" of bearing under a 20" slide carrying ~39 lb.<br>
-      • <strong>The centre divider and the side rail</strong> run fore-aft, square across the travel direction. They are the drawer's end stops, not slide mounts. The plan's Component 2 caption says to mount the slides on them — <strong>that instruction cannot be followed</strong>, and it is the one line in the build manual that does not survive contact with the geometry.<br>
+      • <strong>The center divider and the side rail</strong> run fore-aft, square across the travel direction. They are the drawer's end stops, not slide mounts. The plan's Component 2 caption says to mount the slides on them — <strong>that instruction cannot be followed</strong>, and it is the one line in the build manual that does not survive contact with the geometry.<br>
       • <strong>The side rail</strong> is also only 1½" tall and lives at the very top of the bay (z 16¼–17¾), 2" outboard of the legs.</p>
       <p class="verdict">You need to add two <strong>slide-mounting boards</strong> before the drawer can hang. They are not in the cut list, the BOM, or any render. Sizes are in section D.</p>
     </div>
@@ -260,7 +260,7 @@ drawer X width = slide length = drawer travel   = 20"   → a 20" slide on a 20"
         <rect class="ply" x="70" y="417.5" width="299" height="19.5"/>
         <!-- side rail (runs in Y) -->
         <rect class="ply" x="349.5" y="79.5" width="19.5" height="338"/>
-        <!-- centre divider -->
+        <!-- center divider -->
         <rect class="ply" x="70" y="79.5" width="9.75" height="338"/>
         <!-- legs -->
         <rect class="blk" x="304" y="79.5" width="19.5" height="19.5"/>
@@ -403,7 +403,7 @@ drawer X width = slide length = drawer travel   = 20"   → a 20" slide on a 20"
 
 <footer>
   <p>Geometry read from <code>platform.scad</code> (<code>drawer_module</code>, the leg placement in <code>module_frame</code>) and <code>params.scad</code>, September 2026. Figures are to scale in both axes.</p>
-  <p><b>Two things here contradict the build plan and are not yet fixed in it:</b> Component 2's step-3 caption puts the slides on the centre divider and the outer rail, which the travel direction rules out; and the two slide-mounting boards appear in no cut list, BOM or render. The drawer's own dimensions are right — it is the mounting that was never specified.</p>
+  <p><b>Two things here contradict the build plan and are not yet fixed in it:</b> Component 2's step-3 caption puts the slides on the center divider and the outer rail, which the travel direction rules out; and the two slide-mounting boards appear in no cut list, BOM or render. The drawer's own dimensions are right — it is the mounting that was never specified.</p>
 </footer>
 
 </div>

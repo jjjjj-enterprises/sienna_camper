@@ -14,15 +14,15 @@
 //     torsional stiffness lost when A and B gave up their plywood tops,
 //     and makes it the datum the two loose halves locate against.
 //   * Panel B halves (29 x 24.5in each) — 2 side rails + 5 short slats
-//     each, split on the CENTRELINE, each lifting out on its own.
+//     each, split on the CENTERLINE, each lifting out on its own.
 //     Owner's call, Aug 2026: Panel B is top-load-ONLY (the 35x45in
 //     side door sits over Panel A, and only 29in of it is ever clear),
 //     so this is its only access. 24.5in wide is what lets a half be
 //     carried out THROUGH the side door — a 49in piece could not be.
-//   * Centre bearer (26in of 3in-wide 2x2, in Panel B's frame) — the
+//   * Center bearer (26in of 3in-wide 2x2, in Panel B's frame) — the
 //     halves' inner rails land on it. It also halves the bed's
 //     unsupported span over Panel B, 46in -> ~22in; Panel B never had a
-//     centre divider, so this is the stiffest the deck has been.
+//     center divider, so this is the stiffest the deck has been.
 //
 // Every piece bears on the boxes' own rails — nothing is carried by
 // hardware, and there is no hinge to limit how far it opens. Leveling
@@ -80,14 +80,14 @@ module drawing() {
     for (x = [-W/2 + RW + SL * 0.25, -W/2 + RW + SL * 0.75])
         iarrow([x, LA * 0.5, lift - 0.8], [x, LA * 0.5, bed_slat_t + 0.3]);
 
-    // ---- Panel B: two centreline halves, each lifting out ----------
+    // ---- Panel B: two centerline halves, each lifting out ----------
     ladder(-W/2, LA, HW, LB, bed_slat_n_bhalf, riseB, riseB + lift);        // driver half
     ladder(0,    LA, HW, LB, bed_slat_n_bhalf, riseB, riseB + lift);        // passenger half
     // straight up and out — no hinge, no swing arc
     for (x = [-HW/2, HW/2])
         iarrow([x, LA + LB * 0.5, riseB + lift + 3], [x, LA + LB * 0.5, riseB + lift + 9]);
 
-    // ---- centre bearer: part of Panel B's FRAME, not the platform ---
+    // ---- center bearer: part of Panel B's FRAME, not the platform ---
     // ctx = true -> drawn as existing context (Panel B's frame), not as
     // a part of this component. wbox handles the iso projection of both
     // the fill and the edge cage; hand-rolling it with projection()

@@ -63,7 +63,7 @@ module txt(s, x, y, size = 3.0, halign = "left", col = "Black") {
 }
 
 // ---- dimensions -----------------------------------------------
-// Fore-aft dimension line with end ticks and a centred label. `drop`
+// Fore-aft dimension line with end ticks and a centered label. `drop`
 // extends dashed witness lines back down to the feature being measured.
 module dim_x(x0, x1, y, s, size = 2.9, col = RED, drop = 0) {
     color(col) {

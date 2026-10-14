@@ -161,7 +161,7 @@ module v4() {
         dash_x(sy(vent_intrusion_width), sx(van_interior_length), HATCH_X, HEAVY);
         dash_x(sy(van_interior_width - vent_intrusion_width), sx(van_interior_length), HATCH_X, HEAVY);
     }
-    // the strips are only ~2.5" wide, so a centred dim label lands on top
+    // the strips are only ~2.5" wide, so a centered dim label lands on top
     // of the line — put the tags outboard of the floor edges instead
     dim_y(FLOOR_Y0, sy(vent_intrusion_width), sx(24), "", 3.6, RED, "left");
     dim_y(sy(van_interior_width - vent_intrusion_width), FLOOR_Y1, sx(24), "", 3.6, RED, "right");
@@ -206,7 +206,7 @@ module v6() {
         "point (V6a), HEIGHT where the corners",
         "cut in (V6b). Carry modules up the MIDDLE.",
         "-> MEASURED Aug 2026: 50\" wide, 37\" high",
-        "   at the centre, only 20.5\" at the radius.",
+        "   at the center, only 20.5\" at the radius.",
     ]);
     inset(INSET_X, 6, 98, 30, "V6  REAR ELEVATION — the gate opening") {
         // opening with radiused corners, drawn small-scale
@@ -314,7 +314,7 @@ module v9() {
         // lines — they land on the title and across the rectangle's edges.
         // Inside the rectangle, 4.5 apart, with the socket marker moved clear.
         txt("22.5\" above the cargo floor", INSET_X + 23, 25, 3.2, "left", RED);
-        txt("socket centre 10\" in", INSET_X + 23, 20.5, 3.2, "left", RED);
+        txt("socket center 10\" in", INSET_X + 23, 20.5, 3.2, "left", RED);
         txt("~10\" fwd of the scuff plate", INSET_X + 23, 16, 3.2, "left", GRY);
         txt("over the 12V panel", INSET_X + 23, 10.5, 3.2, "left", GRY);
     }

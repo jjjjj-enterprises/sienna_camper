@@ -138,7 +138,7 @@ module install_map() {
     }
     // kept above the straps' arrowheads so nothing crosses the red lines
     // Stacked above the board and left-aligned outboard of it: these
-    // lines are long, and centred/inboard they printed over the title.
+    // lines are long, and centered/inboard they printed over the title.
     label_left("2 STEEL TONGUES -> the 2nd-row FLOOR RAILS' rear ends, MEASURED 42\" (F8a)", -12, br_top + 15, 1.25);
     label_left("how they engage the track: see the tongue-to-rail connection detail", -12, br_top + 13, 1.15);
 

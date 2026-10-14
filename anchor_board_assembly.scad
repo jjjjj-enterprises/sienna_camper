@@ -287,7 +287,7 @@ module v3_kitchen_straps() {
     // crosses the top edge at two of them — one per side — and cannot slide
     // along the box. Two straps, front face and back face; in this rear
     // elevation they superimpose, so what is drawn is one path.
-    NOTCH_IN = 1.1;                      // notch centre, in from each side edge
+    NOTCH_IN = 1.1;                      // notch center, in from each side edge
     NOTCH_W  = 0.9;
     color("Firebrick") {
         // up the driver side, across the top, down the passenger side

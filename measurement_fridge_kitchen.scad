@@ -29,7 +29,7 @@ module label_left(txt, x, y, size = 1.65) {
     translate([x, y]) text(txt, size = size, halign = "left", valign = "center");
 }
 
-// Numeral BESIDE the icon. A white numeral centred in a filled circle
+// Numeral BESIDE the icon. A white numeral centered in a filled circle
 // disappears: OpenSCAD merges touching 2D shapes into one polygon set and
 // paints them a single colour.
 module num(n, x, y, col = "Black", nx = 2.0) {

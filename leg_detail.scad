@@ -12,7 +12,7 @@
 //   1  Panel C FRONT leg, elevation — 17.5" cut + 1" foot = 18.5"
 //   2  Panel A/B leg, elevation — 16.75" cut = 17.75" effective
 //   2b Panel C REAR corner leg, elevation — 16" cut = 17" effective
-//   3  Bottom end grain, plan — the 1/2" x 1-3/4" insert bore, centred
+//   3  Bottom end grain, plan — the 1/2" x 1-3/4" insert bore, centered
 //   4  Leg in the frame, end elevation — the 3.5" inset and the
 //      bottom rail's 1" underside
 //   5  LEG-TO-RAIL JOINT, side elevation — the lap: the leg runs past
@@ -124,7 +124,7 @@ module end_grain_plan() {
     color(INK) { square([s, 0.2]); translate([0, s - 0.2]) square([s, 0.2]);
                  square([0.2, s]); translate([s - 0.2, 0]) square([0.2, s]); }
 
-    // centre-finding diagonals
+    // center-finding diagonals
     color([0.3, 0.3, 0.3]) {
         hull() { circle(0.07); translate([s, s]) circle(0.07); }
         hull() { translate([s, 0]) circle(0.07); translate([0, s]) circle(0.07); }
@@ -136,7 +136,7 @@ module end_grain_plan() {
         circle(bore_d * P / 2, $fn = 64);
         circle(bore_d * P / 2 - 0.22, $fn = 64);
     }
-    // centre mark
+    // center mark
     color(INK) {
         translate([s/2 - 1.2, s/2 - 0.09]) square([2.4, 0.18]);
         translate([s/2 - 0.09, s/2 - 1.2]) square([0.18, 2.4]);
@@ -147,7 +147,7 @@ module end_grain_plan() {
     dim_v(0, s, -3.0);
     label("1-1/2\"", -4.2, s/2, 2.0, "right");
     dim_h(0, s/2, s + 3.0);
-    label("3/4\" — dead centre", s/2, s + 5.2, 1.9);
+    label("3/4\" — dead center", s/2, s + 5.2, 1.9);
 
     leader(s/2 + bore_d * P / 2, s/2, s + 3.0, s * 0.30);
     label(str(inch_frac(bore_d), "\" dia bore"), s + 3.6, s * 0.30, 2.0, "left");

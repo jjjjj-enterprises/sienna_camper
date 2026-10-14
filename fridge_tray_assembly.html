@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- ARTIFACT-BODY-START -->
+<title>Fridge Tray</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#E9ECE7; --surface:#FBFCFA; --surface-2:#F1F4EF;
+  --ink:#16201C; --ink-2:#4E5A55; --ink-3:#79857F;
+  --rule:#C6CDC5; --rule-strong:#8E9A93;
+  --ply:#9A7A3E; --ply-fill:rgba(200,164,107,.30);
+  --amber:#B8661A; --amber-fill:rgba(201,118,27,.15);
+  --alert:#9E2C1B; --alert-fill:rgba(158,44,27,.09);
+  --good:#2C6349;
+  --font-d:Archivo,"Helvetica Neue",Arial,sans-serif;
+  --font-b:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+    --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+    --rule:#2F3833; --rule-strong:#56615A;
+    --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+    --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+    --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+    --good:#5FB78D;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+  --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+  --rule:#2F3833; --rule-strong:#56615A;
+  --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+  --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+  --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+  --good:#5FB78D;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-b); font-size:15px; line-height:1.55;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+.sheet{max-width:1080px; margin:0 auto; padding-block:28px 64px; padding-left:20px; padding-right:20px}
+
+/* ---- title block: a drawing title block, not a hero ---- */
+.tb{border:1.5px solid var(--ink); background:var(--surface)}
+.tb-head{display:flex; flex-wrap:wrap; align-items:flex-end; gap:6px 20px; padding:18px 20px 14px; border-bottom:1.5px solid var(--ink)}
+.tb-head h1{
+  font-family:var(--font-d); font-weight:700; font-size:clamp(25px,4.6vw,38px);
+  line-height:1.03; letter-spacing:-.018em; margin:0; text-wrap:balance;
+}
+.tb-head p{margin:0; color:var(--ink-2); font-size:14.5px; max-width:56ch}
+.tb-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr))}
+.tb-cell{padding:10px 14px 12px; border-right:1px solid var(--rule); border-top:1px solid var(--rule)}
+.tb-cell:first-child{border-top:0}
+.tb-cell .k{
+  font-family:var(--font-m); font-size:10.5px; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:3px;
+}
+.tb-cell .v{font-family:var(--font-m); font-size:15px; font-weight:500; font-variant-numeric:tabular-nums}
+.tb-cell .v small{font-family:var(--font-b); font-size:12.5px; color:var(--ink-2); display:block; font-weight:400; letter-spacing:0}
+
+/* ---- section headings ---- */
+section{margin-top:44px}
+.sec-h{display:flex; align-items:baseline; gap:12px; border-bottom:1.5px solid var(--ink); padding-bottom:7px; margin-bottom:18px}
+.sec-h .n{
+  font-family:var(--font-m); font-size:12px; font-weight:600; color:var(--ink-3);
+  letter-spacing:.09em; flex:none;
+}
+.sec-h h2{font-family:var(--font-d); font-weight:600; font-size:20px; letter-spacing:-.01em; margin:0; text-wrap:balance}
+.sec-h .aside{margin-left:auto; font-family:var(--font-m); font-size:11.5px; color:var(--ink-3); text-align:right}
+
+p{margin:0 0 12px; max-width:68ch}
+.lede{color:var(--ink-2)}
+a{color:inherit}
+code{font-family:var(--font-m); font-size:.92em; background:var(--surface-2); padding:1px 4px; border-radius:2px}
+strong{font-weight:600}
+
+/* ---- flags ---- */
+.flags{display:grid; gap:14px}
+.flag{
+  border:1px solid var(--alert); border-left-width:4px; background:var(--alert-fill);
+  padding:14px 16px 15px;
+}
+.flag h3{
+  font-family:var(--font-d); font-size:15.5px; font-weight:600; margin:0 0 7px;
+  color:var(--alert); display:flex; gap:9px; align-items:baseline; text-wrap:balance;
+}
+.flag h3 .tag{
+  font-family:var(--font-m); font-size:10px; letter-spacing:.1em; border:1px solid currentColor;
+  padding:1px 5px; flex:none; text-transform:uppercase;
+}
+.flag p{margin:0 0 8px; font-size:14px}
+.flag p:last-child{margin-bottom:0}
+.flag .math{
+  font-family:var(--font-m); font-size:13px; font-variant-numeric:tabular-nums;
+  background:var(--surface); border:1px solid var(--rule); padding:8px 11px; margin:9px 0;
+  display:block; overflow-x:auto; white-space:nowrap; color:var(--ink);
+}
+.flag .verdict{font-weight:600}
+
+/* ---- figures ---- */
+.figs{display:grid; gap:26px}
+@media (min-width:780px){ .figs.two{grid-template-columns:1fr 1fr} }
+figure{margin:0; border:1px solid var(--rule-strong); background:var(--surface); display:flex; flex-direction:column}
+figure svg{display:block; width:100%; height:auto; padding:10px 8px 0}
+figcaption{
+  border-top:1px solid var(--rule); padding:9px 13px 11px; font-size:13px; color:var(--ink-2);
+  margin-top:auto;
+}
+figcaption b{font-family:var(--font-m); font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink); display:block; margin-bottom:3px}
+
+svg .ply{fill:var(--ply-fill); stroke:var(--ink); stroke-width:1.7}
+svg .cav{fill:var(--surface); stroke:var(--ink); stroke-width:1.7}
+svg .unit{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.9}
+svg .blk{fill:var(--ink-2); stroke:none}
+svg .slide{fill:var(--ink); stroke:none}
+svg .ln{fill:none; stroke:var(--ink); stroke-width:1.7}
+svg .thin{fill:none; stroke:var(--rule-strong); stroke-width:1}
+svg .dash{fill:none; stroke:var(--ink-2); stroke-width:1.4; stroke-dasharray:6 4}
+svg .strap{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.5; stroke-dasharray:5 3}
+svg .strapln{fill:none; stroke:var(--amber); stroke-width:2.2}
+svg .ring{fill:none; stroke:var(--ink); stroke-width:2.4}
+svg .hole{fill:var(--paper); stroke:var(--ink); stroke-width:1.7}
+svg text{font-family:var(--font-m); fill:var(--ink-2)}
+svg .t-dim{font-size:12.5px; font-weight:500; font-variant-numeric:tabular-nums}
+svg .t-lab{font-size:12px; fill:var(--ink)}
+svg .t-sm{font-size:10.5px; fill:var(--ink-3)}
+svg .clt{fill:var(--ply); stroke:var(--ink); stroke-width:1.2; opacity:.75}
+svg .brk{fill:none; stroke:var(--ink-2); stroke-width:1.2}
+svg .keydot{fill:var(--ink)}
+svg .keynum{font-size:11.5px; font-weight:600; fill:var(--surface)}
+
+/* ---- legend ---- */
+.legend{margin-top:16px; border:1px solid var(--rule); background:var(--surface)}
+.legend li{display:flex; gap:11px; padding:8px 13px; border-top:1px solid var(--rule); align-items:baseline}
+.legend li:first-child{border-top:0}
+.legend ol{margin:0; padding:0; list-style:none}
+.legend .n{
+  font-family:var(--font-m); font-size:11px; font-weight:600; color:var(--surface);
+  background:var(--ink); width:19px; height:19px; border-radius:50%; flex:none;
+  display:inline-flex; align-items:center; justify-content:center; transform:translateY(2px);
+}
+.legend .d{font-size:13.5px}
+.legend .d b{font-weight:600}
+.legend .d span{color:var(--ink-2)}
+
+/* ---- tables ---- */
+.tw{overflow-x:auto; border:1px solid var(--rule-strong); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:13.5px}
+th,td{padding:8px 12px; text-align:left; border-top:1px solid var(--rule); vertical-align:top}
+thead th{
+  border-top:0; border-bottom:1.5px solid var(--ink); font-family:var(--font-m);
+  font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:500;
+  white-space:nowrap;
+}
+td.num,th.num{font-family:var(--font-m); font-variant-numeric:tabular-nums; white-space:nowrap}
+tbody tr:nth-child(even){background:var(--surface-2)}
+td .note{display:block; color:var(--ink-2); font-size:12.5px; margin-top:2px}
+.ok{color:var(--good); font-weight:600}
+.tight{color:var(--alert); font-weight:600}
+
+/* ---- steps ---- */
+.steps{counter-reset:s; display:grid; gap:0; border:1px solid var(--rule-strong); background:var(--surface)}
+.step{display:grid; grid-template-columns:52px 1fr; border-top:1px solid var(--rule)}
+.step:first-child{border-top:0}
+.step .sn{
+  counter-increment:s; font-family:var(--font-m); font-size:16px; font-weight:600; color:var(--ink-3);
+  padding:14px 0 14px 16px; border-right:1px solid var(--rule); font-variant-numeric:tabular-nums;
+}
+.step .sn::before{content:counter(s,decimal-leading-zero)}
+.step .sb{padding:13px 16px 15px}
+.step h3{font-family:var(--font-d); font-size:15px; font-weight:600; margin:0 0 4px; text-wrap:balance}
+.step p{margin:0; font-size:13.8px; color:var(--ink-2); max-width:70ch}
+.step p + p{margin-top:7px}
+.step.done .sn{color:var(--good)}
+.step .hold.done{color:var(--good); border-color:var(--good)}
+.step .hold{
+  display:inline-block; font-family:var(--font-m); font-size:10.5px; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--alert); border:1px solid var(--alert); padding:1px 5px; margin-bottom:6px;
+}
+
+footer{margin-top:52px; border-top:1px solid var(--rule); padding-top:14px; color:var(--ink-3); font-size:12.5px}
+footer p{max-width:72ch; margin:0 0 6px}
+
+@media print{
+  /* Letter with the same 0.65in margin as the main build plan, so these
+     pages sit flush with it when build_pdf.py appends them — and so the
+     stamped footer at 30pt lands clear of the content. */
+  @page{size:Letter; margin:0.65in}
+  :root{--paper:#fff; --surface:#fff; --surface-2:#f4f4f4}
+  body{font-size:10.5pt}
+  .sheet{max-width:none; padding:0}
+  section{break-inside:auto; margin-top:22px}
+  figure,.flag,.step,.tw{break-inside:avoid}
+  .sec-h{break-after:avoid; page-break-after:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="tb">
+  <div class="tb-head">
+    <h1>Fridge Tray</h1>
+    <p>The ½" ply tray the Rocky 40 rides on, with a 1×3 apron along each long edge. It hangs between the two slides with nothing underneath it, so the slides add width beside the fridge and no height under it.</p>
+  </div>
+  <div class="tb-grid">
+    <div class="tb-cell"><span class="k">Assembly</span><span class="v">Comp. 7 · step 3<small>the tray only · slides come later</small></span></div>
+    <div class="tb-cell"><span class="k">Tray, outer</span><span class="v">19⅜ × 28¾ × 2½"<small>W (across van) × L (fore-aft) × H</small></span></div>
+    <div class="tb-cell"><span class="k">Panel</span><span class="v">17⅞ × 28¾", ½" ply<small>fridge base + ⅛" · measure yours first</small></span></div>
+    <div class="tb-cell"><span class="k">Aprons</span><span class="v">2 × 28¾"<small>1×4 ripped to 2½" · bottoms flush with the panel</small></span></div>
+    <div class="tb-cell"><span class="k">Carries</span><span class="v">Rocky 40<small>40.6 lb empty · ~90 lb loaded</small></span></div>
+    <div class="tb-cell"><span class="k">Stack height</span><span class="v">16.67"<small>⅜ air + ½ tray + 15.79 fridge · rail is 17-1/16"</small></span></div>
+    <div class="tb-cell"><span class="k">Drawn from</span><span class="v">Build plan<small>Comp. 7, Section 8 · params.scad · Panel C as built</small></span></div>
+    <div class="tb-cell"><span class="k">Status</span><span class="v">Glued<small>13 Oct: aprons glued and screwed. D-rings next · slides wait on the anchor board</small></span></div>
+  </div>
+</div>
+
+<section>
+  <div class="sec-h"><span class="n">A</span><h2>Check before you cut</h2><span class="aside">1 check · 1 method · 2 carry-overs</span></div>
+  <p class="lede">The tray is three pieces and a dozen screws. What matters is its width, where the aprons go, and where it ends up in Panel C.</p>
+
+  <div class="flags">
+    <div class="flag">
+      <h3><span class="tag">Check</span> Size the panel to your fridge, not the listing</h3>
+      <p>The plan sizes the panel at 17.72", the Rocky 40's listed width. The aprons' top edges are the fridge's side stops, so at exactly the fridge's width there is no room to set it in.</p>
+      <p class="verdict">Measure the fridge across its base and add ⅛". At the listed width that's 17⅞". The length stays 28¾", the fridge's length over its end handles.</p>
+    </div>
+
+    <div class="flag">
+      <h3><span class="tag">Method</span> The aprons go on the panel's edges, not under it</h3>
+      <p>The fridge has almost no headroom. On the tray it tops out at 16.67", and Panel C's rear rail is 17-1/16" off the floor at deck 18½". That leaves 0.39", and the plan wants at least ¼" for bounce. Anything under the panel, aprons or slides, raises the fridge into the rail. Undermount slides alone would add about 1.2".</p>
+      <p class="verdict">So the aprons are glued and screwed to the panel's long edges, with their bottoms flush with its underside (Fig 3). The panel hangs ⅜" off the floor, and each slide's moving rail screws to the outside face of an apron.</p>
+    </div>
+
+    <div class="flag">
+      <h3><span class="tag">Carry-over</span> The slides have to sit clear of the rear leg</h3>
+      <p>The plan puts the driver-side apron against Panel C's driver rear leg, with the slide in front of the leg and its fixed rail set back 2½" from the tailgate. Closed, that clears. Pulled out, the moving rail runs out the tailgate through the leg's footprint, and the leg stops it.</p>
+      <p class="verdict">Move the whole tray 1" inboard: the driver apron's outer face 2½" from Panel C's driver edge, against the edge of the anchor board's driver strip, so the slide sits on that strip just inboard of the leg (Figs 1 and 2). That leaves about 1-3/16" between the kitchen-side slide and the kitchen unit at floor level. None of this changes what you cut.</p>
+    </div>
+
+    <div class="flag">
+      <h3><span class="tag">Carry-over</span> Don't fit the slides yet</h3>
+      <p>The fixed rails bolt to steel riser angles on the anchor board, the ply comb on the van floor. The comb is already cut, and the gap between its driver strip and its middle strip is 16.85", narrower than the fridge. The tray can't be raised over the strips instead, because Panels A and B can't come up to meet a higher Panel C. So on 13 Oct the comb was cut: the middle strip trimmed to 2⅛" wide, starting 21⅞" from the driver edge, and the crossbar cut down to about 3¼" so it ends ⅛" short of the front wall. The tray hangs between the strips as planned (Fig 2). The board's hardware isn't bought yet.</p>
+      <p class="verdict">Build the tray now and stop before the slides. How high the moving rail sits on the apron depends on how thick the board and risers come out, and the screws need at least 1½" of overlap with the apron.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">B</span><h2>Plan view</h2><span class="aside">looking down · driver rear corner of Panel C · to scale</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 470 560" role="img" aria-label="Plan view of the fridge tray in Panel C's driver rear corner: the rear leg in the corner, the tray's driver apron 2 and 1/2 inches in from the driver edge, the 17 and 7/8 inch panel between two aprons for 19 and 3/8 overall, 28 and 3/4 inches long from the tailgate edge, the fridge's outline on it with the compressor end toward the tailgate, the two slides dashed outboard of the aprons, two D-rings on the inboard apron, and the kitchen unit's edge about 1 and 3/16 inches beyond the kitchen-side slide">
+        <!-- front wall -->
+        <rect class="unit" x="40" y="42.6" width="370" height="6.5"/>
+        <!-- slides, dashed: mount later -->
+        <rect class="dash" x="58.7" y="125.5" width="13" height="312"/>
+        <rect class="dash" x="323.6" y="125.5" width="13" height="312"/>
+        <!-- tray panel + aprons -->
+        <rect class="ply" x="81.4" y="96.25" width="232.4" height="373.75"/>
+        <rect class="clt" x="71.7" y="96.25" width="9.7" height="373.75"/>
+        <rect class="clt" x="313.8" y="96.25" width="9.8" height="373.75"/>
+        <!-- fridge outline -->
+        <rect class="dash" x="82.4" y="101" width="230.4" height="364.4"/>
+        <!-- rear leg -->
+        <rect class="blk" x="40" y="451.3" width="18.7" height="18.7"/>
+        <!-- D-rings on the inboard apron's top edge -->
+        <circle class="ring" cx="318.7" cy="450.5" r="5"/>
+        <circle class="ring" cx="318.7" cy="115.8" r="5"/>
+        <!-- edges -->
+        <path class="thin" d="M40 30 V470"/>
+        <path class="ln" d="M30 470 H420"/>
+        <path class="thin" d="M352.8 134.5 V470" stroke-dasharray="4 3"/>
+
+        <text class="t-sm" x="44" y="34">FRONT WALL</text>
+        <text class="t-sm" x="225" y="486" text-anchor="middle">TAILGATE EDGE OF PANEL C</text>
+        <text class="t-lab" x="197.6" y="262" text-anchor="middle">ROCKY 40</text>
+        <text class="t-sm" x="197.6" y="278" text-anchor="middle">17.72 × 28.03" body</text>
+        <text class="t-sm" x="197.6" y="440" text-anchor="middle">compressor end → tailgate</text>
+        <text class="t-sm" x="362" y="300" transform="rotate(-90 362 300)" text-anchor="middle">kitchen unit's edge</text>
+        <text class="t-sm" x="49" y="300" transform="rotate(-90 49 300)" text-anchor="middle">Panel C driver edge</text>
+
+        <!-- dims -->
+        <path class="thin" d="M81.4 496 V526 M313.8 496 V526"/>
+        <path class="thin" d="M81.4 521 H313.8"/>
+        <text class="t-dim" x="197.6" y="515" text-anchor="middle">17⅞" panel</text>
+        <path class="thin" d="M71.7 496 V550 M323.6 496 V550"/>
+        <path class="thin" d="M71.7 545 H323.6"/>
+        <text class="t-dim" x="197.6" y="539" text-anchor="middle">19⅜" overall</text>
+        <path class="thin" d="M40 70 H71.7 M71.7 66 V96"/>
+        <text class="t-dim" x="76" y="74">2½" from the driver edge</text>
+        <path class="thin" d="M327 96.25 H448 M424 470 H448"/>
+        <path class="thin" d="M440 96.25 V470"/>
+        <text class="t-dim" x="456" y="283" text-anchor="middle" transform="rotate(-90 456 283)">28¾" long</text>
+
+        <!-- keys -->
+        <g>
+          <path class="thin" d="M240 120 L262 140"/><circle class="keydot" cx="268" cy="146" r="9.5"/><text class="keynum" x="268" y="150" text-anchor="middle">1</text>
+          <path class="thin" d="M76.5 200 H100"/><circle class="keydot" cx="108" cy="200" r="9.5"/><text class="keynum" x="108" y="204" text-anchor="middle">2</text>
+          <path class="thin" d="M65 160 H100" /><circle class="keydot" cx="108" cy="160" r="9.5"/><text class="keynum" x="108" y="164" text-anchor="middle">3</text>
+          <path class="thin" d="M313 450.5 L292 432"/><circle class="keydot" cx="286" cy="426" r="9.5"/><text class="keynum" x="286" y="430" text-anchor="middle">4</text>
+          <path class="thin" d="M58.7 460 L84 446"/><circle class="keydot" cx="92" cy="442" r="9.5"/><text class="keynum" x="92" y="446" text-anchor="middle">5</text>
+        </g>
+      </svg>
+      <figcaption><b>Fig 1 — plan, closed</b>The tray sits with its end at Panel C's tailgate edge and its driver apron 2½" in, so the driver slide (dashed) is just inboard of the rear leg and slides out past it. The slides and D-rings go on later. Only the D-ring spots are marked now.</figcaption>
+    </figure>
+  </div>
+
+  <div class="legend">
+    <ol>
+      <li><span class="n">1</span><span class="d"><b>Tray panel — 17⅞ × 28¾", ½" ply.</b> <span>The fridge's base width plus ⅛". Face grain can run either way: the aprons carry the long span.</span></span></li>
+      <li><span class="n">2</span><span class="d"><b>Side apron ×2 — 2½ × 28¾"</b>, a 1×4 ripped. <span>Glued and screwed to the panel's long edges, bottoms flush (Fig 3). Its top edge stands 2" above the panel and stops the fridge sliding sideways.</span></span></li>
+      <li><span class="n">3</span><span class="d"><b>VADANIA 24" slide ×2</b>, on hand <span>(dashed, fit later). Each stands on edge outside an apron: the fixed rail on a riser angle on the anchor board, the moving rail screwed to the apron.</span></span></li>
+      <li><span class="n">4</span><span class="d"><b>Screw-eye D-ring ×2</b>, to buy. <span>In the inboard apron's top edge, one under each of the fridge's end handles. A cam strap runs from one, through both handles and over the lid, to the other.</span></span></li>
+      <li><span class="n">5</span><span class="d"><b>Panel C's driver rear leg</b> <span>(built). Stands in the corner, 1-7/16" square. The driver slide sits inboard of it so the tray can pull out past it.</span></span></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">C</span><h2>Section at the tailgate</h2><span class="aside">looking forward · to scale</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 520 400" role="img" aria-label="Section across Panel C at the tailgate end, looking forward: the floor, the rear leg at the driver corner, the driver slide just inboard of it on the anchor board's driver strip, the tray hanging 3/8 inch off the floor between two aprons and between the driver strip and the ripped middle strip, the fridge 15.79 inches tall on it reaching 16.67 inches, the rear end rail's underside at 17 and 1/16 inches leaving 0.39 inch clear, the kitchen-side slide, and the kitchen unit's edge beyond it">
+        <!-- rear end rail across -->
+        <rect class="ply" x="90" y="34" width="420" height="23"/>
+        <!-- rear leg + foot -->
+        <rect class="blk" x="90" y="57" width="23" height="257"/>
+        <rect class="slide" x="97" y="314" width="9" height="16"/>
+        <!-- anchor board strips: driver 0-2.5, middle ripped to 21.875-24 -->
+        <rect class="dash" x="90" y="316.4" width="40" height="13.6"/>
+        <rect class="dash" x="440" y="316.4" width="34" height="13.6"/>
+        <!-- slides, dashed -->
+        <rect class="dash" x="113" y="264.4" width="16" height="48"/>
+        <rect class="dash" x="439" y="264.4" width="16" height="48"/>
+        <!-- fridge -->
+        <rect class="unit" x="142.2" y="63.4" width="283.6" height="252.6"/>
+        <!-- tray + aprons -->
+        <rect class="ply" x="141" y="316" width="286" height="8"/>
+        <rect class="clt" x="129" y="284" width="12" height="40"/>
+        <rect class="clt" x="427" y="284" width="12" height="40"/>
+        <!-- kitchen unit edge -->
+        <rect class="cav" x="475" y="145.2" width="35" height="184.8"/>
+        <!-- floor -->
+        <path class="ln" d="M20 330 H510"/>
+
+        <text class="t-sm" x="300" y="50" text-anchor="middle">PANEL C REAR END RAIL</text>
+        <text class="t-lab" x="284" y="180" text-anchor="middle">ROCKY 40</text>
+        <text class="t-sm" x="284" y="196" text-anchor="middle">15.79" tall</text>
+        <text class="t-sm" x="492" y="240" transform="rotate(-90 492 240)" text-anchor="middle">kitchen unit</text>
+        <text class="t-sm" x="284" y="300" text-anchor="middle">½" panel on ⅜" of air · 2" apron lip</text>
+
+        <!-- vertical dims -->
+        <path class="thin" d="M56 63.4 H138 M56 330 H86"/>
+        <path class="thin" d="M64 63.4 V330"/>
+        <text class="t-dim" x="58" y="200" text-anchor="middle" transform="rotate(-90 58 200)">16.67" fridge top</text>
+        <path class="thin" d="M24 57 H86"/>
+        <path class="thin" d="M32 57 V330"/>
+        <text class="t-dim" x="26" y="200" text-anchor="middle" transform="rotate(-90 26 200)">17-1/16" rail underside</text>
+        <text class="t-sm" x="150" y="76">0.39" clear · needs ¼"</text>
+
+        <!-- horizontal dims -->
+        <path class="thin" d="M90 334 V372 M129 334 V372"/>
+        <path class="thin" d="M90 366 H129"/>
+        <text class="t-dim" x="92" y="388">2½"</text>
+        <path class="thin" d="M439 334 V372"/>
+        <path class="thin" d="M129 358 H439"/>
+        <text class="t-dim" x="284" y="352" text-anchor="middle">19⅜" tray overall</text>
+        <path class="thin" d="M455 334 V372 M475 334 V372"/>
+        <path class="thin" d="M455 366 H475"/>
+        <text class="t-dim" x="465" y="388" text-anchor="middle">1-3/16"</text>
+      </svg>
+      <figcaption><b>Fig 2 — section at the tailgate, closed</b>The fridge's height is set entirely by the tray: ⅜" of air, the ½" panel and the 15.79" fridge come to 16.67", under a rail at 17-1/16" with the deck at 18½". Raising Panel C in its 17–17¾" range adds clearance. The slides (dashed) stand beside the aprons and add no height. The low dashed blocks are the anchor board's driver strip and its middle strip, ripped to 2⅛". They start 2" in from the tailgate, behind this cut.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">D</span><h2>Details</h2><span class="aside">not to the same scale</span></div>
+  <div class="figs two">
+    <figure>
+      <svg viewBox="0 0 470 300" role="img" aria-label="Enlarged section through one apron: the 3/4 by 2 and 1/2 inch apron beside the 1/2 inch panel with their bottoms flush, a 1 and 1/4 inch screw through the apron's outer face into the panel's edge 1/4 inch up, glue on the joint, the apron standing 2 inches above the panel, the fridge's base just inside, and the slide's moving rail dashed against the apron's outer face">
+        <!-- slide moving rail, dashed -->
+        <rect class="dash" x="75" y="26.5" width="45" height="180"/>
+        <!-- apron -->
+        <rect class="clt" x="120" y="100" width="45" height="150"/>
+        <!-- panel -->
+        <rect class="ply" x="165" y="220" width="180" height="30"/>
+        <!-- fridge base -->
+        <rect class="unit" x="172" y="40" width="173" height="180"/>
+        <!-- screw -->
+        <path class="ln" d="M122 235 H195"/>
+        <path class="slide" d="M120 229 L126 235 L120 241 Z"/>
+        <!-- floor -->
+        <path class="thin" d="M40 272.5 H360"/>
+
+        <text class="t-sm" x="98" y="18" text-anchor="middle">slide (later)</text>
+        <text class="t-lab" x="258" y="130" text-anchor="middle">FRIDGE</text>
+        <text class="t-sm" x="255" y="266" text-anchor="middle">⅜" air to the floor</text>
+        <text class="t-sm" x="258" y="200" text-anchor="middle">~1/16" play to the apron</text>
+
+        <path class="thin" d="M165 100 H370 M345 220 H370"/>
+        <path class="thin" d="M362 100 V220"/>
+        <text class="t-dim" x="376" y="164">2" lip</text>
+        <path class="thin" d="M345 250 H440 M370 100 H440"/>
+        <path class="thin" d="M432 100 V250"/>
+        <text class="t-dim" x="438" y="180">2½"</text>
+        <path class="thin" d="M345 220 H392"/>
+        <text class="t-dim" x="352" y="242">½"</text>
+        <path class="thin" d="M120 255 V266 M165 255 V266"/>
+        <path class="thin" d="M120 262 H165"/>
+        <text class="t-dim" x="142" y="284" text-anchor="middle">¾"</text>
+
+        <path class="thin" d="M118 235 L96 248"/>
+        <text class="t-sm" x="92" y="256" text-anchor="end">#8 × 1¼"</text>
+      </svg>
+      <figcaption><b>Fig 3 — apron joint</b>Glue the full edge, then drive #8 × 1¼" flat heads through the apron's face into the panel's edge, ¼" up from the bottom. Pilot 3/32" into the ply edge and keep the bit centered on it. Countersink each head flush, because the slide's moving rail lies flat against this face.</figcaption>
+    </figure>
+
+    <figure>
+      <svg viewBox="0 0 470 170" role="img" aria-label="Elevation of one apron, 28 and 3/4 inches long: six screws a quarter inch up from the bottom edge, at 1 and 1/2 inches from each end and about 5 inches apart between, the panel's edge dashed along the bottom half inch, and on the inboard apron a D-ring position in the top edge under each of the fridge's end handles">
+        <rect class="clt" x="30" y="60" width="402.5" height="35"/>
+        <rect class="dash" x="30" y="88" width="402.5" height="7"/>
+        <g class="hole">
+          <circle cx="51" cy="91.5" r="3"/><circle cx="123" cy="91.5" r="3"/><circle cx="194.5" cy="91.5" r="3"/>
+          <circle cx="266.5" cy="91.5" r="3"/><circle cx="338.5" cy="91.5" r="3"/><circle cx="411.5" cy="91.5" r="3"/>
+        </g>
+        <circle class="ring" cx="51" cy="56" r="5"/>
+        <circle class="ring" cx="411.5" cy="56" r="5"/>
+
+        <text class="t-sm" x="30" y="40">TAILGATE END</text>
+        <text class="t-sm" x="432.5" y="40" text-anchor="end">FRONT-WALL END</text>
+        <text class="t-sm" x="432.5" y="162" text-anchor="end">panel edge dashed · screws ¼" up</text>
+
+        <path class="thin" d="M30 100 V130 M432.5 100 V130"/>
+        <path class="thin" d="M30 124 H432.5"/>
+        <text class="t-dim" x="231" y="118" text-anchor="middle">28¾"</text>
+        <path class="thin" d="M51 100 V150 M123 100 V150"/>
+        <path class="thin" d="M30 145 H123"/>
+        <text class="t-dim" x="30" y="162">1½", then ~5⅛" apart</text>
+      </svg>
+      <figcaption><b>Fig 4 — apron, outer face</b>Six screws per apron. The two D-ring circles are for the inboard apron only, and are nominal: mark them from the real handles with the fridge on the tray.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">E</span><h2>Cut list</h2><span class="aside">1 panel · 2 aprons</span></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Piece</th><th class="num">Qty</th><th class="num">Size</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Tray panel, ½" ply</td><td class="num">1</td><td class="num">17⅞ × 28¾"</td><td>From the ½" sheet's leftover. <span class="note">Width = the fridge's measured base + ⅛".</span></td></tr>
+        <tr><td>Side apron, 1×4</td><td class="num">2</td><td class="num">2½ × 28¾"</td><td>Ripped from one 1×4. <span class="note">57½" of board plus kerf. The bed's 1×4s cover it if you buy seven.</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">F</span><h2>Hardware</h2><span class="aside">tray only</span></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Item</th><th class="num">Qty</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Everbilt #8 × 1¼" flat head</td><td class="num">12</td><td>6 per apron, into the panel's edges (Fig 4). <span class="ok">On hand.</span></td></tr>
+        <tr><td>Wood glue</td><td class="num">—</td><td>Both apron joints, full length. <span class="ok">On hand.</span></td></tr>
+        <tr><td>Screw-eye D-ring + low-profile cam strap</td><td class="num">2 + 1</td><td>Fridge hold-down: eyes in the inboard apron's top edge, strap through the end handles. <span class="tight">To buy</span>, about $10. On the shopping list.</td></tr>
+        <tr><td>VADANIA 24" locking slide pair</td><td class="num">1</td><td>Later, with the anchor board. <span class="ok">On hand.</span></td></tr>
+        <tr><td>Screw-mount cord clips</td><td class="num">3</td><td>Later: the fridge's DC line slack, clipped to the driver-side fixed rail, never to the tray. <span class="ok">On hand.</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">G</span><h2>Build order</h2><span class="aside">about an hour, plus glue time</span></div>
+  <div class="steps">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
+      <h3>Measure the fridge</h3>
+      <p>Across its base, along its length over the handles, and where each end handle sits. The panel is the base width plus ⅛".</p>
+    </div></div>
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
+      <h3>Cut the panel</h3>
+      <p>17⅞ × 28¾" (or your width) from the ½" leftover. Check it's square: the diagonals should match, about 33⅞" at 17⅞".</p>
+    </div></div>
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
+      <h3>Rip and cut the two aprons</h3>
+      <p>Rip a 1×4 to 2½", then crosscut two pieces at 28¾", the same length as the panel. Sight down each one and put any bow facing up, so the bow sits away from the floor.</p>
+    </div></div>
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
+      <h3>Dry-fit on a flat floor</h3>
+      <p>Panel flat on the floor, an apron against each long edge, ends flush. The floor makes the bottoms flush. Set the fridge in: it should drop between the aprons with a little play each side.</p>
+    </div></div>
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
+      <h3>Glue and screw the aprons</h3>
+      <p>Glue each edge, clamp the apron on, and check the bottoms are still flush. Pilot 3/32" into the ply edge, ¼" up from the bottom, at 1½" from each end and five more evenly between (about 5⅛" apart). Countersink and drive 6 × 1¼" per side, heads flush (Fig 3).</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Clean up</h3>
+      <p>Wipe off the squeeze-out on the inside corners before it sets, so the fridge sits flat on the panel. When the glue has cured, ease the edges with sandpaper. A coat of finish is optional.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Mark and fit the D-rings</h3>
+      <p>Set the fridge on, compressor end toward the tailgate end of the tray. Mark the inboard apron's top edge under each end handle, pilot, and turn in the two screw eyes.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <span class="hold">Stop here</span>
+      <h3>Slides wait for the anchor board</h3>
+      <p>The moving rails screw to the aprons' outer faces, at a height set by the anchor board and its risers, with at least 1½" of each rail on the apron. The anchor board gets its own sheet first.</p>
+    </div></div>
+  </div>
+</section>
+
+<footer>
+  <p>Geometry from <code>params.scad</code> (<code>fridge_ext_*</code>, <code>fridge_tray_t</code>, <code>fridge_tray_gap</code>, <code>fridge_apron_t</code>, <code>fridge_rail_t</code>, <code>fridge_riser_t</code>, <code>fridge_stack_top</code>) and the Panel C Frame sheet as built: rear legs 1-7/16" square at the true corners, deck 18½", rear rail underside 17-1/16".</p>
+  <p>Where the model and this sheet differ: <code>params.scad</code> sizes the panel at the fridge's 17.72" and puts the driver apron against the rear leg (<code>x_fridge_module</code>). This sheet adds ⅛" to the width and moves the tray 1-1/16" inboard so the driver slide clears the leg at full extension and the tray hangs between the cut comb's strips. The model's open issue about the apron's ¾" thickness is settled here the way the plan's section V2 draws it: rail outside the apron, apron against the panel.</p>
+</footer>
+
+</div>
+</body>
+</html>

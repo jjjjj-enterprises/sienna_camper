@@ -35,7 +35,7 @@ stroke = 0.3; // outline thickness, inches
 // vehicle (they used to each draw their own silhouette).
 //
 // van_plan.scad's canonical frame is X = fore-aft from the REAR
-// bumper, Y = lateral from the centreline. This drawing is the
+// bumper, Y = lateral from the centerline. This drawing is the
 // transpose of that: X lateral, Y = fore-aft from the CLOSED HATCH.
 // So the geometry is rotated 90 and mirrored (a transpose, not a
 // rotation), then shifted by the bumper-to-hatch offset. Mirroring

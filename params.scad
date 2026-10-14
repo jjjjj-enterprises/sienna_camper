@@ -60,9 +60,9 @@ usable_floor_width = van_interior_width - 2 * vent_intrusion_width; // 42 — fl
 // 20.5" of height by the time you are out at the rounded corner
 // (V6b), so a module that only just clears 37" in the middle of the
 // gate will foul if it is carried in flat against one side. Carry
-// the 18.5"-tall boxes through the centre of the opening.
+// the 18.5"-tall boxes through the center of the opening.
 gate_opening_width  = 50; // MEASURED V6a (Aug 2026) — narrowest point of the liftgate opening
-gate_opening_height = 37; // MEASURED V6b (Aug 2026) — clear height at the centre; only 20.5" out where the corner radius starts
+gate_opening_height = 37; // MEASURED V6b (Aug 2026) — clear height at the center; only 20.5" out where the corner radius starts
 
 /* [Rear pantry — PREFAB drawer cluster (owner, July 2026). The old
    plywood pantry is GONE, replaced by BOUGHT storage: a 2-wide x
@@ -179,13 +179,13 @@ mattress_total_thickness = 4; // HEST Dually Long thickness (DIY fallback: 4in b
 
 // Component 2: the slatted bed platform — THREE pieces since Aug 2026,
 // but only TWO of them loose: Panel A's full-width section is screwed
-// down, and Panel B's two centreline halves lift out (see the split
+// down, and Panel B's two centerline halves lift out (see the split
 // block below). Stack order, bottom to top: the panel boxes sit on the
 // van floor on their leveling feet -> the flush platform rests DIRECTLY
 // on Panel A and B's top rails -> mattress on top. Leveling happens
 // down at the leg feet (see the leveling section below), not between
 // layers. Every piece bears on the boxes' own rails (plus, for Panel
-// B's two halves, a new centre bearer) exactly as the old one-piece
+// B's two halves, a new center bearer) exactly as the old one-piece
 // platform did — nothing is carried by hardware.
 //
 // The platform spans Panel A + B ONLY and ENDS at the B/C seam:
@@ -200,7 +200,7 @@ mattress_total_thickness = 4; // HEST Dually Long thickness (DIY fallback: 4in b
 // CROSSCUT ONLY — a 1x4 is already 3/4 x 3-1/2, which is the slat spec,
 // so there is no ripping anywhere in this component. Five 42in slats
 // (Panel A) + ten 17.5in slats (Panel B's halves) + six 29in side rails
-// = 7 boards, plus 52in of 2x2 for the centre bearer. Bought queen slat
+// = 7 boards, plus 52in of 2x2 for the center bearer. Bought queen slat
 // sets are deliberately NOT used: they come stapled to fabric webbing
 // or riveted to metal side frames, and neither survives being cut down
 // — you destroy the kit to salvage boards you could have bought
@@ -264,7 +264,7 @@ bed_frame_thickness = bed_slat_t; // 0.75 — one flush plane, rests directly on
 //     spans Panel A's 29in length, and the DELTA drawer (25in fore-aft)
 //     comes out through it.
 //   * Panel B's TWO HALVES — 29 x 24.5in each, split on the
-//     CENTRELINE, each lifting out on its own. Owner's call, Aug 2026.
+//     CENTERLINE, each lifting out on its own. Owner's call, Aug 2026.
 //
 // Why halves rather than one hinged hatch (the design this replaces):
 //   1. 24.5in wide PASSES THROUGH the 35in side door. A 49in-wide leaf
@@ -276,9 +276,9 @@ bed_frame_thickness = bed_slat_t; // 0.75 — one flush plane, rests directly on
 //   3. No hinge, no lid stay, and no opening-angle limit. A hinged
 //      29in leaf could only reach ~67deg before hitting the headliner
 //      (there is just 23.5in above the deck), so it needed a prop.
-//   4. The centre bearer the halves land on (below) also HALVES the
+//   4. The center bearer the halves land on (below) also HALVES the
 //      bed's unsupported span over Panel B, from 46in to ~22in. Panel B
-//      had no centre divider — Panel A always did — so this is the
+//      had no center divider — Panel A always did — so this is the
 //      stiffest the sleeping surface has been.
 // Cost of the swap: two loose parts to set down instead of one captive
 // lid, and ~+1.7lb over the hinged version.
@@ -291,7 +291,7 @@ bed_sect_a_len   = panel_a_length;        // 29 — Panel A's one-piece section
 bed_bhalf_len    = panel_b_length;        // 29 — each Panel B half, fore-aft
 bed_bhalf_width  = bed_frame_width / 2;   // 24.5 — each half, across the van; fits the 35in side door
 bed_bhalf_slat_l = bed_bhalf_width - 2 * bed_rail_width; // 17.5 — short slats, between each half's own rails
-// Centre bearer: the halves' inner rails land on this, so it has to be
+// Center bearer: the halves' inner rails land on this, so it has to be
 // wider than a single 2x2 or each rail only gets 3/4in of bearing. Two
 // 2x2s side by side (or one 2x4 laid flat) gives 3in — 1.5in each,
 // matching what the outer rails get from Panel B's long rails. Its top
@@ -338,10 +338,10 @@ assert(bed_bhalf_width <= side_door_opening_width,
 // and adjust if 17in doesn't clear it (Section 1/2).
 leg_height     = 17;    // fridge_stack_top (16.67 = 0.5in tray gap + 3/8in tray + 15.79in fridge) + 0.33in running clearance under the tailgate end rail — see the fridge-slide SIDE-MOUNT stack + assert below
 frame_rail_sz  = 1.5;   // 2x2 pine actual dimension (Section 3)
-// the bed's centre bearer is spelled out as literals up in the bed
+// the bed's center bearer is spelled out as literals up in the bed
 // section (it is assigned before this line) — keep the two in step
 assert(bed_bearer_w == 2 * frame_rail_sz && bed_bearer_len == panel_b_length - 2 * frame_rail_sz,
-       "Bed centre-bearer literals have drifted from frame_rail_sz — fix the bed section");
+       "Bed center-bearer literals have drifted from frame_rail_sz — fix the bed section");
 assert(spare_dia <= panel_width - 2 * frame_rail_sz && spare_w <= panel_b_length - 2 * frame_rail_sz,
        "Spare can't pass Panel B's top opening even with the drop-in bearer out");
 leg_inset      = vent_intrusion_width; // legs sit inset this much from the deck's outer edge so they land clear of the floor-level vent intrusion
@@ -642,16 +642,16 @@ pcwall_grommet_z  = 4;   // fridge DC line — 1.0in of ply above the bottom rai
 //  - a LOW louver in the utility-cabinet door gives the exhaust fan's
 //    warm air a direct path OUT low toward the tailgate instead of
 //    only bleeding around the door edges.
-// Three 3in round snap-in soffit vents in a row, centred on the fan's
+// Three 3in round snap-in soffit vents in a row, centered on the fan's
 // line, below the fan hole. The 4-pack on hand sets the hole size; three
 // give ~21 sq in of passive area, more than the 120mm fan's own aperture.
 intake_vent_n     = 3;
 intake_vent_dia   = 3;     // hole size of the snap-in soffit vent (check the package)
-intake_vent_pitch = 3.75;  // centre to centre: 3/4in of ply between holes
-intake_vent_x = 11.11; // centre of the row = the fan's centre (cross-checked by assert below).
+intake_vent_pitch = 3.75;  // center to center: 3/4in of ply between holes
+intake_vent_x = 11.11; // center of the row = the fan's center (cross-checked by assert below).
                        // A literal, not derived, because x_fridge_module is assigned
                        // ~450 lines below and OpenSCAD evaluates in order.
-intake_vent_z = 4.125; // hole centres, up from the wall's bottom edge
+intake_vent_z = 4.125; // hole centers, up from the wall's bottom edge
 // The row's bounding box, so the clearance asserts below treat it as one opening.
 intake_vent_w = (intake_vent_n - 1) * intake_vent_pitch + intake_vent_dia;  // 10.5
 intake_vent_h = intake_vent_dia;
@@ -802,7 +802,7 @@ aboard_strip_len  = 27; // the three comb strips; the bridge is the last aboard_
 // the rail just forward of the cap. This is the one part of the joint
 // still to be chosen by whoever builds it.
 rail_end_y      = 42;    // MEASURED F8a (Aug 2026) — hatch -> rail rear ends
-rail_spacing    = 17.5;  // MEASURED F8b (Aug 2026) — rail centre to rail centre
+rail_spacing    = 17.5;  // MEASURED F8b (Aug 2026) — rail center to rail center
 rail_slot_w     = 0.75;  // MEASURED — the track slot at the surface (unused by the
                          // final design; kept because it rules the T-bolt option in/out)
 rail_chan_d     = 1.0;   // MEASURED — internal channel depth
@@ -810,8 +810,8 @@ rail_chan_d_min = 0.75;  // MEASURED — bosses rise ~0.25in off the bottom in p
 rail_top_z      = 0.5;   // MEASURED — the METAL track top above the floor pan
 rail_housing_z  = 1.0;   // MEASURED — top of the plastic housing over the rail
 rail_cap_hole_d = 0.25;  // MEASURED — the round hole in the steel saddle cap
-rail_cap_hole_z = 1.0;   // MEASURED — its centre above the floor pan, and the cap's top face
-rail_cap_hole_x = 0;     // MEASURED — centred on the rail, laterally
+rail_cap_hole_z = 1.0;   // MEASURED — its center above the floor pan, and the cap's top face
+rail_cap_hole_x = 0;     // MEASURED — centered on the rail, laterally
 rail_cap_t_est  = 0.08;  // ASSUMED, not measured — the cap's sheet thickness. This is the
                          // one number the joint's capacity now hinges on; go measure it.
 tongue_t        = 0.1875; // 3/16in flat bar
@@ -1119,8 +1119,8 @@ x_fridge_module = -panel_width/2 + frame_rail_sz + fridge_module_width/2;
 x_fridge        = x_fridge_module; // fridge cavity center = module center now (no separate control-panel column)
 // Cluster face on the front wall, in wall coordinates (x from the DRIVER edge,
 // z from the van floor — same datum as the fan/louver/grommet).
-// RESHAPED Aug 2 2026, once the owner confirmed the SPARE IS CENTRED in Panel
-// B. That fixes what is in front of this wall: a 28.5in spare centred in 46in
+// RESHAPED Aug 2 2026, once the owner confirmed the SPARE IS CENTERED in Panel
+// B. That fixes what is in front of this wall: a 28.5in spare centered in 46in
 // spans x 8.75-37.25, and the two 16.9in totes stacked on it span 6.1-39.9.
 // The first attempt put the cluster at x 30-40, squarely inside both. What is
 // actually clear, full height, is a ~6in column at each END of the wall — so
@@ -1133,7 +1133,7 @@ cluster_h   = 11;    // face height
 cluster_x   = 40.4;  // driver edge -> left edge: clear of the totes' 39.9
 cluster_z   = 3.5;   // floor -> bottom edge, above the bottom rail's 2.5
 cluster_proj = control_panel_across; // how far it stands off the wall into Panel B
-x_control_panel = -panel_width/2 + cluster_x + cluster_w/2; // panel-centred X
+x_control_panel = -panel_width/2 + cluster_x + cluster_w/2; // panel-centered X
 
 // Deck width/length aliases (deck can be wider than usable_floor_width
 // since it's up on legs, clear of the floor-level vent intrusion —
@@ -1239,7 +1239,7 @@ assert(cluster_x + cluster_w <= panel_width - 0.5 &&
        cluster_z + cluster_h <= pcwall_h &&
        cluster_z >= bottom_rail_z + frame_rail_sz,
        "The control cluster runs off the front wall's edge, or into the bottom rail");
-// What sits against this wall on the Panel-B side. Both CENTRED (spare
+// What sits against this wall on the Panel-B side. Both CENTERED (spare
 // confirmed by the owner Aug 2 2026; the totes restack on it), so each blocks a
 // band of the wall from the floor up to its own top and the cluster has to miss
 // both. This is the check that caught the first placement.

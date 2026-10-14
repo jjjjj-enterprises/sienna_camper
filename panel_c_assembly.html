@@ -181,6 +181,8 @@ td .note{display:block; color:var(--ink-2); font-size:12.5px; margin-top:2px}
 .step h3{font-family:var(--font-d); font-size:15px; font-weight:600; margin:0 0 4px; text-wrap:balance}
 .step p{margin:0; font-size:13.8px; color:var(--ink-2); max-width:70ch}
 .step p + p{margin-top:7px}
+.step.done .sn{color:var(--good)}
+.step .hold.done{color:var(--good); border-color:var(--good)}
 .step .hold{
   display:inline-block; font-family:var(--font-m); font-size:10.5px; letter-spacing:.09em;
   text-transform:uppercase; color:var(--alert); border:1px solid var(--alert); padding:1px 5px; margin-bottom:6px;
@@ -220,7 +222,7 @@ footer p{max-width:72ch; margin:0 0 6px}
     <div class="tb-cell"><span class="k">Stock</span><span class="v">1-7/16" 2×2<small>measured · sets every between-length</small></span></div>
     <div class="tb-cell"><span class="k">Screws</span><span class="v">26 × 2½" + ~50 × 1¼"<small>SPAX #8 Torx · Everbilt #8 flat head</small></span></div>
     <div class="tb-cell"><span class="k">Drawn from</span><span class="v">Build plan<small>Section 3, Comp. 4 · params.scad · A/B as built</small></span></div>
-    <div class="tb-cell"><span class="k">Status</span><span class="v">Ready to cut<small>check the vents' hole size first</small></span></div>
+    <div class="tb-cell"><span class="k">Status</span><span class="v">Built to the deck<small>13 Oct: frame, wall, cleats, deck. Height and pantry mat next</small></span></div>
   </div>
 </div>
 
@@ -240,7 +242,8 @@ footer p{max-width:72ch; margin:0 0 6px}
     <div class="flag">
       <h3><span class="tag">Check</span> The low intake is three 3" round vents</h3>
       <p>The vents on hand are a 4-pack of 3" round snap-in soffit vents, so the passive intake under the fan is three 3" holes rather than one 9 × 2" slot.</p>
-      <p class="verdict">Cut three 3" holes in a row (Fig 3): centres 7⅜", 11⅛" and 14⅞" from the driver edge, 4⅛" up from the wall's bottom edge. That's about 21 sq in open, more than the slot's 18 and the fan's 17.7, with ¾" of ply between holes. Check the hole size on the vent's package first, and that its clips hold in ½" ply. If they don't, glue the vents in.</p>
+      <p class="verdict">Cut three 3" holes in a row (Fig 3): centers 7⅜", 11⅛" and 14⅞" from the driver edge, 4⅛" up from the wall's bottom edge. That's about 21 sq in open, more than the slot's 18 and the fan's 17.7, with ¾" of ply between holes. Check the hole size on the vent's package first, and that its clips hold in ½" ply. If they don't, glue the vents in.</p>
+      <p class="ok">Done: the three holes are cut and the wall is hung.</p>
     </div>
 
     <div class="flag">
@@ -253,6 +256,7 @@ footer p{max-width:72ch; margin:0 0 6px}
       <h3><span class="tag">Carry-over</span> Match the deck to the bed by raising A and B, never by lowering C</h3>
       <p>Panel C's deck has to be flush with the bed platform on A and B, which is A/B's rail top plus ¾". As built, A's rail top is about 17½", so its platform lands at 18¼", ¼" under Panel C's 18½".</p>
       <p>Don't close that by lowering Panel C. The fridge stack is 16.67" tall and slides out under the rear end rail, whose underside is 17" with the feet at 1". Lower Panel C ¼" and there's under ⅛" left. <strong>Turn A's and B's feet out ¼" instead.</strong> Also, the rear legs are butted under the rail, so with all four feet at 1" the rear rail sits 1/16" lower than the front. Turn the rear feet out 1/16" more than the front.</p>
+      <p><b>As built, the rear rail's underside sets anywhere from 17" to 17¾" on the feet.</b> The fridge slides under it bare today, but it's only 15.79" tall on the floor. On its slide tray (not built yet) it tops out at 16.67", and it needs ¼" of running clearance for bounce. That still leaves 0.33" at 17" and 1.08" at 17¾", so the whole range works. The slides bolt to the anchor board, not to Panel C, so turning C's feet moves only the rail above the fridge. Use the range to meet A and B, but <strong>never set it below 17"</strong>, and measure the finished tray before you settle on C's setting.</p>
     </div>
 
     <div class="flag">
@@ -519,14 +523,14 @@ footer p{max-width:72ch; margin:0 0 6px}
     <table>
       <thead><tr><th>Piece</th><th class="num">Qty</th><th class="num">Length</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td>End rail</td><td class="num">2</td><td class="num">46"</td><td>Cut first. Everything else is measured off these.</td></tr>
-        <tr><td>Side rail</td><td class="num">2</td><td class="num">32⅞"</td><td>Design figure. <span class="note">Cut to the gap between the end rails, standing at 35¾" outer.</span></td></tr>
-        <tr><td>Front bottom rail</td><td class="num">1</td><td class="num">46"</td><td>Under the front top rail, across the legs' outer faces.</td></tr>
-        <tr><td>Back block</td><td class="num">3</td><td class="num">6"</td><td>From 2×2 offcuts, <span class="note">not a new board.</span></td></tr>
+        <tr><td>End rail</td><td class="num">2</td><td class="num">46"</td><td class="ok">Done.</td></tr>
+        <tr><td>Side rail</td><td class="num">2</td><td class="num">32⅞"</td><td class="ok">Done. <span class="note">Cut to the gap between the end rails, standing at 35¾" outer.</span></td></tr>
+        <tr><td>Front bottom rail</td><td class="num">1</td><td class="num">46"</td><td class="ok">Done. <span class="note">Under the front top rail, across the legs' outer faces.</span></td></tr>
+        <tr><td>Back block</td><td class="num">3</td><td class="num">6"</td><td class="ok">Done. <span class="note">From 2×2 offcuts.</span></td></tr>
         <tr><td>Legs</td><td class="num">4</td><td class="num">17½" / 16"</td><td class="ok">Done: cut, bored, feet in.</td></tr>
-        <tr><td>Deck, ¾" birch</td><td class="num">1</td><td class="num">33 × 43"</td><td class="ok">Cut. <span class="note">Trim to the measured opening less 1/16" (about 32¾ × 43"), then notch.</span></td></tr>
-        <tr><td>Front wall, ½" ply</td><td class="num">1</td><td class="num">46 × 17"</td><td class="ok">Cut. <span class="note">Trim to 46 × 17" if it came ⅛" oversize. Holes per Fig 3.</span></td></tr>
-        <tr><td>Deck cleats, ¾ × ¾"</td><td class="num">4</td><td class="num">36¼ · 38⅞ · 28⅝ × 2</td><td class="ok">Ripped. <span class="note">Trim: front and rear from the two 40", sides from the two 33".</span></td></tr>
+        <tr><td>Deck, ¾" birch</td><td class="num">1</td><td class="num">33 × 43"</td><td class="ok">Done: trimmed, notched, screwed down.</td></tr>
+        <tr><td>Front wall, ½" ply</td><td class="num">1</td><td class="num">46 × 17"</td><td class="ok">Done: holes cut, hung.</td></tr>
+        <tr><td>Deck cleats, ¾ × ¾"</td><td class="num">4</td><td class="num">36¼ · 38⅞ · 28⅝ × 2</td><td class="ok">Done: fitted.</td></tr>
       </tbody>
     </table>
   </div>
@@ -565,45 +569,54 @@ footer p{max-width:72ch; margin:0 0 6px}
 <section>
   <div class="sec-h"><span class="n">H</span><h2>Build order</h2><span class="aside">same bench method as A and B</span></div>
   <div class="steps">
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>Cut the end rails, then measure for the side rails</h3>
       <p>Two at 46". Stand them 35¾" apart outside to outside and cut the side rails to the gap, about 32⅞".</p>
     </div></div>
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>Glue up the ring upside down, in four corner clamps</h3>
       <p>Rail tops on the garage floor, as on A and B. Check the diagonals while the glue is wet: both should read <strong>58¼"</strong>.</p>
     </div></div>
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>Two screws a corner, then the corner brackets, ¾" off the floor</h3>
       <p>2 × 2½" SPAX through the end rail's face into the side rail's end. Then set each bracket on a ¾" spacer (a cleat offcut) so its edge sits ¾" below the rail top, level with where the cleats will go (Flag 3).</p>
     </div></div>
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>Lap the two 17½" front legs</h3>
       <p>2" block against the side rail, leg against the block, lapped to the front rail's inner face with its top flush with the rail top. Clamp, pilot, 2 × 2½" through the rail face into the leg.</p>
     </div></div>
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>Front bottom rail and the three back blocks</h3>
-      <p>Still upside down: the 46" rail across the front legs' outer faces, underside flush with the leg bottoms, glued. 2 screws per leg, ⅜" either side of centre and about ¾" up, to miss the foot bore. Then glue the three 6" blocks behind it, between the legs, centred about 14", 23" and 32" from the driver end and flush with the legs' back faces. Drive 2 screws through the rail's outer face into each block, about 1" in from each end of the block.</p>
+      <p>Still upside down: the 46" rail across the front legs' outer faces, underside flush with the leg bottoms, glued. 2 screws per leg, ⅜" either side of center and about ¾" up, to miss the foot bore. Then glue the three 6" blocks behind it, between the legs, centered about 14", 23" and 32" from the driver end and flush with the legs' back faces. Drive 2 screws through the rail's outer face into each block, about 1" in from each end of the block.</p>
     </div></div>
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>Turn it over onto the rear legs</h3>
       <p>Stand the frame up on its front legs, and stand the two 16" legs under the rear corners, flush with both outside faces. Glue the leg tops, then pilot and countersink 2 × 2½" down through the rear rail's top into each leg. Then the 2" L-bracket on each leg's forward face, flat leg under the side rail (Fig 4).</p>
     </div></div>
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>Cut the wall's openings, then hang it</h3>
       <p>On the bench: the 4¾" fan hole, the three 3" vent holes and the 1" grommet hole at 2¼" (Fig 3). Then stand the wall against the front legs' back faces, on the fridge side, with its bottom edge ½" below the leg bottoms. With the feet at 1" that's two ½" ply offcuts under it. Clamp, pilot, and drive 7 × 1¼" from the fridge side: 2 into each leg and 1 into each block.</p>
     </div></div>
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>The cleats</h3>
       <p>Trim them to fit (Flag 3) and glue and screw them to the rails' inner faces every 6", tops ¾" below the rail top. Use a deck offcut as the gauge. The front cleat goes between the legs only.</p>
     </div></div>
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>Fit, notch and fix the deck</h3>
       <p>Measure the opening and trim the deck 1/16" under it. Drop it in, mark the two front legs off the real thing, lift it out and cut the 1½" notches (Fig 5). Drop it back in. It should be flush with the rail tops all round. Screw it into the cleats every 8", countersunk flush, because the mattress lies on it.</p>
     </div></div>
     <div class="step"><div class="sn"></div><div class="sb">
       <h3>Set the height against A and B</h3>
-      <p>In the van, or on a flat floor beside them: Panel C's deck at 18½", the rear feet 1/16" further out than the front. Bring A and B up to meet it, not C down to meet them (Flag 4). Check that the fridge still slides under the rear rail.</p>
+      <p>In the van, or on a flat floor beside them: Panel C's deck at 18½", the rear feet 1/16" further out than the front. Bring A and B up to meet it, not C down to meet them (Flag 4). The rear rail's underside sets anywhere from 17" to 17¾", and all of that clears the fridge on its tray. Never set it below 17". The bare fridge already slides under it. Check again once the slide tray is built.</p>
     </div></div>
     <div class="step"><div class="sn"></div><div class="sb">
       <h3>Non-slip mat on the pantry end, held with Velcro</h3>

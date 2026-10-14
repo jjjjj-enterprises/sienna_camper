@@ -60,7 +60,7 @@ module label_left(txt, x, y, size = 2.6) {
 }
 
 // The numeral sits BESIDE the icon: OpenSCAD merges touching 2D shapes into
-// one polygon set and paints them a single colour, so a white numeral centred
+// one polygon set and paints them a single colour, so a white numeral centered
 // in a filled circle vanishes and the marker reads as an anonymous blob.
 module marker(n, x, y, nx = 2.6) {
     translate([x, y]) {

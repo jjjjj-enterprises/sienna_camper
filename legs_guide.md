@@ -14,7 +14,7 @@ Read this alongside the full plan for context (Section 3 for the whole cut list,
 
 <figure class="floorplan-figure">
 <img src="renders/leg-detail.png" alt="Platform leg shop drawing">
-<figcaption>The leg as a part: the <strong>Panel C front leg</strong> (17.5" cut, 18.5" effective), the <strong>Panel A/B leg</strong> (16.75" cut, 17.75" effective), the <strong>Panel C rear corner leg</strong> (16" cut, 17" effective — the one butt-under leg), and the <strong>bottom end grain</strong> with its 1/2" × 1-3/4" insert bore dead centre. This is the sheet to take to the saw. Where the legs then stand in the frame is drawn in Section 8.</figcaption>
+<figcaption>The leg as a part: the <strong>Panel C front leg</strong> (17.5" cut, 18.5" effective), the <strong>Panel A/B leg</strong> (16.75" cut, 17.75" effective), the <strong>Panel C rear corner leg</strong> (16" cut, 17" effective — the one butt-under leg), and the <strong>bottom end grain</strong> with its 1/2" × 1-3/4" insert bore dead center. This is the sheet to take to the saw. Where the legs then stand in the frame is drawn in Section 8.</figcaption>
 </figure>
 
 Twelve legs, 2x2 pine (1.5" × 1.5" actual). Four per panel, one at each corner. Each leg is cut **1" short** of its finished height and gets a screw-in threaded insert in its bottom end grain; a leveling foot threads into that insert and makes up the missing inch, with ±1/2" of adjustment either way.
@@ -93,7 +93,7 @@ All three lengths are dimensioned on the shop drawing in Section 1.
 The same hole goes in every one of the 12 legs, in the **bottom** end grain:
 
 <div class="spec">
-<strong>1/2" diameter × 1-3/4" deep, dead centre of the 1.5" × 1.5" end grain.</strong>
+<strong>1/2" diameter × 1-3/4" deep, dead center of the 1.5" × 1.5" end grain.</strong>
 </div>
 
 <div class="warn">
@@ -104,8 +104,8 @@ Bore it **before the leg goes into the frame** — once the frame is together th
 
 Method:
 
-1. Mark the centre by drawing both diagonals of the end grain.
-2. **Pilot first, then the 1/2".** A 1/2" brad point going straight into pine end grain wants to follow the grain; a pilot hole gives it a centre to track.
+1. Mark the center by drawing both diagonals of the end grain.
+2. **Pilot first, then the 1/2".** A 1/2" brad point going straight into pine end grain wants to follow the grain; a pilot hole gives it a center to track.
 3. **Run two drills** — pilot bit in one, 1/2" in the other. Twelve legs means twelve pilots and twelve bores, and swapping one chuck 24 times is how the batch loses its afternoon.
 4. **Flag the depth with tape on the bit.** Wrap blue tape at 1-3/4" and stop when the tape kisses the end grain. Measure from the bit's **full diameter**, not the brad point's tip — the tip is another ~1/8" ahead of the shoulder that actually cuts the 1/2" hole.
 5. Bore on a drill press if you have one; otherwise use a drill guide. Freehand into end grain will wander.
@@ -116,7 +116,7 @@ Method:
 <figcaption>Two drills, so no bit ever gets swapped: the pilot bit on the right, the 1/2" brad point on the left with a <strong>blue-tape depth flag</strong> wrapped at 1-3/4". Bore the pilot, put that drill down, pick the other one up, bore to the tape.</figcaption>
 </figure>
 
-The **BOTTOM END GRAIN** view on the Section 1 shop drawing dimensions the hole and its centre; the Panel B sheet below repeats it in the context of the assembled panel.
+The **BOTTOM END GRAIN** view on the Section 1 shop drawing dimensions the hole and its center; the Panel B sheet below repeats it in the context of the assembled panel.
 
 <figure class="floorplan-figure">
 <img src="renders/panel-b-detail.png" alt="Panel B detail">
@@ -150,7 +150,7 @@ The insert is the screw-in type: a **7/16" OD coarse outer wood thread** with a 
 
 | Key | Part | What it is / what to do |
 |---|---|---|
-| **A** | The leg | Bored 1/2" dia × **1-3/4"** deep, centred, per Step 2 |
+| **A** | The leg | Bored 1/2" dia × **1-3/4"** deep, centered, per Step 2 |
 | **B** | Screw-in threaded insert | 7/16" OD outer thread, 3/8-16 bore. Driven flush on a spare bolt + jam nut, per Step 3 |
 | **C** | Leveling stud + fixed hex collar + pad | 1-3/8" floor pad. Screw the stud into the insert to **1" exposure**, turning it by the collar |
 
@@ -256,7 +256,7 @@ To set them:
 1. Put all three panels in the van, in position, with the bed platform resting on Panels A and B.
 2. Put a level on the platform. The build's two stick-on bar levels read the same thing permanently: **pitch** on the platform's driver-side rail edge, **roll** on the rear-pantry deck edge.
 3. Kneel at the side door, **tip that corner of the box slightly**, and wrench that foot's hex collar. Every foot is exposed at floor level — nothing boxes it in.
-4. Work around the corners until both bubbles centre. Re-check with the van parked on ground you know is level.
+4. Work around the corners until both bubbles center. Re-check with the van parked on ground you know is level.
 5. After that first setup you should not need to touch a foot again.
 
 If you would rather delete the feet entirely, fixed shims set once will do the same job and let the wheel blocks handle all site leveling — it saves ~$72 and loses the fine-trim option.
