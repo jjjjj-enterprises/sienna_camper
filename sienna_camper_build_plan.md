@@ -2436,7 +2436,7 @@ The 2×2 cut list is **22 pieces totalling 801⅛"** — the twelve legs (12 pie
 
 **Cut the eleven 46" pieces first, then work to the real openings.** Every 46" piece is a fixed dimension you can cut off a stop block with confidence. Everything else on this list is a *fitted* length: stand each panel's end-rail pair up, measure the actual gap, and cut that panel's side rails to it rather than to the table above (Section 3). Two boards are spare precisely so a mis-measure is not a trip back to the store.
 
-**1×4 — 7 boards bought, 6 for the bed:** one 1×4 was ripped to 2½" for the fridge-tray aprons instead of the 1×3, so the bed comes out of 6 boards plus the 1×3. Board 1: 42 + 42. Board 2: 42 + 42. Board 3: 42 + 29 + 17½. Board 4: 29 + 29 + 29. Board 5: 29 + 29 + 17½ + 17½ (tight — square one end only). Board 6: 17½ × 5. **1×3 — 1 board:** the last two 17½" slats, 2½" wide, one in the middle of each Panel B half (its gaps open from ~2.9" to ~3.15").
+**1×4 — 7 boards bought, 6 for the bed (all bed parts cut 14 Oct):** one 1×4 was ripped to 2½" for the fridge-tray aprons instead of the 1×3, so the bed comes out of 6 boards plus the 1×3. Board 1: 42 + 42. Board 2: 42 + 42. Board 3: 42 + 29 + 17½. Board 4: 29 + 29 + 29. Board 5: 29 + 29 + 17½ + 17½ (tight — square one end only). Board 6: 17½ × 5. **1×3 — 1 board:** the last two 17½" slats, 2½" wide, one in the middle of each Panel B half (its gaps open from ~2.9" to ~3.15").
 
 ### Appendix H-S — Store Copy (PDF pages 127–129)
 
