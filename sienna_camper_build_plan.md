@@ -647,7 +647,7 @@ Neither upgrade changes any dimension in the cut list below — same sizes, diff
 | Kitchen drawer hanging cheeks | 2 | 26" x 5.45" (1/2" — screwed up into Panel C's recessed deck, flanking the drawer) |
 | Battery drawer bottom (Panel A right) | 1 | **19.25" x 21.25"** (1/2" — the base under the 48 lb stack. **20 x 22 is the box's OUTER footprint**, which is the size for a bottom sitting *under* the walls; this one is housed in a 3/8" glued rabbet, and that takes 3/4" off each dimension. Cut it last, off the glued-up box, not to the number) |
 | **Panel C front wall** | 1 | **46" x 17"** (1/2") — 120mm fan hole + two 1" grommet holes, positions in the Panel C Front Wall render. Cut ~1/8" oversize and trim to the frame |
-| **Fridge tray** | 1 | **17.72" x 28.74"** (1/2") + two 1x3 side aprons, 28¾" each, glued+screwed to its edges — the slides' moving members screw to them and their top edges are the fridge's anti-shift lip. Cut from a 29 x 18 blank, **cross-grain** (see the buy note above) |
+| **Fridge tray** | 1 | **17⅞" x 28¾"** (1/2" — the fridge's base + ⅛") + two 2½" side aprons, 28¾" each (a 1×4 ripped to 2½"; Fridge Tray sheet), glued+screwed to its edges — the slides' moving members screw to them and their top edges are the fridge's anti-shift lip. Cut from a 29 x 18 blank, **cross-grain** (see the buy note above) |
 
 **No third sheet.** Every plywood part is in the two tables above — front wall and fridge tray on the 1/2" sheet, all four battery-drawer walls on the 3/4". The WAVE 3 needs no shelf or glide strips: it sits on the bay floor under a cam strap (Component 8, step 2).
 
@@ -1399,7 +1399,7 @@ Build this one before Component 1 (Rear Pantry) — the prefab drawer cluster si
 
 **Parts needed:**
 
-- BougeRV Rocky 40 (41QT dual-zone) + fridge tray (1/2" ply + glued 3/4" edge frame, 17.72" x 28.74")
+- BougeRV Rocky 40 (41QT dual-zone) + fridge tray (1/2" ply, 17⅞" x 28¾", + two 2½" aprons glued and screwed to its long edges)
 - Heavy-duty 24" full-extension drawer slide pair — VADANIA #D76 locking, 379 lb (purchased)
 - JAGAHAHA slide-out camp kitchen + COOKTRON induction cooktop
 - 120mm 12V fan + PWM temperature controller w/ NTC probe

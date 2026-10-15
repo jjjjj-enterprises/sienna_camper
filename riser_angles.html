@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- ARTIFACT-BODY-START -->
+<title>Riser Angles</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#E9ECE7; --surface:#FBFCFA; --surface-2:#F1F4EF;
+  --ink:#16201C; --ink-2:#4E5A55; --ink-3:#79857F;
+  --rule:#C6CDC5; --rule-strong:#8E9A93;
+  --ply:#9A7A3E; --ply-fill:rgba(200,164,107,.30);
+  --amber:#B8661A; --amber-fill:rgba(201,118,27,.15);
+  --alert:#9E2C1B; --alert-fill:rgba(158,44,27,.09);
+  --good:#2C6349;
+  --font-d:Archivo,"Helvetica Neue",Arial,sans-serif;
+  --font-b:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+    --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+    --rule:#2F3833; --rule-strong:#56615A;
+    --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+    --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+    --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+    --good:#5FB78D;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+  --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+  --rule:#2F3833; --rule-strong:#56615A;
+  --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+  --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+  --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+  --good:#5FB78D;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-b); font-size:15px; line-height:1.55;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+.sheet{max-width:1080px; margin:0 auto; padding-block:28px 64px; padding-left:20px; padding-right:20px}
+
+/* ---- title block: a drawing title block, not a hero ---- */
+.tb{border:1.5px solid var(--ink); background:var(--surface)}
+.tb-head{display:flex; flex-wrap:wrap; align-items:flex-end; gap:6px 20px; padding:18px 20px 14px; border-bottom:1.5px solid var(--ink)}
+.tb-head h1{
+  font-family:var(--font-d); font-weight:700; font-size:clamp(25px,4.6vw,38px);
+  line-height:1.03; letter-spacing:-.018em; margin:0; text-wrap:balance;
+}
+.tb-head p{margin:0; color:var(--ink-2); font-size:14.5px; max-width:56ch}
+.tb-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr))}
+.tb-cell{padding:10px 14px 12px; border-right:1px solid var(--rule); border-top:1px solid var(--rule)}
+.tb-cell:first-child{border-top:0}
+.tb-cell .k{
+  font-family:var(--font-m); font-size:10.5px; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:3px;
+}
+.tb-cell .v{font-family:var(--font-m); font-size:15px; font-weight:500; font-variant-numeric:tabular-nums}
+.tb-cell .v small{font-family:var(--font-b); font-size:12.5px; color:var(--ink-2); display:block; font-weight:400; letter-spacing:0}
+
+/* ---- section headings ---- */
+section{margin-top:44px}
+.sec-h{display:flex; align-items:baseline; gap:12px; border-bottom:1.5px solid var(--ink); padding-bottom:7px; margin-bottom:18px}
+.sec-h .n{
+  font-family:var(--font-m); font-size:12px; font-weight:600; color:var(--ink-3);
+  letter-spacing:.09em; flex:none;
+}
+.sec-h h2{font-family:var(--font-d); font-weight:600; font-size:20px; letter-spacing:-.01em; margin:0; text-wrap:balance}
+.sec-h .aside{margin-left:auto; font-family:var(--font-m); font-size:11.5px; color:var(--ink-3); text-align:right}
+
+p{margin:0 0 12px; max-width:68ch}
+.lede{color:var(--ink-2)}
+a{color:inherit}
+code{font-family:var(--font-m); font-size:.92em; background:var(--surface-2); padding:1px 4px; border-radius:2px}
+strong{font-weight:600}
+
+/* ---- flags ---- */
+.flags{display:grid; gap:14px}
+.flag{
+  border:1px solid var(--alert); border-left-width:4px; background:var(--alert-fill);
+  padding:14px 16px 15px;
+}
+.flag h3{
+  font-family:var(--font-d); font-size:15.5px; font-weight:600; margin:0 0 7px;
+  color:var(--alert); display:flex; gap:9px; align-items:baseline; text-wrap:balance;
+}
+.flag h3 .tag{
+  font-family:var(--font-m); font-size:10px; letter-spacing:.1em; border:1px solid currentColor;
+  padding:1px 5px; flex:none; text-transform:uppercase;
+}
+.flag p{margin:0 0 8px; font-size:14px}
+.flag p:last-child{margin-bottom:0}
+.flag .math{
+  font-family:var(--font-m); font-size:13px; font-variant-numeric:tabular-nums;
+  background:var(--surface); border:1px solid var(--rule); padding:8px 11px; margin:9px 0;
+  display:block; overflow-x:auto; white-space:nowrap; color:var(--ink);
+}
+.flag .verdict{font-weight:600}
+
+/* ---- figures ---- */
+.figs{display:grid; gap:26px}
+@media (min-width:780px){ .figs.two{grid-template-columns:1fr 1fr} }
+figure{margin:0; border:1px solid var(--rule-strong); background:var(--surface); display:flex; flex-direction:column}
+figure svg{display:block; width:100%; height:auto; padding:10px 8px 0}
+figcaption{
+  border-top:1px solid var(--rule); padding:9px 13px 11px; font-size:13px; color:var(--ink-2);
+  margin-top:auto;
+}
+figcaption b{font-family:var(--font-m); font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink); display:block; margin-bottom:3px}
+
+svg .ply{fill:var(--ply-fill); stroke:var(--ink); stroke-width:1.7}
+svg .cav{fill:var(--surface); stroke:var(--ink); stroke-width:1.7}
+svg .unit{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.9}
+svg .blk{fill:var(--ink-2); stroke:none}
+svg .slide{fill:var(--ink); stroke:none}
+svg .ln{fill:none; stroke:var(--ink); stroke-width:1.7}
+svg .thin{fill:none; stroke:var(--rule-strong); stroke-width:1}
+svg .dash{fill:none; stroke:var(--ink-2); stroke-width:1.4; stroke-dasharray:6 4}
+svg .strap{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.5; stroke-dasharray:5 3}
+svg .strapln{fill:none; stroke:var(--amber); stroke-width:2.2}
+svg .ring{fill:none; stroke:var(--ink); stroke-width:2.4}
+svg .hole{fill:var(--paper); stroke:var(--ink); stroke-width:1.7}
+svg text{font-family:var(--font-m); fill:var(--ink-2)}
+svg .t-dim{font-size:12.5px; font-weight:500; font-variant-numeric:tabular-nums}
+svg .t-lab{font-size:12px; fill:var(--ink)}
+svg .t-sm{font-size:10.5px; fill:var(--ink-3)}
+svg .clt{fill:var(--ply); stroke:var(--ink); stroke-width:1.2; opacity:.75}
+svg .brk{fill:none; stroke:var(--ink-2); stroke-width:1.2}
+svg .notch{fill:url(#hatch); stroke:var(--alert); stroke-width:1.3}
+svg .hatchln{stroke:var(--alert); stroke-width:1.3}
+svg .tongue{fill:var(--alert-fill); stroke:var(--alert); stroke-width:1.6}
+svg .steel{fill:var(--rule); stroke:var(--ink); stroke-width:1.2}
+svg .gone{fill:none; stroke:var(--alert); stroke-width:1.2; stroke-dasharray:4 3}
+svg .steel{fill:rgba(120,136,152,.45); stroke:var(--ink); stroke-width:1.5}
+svg .gone{fill:var(--alert-fill); stroke:var(--alert); stroke-width:1.5; stroke-dasharray:5 3}
+svg .wood{fill:var(--ply-fill); stroke:var(--ink); stroke-width:1.2}
+svg .rail{fill:rgba(84,98,112,.75); stroke:var(--ink); stroke-width:1.2}
+svg .unit{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.2}
+svg .unitd{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.2; stroke-dasharray:4 3}
+svg .trayd{fill:none; stroke:var(--ink-2); stroke-width:1.4; stroke-dasharray:6 4}
+svg .legk{fill:var(--ink)}
+svg .upr{fill:var(--ink)}
+svg .cut{stroke:var(--alert); stroke-width:2.5; fill:none}
+svg .sm{font-size:10.5px; fill:var(--ink-3)}
+svg .big{font-size:13px; font-weight:600; fill:var(--ink)}
+svg .red{fill:var(--alert)}
+svg text{font-family:var(--font-b)}
+@media print{ .figs.two{grid-template-columns:1fr 1fr} }
+svg .keydot{fill:var(--ink)}
+svg .keynum{font-size:11.5px; font-weight:600; fill:var(--surface)}
+
+/* ---- legend ---- */
+.legend{margin-top:16px; border:1px solid var(--rule); background:var(--surface)}
+.legend li{display:flex; gap:11px; padding:8px 13px; border-top:1px solid var(--rule); align-items:baseline}
+.legend li:first-child{border-top:0}
+.legend ol{margin:0; padding:0; list-style:none}
+.legend .n{
+  font-family:var(--font-m); font-size:11px; font-weight:600; color:var(--surface);
+  background:var(--ink); width:19px; height:19px; border-radius:50%; flex:none;
+  display:inline-flex; align-items:center; justify-content:center; transform:translateY(2px);
+}
+.legend .d{font-size:13.5px}
+.legend .d b{font-weight:600}
+.legend .d span{color:var(--ink-2)}
+
+/* ---- tables ---- */
+.tw{overflow-x:auto; border:1px solid var(--rule-strong); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:13.5px}
+th,td{padding:8px 12px; text-align:left; border-top:1px solid var(--rule); vertical-align:top}
+thead th{
+  border-top:0; border-bottom:1.5px solid var(--ink); font-family:var(--font-m);
+  font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:500;
+  white-space:nowrap;
+}
+td.num,th.num{font-family:var(--font-m); font-variant-numeric:tabular-nums; white-space:nowrap}
+tbody tr:nth-child(even){background:var(--surface-2)}
+td .note{display:block; color:var(--ink-2); font-size:12.5px; margin-top:2px}
+.ok{color:var(--good); font-weight:600}
+.tight{color:var(--alert); font-weight:600}
+
+/* ---- steps ---- */
+.steps{counter-reset:s; display:grid; gap:0; border:1px solid var(--rule-strong); background:var(--surface)}
+.step{display:grid; grid-template-columns:52px 1fr; border-top:1px solid var(--rule)}
+.step:first-child{border-top:0}
+.step .sn{
+  counter-increment:s; font-family:var(--font-m); font-size:16px; font-weight:600; color:var(--ink-3);
+  padding:14px 0 14px 16px; border-right:1px solid var(--rule); font-variant-numeric:tabular-nums;
+}
+.step .sn::before{content:counter(s,decimal-leading-zero)}
+.step .sb{padding:13px 16px 15px}
+.step h3{font-family:var(--font-d); font-size:15px; font-weight:600; margin:0 0 4px; text-wrap:balance}
+.step p{margin:0; font-size:13.8px; color:var(--ink-2); max-width:70ch}
+.step p + p{margin-top:7px}
+.step.done .sn{color:var(--good)}
+.step .hold.done{color:var(--good); border-color:var(--good)}
+.step .hold{
+  display:inline-block; font-family:var(--font-m); font-size:10.5px; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--alert); border:1px solid var(--alert); padding:1px 5px; margin-bottom:6px;
+}
+
+footer{margin-top:52px; border-top:1px solid var(--rule); padding-top:14px; color:var(--ink-3); font-size:12.5px}
+footer p{max-width:72ch; margin:0 0 6px}
+
+@media print{
+  /* Letter with the same 0.65in margin as the main build plan, so these
+     pages sit flush with it when build_pdf.py appends them — and so the
+     stamped footer at 30pt lands clear of the content. */
+  @page{size:Letter; margin:0.65in}
+  :root{--paper:#fff; --surface:#fff; --surface-2:#f4f4f4}
+  body{font-size:10.5pt}
+  .sheet{max-width:none; padding:0}
+  section{break-inside:auto; margin-top:22px}
+  figure,.flag,.step,.tw{break-inside:avoid}
+  .sec-h{break-after:avoid; page-break-after:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="tb">
+  <div class="tb-head">
+    <h1>Riser Angles</h1>
+    <p>Two 24" steel angles that carry the fridge slides on the anchor board. Each slide's fixed rail screws to an angle's upright leg; the angle's flat leg, the flange, bolts down to an anchor-board strip.</p>
+  </div>
+  <div class="tb-grid">
+    <div class="tb-cell"><span class="k">Assembly</span><span class="v">Section 8 · Comp. 7<small>anchor board · fridge slides</small></span></div>
+    <div class="tb-cell"><span class="k">Stock</span><span class="v">2 × 2 × 3/16" angle<small>2 pieces, 24" each</small></span></div>
+    <div class="tb-cell"><span class="k">Driver riser</span><span class="v">As bought<small>2" flange, on the driver strip</small></span></div>
+    <div class="tb-cell"><span class="k">Kitchen riser</span><span class="v">Flange 1"<small>ripped full length · on the middle strip</small></span></div>
+    <div class="tb-cell"><span class="k">Position</span><span class="v">2½" → 26½"<small>from Panel C's tailgate edge</small></span></div>
+    <div class="tb-cell"><span class="k">Fixing</span><span class="v">4 × ¼-20 each<small>down into T-nuts in the strip</small></span></div>
+    <div class="tb-cell"><span class="k">Drawn from</span><span class="v">Build plan<small>Section 8 · params.scad · Fridge Tray sheet</small></span></div>
+    <div class="tb-cell"><span class="k">Status</span><span class="v">Cut<small>14 Oct · holes wait for the anchor board sheet</small></span></div>
+  </div>
+</div>
+
+<section>
+  <div class="sec-h"><span class="n">A</span><h2>Check before you cut</h2><span class="aside">1 method · 2 checks · 1 carry-over</span></div>
+  <p class="lede">Angle steel is an L: two legs, each 2" wide and 3/16" thick. On a riser one leg stands upright and the other, the flange, lies flat on the board. Only one flange gets cut.</p>
+  <div class="flags">
+    <div class="flag">
+      <h3><span class="tag">Method</span> The flanges point away from the tray</h3>
+      <p>The tray's aprons hang ⅜" off the floor, below the board's top, right beside each riser's upright. A flange pointing toward the tray would sit where the apron runs.</p>
+      <p class="verdict">So both flanges point outboard: the driver one toward the van's side wall, the kitchen one toward the kitchen unit.</p>
+    </div>
+    <div class="flag">
+      <h3><span class="tag">Check</span> The driver riser goes in as bought</h3>
+      <p>Its full 2" flange reaches ¼" past the board's driver edge, about 1" off the floor. Nothing is there: the rear leg is behind where the riser starts, and the van's side wall is farther out. All four bolts still land in the strip.</p>
+      <span class="math">upright back at 1¾" from the driver edge − 2" flange = ¼" past the edge</span>
+    </div>
+    <div class="flag">
+      <h3><span class="tag">Check</span> The kitchen riser's flange is cut to 1"</h3>
+      <p>A full 2" flange would reach 24⅝" from the driver edge and run under the kitchen unit, whose edge sits at about 24". The unit can't move; it already stands against Panel C's rear leg.</p>
+      <span class="math">upright back at 22⅝" + 1" flange = 23⅝" · middle strip ends at 24" · ⅜" inside it</span>
+    </div>
+    <div class="flag">
+      <h3><span class="tag">Carry-over</span> Drill with the anchor board</h3>
+      <p class="verdict">The flange bolt holes and the slide's screw holes are laid out on the anchor board sheet, with the T-nuts. Don't drill the angles before then.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">B</span><h2>The angle</h2><span class="aside">end view · about 3× full size</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 560 262" role="img" aria-label="End view of a 2 by 2 inch steel angle: the upright leg on the right, the flange lying flat to the left, with the kitchen riser's cut line on the flange at 1 inch from the back of the upright">
+    <!-- angle: upright at x 330-341, flange from 210 to 341 (2in = 120px, 60px/in) -->
+    <rect class="steel" x="329" y="80" width="11" height="120"/>
+    <rect class="steel" x="220" y="189" width="120" height="11"/>
+    <!-- cut lines -->
+    <line class="cut" x1="280" y1="170" x2="280" y2="214"/>
+    <text class="sm red" x="280" y="152" text-anchor="middle">kitchen cut, 1"</text>
+    <!-- labels -->
+    <text class="big" x="352" y="110">UPRIGHT LEG</text>
+    <text class="sm" x="352" y="126">stays 2" · the slide screws to it</text>
+    <text class="big" x="120" y="196" text-anchor="end">FLANGE</text>
+    <text class="sm" x="120" y="211" text-anchor="end">lies flat on the board,</text>
+    <text class="sm" x="120" y="224" text-anchor="end">bolted down through it</text>
+    <line class="thin" x1="124" y1="194" x2="216" y2="194"/>
+    <!-- back of upright -->
+    <line class="thin" x1="340" y1="60" x2="340" y2="80"/>
+    <text class="sm" x="340" y="52" text-anchor="middle">back of the upright: measure from here</text>
+    <!-- dims below -->
+    <line class="thin" x1="220" y1="204" x2="220" y2="246"/>
+    <line class="thin" x1="280" y1="214" x2="280" y2="222"/>
+    <line class="thin" x1="340" y1="204" x2="340" y2="246"/>
+    <line class="thin" x1="280" y1="218" x2="340" y2="218"/>
+    <text class="sm" x="310" y="232" text-anchor="middle">1" kept</text>
+    <line class="thin" x1="220" y1="246" x2="340" y2="246"/>
+    <text class="sm" x="200" y="249" text-anchor="end">2" as bought (driver stays this)</text>
+  </svg>
+      <figcaption><b>Fig 1 — end view</b>Measure the cut across the flange from the back of the upright leg, the outside face of the L. Everything past the line comes off. The driver riser stays at 2".</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">C</span><h2>At the slides</h2><span class="aside">looking forward at floor level · to scale</span></div>
+  <div class="figs two">
+    <figure>
+      <svg viewBox="0 0 320 250" role="img" aria-label="Driver side close-up: the anchor board's 2 and 1/2 inch driver strip, the riser angle standing on it with the slide rails against its upright and the tray apron beyond; the uncut 2 inch flange sticks a quarter inch past the board's edge, in clear air">
+      <text class="big" x="160" y="18" text-anchor="middle">DRIVER SIDE → no cut</text>
+      <!-- floor -->
+      <line class="ln" x1="6" y1="210" x2="314" y2="210"/>
+      <!-- strip: mat + ply, 0-2.5in => x 30-130 (40px/in), h: y = 210 - 40h -->
+      <rect class="wood" x="30" y="176" width="100" height="30"/>
+      <rect x="30" y="206" width="100" height="4" fill="var(--ink-3)"/>
+      <!-- apron + tray -->
+      <rect class="wood" x="130" y="95" width="30" height="100"/>
+      <rect class="wood" x="160" y="175" width="154" height="20"/>
+      <!-- slide rails 1.75-2.5 -->
+      <rect class="rail" x="100" y="48" width="30" height="120"/>
+      <!-- riser: upright 1.5625-1.75 ; flange to 0.25 -->
+      <rect class="steel" x="92.5" y="96" width="7.5" height="80"/>
+      <rect class="steel" x="20" y="168.5" width="80" height="7.5"/>
+      <!-- board edge -->
+      <line class="thin" x1="30" y1="30" x2="30" y2="214" stroke-dasharray="4 3"/>
+      <text class="sm" x="34" y="40">board edge</text>
+      <text class="sm" x="34" y="53">(Panel C's</text>
+      <text class="sm" x="34" y="66">driver edge)</text>
+      <!-- labels -->
+      <text class="sm" x="115" y="40" text-anchor="middle">slide</text>
+      <text class="sm" x="237" y="170" text-anchor="middle">fridge tray</text>
+      <text class="sm" x="145" y="88" text-anchor="middle">apron</text>
+      <text class="sm" x="80" y="196" text-anchor="middle">driver strip</text>
+      <text class="sm" x="12" y="160">¼" past · fine</text>
+      <!-- dims -->
+      <line class="thin" x1="20" y1="180" x2="20" y2="236"/>
+      <line class="thin" x1="100" y1="178" x2="100" y2="236"/>
+      <line class="thin" x1="20" y1="232" x2="100" y2="232"/>
+      <text class="sm" x="60" y="246" text-anchor="middle">2" as bought</text>
+    </svg>
+      <figcaption><b>Fig 2 — driver side</b>The full 2" flange sticks ¼" past the board’s edge, in clear air. The slide stands against the upright on the tray side, and the apron beyond it.</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 320 250" role="img" aria-label="Kitchen side close-up: the anchor board's middle strip, the riser angle on it with the slide rails against its upright and the tray apron beyond; the trimmed 1 inch flange stops inside the strip, while the removed part would have run under the kitchen unit's edge">
+      <text class="big" x="160" y="18" text-anchor="middle">KITCHEN SIDE → 1"</text>
+      <line class="ln" x1="6" y1="210" x2="314" y2="210"/>
+      <!-- x = 30 + 40*(in - 20) -->
+      <!-- middle strip 21.875-24 => 105-190 -->
+      <rect class="wood" x="105" y="176" width="85" height="30"/>
+      <rect x="105" y="206" width="85" height="4" fill="var(--ink-3)"/>
+      <!-- tray panel + apron (21.125-21.875 => 75-105) -->
+      <rect class="wood" x="6" y="175" width="69" height="20"/>
+      <rect class="wood" x="75" y="95" width="30" height="100"/>
+      <!-- slide rails 21.875-22.625 => 105-135 -->
+      <rect class="rail" x="105" y="48" width="30" height="120"/>
+      <!-- riser: upright 22.625-22.8125 => 135-142.5 ; flange to 23.625 => 175 -->
+      <rect class="steel" x="135" y="96" width="7.5" height="80"/>
+      <rect class="steel" x="135" y="168.5" width="40" height="7.5"/>
+      <rect class="gone" x="175" y="168.5" width="40" height="7.5"/>
+      <!-- kitchen unit from 24in => x 190 -->
+      <rect class="unit" x="190" y="40" width="124" height="166"/>
+      <text class="sm" x="257" y="110" text-anchor="middle">kitchen</text>
+      <text class="sm" x="257" y="124" text-anchor="middle">unit</text>
+      <!-- labels -->
+      <text class="sm" x="120" y="40" text-anchor="middle">slide</text>
+      <text class="sm" x="40" y="170" text-anchor="middle">fridge tray</text>
+      <text class="sm" x="90" y="88" text-anchor="middle">apron</text>
+      <text class="sm" x="150" y="196" text-anchor="middle">middle strip</text>
+      <text class="sm red" x="210" y="160">hits it</text>
+      <!-- dims -->
+      <line class="thin" x1="135" y1="178" x2="135" y2="236"/>
+      <line class="thin" x1="175" y1="178" x2="175" y2="236"/>
+      <line class="thin" x1="135" y1="232" x2="175" y2="232"/>
+      <text class="sm" x="155" y="246" text-anchor="middle">1" kept</text>
+    </svg>
+      <figcaption><b>Fig 3 — kitchen side</b>Red dashed is the strip that comes off. At 2" the flange would run under the kitchen unit; at 1" it stops ⅜" inside the middle strip.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">D</span><h2>Plan view</h2><span class="aside">Panel C's deck off · tailgate at the bottom · to scale</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="-80 0 720 440" role="img" aria-label="Top view of Panel C with the deck off: the anchor board strips and crossbar, the fridge tray dashed between the two slides, the driver riser on the driver strip with its uncut 2 inch flange pointing toward the driver side, the kitchen riser on the middle strip with its 1 inch flange pointing toward the kitchen unit, four bolts in each flange, both risers 24 inches long starting 2 and 1/2 inches in from the tailgate">
+    <text class="big" x="310" y="22" text-anchor="middle">TOP VIEW · Panel C's deck off · tailgate at the bottom</text>
+    <rect class="ln" x="80.00" y="42.50" width="460.00" height="357.50"/>
+    <rect class="unit" x="80.00" y="71.25" width="460.00" height="5.00"/>
+    <rect class="wood" x="80.00" y="77.50" width="460.00" height="32.50"/>
+    <rect class="wood" x="80.00" y="110.00" width="25.00" height="270.00"/>
+    <rect class="wood" x="298.75" y="110.00" width="21.25" height="270.00"/>
+    <rect class="wood" x="525.00" y="110.00" width="15.00" height="270.00"/>
+    <rect class="legk" x="80.00" y="385.62" width="14.38" height="14.38"/>
+    <rect class="legk" x="525.62" y="385.62" width="14.38" height="14.38"/>
+    <rect class="legk" x="114.38" y="56.88" width="14.38" height="14.38"/>
+    <rect class="legk" x="491.25" y="56.88" width="14.38" height="14.38"/>
+    <rect class="trayd" x="105.00" y="112.50" width="193.75" height="287.50"/>
+    <rect class="unitd" x="322.50" y="180.00" width="202.50" height="205.00"/>
+    <rect class="rail" x="97.50" y="135.00" width="7.50" height="240.00"/>
+    <rect class="rail" x="298.75" y="135.00" width="7.50" height="240.00"/>
+    <rect class="steel" x="77.50" y="135.00" width="20.00" height="240.00"/>
+    <rect class="upr" x="95.62" y="135.00" width="1.88" height="240.00"/>
+    <rect class="steel" x="306.25" y="135.00" width="10.00" height="240.00"/>
+    <rect class="upr" x="306.25" y="135.00" width="1.88" height="240.00"/>
+    <circle cx="89.0" cy="355.0" r="2.6" fill="var(--ink)"/>
+    <circle cx="312.5" cy="355.0" r="2.6" fill="var(--ink)"/>
+    <circle cx="89.0" cy="290.0" r="2.6" fill="var(--ink)"/>
+    <circle cx="312.5" cy="290.0" r="2.6" fill="var(--ink)"/>
+    <circle cx="89.0" cy="220.0" r="2.6" fill="var(--ink)"/>
+    <circle cx="312.5" cy="220.0" r="2.6" fill="var(--ink)"/>
+    <circle cx="89.0" cy="155.0" r="2.6" fill="var(--ink)"/>
+    <circle cx="312.5" cy="155.0" r="2.6" fill="var(--ink)"/>
+    <text class="sm" x="310" y="96.0" text-anchor="middle">anchor board crossbar</text>
+    <text class="sm" x="310" y="68" text-anchor="middle">front wall</text>
+    <text class="big" x="202.0" y="250" text-anchor="middle">FRIDGE TRAY</text>
+    <text class="sm" x="202.0" y="266" text-anchor="middle">(dashed, hangs between the slides)</text>
+    <text class="sm" x="424.0" y="280" text-anchor="middle">kitchen unit</text>
+    <text class="sm" x="424.0" y="294" text-anchor="middle">(approx.)</text>
+    <text class="big" x="310" y="422" text-anchor="middle">TAILGATE / HATCH</text>
+    <text class="sm" x="74" y="220" text-anchor="end">DRIVER</text>
+    <text class="sm" x="74" y="233" text-anchor="end">SIDE</text>
+    <line class="thin" x1="90" y1="320" x2="40" y2="320"/>
+    <text class="sm red" x="36" y="316" text-anchor="end">DRIVER riser</text>
+    <text class="sm" x="36" y="329" text-anchor="end">flange 2", uncut</text>
+    <text class="sm" x="36" y="341" text-anchor="end">→ points to</text>
+    <text class="sm" x="36" y="353" text-anchor="end">the side wall</text>
+    <line class="thin" x1="314.0" y1="140" x2="350" y2="142.0"/>
+    <text class="sm red" x="352.0" y="134">KITCHEN riser, flange 1"</text>
+    <text class="sm" x="352.0" y="147">→ points toward the kitchen unit</text>
+    <line class="thin" x1="546" y1="375.0" x2="580" y2="375.0"/>
+    <line class="thin" x1="546" y1="135.0" x2="580" y2="135.0"/>
+    <line class="thin" x1="574" y1="400" x2="574" y2="135.0"/>
+    <line class="thin" x1="546" y1="400" x2="580" y2="400"/>
+    <text class="sm" x="584" y="391.5">2½"</text>
+    <text class="sm" x="584" y="255.0">24"</text>
+    <text class="sm" x="584" y="268.0">risers</text>
+  </svg>
+      <figcaption><b>Fig 4 — risers in Panel C</b>Both risers run 24" fore-aft from 2½" in from the tailgate, each on an anchor-board strip, with the slide against its upright and the flange pointing away from the tray. The dots are the 4 bolts per riser; their exact spots go on the anchor board sheet.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">E</span><h2>The cut from above</h2><span class="aside">front of van to the right · to scale</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="-40 0 720 262" role="img" aria-label="Top views of the two riser angles, 24 inches long, each lying as it sits in the van: the driver riser uncut with its full 2 inch flange; the kitchen riser with its upright along the tray-side edge and the flange cut to 1 inch, the 1-inch waste strip toward the kitchen unit; marks at both ends and the middle">
+    <text class="sm" x="60" y="22">TAILGATE END</text>
+    <text class="sm" x="540" y="22" text-anchor="end">FRONT END</text>
+    <rect class="steel" x="60" y="60.00" width="480" height="40.00"/>
+    <rect class="upr" x="60" y="96.25" width="480" height="3.75"/>
+    <text class="big" x="300" y="118" text-anchor="middle">DRIVER riser · no cut</text>
+    <text class="sm" x="300" y="84.0" text-anchor="middle">flange stays 2" as bought</text>
+    <line class="thin" x1="540" y1="100" x2="610" y2="100"/>
+    <line class="thin" x1="540" y1="60" x2="610" y2="60"/>
+    <line class="thin" x1="604" y1="100" x2="604" y2="60"/>
+    <text class="sm" x="608" y="84.0">2"</text>
+    <text class="sm" x="54" y="64.0" text-anchor="end">driver-wall edge</text>
+    <text class="sm" x="54" y="104.0" text-anchor="end">tray-side edge</text>
+    <rect class="steel" x="60" y="170.00" width="480" height="20.00"/>
+    <rect class="gone" x="60" y="190.00" width="480" height="20.00"/>
+    <rect class="upr" x="60" y="170.00" width="480" height="3.75"/>
+    <line class="cut" x1="60" y1="190.00" x2="540" y2="190.00"/>
+    <path d="M60 190.00 l-5 -9 h10 z" fill="var(--alert)"/>
+    <path d="M300 190.00 l-5 -9 h10 z" fill="var(--alert)"/>
+    <path d="M540 190.00 l-5 -9 h10 z" fill="var(--alert)"/>
+    <text class="big" x="300" y="156" text-anchor="middle">KITCHEN riser · cut at 1"</text>
+    <text class="sm" x="420" y="184.0" text-anchor="middle">flange, kept</text>
+    <text class="sm red" x="420" y="204.0" text-anchor="middle">waste, cut off</text>
+    <line class="thin" x1="540" y1="170" x2="610" y2="170"/>
+    <line class="thin" x1="540" y1="190.00" x2="570" y2="190.00"/>
+    <line class="thin" x1="540" y1="210" x2="610" y2="210"/>
+    <line class="thin" x1="564" y1="170" x2="564" y2="190.00"/>
+    <line class="thin" x1="604" y1="170" x2="604" y2="210"/>
+    <text class="sm red" x="568" y="184.0">1"</text>
+    <text class="sm" x="608" y="194.0">2"</text>
+    <text class="sm" x="54" y="214.0" text-anchor="end">kitchen-unit edge</text>
+    <text class="sm" x="54" y="174.0" text-anchor="end">tray-side edge</text>
+    <line class="thin" x1="60" y1="222" x2="60" y2="244"/>
+    <line class="thin" x1="540" y1="222" x2="540" y2="244"/>
+    <line class="thin" x1="60" y1="238" x2="540" y2="238"/>
+    <text class="sm" x="300" y="254" text-anchor="middle">24" · mark the line at both ends and the middle (▼), then join the marks</text>
+  </svg>
+      <figcaption><b>Fig 5 — both risers from above</b>The dark edge is the upright leg seen end-on; measure from it. The kitchen cut takes a 1" strip off the kitchen-unit edge, the full 24", parallel to the upright. Round the two corners at each end of the cut edge.</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 640 170" role="img" aria-label="Top view of one 24 inch riser angle clamped flat on a bench, flange toward the bench edge, with the cut line running the full length on the flange, the waste strip hanging past the bench edge, and two clamps on the upright leg side">
+    <!-- bench -->
+    <rect x="20" y="20" width="600" height="96" fill="var(--surface-2)" stroke="var(--rule-strong)"/>
+    <text class="sm" x="30" y="36">BENCH</text>
+    <!-- angle, top view: flange 2in = 40px tall (20px/in), length 24in = 480px -->
+    <rect class="steel" x="80" y="76" width="480" height="40"/>
+    <rect class="steel" x="80" y="76" width="480" height="4"/>
+    <rect class="gone" x="80" y="96" width="480" height="20"/>
+    <line class="cut" x1="80" y1="96" x2="560" y2="96"/>
+    <!-- bench edge -->
+    <line class="ln" x1="20" y1="94" x2="620" y2="94"/>
+    <text class="sm" x="600" y="90" text-anchor="end">bench edge</text>
+    <!-- clamps -->
+    <rect x="150" y="56" width="20" height="44" fill="none" stroke="var(--ink)" stroke-width="2"/>
+    <rect x="460" y="56" width="20" height="44" fill="none" stroke="var(--ink)" stroke-width="2"/>
+    <text class="sm" x="160" y="50" text-anchor="middle">clamp</text>
+    <text class="sm" x="470" y="50" text-anchor="middle">clamp</text>
+    <text class="sm" x="320" y="72" text-anchor="middle">upright leg along this side</text>
+    <text class="sm red" x="320" y="140" text-anchor="middle">cut line, full 24" · the waste strip hangs past the bench edge</text>
+    <text class="sm" x="320" y="158" text-anchor="middle">top view, looking down on the flange</text>
+  </svg>
+      <figcaption><b>Fig 6 — on the bench</b>Flange flat, the line just past the bench edge so the waste hangs free, clamps near the upright.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">F</span><h2>Cut list</h2><span class="aside">steel</span></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Piece</th><th class="num">Qty</th><th class="num">Size</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Riser, driver</td><td class="num">1</td><td class="num">24" × 2 × 2 × 3/16"</td><td class="ok">Cut 14 Oct. <span class="note">Flange as bought.</span></td></tr>
+        <tr><td>Riser, kitchen</td><td class="num">1</td><td class="num">24", flange 1"</td><td class="ok">Cut 14 Oct. <span class="note">Flange ripped to 1" from the back of the upright.</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">G</span><h2>Build order</h2><span class="aside">grinder · cut-off wheel</span></div>
+  <div class="steps">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
+      <h3>Cut both angles to 24"</h3>
+      <p>Square cuts, burrs ground off. Mark one DRIVER and the other KITCHEN.</p>
+    </div></div>
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
+      <h3>Mark the kitchen line</h3>
+      <p>Upright leg up, flange flat. Measure 1" across the flange from the back of the upright at both ends and the middle, and join the marks with a straightedge.</p>
+    </div></div>
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
+      <h3>Rip the kitchen flange</h3>
+      <p>Clamped flat with the waste hanging past the bench edge (Fig 6). A shallow scoring pass the full length, then light passes 6–8" at a time, moving the clamps along. Cut dry, wheel square, face shield and gloves, sawdust swept away first.</p>
+    </div></div>
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
+      <h3>Clean up and check</h3>
+      <p>Grind the cut edge straight and smooth, round the corners at both ends, and check 1" along the full 24".</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <span class="hold">Later</span>
+      <h3>Drill with the anchor board</h3>
+      <p>Four ¼-20 clearance holes per flange and the slide's screw holes in each upright, laid out on the anchor board sheet.</p>
+    </div></div>
+  </div>
+</section>
+
+<footer>
+  <p>Geometry from <code>params.scad</code> (<code>fridge_rail_t</code>, <code>fridge_riser_t</code>, <code>aboard_*</code>) and the Fridge Tray sheet: driver apron's outer face 2½" from Panel C's driver edge, tray 19⅜" overall, slide stack ¾", kitchen unit's edge about 24" from the driver edge. Anchor board strips as cut: driver strip 0–2½", middle strip 21⅞–24".</p>
+</footer>
+
+</div>
+</body>
+</html>

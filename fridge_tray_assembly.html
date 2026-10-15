@@ -212,7 +212,7 @@ footer p{max-width:72ch; margin:0 0 6px}
 <div class="tb">
   <div class="tb-head">
     <h1>Fridge Tray</h1>
-    <p>The ½" ply tray the Rocky 40 rides on, with a 1×3 apron along each long edge. It hangs between the two slides with nothing underneath it, so the slides add width beside the fridge and no height under it.</p>
+    <p>The ½" ply tray the Rocky 40 rides on, with a 2½" apron along each long edge. It hangs between the two slides with nothing underneath it, so the slides add width beside the fridge and no height under it.</p>
   </div>
   <div class="tb-grid">
     <div class="tb-cell"><span class="k">Assembly</span><span class="v">Comp. 7 · step 3<small>the tray only · slides come later</small></span></div>
@@ -232,9 +232,9 @@ footer p{max-width:72ch; margin:0 0 6px}
 
   <div class="flags">
     <div class="flag">
-      <h3><span class="tag">Check</span> Size the panel to your fridge, not the listing</h3>
-      <p>The plan sizes the panel at 17.72", the Rocky 40's listed width. The aprons' top edges are the fridge's side stops, so at exactly the fridge's width there is no room to set it in.</p>
-      <p class="verdict">Measure the fridge across its base and add ⅛". At the listed width that's 17⅞". The length stays 28¾", the fridge's length over its end handles.</p>
+      <h3><span class="tag">Check</span> Size the panel to your fridge</h3>
+      <p>The aprons' top edges are the fridge's side stops, so a panel exactly the fridge's width leaves no room to set it in.</p>
+      <p class="verdict">Measure the fridge across its base and add ⅛". For the Rocky 40 that's 17⅞". The length is 28¾", the fridge's length over its end handles.</p>
     </div>
 
     <div class="flag">
@@ -244,15 +244,15 @@ footer p{max-width:72ch; margin:0 0 6px}
     </div>
 
     <div class="flag">
-      <h3><span class="tag">Carry-over</span> The slides have to sit clear of the rear leg</h3>
-      <p>The plan puts the driver-side apron against Panel C's driver rear leg, with the slide in front of the leg and its fixed rail set back 2½" from the tailgate. Closed, that clears. Pulled out, the moving rail runs out the tailgate through the leg's footprint, and the leg stops it.</p>
-      <p class="verdict">Move the whole tray 1" inboard: the driver apron's outer face 2½" from Panel C's driver edge, against the edge of the anchor board's driver strip, so the slide sits on that strip just inboard of the leg (Figs 1 and 2). That leaves about 1-3/16" between the kitchen-side slide and the kitchen unit at floor level. None of this changes what you cut.</p>
+      <h3><span class="tag">Carry-over</span> The tray sits 2½" in from the driver edge</h3>
+      <p>Panel C's driver rear leg stands in the corner. Pulled out, the driver slide's moving rail runs out the tailgate, so it has to be clear of the leg's footprint.</p>
+      <p class="verdict">The driver apron's outer face sits 2½" from Panel C's driver edge, against the edge of the anchor board's driver strip, so the slide sits on that strip just inboard of the leg (Figs 1 and 2). That leaves about 1-3/16" between the kitchen-side slide and the kitchen unit at floor level.</p>
     </div>
 
     <div class="flag">
-      <h3><span class="tag">Carry-over</span> Don't fit the slides yet</h3>
-      <p>The fixed rails bolt to steel riser angles on the anchor board, the ply comb on the van floor. The comb is already cut, and the gap between its driver strip and its middle strip is 16.85", narrower than the fridge. The tray can't be raised over the strips instead, because Panels A and B can't come up to meet a higher Panel C. So on 13 Oct the comb was cut: the middle strip trimmed to 2⅛" wide, starting 21⅞" from the driver edge, and the crossbar cut down to about 3¼" so it ends ⅛" short of the front wall. The tray hangs between the strips as planned (Fig 2). The board's hardware isn't bought yet.</p>
-      <p class="verdict">Build the tray now and stop before the slides. How high the moving rail sits on the apron depends on how thick the board and risers come out, and the screws need at least 1½" of overlap with the apron.</p>
+      <h3><span class="tag">Carry-over</span> The slides go on with the anchor board</h3>
+      <p>The fixed rails screw to the two riser angles (Riser Angles sheet), which bolt to the anchor board's driver strip and middle strip. The tray hangs between those two strips (Fig 2).</p>
+      <p class="verdict">Build the tray and stop before the slides. The moving rails screw to the aprons' outer faces at a height set by the board and risers, with at least 1½" of each rail on the apron.</p>
     </div>
   </div>
 </section>
@@ -523,14 +523,14 @@ footer p{max-width:72ch; margin:0 0 6px}
     <div class="step"><div class="sn"></div><div class="sb">
       <span class="hold">Stop here</span>
       <h3>Slides wait for the anchor board</h3>
-      <p>The moving rails screw to the aprons' outer faces, at a height set by the anchor board and its risers, with at least 1½" of each rail on the apron. The anchor board gets its own sheet first.</p>
+      <p>The moving rails screw to the aprons' outer faces, at a height set by the anchor board and its risers, with at least 1½" of each rail on the apron. They go on with the anchor board.</p>
     </div></div>
   </div>
 </section>
 
 <footer>
   <p>Geometry from <code>params.scad</code> (<code>fridge_ext_*</code>, <code>fridge_tray_t</code>, <code>fridge_tray_gap</code>, <code>fridge_apron_t</code>, <code>fridge_rail_t</code>, <code>fridge_riser_t</code>, <code>fridge_stack_top</code>) and the Panel C Frame sheet as built: rear legs 1-7/16" square at the true corners, deck 18½", rear rail underside 17-1/16".</p>
-  <p>Where the model and this sheet differ: <code>params.scad</code> sizes the panel at the fridge's 17.72" and puts the driver apron against the rear leg (<code>x_fridge_module</code>). This sheet adds ⅛" to the width and moves the tray 1-1/16" inboard so the driver slide clears the leg at full extension and the tray hangs between the cut comb's strips. The model's open issue about the apron's ¾" thickness is settled here the way the plan's section V2 draws it: rail outside the apron, apron against the panel.</p>
+  <p>Where the model and this sheet differ: <code>params.scad</code> sizes the panel at the fridge's 17.72" and puts the driver apron against the rear leg (<code>x_fridge_module</code>). This sheet adds ⅛" to the width and sets the tray 2½" in from the driver edge, so the driver slide clears the leg at full extension and the tray hangs between the comb's strips. The model's open issue about the apron's ¾" thickness is settled here the way the plan's section V2 draws it: rail outside the apron, apron against the panel.</p>
 </footer>
 
 </div>
