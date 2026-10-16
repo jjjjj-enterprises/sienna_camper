@@ -179,6 +179,8 @@ td .note{display:block; color:var(--ink-2); font-size:12.5px; margin-top:2px}
 .step h3{font-family:var(--font-d); font-size:15px; font-weight:600; margin:0 0 4px; text-wrap:balance}
 .step p{margin:0; font-size:13.8px; color:var(--ink-2); max-width:70ch}
 .step p + p{margin-top:7px}
+.step.done .sn{color:var(--good)}
+.step .hold.done{color:var(--good); border-color:var(--good)}
 .step .hold{
   display:inline-block; font-family:var(--font-m); font-size:10.5px; letter-spacing:.09em;
   text-transform:uppercase; color:var(--alert); border:1px solid var(--alert); padding:1px 5px; margin-bottom:6px;
@@ -218,7 +220,7 @@ footer p{max-width:72ch; margin:0 0 6px}
     <div class="tb-cell"><span class="k">Stock</span><span class="v">1-7/16" 2×2<small>measured · sets every between-length</small></span></div>
     <div class="tb-cell"><span class="k">Screws</span><span class="v">32 × 2½"<small>SPAX #8 Torx · from the 133 box</small></span></div>
     <div class="tb-cell"><span class="k">Drawn from</span><span class="v">Build plan<small>Sections 3, 6 · params.scad · Panel A as built</small></span></div>
-    <div class="tb-cell"><span class="k">Status</span><span class="v">Ready to cut<small>drop-in bearer, 1" braces</small></span></div>
+    <div class="tb-cell"><span class="k">Status</span><span class="v">Built<small>14 Oct: frame, braces, loops and drop-in bearer done · tongue notches cut</small></span></div>
   </div>
 </div>
 
@@ -514,12 +516,12 @@ footer p{max-width:72ch; margin:0 0 6px}
     <table>
       <thead><tr><th>Piece</th><th class="num">Qty</th><th class="num">Length</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td>End rail</td><td class="num">2</td><td class="num">46"</td><td>Cut first. Everything else is measured off these.</td></tr>
-        <tr><td>Side rail</td><td class="num">2</td><td class="num">26⅛"</td><td>Design figure. <span class="note">Cut to the gap between the end rails, standing at 29" outer.</span></td></tr>
+        <tr><td>End rail</td><td class="num">2</td><td class="num">46"</td><td class="ok">Done. <span class="note">Cut first. Everything else is measured off these.</span></td></tr>
+        <tr><td>Side rail</td><td class="num">2</td><td class="num">26⅛"</td><td class="ok">Done. <span class="note">Design figure. Cut to the gap between the end rails, standing at 29" outer.</span></td></tr>
         <tr><td>Leg</td><td class="num">4</td><td class="num">16¾"</td><td class="ok">Done: cut, bored, feet in.</td></tr>
-        <tr><td>Bottom end rail</td><td class="num">2</td><td class="num">46"</td><td>Under the top end rails, across the legs' outer faces.</td></tr>
-        <tr><td>Bottom side rail</td><td class="num">2</td><td class="num">23¼"</td><td>Design figure, 1¾" up the legs. <span class="note">Cut to the gap between the legs once they're on.</span></td></tr>
-        <tr><td>Center bearer</td><td class="num">2</td><td class="num">~25⅞"</td><td>Glued face to face. <span class="note">Drop-in: cut the glued beam to the measured end-rail gap less ¼". Rough-cut the two pieces at 26⅛" first.</span></td></tr>
+        <tr><td>Bottom end rail</td><td class="num">2</td><td class="num">46"</td><td class="ok">Done. <span class="note">Under the top end rails, across the legs' outer faces.</span></td></tr>
+        <tr><td>Bottom side rail</td><td class="num">2</td><td class="num">23¼"</td><td class="ok">Done. <span class="note">Design figure, 1¾" up the legs. Cut to the gap between the legs once they're on.</span></td></tr>
+        <tr><td>Center bearer</td><td class="num">2</td><td class="num">~25⅞"</td><td class="ok">Done. <span class="note">Glued face to face. Drop-in: cut the glued beam to the measured end-rail gap less ¼". Rough-cut the two pieces at 26⅛" first.</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -546,7 +548,7 @@ footer p{max-width:72ch; margin:0 0 6px}
         <tr><td>SPAX #8 × 2½" Torx</td><td class="num">32</td><td>8 corners · 8 leg laps · 8 bottom side rails · 8 bottom end rails</td></tr>
         <tr><td>Flat corner bracket + its short Philips screws</td><td class="num">4</td><td>Inside each top corner, after the screws</td></tr>
         <tr><td>4" steel flat strap (diagonal brace)</td><td class="num">2</td><td>Underside, two opposite corners</td></tr>
-        <tr><td>1" zinc corner brace (L-bracket) + its ½" screws</td><td class="num">4</td><td class="tight">To buy: about $4 a 4-pack. For the drop-in bearer (Flag 1). Not the 2" stainless spares, which are taller than the rail.</td></tr>
+        <tr><td>1" zinc corner brace (L-bracket) + its ½" screws</td><td class="num">4</td><td class="ok">Done. For the drop-in bearer (Flag 1). Not the 2" stainless spares, which are taller than the rail.</td></tr>
         <tr><td>Wood glue</td><td class="num">—</td><td>Every wood-to-wood joint, plus the bearer's two halves</td></tr>
         <tr><td>1" footman loop + #10 × ¾" screws</td><td class="num">2</td><td>Spare-stack strap, on the inside faces of the bottom rails. Easier now, while the frame is upside down.</td></tr>
       </tbody>
@@ -557,45 +559,55 @@ footer p{max-width:72ch; margin:0 0 6px}
 <section>
   <div class="sec-h"><span class="n">G</span><h2>Build order</h2><span class="aside">same bench method as Panel A</span></div>
   <div class="steps">
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>Cut the end rails, then measure for the side rails</h3>
       <p>Two at 46". Stand them 29" apart outside to outside and cut the side rails to the gap, which should be about 26⅛". SPF varies board to board, so measure this panel's own gap.</p>
     </div></div>
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>Glue up the ring flat, in four corner clamps</h3>
       <p>Build it on the garage floor, like Panel A. Check the diagonals while the glue is still wet: both should read <strong>54⅜"</strong>. Equal diagonals are what let the A/B and B/C seams close flat later.</p>
     </div></div>
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>Two screws a corner, then the brackets</h3>
       <p>Pilot and countersink through the clamp, then drive 2 × 2½" SPAX through the end rail's face into the side rail's end, pulled below flush. The flat bracket goes inside the corner afterwards.</p>
     </div></div>
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>Lap the four legs</h3>
       <p>Put the 2" block against the side rail's inner face and the leg against the block. Lap the leg against the end rail's inner face with its top flush with the rail top. Clamp it, pilot, and drive 2 × 2½" through the rail face into the leg's side. The feet are already in, so skip that step.</p>
     </div></div>
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>Flip it, then fit the bottom side rails, 1¾" up</h3>
       <p>Measure between the legs (about 23¼") and cut. Cut a 1¾" spacer block. With the frame upside down, stand the spacer on each leg's bottom end and rest the rail on it, on the legs' line. That puts its underside 1¾" up from the leg bottom. Glue it, then drive 2 screws through each leg's outer face into the rail's end, about 2½" up and ⅜" either side of center (Fig 3).</p>
     </div></div>
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>The 46" bottom end rails</h3>
       <p>Across the legs' outer faces, directly under the top end rails, with the underside flush with the leg bottoms, glued, exactly as on Panel A. Drive 2 screws per leg, about ¾" up and ⅜" either side of center, to miss the insert bore. They sit well below the side-rail screws, so this step and the last can go in either order.</p>
       <p><b>Notch first.</b> On the end rail that will meet Panel C, cut the two tongue notches before you fit it: ½" deep, 3" wide, at 12¾–15¾" and 30¼–33¼" from the driver end (Tongue Notches sheet). Keep the leg screws and the footman-loop screws out of those two bands.</p>
     </div></div>
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>Diagonal braces on the underside</h3>
       <p>Two 4" straps at two opposite corners, on the underside of the top ring. Never on the rail tops, because the bed halves land there.</p>
     </div></div>
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>Footman loops, while it's upside down</h3>
       <p>Two 1" loops on the inside faces of the bottom rails, one each side of where the spare stack sits, for its cam strap. Optional now, but it's awkward to reach later.</p>
     </div></div>
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>The center bearer, drop-in</h3>
       <p>Glue the two 2×2s face to face and let them cure clamped. Measure the gap between the end rails at the centerline, and cut the beam to that <strong>less ¼"</strong>, about 25⅞".</p>
       <p>With the frame still upside down, sit the bearer in the gap at the centerline, top face down on the floor, so it's flush with the rail tops. Set a 1" brace in each corner where the bearer meets an end rail: upright leg on the end rail's inner face, flat leg on the bearer's underside. Pilot and screw the braces to the rail only, never to the bearer. Lift the bearer out and back in once to check it drops freely.</p>
       </div></div>
-    <div class="step"><div class="sn"></div><div class="sb">
+    <div class="step done"><div class="sn"></div><div class="sb">
+      <span class="hold done">Done</span>
       <h3>Set the feet against Panel A</h3>
       <p>Stand it right way up beside Panel A and put a straightedge across the seam. Turn Panel B's feet until its rail tops match Panel A's, then take both to 17¾" together. The alignment pins and seam latches come later (Phase 7), once the three panels are mated.</p>
     </div></div>
