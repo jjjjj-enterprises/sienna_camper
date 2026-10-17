@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- ARTIFACT-BODY-START -->
+<title>Fridge Slides</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#E9ECE7; --surface:#FBFCFA; --surface-2:#F1F4EF;
+  --ink:#16201C; --ink-2:#4E5A55; --ink-3:#79857F;
+  --rule:#C6CDC5; --rule-strong:#8E9A93;
+  --ply:#9A7A3E; --ply-fill:rgba(200,164,107,.30);
+  --amber:#B8661A; --amber-fill:rgba(201,118,27,.15);
+  --alert:#9E2C1B; --alert-fill:rgba(158,44,27,.09);
+  --good:#2C6349;
+  --font-d:Archivo,"Helvetica Neue",Arial,sans-serif;
+  --font-b:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+    --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+    --rule:#2F3833; --rule-strong:#56615A;
+    --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+    --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+    --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+    --good:#5FB78D;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+  --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+  --rule:#2F3833; --rule-strong:#56615A;
+  --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+  --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+  --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+  --good:#5FB78D;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-b); font-size:15px; line-height:1.55;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+.sheet{max-width:1080px; margin:0 auto; padding-block:28px 64px; padding-left:20px; padding-right:20px}
+
+/* ---- title block: a drawing title block, not a hero ---- */
+.tb{border:1.5px solid var(--ink); background:var(--surface)}
+.tb-head{display:flex; flex-wrap:wrap; align-items:flex-end; gap:6px 20px; padding:18px 20px 14px; border-bottom:1.5px solid var(--ink)}
+.tb-head h1{
+  font-family:var(--font-d); font-weight:700; font-size:clamp(25px,4.6vw,38px);
+  line-height:1.03; letter-spacing:-.018em; margin:0; text-wrap:balance;
+}
+.tb-head p{margin:0; color:var(--ink-2); font-size:14.5px; max-width:56ch}
+.tb-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr))}
+.tb-cell{padding:10px 14px 12px; border-right:1px solid var(--rule); border-top:1px solid var(--rule)}
+.tb-cell:first-child{border-top:0}
+.tb-cell .k{
+  font-family:var(--font-m); font-size:10.5px; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:3px;
+}
+.tb-cell .v{font-family:var(--font-m); font-size:15px; font-weight:500; font-variant-numeric:tabular-nums}
+.tb-cell .v small{font-family:var(--font-b); font-size:12.5px; color:var(--ink-2); display:block; font-weight:400; letter-spacing:0}
+
+/* ---- section headings ---- */
+section{margin-top:44px}
+.sec-h{display:flex; align-items:baseline; gap:12px; border-bottom:1.5px solid var(--ink); padding-bottom:7px; margin-bottom:18px}
+.sec-h .n{
+  font-family:var(--font-m); font-size:12px; font-weight:600; color:var(--ink-3);
+  letter-spacing:.09em; flex:none;
+}
+.sec-h h2{font-family:var(--font-d); font-weight:600; font-size:20px; letter-spacing:-.01em; margin:0; text-wrap:balance}
+.sec-h .aside{margin-left:auto; font-family:var(--font-m); font-size:11.5px; color:var(--ink-3); text-align:right}
+
+p{margin:0 0 12px; max-width:68ch}
+.lede{color:var(--ink-2)}
+a{color:inherit}
+code{font-family:var(--font-m); font-size:.92em; background:var(--surface-2); padding:1px 4px; border-radius:2px}
+strong{font-weight:600}
+
+/* ---- flags ---- */
+.flags{display:grid; gap:14px}
+.flag{
+  border:1px solid var(--alert); border-left-width:4px; background:var(--alert-fill);
+  padding:14px 16px 15px;
+}
+.flag h3{
+  font-family:var(--font-d); font-size:15.5px; font-weight:600; margin:0 0 7px;
+  color:var(--alert); display:flex; gap:9px; align-items:baseline; text-wrap:balance;
+}
+.flag h3 .tag{
+  font-family:var(--font-m); font-size:10px; letter-spacing:.1em; border:1px solid currentColor;
+  padding:1px 5px; flex:none; text-transform:uppercase;
+}
+.flag p{margin:0 0 8px; font-size:14px}
+.flag p:last-child{margin-bottom:0}
+.flag .math{
+  font-family:var(--font-m); font-size:13px; font-variant-numeric:tabular-nums;
+  background:var(--surface); border:1px solid var(--rule); padding:8px 11px; margin:9px 0;
+  display:block; overflow-x:auto; white-space:nowrap; color:var(--ink);
+}
+.flag .verdict{font-weight:600}
+
+/* ---- figures ---- */
+.figs{display:grid; gap:26px}
+@media (min-width:780px){ .figs.two{grid-template-columns:1fr 1fr} }
+figure{margin:0; border:1px solid var(--rule-strong); background:var(--surface); display:flex; flex-direction:column}
+figure svg{display:block; width:100%; height:auto; padding:10px 8px 0}
+figcaption{
+  border-top:1px solid var(--rule); padding:9px 13px 11px; font-size:13px; color:var(--ink-2);
+  margin-top:auto;
+}
+figcaption b{font-family:var(--font-m); font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink); display:block; margin-bottom:3px}
+
+svg .ply{fill:var(--ply-fill); stroke:var(--ink); stroke-width:1.7}
+svg .cav{fill:var(--surface); stroke:var(--ink); stroke-width:1.7}
+svg .unit{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.9}
+svg .blk{fill:var(--ink-2); stroke:none}
+svg .slide{fill:var(--ink); stroke:none}
+svg .ln{fill:none; stroke:var(--ink); stroke-width:1.7}
+svg .thin{fill:none; stroke:var(--rule-strong); stroke-width:1}
+svg .dash{fill:none; stroke:var(--ink-2); stroke-width:1.4; stroke-dasharray:6 4}
+svg .strap{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.5; stroke-dasharray:5 3}
+svg .strapln{fill:none; stroke:var(--amber); stroke-width:2.2}
+svg .ring{fill:none; stroke:var(--ink); stroke-width:2.4}
+svg .hole{fill:var(--paper); stroke:var(--ink); stroke-width:1.7}
+svg text{font-family:var(--font-m); fill:var(--ink-2)}
+svg .t-dim{font-size:12.5px; font-weight:500; font-variant-numeric:tabular-nums}
+svg .t-lab{font-size:12px; fill:var(--ink)}
+svg .t-sm{font-size:10.5px; fill:var(--ink-3)}
+svg .clt{fill:var(--ply); stroke:var(--ink); stroke-width:1.2; opacity:.75}
+svg .brk{fill:none; stroke:var(--ink-2); stroke-width:1.2}
+svg .notch{fill:url(#hatch); stroke:var(--alert); stroke-width:1.3}
+svg .hatchln{stroke:var(--alert); stroke-width:1.3}
+svg .tongue{fill:var(--alert-fill); stroke:var(--alert); stroke-width:1.6}
+svg .steel{fill:var(--rule); stroke:var(--ink); stroke-width:1.2}
+svg .gone{fill:none; stroke:var(--alert); stroke-width:1.2; stroke-dasharray:4 3}
+svg .steel{fill:rgba(120,136,152,.45); stroke:var(--ink); stroke-width:1.5}
+svg .gone{fill:var(--alert-fill); stroke:var(--alert); stroke-width:1.5; stroke-dasharray:5 3}
+svg .wood{fill:var(--ply-fill); stroke:var(--ink); stroke-width:1.2}
+svg .rail{fill:rgba(84,98,112,.75); stroke:var(--ink); stroke-width:1.2}
+svg .unit{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.2}
+svg .unitd{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.2; stroke-dasharray:4 3}
+svg .trayd{fill:none; stroke:var(--ink-2); stroke-width:1.4; stroke-dasharray:6 4}
+svg .legk{fill:var(--ink)}
+svg .upr{fill:var(--ink)}
+svg .cut{stroke:var(--alert); stroke-width:2.5; fill:none}
+svg .sm{font-size:10.5px; fill:var(--ink-3)}
+svg .big{font-size:13px; font-weight:600; fill:var(--ink)}
+svg .red{fill:var(--alert)}
+svg text{font-family:var(--font-b)}
+@media print{ .figs.two{grid-template-columns:1fr 1fr} }
+svg .bolt{fill:var(--ink); stroke:none}
+svg .tnut{fill:rgba(120,136,152,.9); stroke:var(--ink); stroke-width:1}
+svg .wscrew{stroke:var(--good); stroke-width:3; fill:none; stroke-linecap:round}
+svg .mscrew{stroke:var(--ink); stroke-width:3; fill:none; stroke-linecap:round}
+svg .hole2{fill:var(--surface); stroke:var(--alert); stroke-width:1.6}
+svg .holew{fill:var(--surface); stroke:var(--good); stroke-width:1.6}
+svg .keydot{fill:var(--ink)}
+svg .keynum{font-size:11.5px; font-weight:600; fill:var(--surface)}
+
+/* ---- legend ---- */
+.legend{margin-top:16px; border:1px solid var(--rule); background:var(--surface)}
+.legend li{display:flex; gap:11px; padding:8px 13px; border-top:1px solid var(--rule); align-items:baseline}
+.legend li:first-child{border-top:0}
+.legend ol{margin:0; padding:0; list-style:none}
+.legend .n{
+  font-family:var(--font-m); font-size:11px; font-weight:600; color:var(--surface);
+  background:var(--ink); width:19px; height:19px; border-radius:50%; flex:none;
+  display:inline-flex; align-items:center; justify-content:center; transform:translateY(2px);
+}
+.legend .d{font-size:13.5px}
+.legend .d b{font-weight:600}
+.legend .d span{color:var(--ink-2)}
+
+/* ---- tables ---- */
+.tw{overflow-x:auto; border:1px solid var(--rule-strong); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:13.5px}
+th,td{padding:8px 12px; text-align:left; border-top:1px solid var(--rule); vertical-align:top}
+thead th{
+  border-top:0; border-bottom:1.5px solid var(--ink); font-family:var(--font-m);
+  font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:500;
+  white-space:nowrap;
+}
+td.num,th.num{font-family:var(--font-m); font-variant-numeric:tabular-nums; white-space:nowrap}
+tbody tr:nth-child(even){background:var(--surface-2)}
+td .note{display:block; color:var(--ink-2); font-size:12.5px; margin-top:2px}
+.ok{color:var(--good); font-weight:600}
+.tight{color:var(--alert); font-weight:600}
+
+/* ---- steps ---- */
+.steps{counter-reset:s; display:grid; gap:0; border:1px solid var(--rule-strong); background:var(--surface)}
+.step{display:grid; grid-template-columns:52px 1fr; border-top:1px solid var(--rule)}
+.step:first-child{border-top:0}
+.step .sn{
+  counter-increment:s; font-family:var(--font-m); font-size:16px; font-weight:600; color:var(--ink-3);
+  padding:14px 0 14px 16px; border-right:1px solid var(--rule); font-variant-numeric:tabular-nums;
+}
+.step .sn::before{content:counter(s,decimal-leading-zero)}
+.step .sb{padding:13px 16px 15px}
+.step h3{font-family:var(--font-d); font-size:15px; font-weight:600; margin:0 0 4px; text-wrap:balance}
+.step p{margin:0; font-size:13.8px; color:var(--ink-2); max-width:70ch}
+.step p + p{margin-top:7px}
+.step.done .sn{color:var(--good)}
+.step .hold.done{color:var(--good); border-color:var(--good)}
+.step .hold{
+  display:inline-block; font-family:var(--font-m); font-size:10.5px; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--alert); border:1px solid var(--alert); padding:1px 5px; margin-bottom:6px;
+}
+
+footer{margin-top:52px; border-top:1px solid var(--rule); padding-top:14px; color:var(--ink-3); font-size:12.5px}
+footer p{max-width:72ch; margin:0 0 6px}
+
+@media print{
+  /* Letter with the same 0.65in margin as the main build plan, so these
+     pages sit flush with it when build_pdf.py appends them — and so the
+     stamped footer at 30pt lands clear of the content. */
+  @page{size:Letter; margin:0.65in}
+  :root{--paper:#fff; --surface:#fff; --surface-2:#f4f4f4}
+  body{font-size:10.5pt}
+  .sheet{max-width:none; padding:0}
+  section{break-inside:auto; margin-top:22px}
+  figure,.flag,.step,.tw{break-inside:avoid}
+  .sec-h{break-after:avoid; page-break-after:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="tb">
+  <div class="tb-head">
+    <h1>Fridge Slides</h1>
+    <p>How the fridge tray hangs: each apron on a slide, each slide on a riser angle, each riser bolted into T-nuts in an anchor-board strip. Every hole in the steel, the board and the aprons.</p>
+  </div>
+  <div class="tb-grid">
+    <div class="tb-cell"><span class="k">Assembly</span><span class="v">Comp. 7 · Section 8<small>fridge slides on the anchor board</small></span></div>
+    <div class="tb-cell"><span class="k">Slides</span><span class="v">VADANIA VD2576<small>24" · 76 mm rail · locking · side-mount</small></span></div>
+    <div class="tb-cell"><span class="k">Rail height</span><span class="v">15/16" → 3-15/16"<small>bottom 1/16" above the board · from the floor</small></span></div>
+    <div class="tb-cell"><span class="k">Fore-aft</span><span class="v">2½" → 26½"<small>from Panel C's tailgate edge</small></span></div>
+    <div class="tb-cell"><span class="k">Steel holes</span><span class="v">9/32"<small>8 in the flanges · ~8 in the uprights</small></span></div>
+    <div class="tb-cell"><span class="k">Board</span><span class="v">8 T-nuts<small>¼-20, flush from below</small></span></div>
+    <div class="tb-cell"><span class="k">Drawn from</span><span class="v">Build plan<small>Riser Angles · Fridge Tray · params.scad</small></span></div>
+    <div class="tb-cell"><span class="k">Status</span><span class="v">Ready to drill<small>risers cut · tray built</small></span></div>
+  </div>
+</div>
+
+<section>
+  <div class="sec-h"><span class="n">A</span><h2>Check before you drill</h2><span class="aside">2 checks · 2 methods</span></div>
+  <p class="lede">The tray's right side, the kitchen side, hangs from the kitchen-side slide: apron → moving rail → fixed rail → kitchen riser → middle strip. The left side is the mirror image on the driver strip.</p>
+  <div class="flags">
+    <div class="flag">
+      <h3><span class="tag">Check</span> The slides came without screws</h3>
+      <p>VADANIA sells the VD2576 without hardware and calls for M6 screws. A ¼-20 machine screw is the inch equivalent and fits the same holes. Measure a hole in your rails and try a ¼-20 in it before buying.</p>
+      <p class="verdict">Into the steel: ¼-20 flat-head machine screws with lock nuts. Into the wood aprons: #12 × ⅝" flat-head wood screws.</p>
+    </div>
+    <div class="flag">
+      <h3><span class="tag">Check</span> Keep the apron screws ⅝" or shorter</h3>
+      <p>The aprons are ¾" thick and the fridge sits about 1/16" inside them. A ¾" screw would come through into the fridge's side.</p>
+    </div>
+    <div class="flag">
+      <h3><span class="tag">Method</span> The rails hang 1/16" above the board</h3>
+      <p>Resting on the board, the moving rail would scrape the strip every time the tray slides. Set the fixed rail's bottom edge 1/16" above the flange's underside (the board's top) with a shim, a scrap of cardboard or two playing cards, while you mark and drill.</p>
+      <span class="math">board top 0.85" + 1/16" = rail bottom 15/16" · rail 3" · tray hangs ⅜" · apron overlap ≈ 1⅞" (needs 1½")</span>
+    </div>
+    <div class="flag">
+      <h3><span class="tag">Method</span> Drill the steel slow and wet</h3>
+      <p class="verdict">Center-punch every mark, clamp the angle down, drill a ⅛" pilot, then open it to 9/32". Low speed, firm pressure, a drop of cutting fluid in each hole. Deburr both sides with a bigger bit turned by hand.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">B</span><h2>What holds the tray</h2><span class="aside">section at floor level · looking forward · to scale</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 520 190" role="img" aria-label="Section across Panel C at floor level looking forward: the anchor board driver strip and middle strip, a riser angle on each with its flange pointing outboard, a slide standing against each riser's upright, the tray's two aprons screwed to the slides' moving rails, the tray hanging between them with the fridge on it, and the kitchen unit beyond the right-hand riser">
+        <rect class="tnut" x="33.0" y="158.2" width="45.0" height="1.8"/>
+        <rect class="wood" x="33.0" y="144.7" width="45.0" height="13.5"/>
+        <rect class="tnut" x="426.8" y="158.2" width="38.2" height="1.8"/>
+        <rect class="wood" x="426.8" y="144.7" width="38.2" height="13.5"/>
+        <rect class="unit" x="92.6" y="41.2" width="319.6" height="103.0"/>
+        <rect class="ply" x="91.5" y="144.2" width="321.8" height="9.0"/>
+        <rect class="clt" x="78.0" y="108.2" width="13.5" height="45.0"/>
+        <rect class="clt" x="413.2" y="108.2" width="13.5" height="45.0"/>
+        <rect class="rail" x="64.5" y="89.6" width="13.5" height="54.0"/>
+        <rect class="rail" x="426.8" y="89.6" width="13.5" height="54.0"/>
+        <rect class="steel" x="28.5" y="141.3" width="36.0" height="3.4"/>
+        <rect class="steel" x="61.1" y="108.7" width="3.4" height="36.0"/>
+        <rect class="steel" x="440.2" y="141.3" width="18.0" height="3.4"/>
+        <rect class="steel" x="440.2" y="108.7" width="3.4" height="36.0"/>
+        <rect class="cav" x="465.0" y="41.2" width="23.4" height="118.8"/>
+        <path class="ln" d="M6 160 H488.4"/>
+        <path class="thin" d="M33.0 20 V164" stroke-dasharray="4 3"/>
+        <text class="t-sm" x="37.0" y="30">Panel C driver edge</text>
+        <text class="t-lab" x="252.6" y="84.4" text-anchor="middle">ROCKY 40 on its tray</text>
+        <text class="t-sm" x="476.7" y="100.6" text-anchor="middle" transform="rotate(-90 476.7 100.6)">kitchen unit</text>
+        <text class="t-sm" x="55.5" y="178" text-anchor="middle">driver strip</text>
+        <text class="t-sm" x="445.2" y="178" text-anchor="middle">middle strip</text>
+        <text class="t-sm" x="252.6" y="178" text-anchor="middle">tray hangs ⅜" over the floor</text>
+      </svg>
+      <figcaption><b>Fig 1 — what holds the tray</b>Looking forward from the tailgate. Each apron screws to a slide's moving rail; the moving rail rides in the fixed rail; the fixed rail is screwed to a riser's upright; the riser's flange bolts down into T-nuts in an anchor-board strip. The board lies on its mat, held to the van by the tongues and straps.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">C</span><h2>The fasteners</h2><span class="aside">close-ups · 48 px per inch</span></div>
+  <div class="figs two">
+    <figure>
+      <svg viewBox="0 0 290 280" role="img" aria-label="Driver-side close-up, looking forward: the riser's flange bolted down through the driver strip into a T-nut seated in its underside, the slide's fixed rail held to the riser's upright by a machine screw with a nut on the outboard face, and the moving rail screwed into the tray's driver apron with a short wood screw">
+        <rect class="tnut" x="58.8" y="245.2" width="120.0" height="4.8"/>
+        <rect class="wood" x="58.8" y="209.2" width="120.0" height="36.0"/>
+        <rect class="ply" x="214.8" y="208.0" width="45.6" height="24.0"/>
+        <rect class="clt" x="178.8" y="112.0" width="36.0" height="120.0"/>
+        <rect class="rail" x="142.8" y="62.2" width="36.0" height="144.0"/>
+        <rect class="steel" x="142.8" y="62.2" width="12.0" height="144.0"/>
+        <rect class="steel" x="133.8" y="113.2" width="9.0" height="96.0"/>
+        <rect class="steel" x="46.8" y="200.2" width="96.0" height="9.0"/>
+        <rect class="bolt" x="83.8" y="193.2" width="22" height="7" rx="3"/>
+        <path class="mscrew" d="M94.8 200.2 V244.2"/>
+        <rect class="tnut" x="76.8" y="242.8" width="36" height="4"/>
+        <rect class="tnut" x="88.8" y="226.0" width="12" height="16.8"/>
+        <path class="mscrew" d="M154.8 134.2 L133.8 134.2"/>
+        <rect class="bolt" x="121.8" y="125.2" width="12" height="18" rx="2"/>
+        <path class="wscrew" d="M166.8 134.2 L205.2 134.2"/>
+        <path class="ln" d="M10 250 H260.4"/>
+        <text class="t-sm" x="34.8" y="77.2" text-anchor="start">riser upright</text>
+        <text class="t-sm" x="159.6" y="50.8" text-anchor="middle">slide</text>
+        <text class="t-sm" x="202.8" y="91.6" text-anchor="start">apron</text>
+        <text class="t-sm" x="34.8" y="226.4" text-anchor="start">board</text>
+        <path class="thin" d="M94.8 193.2 L84.8 158.8"/><circle class="keydot" cx="84.8" cy="158.8" r="9.5"/><text class="keynum" x="84.8" y="162.8" text-anchor="middle">1</text>
+        <path class="thin" d="M94.8 245.2 L134.8 266.0"/><circle class="keydot" cx="134.8" cy="266.0" r="9.5"/><text class="keynum" x="134.8" y="270.0" text-anchor="middle">2</text>
+        <path class="thin" d="M127.8 125.2 L102.0 103.6"/><circle class="keydot" cx="102.0" cy="103.6" r="9.5"/><text class="keynum" x="102.0" y="107.6" text-anchor="middle">3</text>
+        <path class="thin" d="M195.6 134.2 L236.4 154.0"/><circle class="keydot" cx="236.4" cy="154.0" r="9.5"/><text class="keynum" x="236.4" y="158.0" text-anchor="middle">4</text>
+      </svg>
+      <figcaption><b>Fig 2 — left (driver) side</b>1 ¼-20 × 1" button head through the flange. 2 ¼-20 T-nut, flush in the strip's underside. 3 ¼-20 flat-head machine screw through the fixed rail and upright, lock nut on the outboard face. 4 #12 × ⅝" flat-head wood screw through the moving rail into the apron. Rail bottom 15/16" and screw line 2-7/16" above the van floor.</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 290 280" role="img" aria-label="Kitchen-side close-up, the mirror of the driver side: the riser's 1 inch flange bolted down into a T-nut in the middle strip, the fixed rail held to the upright by a machine screw with its nut on the kitchen-unit side, and the moving rail screwed into the tray's kitchen-side apron">
+        <rect class="tnut" x="96.0" y="245.2" width="102.0" height="4.8"/>
+        <rect class="wood" x="96.0" y="209.2" width="102.0" height="36.0"/>
+        <rect class="ply" x="30.0" y="208.0" width="30.0" height="24.0"/>
+        <rect class="cav" x="198.0" y="38.8" width="28.8" height="211.2"/>
+        <rect class="clt" x="60.0" y="112.0" width="36.0" height="120.0"/>
+        <rect class="rail" x="96.0" y="62.2" width="36.0" height="144.0"/>
+        <rect class="steel" x="120.0" y="62.2" width="12.0" height="144.0"/>
+        <rect class="steel" x="132.0" y="113.2" width="9.0" height="96.0"/>
+        <rect class="steel" x="132.0" y="200.2" width="48.0" height="9.0"/>
+        <rect class="bolt" x="151.0" y="193.2" width="22" height="7" rx="3"/>
+        <path class="mscrew" d="M162.0 200.2 V244.2"/>
+        <rect class="tnut" x="144.0" y="242.8" width="36" height="4"/>
+        <rect class="tnut" x="156.0" y="226.0" width="12" height="16.8"/>
+        <path class="mscrew" d="M120.0 134.2 L141.0 134.2"/>
+        <rect class="bolt" x="141.0" y="125.2" width="12" height="18" rx="2"/>
+        <path class="wscrew" d="M108.0 134.2 L69.6 134.2"/>
+        <path class="ln" d="M10 250 H226.8"/>
+        <text class="t-sm" x="145.2" y="77.2" text-anchor="start">riser upright</text>
+        <text class="t-sm" x="114.0" y="50.8" text-anchor="middle">slide</text>
+        <text class="t-sm" x="32.4" y="91.6" text-anchor="start">apron</text>
+        <text class="t-sm" x="102.0" y="226.4" text-anchor="start">board</text>
+        <path class="thin" d="M162.0 193.2 L180.0 158.8"/><circle class="keydot" cx="180.0" cy="158.8" r="9.5"/><text class="keynum" x="180.0" y="162.8" text-anchor="middle">1</text>
+        <path class="thin" d="M162.0 245.2 L118.0 266.0"/><circle class="keydot" cx="118.0" cy="266.0" r="9.5"/><text class="keynum" x="118.0" y="270.0" text-anchor="middle">2</text>
+        <path class="thin" d="M147.0 125.2 L178.8 103.6"/><circle class="keydot" cx="178.8" cy="103.6" r="9.5"/><text class="keynum" x="178.8" y="107.6" text-anchor="middle">3</text>
+        <path class="thin" d="M78.0 134.2 L49.2 154.0"/><circle class="keydot" cx="49.2" cy="154.0" r="9.5"/><text class="keynum" x="49.2" y="158.0" text-anchor="middle">4</text>
+      </svg>
+      <figcaption><b>Fig 3 — right (kitchen) side</b>The mirror of Fig 2. The flange is 1" here, so the bolt sits ⅝" from the back of the upright, and the rail screw's nut is on the kitchen-unit side, about 1¼" short of the unit.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">D</span><h2>Drilling layouts</h2><span class="aside">steel · board · aprons</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 660 300" role="img" aria-label="Drilling layout for the two riser angles: top views of the driver flange and the kitchen flange, each 24 inches long with four 9/32 inch holes at 2, 8 and a half, 15 and a half and 22 inches from the tailgate end, 1 inch from the back of the upright on the driver riser and 5/8 inch on the kitchen riser; and an elevation of the upright with the rail-screw holes 1-9/16 inches up from the flange's underside, marked through the rail">
+        <rect class="steel" x="40.0" y="40.0" width="408.0" height="34.0"/>
+        <rect class="upr" x="40.0" y="71.0" width="408.0" height="3"/>
+        <circle class="hole2" cx="74.0" cy="57.0" r="4.5"/>
+        <circle class="hole2" cx="184.5" cy="57.0" r="4.5"/>
+        <circle class="hole2" cx="303.5" cy="57.0" r="4.5"/>
+        <circle class="hole2" cx="414.0" cy="57.0" r="4.5"/>
+        <text class="t-lab" x="40.0" y="34.0">DRIVER riser · flange 2" · 4 holes 9/32"</text>
+        <path class="thin" d="M452.0 74.0 H488.0 M452.0 57.0 H488.0 M482.0 74.0 V57.0"/>
+        <text class="t-dim" x="492.0" y="69.5">1" from the back</text>
+        <rect class="steel" x="40.0" y="130.0" width="408.0" height="17.0"/>
+        <rect class="upr" x="40.0" y="144.0" width="408.0" height="3"/>
+        <circle class="hole2" cx="74.0" cy="136.4" r="4.5"/>
+        <circle class="hole2" cx="184.5" cy="136.4" r="4.5"/>
+        <circle class="hole2" cx="303.5" cy="136.4" r="4.5"/>
+        <circle class="hole2" cx="414.0" cy="136.4" r="4.5"/>
+        <text class="t-lab" x="40.0" y="124.0">KITCHEN riser · flange 1" · 4 holes 9/32"</text>
+        <path class="thin" d="M452.0 147.0 H488.0 M452.0 136.4 H488.0 M482.0 147.0 V136.4"/>
+        <text class="t-dim" x="492.0" y="145.7">⅝" from the back</text>
+        <rect class="steel" x="40.0" y="200.0" width="408.0" height="34.0"/>
+        <text class="t-lab" x="40.0" y="194.0">Both uprights, inner face · rail screws: mark through the rail</text>
+        <circle class="hole2" cx="91.0" cy="207.4" r="4.5"/>
+        <circle class="hole2" cx="193.0" cy="207.4" r="4.5"/>
+        <circle class="hole2" cx="295.0" cy="207.4" r="4.5"/>
+        <circle class="hole2" cx="397.0" cy="207.4" r="4.5"/>
+        <path class="thin" d="M452.0 234.0 H488.0 M452.0 207.4 H488.0 M482.0 234.0 V207.4"/>
+        <text class="t-dim" x="492.0" y="221.2">1-9/16" up from</text>
+        <text class="t-dim" x="492.0" y="235.2">the flange's underside</text>
+        <path class="thin" d="M40.0 248.0 H448.0"/>
+        <path class="thin" d="M40.0 243.0 V253.0"/>
+        <path class="thin" d="M74.0 243.0 V253.0"/>
+        <path class="thin" d="M184.5 243.0 V253.0"/>
+        <path class="thin" d="M303.5 243.0 V253.0"/>
+        <path class="thin" d="M414.0 243.0 V253.0"/>
+        <path class="thin" d="M448.0 243.0 V253.0"/>
+        <text class="t-dim" x="74.0" y="268.0" text-anchor="middle">2"</text>
+        <text class="t-dim" x="184.5" y="268.0" text-anchor="middle">8½"</text>
+        <text class="t-dim" x="303.5" y="268.0" text-anchor="middle">15½"</text>
+        <text class="t-dim" x="414.0" y="268.0" text-anchor="middle">22"</text>
+        <text class="t-sm" x="40.0" y="284.0">TAILGATE END · flange holes measured from here</text>
+        <text class="t-sm" x="448.0" y="284.0" text-anchor="end">24"</text>
+      </svg>
+      <figcaption><b>Fig 4 — drilling the risers</b>Flange holes 9/32" for the ¼-20 bolts, measured along from the riser's tailgate end and across from the back of the upright. The upright's holes come from the slide: clamp the fixed rail on with its bottom edge 1/16" above the flange's underside and mark through its own holes. The four positions shown are a guide; use the rail's holes nearest them.</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 620 330" role="img" aria-label="Plan of the anchor board's driver strip, middle strip and crossbar with the risers dashed on them and eight T-nut holes: four on the driver strip 3/4 inch in from the driver edge and four on the middle strip 23 and 1/4 inches from the driver edge, at 4 and a half, 11, 18 and 24 and a half inches from Panel C's tailgate edge; and an inset section of a T-nut counterbored flush into the strip's underside with the bolt coming down through the riser flange">
+        <rect class="wood" x="40.0" y="39.0" width="22.5" height="243.0"/>
+        <rect class="wood" x="236.9" y="39.0" width="19.1" height="243.0"/>
+        <rect class="wood" x="40.0" y="9.8" width="414.0" height="29.2"/>
+        <path class="dash" d="M37.8 277.5 V61.5 M55.8 277.5 V61.5 M37.8 277.5 H55.8 M37.8 61.5 H55.8"/>
+        <path class="dash" d="M243.6 277.5 V61.5 M252.6 277.5 V61.5 M243.6 277.5 H252.6 M243.6 61.5 H252.6"/>
+        <circle class="hole2" cx="46.8" cy="259.5" r="4"/>
+        <circle class="hole2" cx="249.2" cy="259.5" r="4"/>
+        <path class="thin" d="M255.2 259.5 H283.0"/>
+        <text class="t-dim" x="285.7" y="263.5">4½"</text>
+        <circle class="hole2" cx="46.8" cy="201.0" r="4"/>
+        <circle class="hole2" cx="249.2" cy="201.0" r="4"/>
+        <path class="thin" d="M255.2 201.0 H283.0"/>
+        <text class="t-dim" x="285.7" y="205.0">11"</text>
+        <circle class="hole2" cx="46.8" cy="138.0" r="4"/>
+        <circle class="hole2" cx="249.2" cy="138.0" r="4"/>
+        <path class="thin" d="M255.2 138.0 H283.0"/>
+        <text class="t-dim" x="285.7" y="142.0">18"</text>
+        <circle class="hole2" cx="46.8" cy="79.5" r="4"/>
+        <circle class="hole2" cx="249.2" cy="79.5" r="4"/>
+        <path class="thin" d="M255.2 79.5 H283.0"/>
+        <text class="t-dim" x="285.7" y="83.5">24½"</text>
+        <path class="ln" d="M22.0 300.0 H454.0"/>
+        <text class="t-sm" x="238.0" y="316.0" text-anchor="middle">PANEL C'S TAILGATE EDGE · hatch</text>
+        <text class="t-sm" x="285.7" y="294.0">from the tailgate edge</text>
+        <path class="thin" d="M40.0 33.6 V22.8 M46.8 40.8 V22.8 M249.2 40.8 V-9.6"/>
+        <text class="t-dim" x="51.7" y="28.2">¾" in</text>
+        <path class="thin" d="M40.0 -6.0 H249.2 M40.0 -0.6 V-11.4"/>
+        <text class="t-dim" x="144.4" y="-9.6" text-anchor="middle">23¼" from the driver edge</text>
+        <text class="t-sm" x="139.0" y="165.0" text-anchor="middle">gap · the tray</text>
+        <text class="t-sm" x="139.0" y="178.0" text-anchor="middle">hangs here</text>
+        <rect class="wood" x="336" y="150" width="150" height="45"/>
+        <rect class="tnut" x="388" y="191" width="46" height="4"/>
+        <rect class="tnut" x="403" y="168" width="16" height="24"/>
+        <path class="mscrew" d="M411 136 V190"/>
+        <rect class="bolt" x="398" y="132" width="26" height="7" rx="3"/>
+        <rect class="steel" x="356" y="139" width="110" height="11"/>
+        <text class="t-lab" x="336" y="116">T-nut, from below</text>
+        <text class="t-sm" x="494" y="154">riser flange</text>
+        <text class="t-sm" x="494" y="178">¾" ply strip</text>
+        <text class="t-sm" x="336" y="212">5/16" through · ¾" counterbore,</text>
+        <text class="t-sm" x="336" y="226">just deep enough to sit flush</text>
+        <text class="t-sm" x="336" y="240">¼-20 × 1" button head from above</text>
+      </svg>
+      <figcaption><b>Fig 5 — T-nuts in the board</b>Eight T-nuts, four per strip, on the lines the riser holes make. Transfer them from the drilled risers: set each riser on its strip with its tailgate end ½" in from the strip's tip and its flange edge where shown, and mark through. Every T-nut goes in before the board goes in the van.</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 660 190" role="img" aria-label="An apron's outer face, 28 and 3/4 inches long, with the slide's moving rail shaded on it: the rail starts 2 and a half inches from the tailgate end, its bottom edge 9/16 inch above the apron's bottom, and its screws on a line 2-1/16 inches up, marked through the rail's own holes">
+        <rect class="clt" x="40.0" y="102.5" width="431.2" height="37.5"/>
+        <rect class="rail" x="77.5" y="86.9" width="360.0" height="45.0" style="opacity:.45"/>
+        <path class="dash" d="M77.5 131.9 H437.5"/>
+        <circle class="holew" cx="100.0" cy="109.4" r="4"/>
+        <circle class="holew" cx="190.0" cy="109.4" r="4"/>
+        <circle class="holew" cx="280.0" cy="109.4" r="4"/>
+        <circle class="holew" cx="370.0" cy="109.4" r="4"/>
+        <text class="t-sm" x="40.0" y="54.5">TAILGATE END</text>
+        <text class="t-sm" x="471.2" y="54.5" text-anchor="end">FRONT-WALL END</text>
+        <text class="t-sm" x="257.5" y="98.9" text-anchor="middle">moving rail (shaded) · tray ⅜" above the floor</text>
+        <path class="thin" d="M40.0 146.0 V170.0 M77.5 146.0 V170.0 M40.0 166.0 H77.5"/>
+        <text class="t-dim" x="80.5" y="170.0">2½" from the tailgate end</text>
+        <path class="thin" d="M475.2 140.0 H515.2 M441.5 131.9 H515.2 M441.5 109.4 H515.2 M511.2 140.0 V109.4"/>
+        <text class="t-dim" x="501.2" y="156.0">9/16" to the rail</text>
+        <text class="t-dim" x="501.2" y="101.4">2-1/16" to the screws</text>
+      </svg>
+      <figcaption><b>Fig 6 — moving rail on the apron</b>Both aprons the same way. With the rail's bottom 9/16" above the apron's bottom the tray hangs ⅜" off the floor and about 1⅞" of rail sits on the apron. Mark through the rail's holes; ⅝" screws stop ⅛" short of the fridge side.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">E</span><h2>Hardware</h2><span class="aside">both slides</span></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Item</th><th class="num">Qty</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>¼-20 × 1" button-head machine screw</td><td class="num">8</td><td>Down through the riser flanges into the T-nuts (Fig 2, item 1)</td></tr>
+        <tr><td>¼-20 four-prong T-nut</td><td class="num">8</td><td>Flush in the strips' underside (Fig 5)</td></tr>
+        <tr><td>¼-20 × ½" flat-head machine screw + nylon lock nut</td><td class="num">8–10</td><td>Fixed rails to the risers' uprights, heads inside the rail (item 3)</td></tr>
+        <tr><td>#12 × ⅝" flat-head wood screw</td><td class="num">8–10</td><td>Moving rails to the aprons (item 4). Not longer than ⅝"</td></tr>
+        <tr><td>Drill bits: ⅛", 9/32", 5/16"; ¾" spade or Forstner</td><td class="num">—</td><td>Pilots, steel holes, T-nut barrels, T-nut counterbores</td></tr>
+        <tr><td>Center punch, cutting fluid</td><td class="num">—</td><td>The steel holes. <span class="ok">Tap Magic on hand.</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">F</span><h2>Build order</h2><span class="aside">bench first, van last</span></div>
+  <div class="steps">
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Check the screws fit</h3>
+      <p>Pull the slides apart (most have a release lever on the moving member). Try a ¼-20 screw in a fixed-rail hole and a moving-rail hole. If it won't pass, buy M6 instead.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Drill the flange holes</h3>
+      <p>Both risers, four each at 2", 8½", 15½" and 22" from the tailgate end: 1" from the back of the upright on the driver riser, ⅝" on the kitchen riser (Fig 4). Punch, ⅛" pilot, 9/32", deburr.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Fit the fixed rails to the risers</h3>
+      <p>Riser flange-down on a flat bench. Stand the fixed rail against the upright's inner face (the side away from the flange) on a 1/16" shim, ends flush with the riser's ends. Clamp, mark through the rail's holes that land on the upright, drill 9/32", and bolt with the flat heads inside the rail and lock nuts outside. Slide the moving rail back on and check it runs past every screw head.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Drill and seat the T-nuts</h3>
+      <p>Lay each riser on its strip (Fig 5), mark through the flange holes, and drill 5/16" straight through. Turn the board over, counterbore each hole ¾" just deep enough for the T-nut's flange, and tap the T-nuts in flush. Test each with a bolt.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Moving rails on the aprons</h3>
+      <p>Tray on its side. Each moving rail's bottom edge 9/16" above the apron's bottom, its tailgate end 2½" from the apron's tailgate end (Fig 6). Mark through its holes, ⅛" pilots no deeper than ⅝", and #12 × ⅝" flat heads.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
+      <h3>In the van: risers down, tray in</h3>
+      <p>Board on its mat and tongues pinned. Bolt both risers down. Engage the tray's moving rails into the fixed rails and push it home. Pull it out to full extension and back: it should lock both ways, clear the rear leg, and pass under Panel C's rear rail.</p>
+    </div></div>
+  </div>
+</section>
+
+<footer>
+  <p>Geometry from <code>params.scad</code> (<code>fridge_rail_t</code>, <code>fridge_tray_gap</code>, <code>aboard_*</code>) and the Riser Angles and Fridge Tray sheets: driver apron's outer face 2½" from Panel C's driver edge, tray 19⅜" overall, board top 0.85" with a 0.1" mat. Where the model and this sheet differ: the model stands each rail on its riser's flange, which puts the rail bottom at 1.1"; with the flanges pointing outboard the rail stands beside the upright instead, 1/16" above the board, which gives the apron screws about ⅜" more band.</p>
+</footer>
+
+</div>
+</body>
+</html>
