@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel C Foot Test</title>
+<style>
+:root{
+  --bg:#f6f4ef; --paper:#fffdf8; --ink:#1d1c1a; --ink-2:#55524c; --ink-3:#8a867e;
+  --line:#2b2a27; --faint:#d9d5cc; --alert:#c2410c; --ok:#15803d; --steel:#5b6b7a; --seat:#e7ddc9;
+  --wood:#e9cf9f;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161513; --paper:#1f1e1b; --ink:#ece9e2; --ink-2:#b3afa6; --ink-3:#7f7b73;
+    --line:#d6d2c9; --faint:#3a3833; --alert:#fb923c; --ok:#4ade80; --steel:#9fb1c2; --seat:#3b3528;
+    --wood:#6b5530;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161513; --paper:#1f1e1b; --ink:#ece9e2; --ink-2:#b3afa6; --ink-3:#7f7b73;
+  --line:#d6d2c9; --faint:#3a3833; --alert:#fb923c; --ok:#4ade80; --steel:#9fb1c2; --seat:#3b3528;
+  --wood:#6b5530;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif}
+.sheet{max-width:960px; margin:0 auto; padding:28px 16px 64px}
+h1{font-size:26px; margin:0 0 4px}
+.sub{color:var(--ink-2); margin:0 0 24px}
+section{background:var(--paper); border:1px solid var(--faint); border-radius:8px; padding:20px; margin-bottom:22px}
+h2{font-size:19px; margin:0 0 10px}
+h2 .n{display:inline-block; background:var(--ink); color:var(--paper); border-radius:4px; padding:0 8px; margin-right:8px; font-size:15px}
+p{margin:0 0 10px}
+ol{margin:0 0 12px; padding-left:22px}
+li{margin-bottom:6px}
+svg{display:block; width:100%; height:auto; margin:8px 0 6px}
+svg text{fill:var(--ink); font:12px system-ui, sans-serif}
+svg .sm{font-size:10.5px; fill:var(--ink-2)}
+svg .big{font-size:14px; font-weight:700}
+svg .red{fill:var(--alert)}
+svg .grn{fill:var(--ok)}
+.cap{color:var(--ink-2); font-size:14px}
+.answer{border:2px dashed var(--alert); border-radius:8px; padding:14px 16px}
+.answer table{border-collapse:collapse; width:100%}
+.answer td{padding:7px 6px; border-bottom:1px solid var(--faint); vertical-align:top}
+.answer td.blank{color:var(--ink-3); white-space:nowrap}
+.key{font-weight:700; color:var(--alert)}
+</style>
+</head>
+<body>
+<div class="sheet">
+<h1>Panel C foot test: the feet that wobble</h1>
+<p class="sub">Do all of this with Panel C sitting in the van where it lives: back edge at the hatch, 3rd row folded. Do it with the anchor board in and strapped down: its strips lie on the flat seat surface and may stop the rocking on their own. If nothing rocks, no pads are needed.</p>
+
+<section>
+  <h2><span class="n">1</span>The feet that wobble</h2>
+  <p>A folded 3rd-row seat has a flat top with rounded edges, and there are gaps between the seats. By "flat seat surface" I mean the flat top, away from those rounded edges and gaps. A foot standing on a rounded edge rocks. A foot standing on the flat top doesn't.</p>
+
+  <svg viewBox="0 0 640 230" role="img" aria-label="Two side views. Left: a leg's foot sitting on the rounded edge of a folded seat, which rocks. Right: the same foot standing on a scrap of plywood that reaches onto the flat top of the seat, which is solid">
+    <text class="big" x="160" y="20" text-anchor="middle">NOW: foot on the rounded edge</text>
+    <text class="big" x="480" y="20" text-anchor="middle">TEST: scrap ply under the foot</text>
+    <!-- left -->
+    <path d="M20 200 V120 H170 Q200 120 205 150 V200 Z" fill="var(--seat)" stroke="var(--line)"/>
+    <text x="80" y="170" class="sm" text-anchor="middle">folded seat</text>
+    <text x="80" y="112" class="sm grn" text-anchor="middle">flat seat surface</text>
+    <line x1="30" y1="118" x2="160" y2="118" stroke="var(--ok)" stroke-width="3"/>
+    <text x="218" y="185" class="sm">gap</text>
+    <rect x="182" y="40" width="22" height="72" fill="var(--wood)" stroke="var(--line)"/>
+    <rect x="178" y="112" width="30" height="8" fill="var(--ink)" transform="rotate(14 193 116)"/>
+    <text x="250" y="96" class="red">rocks</text>
+    <text x="250" y="112" class="sm">foot is half on</text>
+    <text x="250" y="125" class="sm">the round edge</text>
+    <!-- right -->
+    <path d="M340 200 V120 H490 Q520 120 525 150 V200 Z" fill="var(--seat)" stroke="var(--line)"/>
+    <rect x="420" y="111" width="110" height="9" fill="var(--wood)" stroke="var(--line)"/>
+    <rect x="502" y="35" width="22" height="68" fill="var(--wood)" stroke="var(--line)"/>
+    <rect x="498" y="103" width="30" height="8" fill="var(--ink)"/>
+    <text x="360" y="150" class="sm">scrap ply reaches</text>
+    <text x="360" y="163" class="sm">back onto the flat top</text>
+    <text x="560" y="80" class="grn">solid</text>
+    <line x1="420" y1="96" x2="530" y2="96" stroke="var(--alert)" stroke-width="1.5" marker-start="url(#ar)" marker-end="url(#ar)"/>
+    <text x="440" y="90" class="sm red">how long?</text>
+  </svg>
+  <ol>
+    <li>Push down on each corner of Panel C. Note which feet rock: FL and FR are the front (cab-end) corners, RL and RR the rear (hatch-end) corners; left is the driver side.</li>
+    <li>For each one that rocks, slide a scrap of plywood under the foot. Keep trying longer pieces until the corner stops rocking when you push on it.</li>
+    <li>Note the scrap size that worked, and which way it had to reach from the foot: toward the front, the back, the side, or the middle.</li>
+    <li>If a foot sits over a gap between two seats, measure how wide the gap is.</li>
+  </ol>
+  <p class="cap">The scrap only proves the size. Its thickness raises Panel C, so the real pad will probably be thinner: ⅛" steel or ¼" hardboard, cut to the size that worked.</p>
+</section>
+
+<section class="answer">
+  <h2>What to send me</h2>
+  <table>
+    <tr><td>Which feet rock (FL, FR, RL, RR)</td><td class="blank">_____</td></tr>
+    <tr><td>For each one: scrap size that stopped it, and which way it reached</td><td class="blank">_____ × _____ " , toward _____</td></tr>
+    <tr><td>Any gap between seats under a foot: how wide</td><td class="blank">_____ "</td></tr>
+  </table>
+</section>
+</div>
+</body>
+</html>
