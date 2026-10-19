@@ -33,7 +33,7 @@ PDF_PATH = ROOT / "Project_Smores.pdf"
 # markdown sections, so they cannot go through the markdown pipeline above.
 # Chrome prints each one on its own and the pages are concatenated onto the
 # end of the plan — see append_drawing_sheets().
-DRAWING_SHEETS = [ROOT / "power_drawer_assembly.html", ROOT / "panel_b_assembly.html", ROOT / "panel_c_assembly.html", ROOT / "fridge_tray_assembly.html", ROOT / "tongue_notches.html", ROOT / "riser_angles.html", ROOT / "bed_platform_assembly.html", ROOT / "fridge_slides_assembly.html", ROOT / "anchor_board_drilling.html", ROOT / "kitchen_drawer_assembly.html"]
+DRAWING_SHEETS = [ROOT / "power_drawer_assembly.html", ROOT / "panel_b_assembly.html", ROOT / "panel_c_assembly.html", ROOT / "fridge_tray_assembly.html", ROOT / "riser_angles.html", ROOT / "bed_platform_assembly.html", ROOT / "fridge_slides_assembly.html", ROOT / "anchor_board_assembly.html", ROOT / "kitchen_drawer_assembly.html"]
 
 CSS = """
 @page { size: Letter; margin: 0.65in; }
@@ -405,31 +405,7 @@ def main():
 
 ### Overhead Floorplan
 
-![No-drill anchor platform — overhead detail](renders/anchor-platform-overhead.png)
-
-*The no-drill rail platform (Section 8) in plan view, before the whole-van floorplan below: the mat + ply anchor board under Panel C, its 2 steel tongues bolted to the rear ends of the 2nd-row long-slide floor rails, and its 3 ratchet straps dropping into the crash-rated 3rd-row striker loops. Tailgate at the bottom, forward at the top.*
-
-**What this platform is.** A skeleton of 3/4" plywood on a non-slip rubber mat,
-laid on the van floor. It is **ONE comb-shaped piece** — a full-width BRIDGE
-with 3 narrow STRIPS running back from it (the hatched shape on the sheet), cut
-from a single 46"×33" blank. There are **no joints in it**: nothing is glued or
-screwed to another piece of ply. It is **not** a full plywood floor — nothing
-sits under the fridge tray or the kitchen unit, where the van floor stays bare.
-
-**The appliances anchor to the BOARD.** The fridge slide's steel riser angles
-bolt to the two rail-line strips (1/4-20 T-nuts), and the kitchen's 4 ratchet
-straps criss-cross into L-track D-rings on its two flanking strips.
-
-**The board anchors to the VAN at two factory hardpoints — zero new holes.**
-
-- **RAILS:** 2 steel tongues (2"×3/16" flat bar) bolt under the bridge and bolt/clamp to the 2nd-row floor rails' rear ends → takes the FORWARD crash load.
-- **STRIKERS:** 3 ratchet straps run from bridge D-rings into the 3rd-row striker loops → takes REARWARD + LIFT loads, and they pin the board down.
-
-Rail-end and striker positions are **ASSUMED** until the Appendix A F1–F8
-survey. (This explanation used to be printed as a 20-line block below the
-drawing. It is what made that sheet 101 units tall, and since sheet height sets
-printed text size, it was holding its own lines — and every label on the drawing
-— to about 5pt on paper.)
+**The anchor board** under Panel C (Section 8, and the Anchor Board shop sheet at the end of this PDF): three ¾" plywood strips tied by two steel rungs, carrying the fridge slides' risers and the kitchen unit's straps, and strapped forward and down to the 3rd-row seats' latch hoops. No holes in the van.
 
 ![Overhead floorplan](renders/top-down.png)
 

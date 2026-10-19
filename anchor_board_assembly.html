@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- ARTIFACT-BODY-START -->
+<title>Anchor Board</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#E9ECE7; --surface:#FBFCFA; --surface-2:#F1F4EF;
+  --ink:#16201C; --ink-2:#4E5A55; --ink-3:#79857F;
+  --rule:#C6CDC5; --rule-strong:#8E9A93;
+  --ply:#9A7A3E; --ply-fill:rgba(200,164,107,.30);
+  --amber:#B8661A; --amber-fill:rgba(201,118,27,.15);
+  --alert:#9E2C1B; --alert-fill:rgba(158,44,27,.09);
+  --good:#2C6349;
+  --font-d:Archivo,"Helvetica Neue",Arial,sans-serif;
+  --font-b:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+    --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+    --rule:#2F3833; --rule-strong:#56615A;
+    --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+    --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+    --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+    --good:#5FB78D;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+  --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+  --rule:#2F3833; --rule-strong:#56615A;
+  --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+  --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+  --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+  --good:#5FB78D;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-b); font-size:15px; line-height:1.55;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+.sheet{max-width:1080px; margin:0 auto; padding-block:28px 64px; padding-left:20px; padding-right:20px}
+
+/* ---- title block: a drawing title block, not a hero ---- */
+.tb{border:1.5px solid var(--ink); background:var(--surface)}
+.tb-head{display:flex; flex-wrap:wrap; align-items:flex-end; gap:6px 20px; padding:18px 20px 14px; border-bottom:1.5px solid var(--ink)}
+.tb-head h1{
+  font-family:var(--font-d); font-weight:700; font-size:clamp(25px,4.6vw,38px);
+  line-height:1.03; letter-spacing:-.018em; margin:0; text-wrap:balance;
+}
+.tb-head p{margin:0; color:var(--ink-2); font-size:14.5px; max-width:56ch}
+.tb-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr))}
+.tb-cell{padding:10px 14px 12px; border-right:1px solid var(--rule); border-top:1px solid var(--rule)}
+.tb-cell:first-child{border-top:0}
+.tb-cell .k{
+  font-family:var(--font-m); font-size:10.5px; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:3px;
+}
+.tb-cell .v{font-family:var(--font-m); font-size:15px; font-weight:500; font-variant-numeric:tabular-nums}
+.tb-cell .v small{font-family:var(--font-b); font-size:12.5px; color:var(--ink-2); display:block; font-weight:400; letter-spacing:0}
+
+/* ---- section headings ---- */
+section{margin-top:44px}
+.sec-h{display:flex; align-items:baseline; gap:12px; border-bottom:1.5px solid var(--ink); padding-bottom:7px; margin-bottom:18px}
+.sec-h .n{
+  font-family:var(--font-m); font-size:12px; font-weight:600; color:var(--ink-3);
+  letter-spacing:.09em; flex:none;
+}
+.sec-h h2{font-family:var(--font-d); font-weight:600; font-size:20px; letter-spacing:-.01em; margin:0; text-wrap:balance}
+.sec-h .aside{margin-left:auto; font-family:var(--font-m); font-size:11.5px; color:var(--ink-3); text-align:right}
+
+p{margin:0 0 12px; max-width:68ch}
+.lede{color:var(--ink-2)}
+a{color:inherit}
+code{font-family:var(--font-m); font-size:.92em; background:var(--surface-2); padding:1px 4px; border-radius:2px}
+strong{font-weight:600}
+
+/* ---- flags ---- */
+.flags{display:grid; gap:14px}
+.flag{
+  border:1px solid var(--alert); border-left-width:4px; background:var(--alert-fill);
+  padding:14px 16px 15px;
+}
+.flag h3{
+  font-family:var(--font-d); font-size:15.5px; font-weight:600; margin:0 0 7px;
+  color:var(--alert); display:flex; gap:9px; align-items:baseline; text-wrap:balance;
+}
+.flag h3 .tag{
+  font-family:var(--font-m); font-size:10px; letter-spacing:.1em; border:1px solid currentColor;
+  padding:1px 5px; flex:none; text-transform:uppercase;
+}
+.flag p{margin:0 0 8px; font-size:14px}
+.flag p:last-child{margin-bottom:0}
+.flag .math{
+  font-family:var(--font-m); font-size:13px; font-variant-numeric:tabular-nums;
+  background:var(--surface); border:1px solid var(--rule); padding:8px 11px; margin:9px 0;
+  display:block; overflow-x:auto; white-space:nowrap; color:var(--ink);
+}
+.flag .verdict{font-weight:600}
+
+/* ---- figures ---- */
+.figs{display:grid; gap:26px}
+@media (min-width:780px){ .figs.two{grid-template-columns:1fr 1fr} }
+figure{margin:0; border:1px solid var(--rule-strong); background:var(--surface); display:flex; flex-direction:column}
+figure svg{display:block; width:100%; height:auto; padding:10px 8px 0}
+figcaption{
+  border-top:1px solid var(--rule); padding:9px 13px 11px; font-size:13px; color:var(--ink-2);
+  margin-top:auto;
+}
+figcaption b{font-family:var(--font-m); font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink); display:block; margin-bottom:3px}
+
+svg .ply{fill:var(--ply-fill); stroke:var(--ink); stroke-width:1.7}
+svg .cav{fill:var(--surface); stroke:var(--ink); stroke-width:1.7}
+svg .unit{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.9}
+svg .blk{fill:var(--ink-2); stroke:none}
+svg .slide{fill:var(--ink); stroke:none}
+svg .ln{fill:none; stroke:var(--ink); stroke-width:1.7}
+svg .thin{fill:none; stroke:var(--rule-strong); stroke-width:1}
+svg .dash{fill:none; stroke:var(--ink-2); stroke-width:1.4; stroke-dasharray:6 4}
+svg .strap{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.5; stroke-dasharray:5 3}
+svg .strapln{fill:none; stroke:var(--amber); stroke-width:2.2}
+svg .ring{fill:none; stroke:var(--ink); stroke-width:2.4}
+svg .hole{fill:var(--paper); stroke:var(--ink); stroke-width:1.7}
+svg text{font-family:var(--font-m); fill:var(--ink-2)}
+svg .t-dim{font-size:12.5px; font-weight:500; font-variant-numeric:tabular-nums}
+svg .t-lab{font-size:12px; fill:var(--ink)}
+svg .t-sm{font-size:10.5px; fill:var(--ink-3)}
+svg .clt{fill:var(--ply); stroke:var(--ink); stroke-width:1.2; opacity:.75}
+svg .brk{fill:none; stroke:var(--ink-2); stroke-width:1.2}
+svg .notch{fill:url(#hatch); stroke:var(--alert); stroke-width:1.3}
+svg .hatchln{stroke:var(--alert); stroke-width:1.3}
+svg .tongue{fill:var(--alert-fill); stroke:var(--alert); stroke-width:1.6}
+svg .steel{fill:var(--rule); stroke:var(--ink); stroke-width:1.2}
+svg .gone{fill:none; stroke:var(--alert); stroke-width:1.2; stroke-dasharray:4 3}
+svg .steel{fill:rgba(120,136,152,.45); stroke:var(--ink); stroke-width:1.5}
+svg .gone{fill:var(--alert-fill); stroke:var(--alert); stroke-width:1.5; stroke-dasharray:5 3}
+svg .wood{fill:var(--ply-fill); stroke:var(--ink); stroke-width:1.2}
+svg .rail{fill:rgba(84,98,112,.75); stroke:var(--ink); stroke-width:1.2}
+svg .unit{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.2}
+svg .unitd{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.2; stroke-dasharray:4 3}
+svg .trayd{fill:none; stroke:var(--ink-2); stroke-width:1.4; stroke-dasharray:6 4}
+svg .legk{fill:var(--ink)}
+svg .upr{fill:var(--ink)}
+svg .cut{stroke:var(--alert); stroke-width:2.5; fill:none}
+svg .sm{font-size:10.5px; fill:var(--ink-3)}
+svg .big{font-size:13px; font-weight:600; fill:var(--ink)}
+svg .red{fill:var(--alert)}
+svg text{font-family:var(--font-b)}
+@media print{ .figs.two{grid-template-columns:1fr 1fr} }
+svg .bolt{fill:var(--ink); stroke:none}
+svg .tnut{fill:rgba(120,136,152,.9); stroke:var(--ink); stroke-width:1}
+svg .wscrew{stroke:var(--good); stroke-width:3; fill:none; stroke-linecap:round}
+svg .mscrew{stroke:var(--ink); stroke-width:3; fill:none; stroke-linecap:round}
+svg .hole2{fill:var(--surface); stroke:var(--alert); stroke-width:1.6}
+svg .holew{fill:var(--surface); stroke:var(--good); stroke-width:1.6}
+svg .hoop{fill:none; stroke:var(--ink); stroke-width:3}
+svg .strapl{stroke:var(--amber); stroke-width:2.6; fill:none}
+svg .loopf{fill:none; stroke:var(--good); stroke-width:2.4}
+svg .well{fill:var(--surface-2); stroke:var(--ink-3); stroke-width:1; stroke-dasharray:4 3}
+svg .rung{fill:rgba(120,136,152,.55); stroke:var(--ink); stroke-width:1.3}
+svg .keydot{fill:var(--ink)}
+svg .keynum{font-size:11.5px; font-weight:600; fill:var(--surface)}
+
+/* ---- legend ---- */
+.legend{margin-top:16px; border:1px solid var(--rule); background:var(--surface)}
+.legend li{display:flex; gap:11px; padding:8px 13px; border-top:1px solid var(--rule); align-items:baseline}
+.legend li:first-child{border-top:0}
+.legend ol{margin:0; padding:0; list-style:none}
+.legend .n{
+  font-family:var(--font-m); font-size:11px; font-weight:600; color:var(--surface);
+  background:var(--ink); width:19px; height:19px; border-radius:50%; flex:none;
+  display:inline-flex; align-items:center; justify-content:center; transform:translateY(2px);
+}
+.legend .d{font-size:13.5px}
+.legend .d b{font-weight:600}
+.legend .d span{color:var(--ink-2)}
+
+/* ---- tables ---- */
+.tw{overflow-x:auto; border:1px solid var(--rule-strong); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:13.5px}
+th,td{padding:8px 12px; text-align:left; border-top:1px solid var(--rule); vertical-align:top}
+thead th{
+  border-top:0; border-bottom:1.5px solid var(--ink); font-family:var(--font-m);
+  font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:500;
+  white-space:nowrap;
+}
+td.num,th.num{font-family:var(--font-m); font-variant-numeric:tabular-nums; white-space:nowrap}
+tbody tr:nth-child(even){background:var(--surface-2)}
+td .note{display:block; color:var(--ink-2); font-size:12.5px; margin-top:2px}
+.ok{color:var(--good); font-weight:600}
+.tight{color:var(--alert); font-weight:600}
+
+/* ---- steps ---- */
+.steps{counter-reset:s; display:grid; gap:0; border:1px solid var(--rule-strong); background:var(--surface)}
+.step{display:grid; grid-template-columns:52px 1fr; border-top:1px solid var(--rule)}
+.step:first-child{border-top:0}
+.step .sn{
+  counter-increment:s; font-family:var(--font-m); font-size:16px; font-weight:600; color:var(--ink-3);
+  padding:14px 0 14px 16px; border-right:1px solid var(--rule); font-variant-numeric:tabular-nums;
+}
+.step .sn::before{content:counter(s,decimal-leading-zero)}
+.step .sb{padding:13px 16px 15px}
+.step h3{font-family:var(--font-d); font-size:15px; font-weight:600; margin:0 0 4px; text-wrap:balance}
+.step p{margin:0; font-size:13.8px; color:var(--ink-2); max-width:70ch}
+.step p + p{margin-top:7px}
+.step.done .sn{color:var(--good)}
+.step .hold.done{color:var(--good); border-color:var(--good)}
+.step .hold{
+  display:inline-block; font-family:var(--font-m); font-size:10.5px; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--alert); border:1px solid var(--alert); padding:1px 5px; margin-bottom:6px;
+}
+
+footer{margin-top:52px; border-top:1px solid var(--rule); padding-top:14px; color:var(--ink-3); font-size:12.5px}
+footer p{max-width:72ch; margin:0 0 6px}
+
+@media print{
+  /* Letter with the same 0.65in margin as the main build plan, so these
+     pages sit flush with it when build_pdf.py appends them — and so the
+     stamped footer at 30pt lands clear of the content. */
+  @page{size:Letter; margin:0.65in}
+  :root{--paper:#fff; --surface:#fff; --surface-2:#f4f4f4}
+  body{font-size:10.5pt}
+  .sheet{max-width:none; padding:0}
+  section{break-inside:auto; margin-top:22px}
+  figure,.flag,.step,.tw{break-inside:avoid}
+  .sec-h{break-after:avoid; page-break-after:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="tb">
+  <div class="tb-head">
+    <h1>Anchor Board</h1>
+    <p>Three plywood strips under Panel C, tied by two steel rungs, carrying the fridge slides' risers and the kitchen unit's straps, and strapped forward and down to the 3rd-row seat-latch hoops. No crossbar, no tongues, no holes in the van.</p>
+  </div>
+  <div class="tb-grid">
+    <div class="tb-cell"><span class="k">Assembly</span><span class="v">Section 8<small>anchor board · as redesigned Oct 2026</small></span></div>
+    <div class="tb-cell"><span class="k">Strips</span><span class="v">3 × 23" long<small>2½" · ~2½" · 1½" wide · 3" → 26" from the hatch</small></span></div>
+    <div class="tb-cell"><span class="k">Rungs</span><span class="v">2 × 46"<small>2 × 3/16" steel flat bar · in grooves underneath</small></span></div>
+    <div class="tb-cell"><span class="k">Anchors</span><span class="v">H1 · H2<small>seat-latch hoops, 28" from the hatch</small></span></div>
+    <div class="tb-cell"><span class="k">Kitchen</span><span class="v">2 straps<small>front → H2, H4 · rear → loops on the strips</small></span></div>
+    <div class="tb-cell"><span class="k">T-nuts</span><span class="v">8 · ¼-20<small>for the two risers</small></span></div>
+    <div class="tb-cell"><span class="k">Drawn from</span><span class="v">Van survey 18 Oct<small>hoops, trim, seat surface · Fridge Slides sheet</small></span></div>
+    <div class="tb-cell"><span class="k">Status</span><span class="v">To build<small>steel to buy</small></span></div>
+  </div>
+</div>
+
+<section>
+  <div class="sec-h"><span class="n">A</span><h2>Check before you cut</h2><span class="aside">3 checks · 3 methods</span></div>
+  <div class="flags">
+    <div class="flag">
+      <h3><span class="tag">Check</span> Why there's no crossbar</h3>
+      <p>From 26" forward the side trim closes the van to 42", and the fridge tray fills the space between the driver and middle strips for its whole length. A plywood crossbar could only reach the driver strip through a ½" neck. Steel rungs set into the strips' undersides pass under the tray (it hangs ⅜" over the seat; the rung is 3/16") and under the kitchen unit, so the strips stay one-piece and the board stays one unit.</p>
+    </div>
+    <div class="flag">
+      <h3><span class="tag">Check</span> The hoops are the seat latches</h3>
+      <p>The four white hoops in the headrest trough, 28" from the hatch and 2¾" below the seat surface, are the 3rd-row seats' latch strikers: built to hold the seats in a crash. Measured from the driver line their centers are at 4¾", 24¾", 31¼" and 41¾" (H1–H4), each 3" wide.</p>
+      <p class="verdict">H1 sits under the fridge tray's front corner: hook its strap before the tray assembly goes in.</p>
+    </div>
+    <div class="flag">
+      <h3><span class="tag">Check</span> The strips end past the seat</h3>
+      <p class="verdict">The seat surface is solid to 24¾"; the strips run to 26", just short of the trim, overhanging the trough by 1¼". Every T-nut, the last at 24½", is over solid seat.</p>
+    </div>
+    <div class="flag">
+      <h3><span class="tag">Method</span> Straps from the risers' front ends</h3>
+      <p>The risers cover the strips' tops, so the board's forward straps start at the risers: a hole in each riser's flange near its front end, sized to the shackle's pin, a ¼" anchor shackle through it, and a strap forward and down to H1 (driver) and H2 (kitchen side). The load goes hoop → strap → shackle → riser → four bolts → strip → rungs.</p>
+    </div>
+    <div class="flag">
+      <h3><span class="tag">Method</span> Backup straps and the relief notches</h3>
+      <p class="verdict">The optional backup straps run from the board forward to the 3rd-row striker loops on the 2nd-row floor, under Panel C's front edge and Panel B's end rail. If you run them, cut 3"-wide relief notches there at 12¾–15¾" and 30¼–33¼" from the driver line: 1" up in Panel C's front wall, ½" in its front bottom rail and outer back blocks, ½" in Panel B's end bottom rail.</p>
+    </div>
+    <div class="flag">
+      <h3><span class="tag">Method</span> Strips from the old comb</h3>
+      <p class="verdict">Cut the crossbar off the old comb; each of its three strips is already one piece. Trim each to 23". New ¾" plywood only if you'd rather start fresh.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">B</span><h2>The board</h2><span class="aside">top view · to scale</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 700 600" role="img" aria-label="Plan of the new anchor board: three plywood strips, driver, middle and passenger, from 3 to 26 inches from the hatch, tied by two steel rungs under them at 6 and a half to 8 and a half and 20 to 22 inches; the fridge tray and kitchen unit dashed; the risers dashed on the driver and middle strips with their T-nuts; footman loops on the middle and passenger strips for the kitchen rear strap; the four hoops H1 to H4 in the headrest trough at 28 inches; and strap runs from the risers' front ends to H1 and H2 and from the kitchen unit to H2, H4 and the loops">
+        <rect class="well" x="48.0" y="134.5" width="550.0" height="63.2"/>
+        <text class="t-sm" x="323.0" y="128.5" text-anchor="middle">headrest trough · 2¾" below the seat surface</text>
+        <rect class="unitd" x="48.0" y="129.0" width="44.0" height="55.0"/>
+        <rect class="unitd" x="554.0" y="129.0" width="44.0" height="55.0"/>
+        <text class="t-sm" x="50.2" y="125.0">trim</text>
+        <text class="t-sm" x="595.8" y="125.0" text-anchor="end">trim</text>
+        <rect class="trayd" x="97.5" y="153.8" width="210.4" height="316.2"/>
+        <rect class="unitd" x="338.1" y="168.9" width="221.4" height="284.6"/>
+        <rect class="wood" x="70.0" y="184.0" width="27.5" height="253.0"/>
+        <rect class="wood" x="310.6" y="184.0" width="27.5" height="253.0"/>
+        <rect class="wood" x="559.5" y="184.0" width="16.5" height="253.0"/>
+        <rect class="rung" x="70.0" y="376.5" width="506.0" height="22.0"/>
+        <rect class="rung" x="70.0" y="228.0" width="506.0" height="22.0"/>
+        <rect class="dash" x="67.2" y="178.5" width="22.0" height="264.0"/>
+        <rect class="dash" x="318.9" y="178.5" width="11.0" height="264.0"/>
+        <circle class="hole2" cx="78.2" cy="420.5" r="3.5"/>
+        <circle class="hole2" cx="325.8" cy="420.5" r="3.5"/>
+        <circle class="hole2" cx="78.2" cy="349.0" r="3.5"/>
+        <circle class="hole2" cx="325.8" cy="349.0" r="3.5"/>
+        <circle class="hole2" cx="78.2" cy="272.0" r="3.5"/>
+        <circle class="hole2" cx="325.8" cy="272.0" r="3.5"/>
+        <circle class="hole2" cx="78.2" cy="200.5" r="3.5"/>
+        <circle class="hole2" cx="325.8" cy="200.5" r="3.5"/>
+        <path class="loopf" d="M334.0 365.5 V332.5"/><circle cx="334.0" cy="349.0" r="4" class="loopf"/>
+        <path class="loopf" d="M567.8 365.5 V332.5"/><circle cx="567.8" cy="349.0" r="4" class="loopf"/>
+        <path class="hoop" d="M105.8 162.0 v-7 h33.0 v7"/>
+        <text class="t-lab" x="122.2" y="150.0" text-anchor="middle">H1</text>
+        <path class="hoop" d="M325.8 162.0 v-7 h33.0 v7"/>
+        <text class="t-lab" x="342.2" y="150.0" text-anchor="middle">H2</text>
+        <path class="hoop" d="M397.2 162.0 v-7 h33.0 v7"/>
+        <text class="t-lab" x="413.8" y="150.0" text-anchor="middle">H3</text>
+        <path class="hoop" d="M512.8 162.0 v-7 h33.0 v7"/>
+        <text class="t-lab" x="529.2" y="150.0" text-anchor="middle">H4</text>
+        <path class="strapl" d="M78.2 181.2 L122.2 162.0"/>
+        <path class="strapl" d="M325.8 181.2 L342.2 162.0"/>
+        <path class="strapl" d="M338.1 195.0 L342.2 162.0"/>
+        <path class="strapl" d="M559.5 195.0 L529.2 162.0"/>
+        <path class="strapl" d="M338.1 427.1 L334.0 349.0"/>
+        <path class="strapl" d="M559.5 427.1 L567.8 349.0"/>
+        <circle cx="78.2" cy="181.2" r="4" style="fill:var(--amber)"/>
+        <circle cx="325.8" cy="181.2" r="4" style="fill:var(--amber)"/>
+        <path class="ln" d="M37.0 470.0 H609.0" style="stroke-width:3"/>
+        <text class="t-lab" x="323.0" y="488.0" text-anchor="middle">HATCH · front-to-back measurements from here</text>
+        <path class="thin" d="M70.0 470.0 V107.0" stroke-dasharray="6 3" style="stroke:var(--alert)"/>
+        <text class="t-sm" x="73.0" y="109.0" style="fill:var(--alert)">DRIVER LINE (0")</text>
+        <text class="t-sm" x="202.0" y="305.0" text-anchor="middle">fridge tray (dashed)</text>
+        <text class="t-sm" x="448.4" y="305.0" text-anchor="middle">kitchen unit (dashed)</text>
+        <text class="t-sm" x="202.0" y="391.5" text-anchor="middle">steel rung, under the strips</text>
+        <text class="t-sm" x="202.0" y="243.0" text-anchor="middle">steel rung, under the strips</text>
+        <text class="t-sm" x="448.4" y="331.4" text-anchor="middle">rear kitchen strap → footman loops</text>
+        <text class="t-sm" x="448.4" y="188.4" text-anchor="middle">front kitchen strap → H2, H4</text>
+        <path class="thin" d="M580.0 437.0 H606.0"/>
+        <text class="t-dim" x="610.0" y="441.0">3"</text>
+        <path class="thin" d="M580.0 398.5 H606.0"/>
+        <text class="t-dim" x="610.0" y="402.5">6½"</text>
+        <path class="thin" d="M580.0 376.5 H606.0"/>
+        <text class="t-dim" x="610.0" y="380.5">8½"</text>
+        <path class="thin" d="M580.0 250.0 H606.0"/>
+        <text class="t-dim" x="610.0" y="254.0">20"</text>
+        <path class="thin" d="M580.0 228.0 H606.0"/>
+        <text class="t-dim" x="610.0" y="232.0">22"</text>
+        <path class="thin" d="M580.0 184.0 H606.0"/>
+        <text class="t-dim" x="610.0" y="188.0">26"</text>
+        <path class="thin" d="M580.0 162.0 H606.0"/>
+        <text class="t-dim" x="610.0" y="166.0">28" hoops</text>
+        <path class="thin" d="M97.5 437.0 V512.0" stroke-dasharray="2 3"/>
+        <text class="t-dim" x="97.5" y="526.0" text-anchor="middle">2½"</text>
+        <path class="thin" d="M310.6 437.0 V528.0" stroke-dasharray="2 3"/>
+        <text class="t-dim" x="310.6" y="542.0" text-anchor="middle">21⅞"</text>
+        <path class="thin" d="M338.1 437.0 V512.0" stroke-dasharray="2 3"/>
+        <text class="t-dim" x="338.1" y="526.0" text-anchor="middle">24⅜"</text>
+        <path class="thin" d="M559.5 437.0 V528.0" stroke-dasharray="2 3"/>
+        <text class="t-dim" x="559.5" y="542.0" text-anchor="middle">44½"</text>
+        <path class="thin" d="M576.0 437.0 V512.0" stroke-dasharray="2 3"/>
+        <text class="t-dim" x="576.0" y="526.0" text-anchor="middle">46"</text>
+        <text class="t-sm" x="202.0" y="556.0" text-anchor="middle">from the driver line</text>
+      </svg>
+      <figcaption><b>Fig 1 — the board in the van</b>To scale, front of the van at the top. Three one-piece plywood strips, tied only by the two steel rungs underneath. Red circles: the 8 riser T-nuts (mark them from the risers). Amber dots: shackles in the risers' front ends. Amber lines: straps. Green: footman loops. H1–H4 are the 3rd-row seat-latch hoops in the headrest trough.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">C</span><h2>Section and rung detail</h2></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 660 240" role="img" aria-label="Side section along the driver strip: the folded seat surface from the hatch to 24 and three quarter inches, then the headrest trough 2 and three quarter inches lower with hoop H1 at 28 inches; the strip on its neoprene from 3 to 26 inches with the two rungs set into its underside, the riser and slide on top, the fridge tray dashed hanging above the seat surface, and a strap from a shackle on the riser's front end forward and down to H1">
+        <path class="ln" d="M40.0 150.0 H460.8 V210.5 H558.5"/>
+        <rect class="tnut" x="91.0" y="147.2" width="391.0" height="2.8"/>
+        <rect class="wood" x="91.0" y="130.8" width="391.0" height="16.5"/>
+        <rect class="rung" x="150.5" y="145.9" width="34.0" height="4.1"/>
+        <rect class="rung" x="380.0" y="145.9" width="34.0" height="4.1"/>
+        <rect class="steel" x="82.5" y="126.6" width="408.0" height="4.1"/>
+        <rect class="rail" x="82.5" y="63.4" width="408.0" height="66.0" style="opacity:.4"/>
+        <path class="hoop" d="M490.5 210.5 v-9 h51.0 v9"/>
+        <circle cx="486.2" cy="129.1" r="4" style="fill:var(--amber)"/>
+        <path class="strapl" d="M486.2 129.1 L516.0 200.6"/>
+        <text class="t-sm" x="278.0" y="99.4" text-anchor="middle">riser + slide (the fridge tray hangs beside them)</text>
+        <text class="t-sm" x="278.0" y="170.4" text-anchor="middle">driver strip, ¾" ply on ⅛" neoprene · rungs set into its underside at 6½" and 20"</text>
+        <text class="t-lab" x="516.0" y="226.5" text-anchor="middle">H1</text>
+        <text class="t-sm" x="539.8" y="114.8">strap: shackle on the</text>
+        <text class="t-sm" x="539.8" y="127.8">riser's front end → H1</text>
+        <text class="t-sm" x="40.0" y="166.0">HATCH</text>
+        <text class="t-sm" x="458.2" y="185.2" text-anchor="end">seat surface ends 24¾" →</text>
+        <text class="t-sm" x="556.8" y="240.5" text-anchor="end">headrest trough, 2¾" down</text>
+      </svg>
+      <figcaption><b>Fig 2 — along the driver strip</b>Side view, heights drawn larger than lengths. The strip runs 1¼" past the end of the seat surface; its last T-nut, at 24½", is still over solid seat. The strap from the riser's front end runs forward and down to H1, so a hard stop pulls it tight and it also holds the board down.</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 560 230" role="img" aria-label="Section across a strip at a rung, about 4 times full size: the three-quarter-inch strip with a 2-1/16 inch wide, 3/16 inch deep groove in its underside, the 2 by 3/16 inch steel rung filling it flush, and two #10 by five-eighths inch flat-head screws up through countersunk holes in the steel into the plywood, stopping an eighth of an inch short of the top">
+        <!-- 64 px/in; strip shown 3in wide along the van (fore-aft) -->
+        <rect class="wood" x="100" y="80" width="192" height="48"/>
+        <rect class="rung" x="114" y="116" width="132" height="12"/>
+        <path class="mscrew" d="M148 128 V90"/>
+        <path class="mscrew" d="M212 128 V90"/>
+        <path d="M142 128 l6 -6 l6 6 z M206 128 l6 -6 l6 6 z" style="fill:var(--ink)"/>
+        <rect x="100" y="128" width="192" height="8" style="fill:var(--ink-3)"/>
+        <path class="ln" d="M60 136 H340" style="stroke-width:1.5"/>
+        <text class="t-sm" x="196" y="70" text-anchor="middle">strip, ¾" ply</text>
+        <text class="t-sm" x="300" y="142">steel rung 2 × 3/16" in a</text>
+        <text class="t-sm" x="300" y="156">2-1/16 × 3/16" groove, flush</text>
+        <text class="t-sm" x="300" y="92">#10 × ⅝" flat heads, countersunk</text>
+        <text class="t-sm" x="300" y="106">in the steel, ⅛" short of the top</text>
+        <text class="t-sm" x="60" y="156">neoprene (cut away under the rung)</text>
+        <path class="thin" d="M114 170 V190 M246 170 V190 M114 184 H246"/>
+        <text class="t-dim" x="180" y="204" text-anchor="middle">2-1/16" groove</text>
+        <path class="thin" d="M80 116 H96 M80 128 H96 M88 116 V128"/>
+        <text class="t-dim" x="76" y="126" text-anchor="end">3/16"</text>
+      </svg>
+      <figcaption><b>Fig 3 — a rung crossing a strip</b>About 4× full size. Two screws per crossing on the 2½" strips, one on the 1½" passenger strip. The neoprene is cut away under each rung so the strip still sits flat.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">D</span><h2>T-nuts</h2><span class="aside">8, for the risers</span></div>
+  <div class="figs two">
+    <figure>
+      <svg viewBox="0 0 620 330" role="img" aria-label="Section through one T-nut hole, about 4 times full size: the three-quarter-inch ply with a 5/16 inch hole straight through and a 3/4 inch counterbore 1/16 inch deep in the underside; the T-nut pushed up from below, its barrel in the hole and its flange in the counterbore; a bolt coming down from above through a fender washer and threading into the T-nut to pull it flush">
+        <!-- ply 3/4 in = 60 px, top y=140, bottom y=200 -->
+        <path class="wood" d="M60 140 H262.5 V195 H247.5 V200 H60 Z"/>
+        <path class="wood" d="M287.5 140 H560 V200 H305 V195 H287.5 Z"/>
+        <!-- T-nut: flange 3/4 x ~1/16, barrel ~5/16 OD, prongs -->
+        <rect class="tnut" x="245" y="195" width="60" height="5"/>
+        <rect class="tnut" x="263" y="158" width="24" height="38"/>
+        <path d="M250 195 L247 180 M300 195 L303 180" style="stroke:var(--ink); stroke-width:2.5"/>
+        <!-- bolt + fender washer -->
+        <rect class="steel" x="215" y="132" width="120" height="8"/>
+        <rect class="bolt" x="257" y="118" width="36" height="14" rx="3"/>
+        <path class="mscrew" d="M275 132 V215"/>
+        <!-- wrench arrow -->
+        <path class="thin" d="M300 110 C330 100, 330 125, 305 122" />
+        <text class="t-sm" x="335" y="112">tighten: pulls the T-nut up</text>
+        <!-- dims -->
+        <path class="thin" d="M262.5 228 V244 M287.5 228 V244 M262.5 240 H287.5"/>
+        <text class="t-dim" x="275" y="258" text-anchor="middle">5/16" through</text>
+        <path class="thin" d="M245 205 V290 M305 205 V290 M245 286 H305"/>
+        <text class="t-dim" x="275" y="304" text-anchor="middle">¾" counterbore</text>
+        <path class="thin" d="M305 195 H360 M305 200 H360 M354 182 V213"/>
+        <text class="t-dim" x="366" y="232">1/16" deep:</text>
+        <text class="t-sm" x="366" y="248">T-nut flange sits flush</text>
+        <path class="thin" d="M560 140 H590 M560 200 H590 M584 140 V200"/>
+        <text class="t-dim" x="594" y="174">¾"</text>
+        <text class="t-sm" x="80" y="128">fender washer + ¼-20 bolt</text>
+        <text class="t-sm" x="80" y="175">¾" ply strip</text>
+        <text class="t-sm" x="80" y="225">UNDERSIDE (lies on the mat)</text>
+        <text class="t-sm" x="80" y="40">TOP FACE UP · bolt from above, T-nut from below</text>
+      </svg>
+      <figcaption><b>Fig 4 — pulling a T-nut in</b>Same method as before: 5/16" through from the top, ¾" counterbore about 1/16" deep from below, the T-nut pulled flush with a bolt and fender washer.</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 640 270" role="img" aria-label="Underside view of the 2 and a half inch driver strip at one T-nut, about twice full size: the T-nut's center three quarters of an inch from the driver edge, its 3/4 inch flange reaching to 3/8 inch from the edge, and its four prongs turned to point along the strip rather than toward either edge">
+        <!-- strip 2.5 in wide = 100 px tall, running left-right -->
+        <rect class="wood" x="40" y="70" width="540" height="100"/>
+        <text class="t-sm" x="44" y="62">DRIVER EDGE</text>
+        <text class="t-sm" x="44" y="190">gap side</text>
+        <!-- T-nut at 3/4 in from driver edge: y = 70 + 30 = 100; flange r = 15 -->
+        <circle cx="300" cy="100" r="15" class="tnut"/>
+        <circle cx="300" cy="100" r="6.25" style="fill:var(--surface); stroke:var(--ink); stroke-width:1.2"/>
+        <!-- prongs along the strip (left/right) -->
+        <path d="M282 94 H272 M282 106 H272 M318 94 H328 M318 106 H328" style="stroke:var(--ink); stroke-width:3"/>
+        <text class="t-sm" x="340" y="118">prongs point ALONG the strip</text>
+        <!-- dims -->
+        <path class="thin" d="M276 70 V100 M270 100 H282"/>
+        <text class="t-dim" x="270" y="90" text-anchor="end">¾" to center</text>
+        
+        <path class="thin" d="M285 115 V150 M315 115 V150 M285 146 H315"/>
+        <text class="t-dim" x="300" y="164" text-anchor="middle">¾"</text>
+        <path class="thin" d="M322 70 V85 M316 85 H328"/>
+        <text class="t-dim" x="328" y="82">⅜" of wood left</text>
+        <path class="thin" d="M584 70 H600 M584 170 H600 M596 70 V170"/>
+        <text class="t-dim" x="604" y="124">2½"</text>
+        <text class="t-sm" x="44" y="224">Middle strip, 2⅛" wide: same rule. Its T-nuts sit 23¼" from the board's driver edge,</text>
+        <text class="t-sm" x="44" y="240">⅝" from its kitchen-side edge, so their flanges also come within ⅜" of that edge.</text>
+        <text class="t-sm" x="44" y="256">Crossbar: any direction works, it's 3¼" deep.</text>
+      </svg>
+      <figcaption><b>Fig 5 — which way the prongs go</b>Prongs along the strip, never at an edge.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">E</span><h2>Cut list</h2></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Piece</th><th class="num">Qty</th><th class="num">Size</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Driver strip, ¾" ply</td><td class="num">1</td><td class="num">2½ × 23"</td><td>From the old comb. 3"–26" from the hatch, on the driver line.</td></tr>
+        <tr><td>Middle strip, ¾" ply</td><td class="num">1</td><td class="num">~2½ × 23"</td><td>From the old comb. 21⅞"–24⅜" from the driver line.</td></tr>
+        <tr><td>Passenger strip, ¾" ply</td><td class="num">1</td><td class="num">1½ × 23"</td><td>From the old comb. 44½"–46".</td></tr>
+        <tr><td>Rung, steel flat bar 2 × 3/16"</td><td class="num">2</td><td class="num">46"</td><td class="tight">To buy: two 48" bars, cut to 46".</td></tr>
+        <tr><td>Neoprene strips, ⅛"</td><td class="num">3</td><td class="num">to each strip</td><td>⅛" inside the edges, cut away under the rungs.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">F</span><h2>Hardware</h2></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Item</th><th class="num">Qty</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>¼-20 T-nuts + ¼-20 × 1" button heads + washers</td><td class="num">8</td><td>Risers to the strips. <span class="ok">On hand.</span></td></tr>
+        <tr><td>#10 × ⅝" flat-head wood screws</td><td class="num">10</td><td>Rungs up into the strips, countersunk in the steel. <span class="tight">To buy.</span></td></tr>
+        <tr><td>¼" galvanized anchor shackle (Everbilt 43144)</td><td class="num">2</td><td>Through the risers' front ends for the H1 and H2 straps. <span class="tight">To buy.</span></td></tr>
+        <tr><td>Ratchet strap, 1" (Erickson)</td><td class="num">4</td><td>H1, H2 (board) · kitchen front (H2–H4) and rear (loops). <span class="ok">On hand.</span></td></tr>
+        <tr><td>Stainless footman loop + #8 × 1¼" screws</td><td class="num">2</td><td>Kitchen rear strap: middle strip's outer band and the passenger strip, 9½"–12½" from the hatch. <span class="ok">On hand.</span></td></tr>
+        <tr><td>Metal countersink bit, 82°</td><td class="num">1</td><td>Countersinking the screw holes in the rungs. <span class="tight">To buy if you have none.</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">G</span><h2>Build order</h2></div>
+  <div class="steps">
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Cut the strips</h3><p>Cut the crossbar off the old comb. Trim the three strips to 23". Chamfer the top edges at both ends.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Groove the undersides</h3><p>Lay the strips upside down side by side, back ends even. Mark two 2-1/16"-wide bands across all three: 3½"–5½" and 17"–19" from their back ends (6½"–8½" and 20"–22" from the hatch). Router or table saw each band 3/16" deep. Check a rung sits flush.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Cut and drill the rungs</h3><p>Cut both bars to 46". Lay the strips at their spacing (Fig 1: 0–2½", 21⅞–24⅜", 44½–46" from the driver line) and the rungs in their grooves. Mark two screw holes per crossing on the 2½" strips, ½" either side of the rung's centerline, and one on the passenger strip. Drill 3/16" through the steel, countersink, and screw up into the strips with #10 × ⅝" flat heads.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>T-nuts for the risers</h3><p>Set the tray assembly on the board, risers on their strips, back ends ½" behind the strips' back ends. Mark through the 8 flange holes, then drill, counterbore and seat the T-nuts (Figs 4–5).</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Shackle holes in the risers</h3><p>Drill a hole in each riser's flange about ½" from its front end, centered across the flange's flat, just bigger than the shackle's pin: a ¼" shackle usually has a 5/16" pin, so 11/32" (step bit #1). Fit a ¼" anchor shackle through each.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Footman loops and neoprene</h3><p>Footman loops lengthwise at 9½"–12½" from the hatch: on the middle strip's outer ¾" band and on the passenger strip. Cut the neoprene to each strip, ⅛" inside the edges, with gaps under the rungs.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><span class="hold">In the van</span><h3>Install</h3><p>Neoprene, then the board, back ends 3" from the hatch. Hook a strap into H1 and lay it forward before the tray goes in. Bolt the tray assembly down. Strap the shackles to H1 and H2 and tension them. Kitchen unit in; front strap in its front notches to H2 and H4, rear strap in its rear notches to the two loops.</p></div></div>
+  </div>
+</section>
+
+<footer>
+  <p>Hoops, trim and seat surface from the owner's survey, 18 Oct 2026: hoops 28" from the hatch, 2¾" below the seat surface, 3" wide, at 1¼", 21¼", 27¾" and 38¼" (driver-side edges) from the driver-side trim; trim 42" apart and the walls 50" at that line, so each trim edge is 2" inside Panel C's 46" lines. Riser positions from the Fridge Slides sheet; kitchen unit 20⅛ × 25⅞", 1½" in from the hatch and from the passenger line, notches 1½–3⅛" and 22⅝–24⅛" from its hatch end.</p>
+</footer>
+
+</div>
+</body>
+</html>
