@@ -23,11 +23,10 @@
 // cut as pointless), on a backer board hung from the deck underside
 // (the 3/4" sheet's offcut) — reach it by hand. Also here: the
 // NO-DRILL ANCHOR BOARD for both the fridge's slide and the kitchen
-// unit — a rubber mat + ONE comb-shaped 3/4in ply board (full-width
-// bridge + 3 strips, continuous, no wood joints), its steel
-// tongues bolted to the rear ends of the 2nd-row long-slide floor
-// rails (fallback: butting the striker-row step) and strapped to
-// the 3 3rd-row striker loops — see "Securing heavy components"
+// unit (Oct 2026 redesign) — three separate one-piece 3/4in ply strips
+// on 1/8in neoprene, tied by two 2 x 3/16in steel rungs set into their
+// undersides, strapped forward and down to the 3rd-row seats' latch
+// hoops H1-H4 in the headrest trough — see "Securing heavy components"
 // (Section 8) for why the factory cargo hooks aren't used for
 // either, and why nothing bolts to the van (owner: no holes).
 //
@@ -97,7 +96,7 @@ module marker(n, x, y, col, nx = 2.1) {
     }
 }
 
-// anchor-board strip (mat + 3/4in ply) — drawn as an outline with
+// anchor-board strip (neoprene + 3/4in ply) — drawn as an outline with
 // diagonal section-hatching so it stays LINE ART (filled shapes
 // union into solid blobs in OpenSCAD's monochrome SVG export) —
 // the no-drill securing chassis, Section 8
@@ -105,8 +104,7 @@ module board_strip(x0, y0, w, l) {
     board_poly([[x0, y0], [x0 + w, y0], [x0 + w, y0 + l], [x0, y0 + l]]);
 }
 
-// the anchor board is ONE comb-shaped piece, so it draws as a single
-// outline — no butt lines between the bridge and the strips
+// one strip's hatched outline
 module board_poly(pts) {
     xs = [for (p = pts) p[0]];  ys = [for (p = pts) p[1]];
     x0 = min(xs); y0 = min(ys); w = max(xs) - x0; l = max(ys) - y0;
@@ -123,78 +121,99 @@ module board_poly(pts) {
     }
 }
 
-// L-track segment on a strip (double-line channel with slot dots)
-module ltrack(x0, y0, l) {
-    color("DimGray") difference() {
-        translate([x0, y0]) square([1, l]);
-        translate([x0 + 0.12, y0 + 0.12]) square([0.76, l - 0.24]);
+// steel rung UNDER the strips: a dashed outline (hidden line)
+module rung_dashed(x0, y0, w, l) {
+    color("SlateGray") {
+        for (dx = [0 : 1.6 : w - 0.8]) {
+            translate([x0 + dx, y0]) square([0.8, 0.15]);
+            translate([x0 + dx, y0 + l - 0.15]) square([0.8, 0.15]);
+        }
+        translate([x0, y0]) square([0.15, l]);
+        translate([x0 + w - 0.15, y0]) square([0.15, l]);
     }
-    color("Black") for (dy = [1.5 : 2.5 : l - 1]) translate([x0 + 0.5, y0 + dy]) circle(r = 0.18, $fn = 20);
 }
 
-// stud-fitting D-ring anchor point
-module dring_icon(x, y) {
-    color("Black") translate([x, y]) difference() { circle(r = 0.55, $fn = 28); circle(r = 0.3, $fn = 20); }
+// a strap drawn as a line between two plan points (dashed = optional)
+module strap_line(a, b, dashed = false) {
+    v = b - a; n = norm(v);
+    color("Firebrick")
+        if (!dashed)
+            hull() { translate(a) circle(r = 0.2, $fn = 12); translate(b) circle(r = 0.2, $fn = 12); }
+        else
+            for (t = [0 : 1.6 / n : 1 - 0.8 / n])
+                hull() { translate(a + v * t) circle(r = 0.2, $fn = 12); translate(a + v * min(1, t + 0.8 / n)) circle(r = 0.2, $fn = 12); }
+}
+
+// 3rd-row seat-latch hoop (3in wide), seen from above
+module hoop_icon(x, y, name) {
+    color("Black") translate([x - aboard_hoop_w/2, y - 0.4]) difference() {
+        square([aboard_hoop_w, 0.8]);
+        translate([0.2, 0.2]) square([aboard_hoop_w - 0.4, 0.4]);
+    }
+    label(name, x, y + 1.5, 1.0);
+}
+
+// shackle in a riser's front end
+module shackle_icon(x, y) {
+    color("Goldenrod") translate([x, y]) difference() { circle(r = 0.5, $fn = 24); circle(r = 0.28, $fn = 20); }
+}
+
+// stainless footman loop, lengthwise on a strip
+module footman_icon(x, y0, y1) {
+    color("ForestGreen") translate([x - 0.35, y0]) difference() {
+        square([0.7, y1 - y0]);
+        translate([0.15, 0.15]) square([0.4, y1 - y0 - 0.3]);
+    }
 }
 
 module drawing() {
     z_deck = leg_height + frame_rail_sz;
-    kitchen_x0 = x_kitchen - kitchen_box_width/2 + panel_width/2; // 24.5 — against the passenger rear corner leg (1.5in in from the edge)
+    kitchen_x0 = x_kitchen - kitchen_box_width/2 + panel_width/2; // 24.375 — against the passenger rear corner leg (1.5in in from the edge)
     fridge_x0  = x_fridge_module - fridge_ext_length/2 + panel_width/2;
 
-    // ---- NO-DRILL ANCHOR BOARD (Section 8) — drawn FIRST so every
-    // component sits on top of it. Mat + 3/4in ply: a full-width
-    // bridge across the appliance zone's front + strips along the
-    // rail lines and the kitchen's sides. Outline is cut only after
-    // the Appendix A F1-F7 floor survey. ----
-    rail_cx = [fridge_x0 - fridge_slide_margin - fridge_rail_t/2,
-               fridge_x0 + fridge_ext_length + fridge_slide_margin + fridge_rail_t/2];
-    // ONE comb-shaped piece: full-width bridge (Y 29-35) with three
-    // strips running back to Y 2 — driver rail line, a center strip
-    // (passenger rail + kitchen-left L-track) and the 1.5" band at
-    // the panel's passenger edge. All continuous, no wood joints.
-    t2_x0 = rail_cx[1] - 1.25;
-    t2_x1 = kitchen_x0 - 0.5;
-    t3_x0 = kitchen_x0 + kitchen_box_width;
-    board_poly([[0, 2], [2.5, 2], [2.5, 29],
-                [t2_x0, 29], [t2_x0, 2], [t2_x1, 2], [t2_x1, 29],
-                [t3_x0, 29], [t3_x0, 2], [panel_width, 2],
-                [panel_width, 29 + aboard_bridge_d], [0, 29 + aboard_bridge_d]]);
-    ltrack(kitchen_x0 - 1.5, 3, 24);                              // L-track, kitchen-left (cabinet-gap) side
-    ltrack(kitchen_x0 + kitchen_box_width + 0.25, 3, 24);         // L-track, kitchen-right side
-    // kitchen tie-down D-rings (4, stud fittings in the L-track)
-    for (kx = [kitchen_x0 - 1, kitchen_x0 + kitchen_box_width + 0.75])
-        for (ky = [4, 25]) dring_icon(kx, ky);
-    // striker-strap D-rings (3) on the bridge + straps running
-    // forward (off the top of the drawing) to the 3rd-row loops
-    for (sx = [8, 23, 38]) {
-        dring_icon(sx, 32);
-        color("Firebrick") {
-            hull() { translate([sx, 32.6]) circle(r = 0.22, $fn = 16); translate([sx, 40]) circle(r = 0.22, $fn = 16); }
-            translate([sx, 40]) polygon([[0, 1.6], [-0.9, 0], [0.9, 0]]);
-        }
+    // ---- NO-DRILL ANCHOR BOARD (Section 8, Oct 2026) — drawn FIRST so
+    // every component sits on top of it. Three separate one-piece strips
+    // (neoprene + 3/4in ply), 3"-26" from the hatch, tied by two steel
+    // rungs set into their undersides (dashed: hidden under the strips,
+    // the fridge tray and the kitchen unit). No crossbar, no tongues. ----
+    for (st = aboard_strips)
+        board_strip(st[0], aboard_y0, st[1] - st[0], aboard_strip_len);
+    for (ry = aboard_rungs_y)
+        rung_dashed(0, ry, aboard_rung_len, aboard_rung_w);
+    // the 3rd-row seat-latch hoops H1-H4, in the headrest trough
+    for (i = [0 : 3])
+        hoop_icon(aboard_hoops_x[i], aboard_hoop_y, str("H", i + 1));
+    // board straps: a shackle in each riser's front end -> H1 (driver
+    // riser) and H2 (kitchen riser), forward and down
+    shackle_y = fridge_riser_y0 + fridge_riser_len - 0.5;
+    for (i = [0, 1]) {
+        st = aboard_strips[i];
+        sx = (st[0] + st[1]) / 2;
+        strap_line([sx, shackle_y], [aboard_hoops_x[i], aboard_hoop_y]);
+        shackle_icon(sx, shackle_y);
     }
-    // MOVED TO THE DOCUMENT: color("Firebrick") translate([2, 47.4]) text("3 ratchet straps -> 3rd-row STRIKER LOOPS (crash-rated, ~10-14\" fwd of Panel C — position UNVERIFIED, F4)", size = 2.4);
-    // 2 steel rail tongues, bridge -> the rear ends of the 2nd-row
-    // long-slide floor rails (bolted/clamped there — the PRIMARY
-    // forward connection, F8; fallback: butt the striker-row step).
-    // They cross under Panel B's rear bottom rail.
-    color("DimGray") for (tx = [15, 30]) {
-        difference() {
-            translate([tx - aboard_tongue_w/2, 33]) square([aboard_tongue_w, 8.5]);
-            translate([tx - aboard_tongue_w/2 + 0.15, 33.15]) square([aboard_tongue_w - 0.3, 8.2]);
-        }
-        // the floor rail's rear end (channel section, drawn dashed-ish
-        // as two side lines + end cap) + the tongue's bolt/clamp point
-        translate([tx - 1.1, 41]) square([0.22, 5]);
-        translate([tx + 0.88, 41]) square([0.22, 5]);
-        translate([tx - 1.1, 45.8]) square([2.2, 0.22]);
+    // kitchen tie-down: front strap (front notches) down to H2 and H4,
+    // rear strap (rear notches) down to the two footman loops
+    k_front_y = kitchen_hatch_inset + kitchen_box_length - 2;
+    k_rear_y  = kitchen_hatch_inset + 2.3;
+    loop_y    = (aboard_loop_y[0] + aboard_loop_y[1]) / 2;
+    loop_xs   = [aboard_strips[1][1] - 0.375, (aboard_strips[2][0] + aboard_strips[2][1]) / 2];
+    for (lx = loop_xs) footman_icon(lx, aboard_loop_y[0], aboard_loop_y[1]);
+    strap_line([kitchen_x0, k_front_y], [kitchen_x0 + kitchen_box_width, k_front_y]);
+    strap_line([kitchen_x0, k_front_y], [aboard_hoops_x[1], aboard_hoop_y]);
+    strap_line([kitchen_x0 + kitchen_box_width, k_front_y], [aboard_hoops_x[3], aboard_hoop_y]);
+    strap_line([kitchen_x0, k_rear_y], [kitchen_x0 + kitchen_box_width, k_rear_y]);
+    strap_line([kitchen_x0, k_rear_y], [loop_xs[0], loop_y]);
+    strap_line([kitchen_x0 + kitchen_box_width, k_rear_y], [loop_xs[1], loop_y]);
+    // optional backup straps (dashed) forward from the front rung to the
+    // 3rd-row striker loops, under Panel C's front edge (off the top of
+    // the drawing) — through the relief-notch bands, if cut
+    for (bx = [14.25, 31.75]) {
+        strap_line([bx, aboard_rungs_y[1] + aboard_rung_w / 2], [bx, panel_c_length + 4], true);
+        color("Firebrick") translate([bx, panel_c_length + 4]) polygon([[0, 1.6], [-0.9, 0], [0.9, 0]]);
     }
-    color("Black") for (tx = [15, 30]) translate([tx, 42]) circle(r = 0.35, $fn = 20); // tongue-to-rail bolt/clamp
-    // MOVED TO THE DOCUMENT: label_left("2 steel rail tongues (2\"x3/16\") BOLT to the rear ends of the 2nd-row FLOOR RAILS (seat anchorage — no new holes; F8;", 2, 50.7, 1.0);
-    // MOVED TO THE DOCUMENT: label_left("fallback: butt the striker-row step, F7) — forward restraint is steel-to-steel to the van's own rails (Sec. 8)", 2, 49.1, 1.0);
-    marker(9, 16.5, 33.0, "DimGray");
-    marker(10, 6, 33.0, "Firebrick", -2.1);
+    marker(9, aboard_strips[0][1] + 1.6, aboard_hoop_y - 1.6, "Firebrick", 2.1);
+    marker(10, 31.75 - 1.7, panel_c_length + 4.5, "Firebrick", -2.1);
 
     // Panel C outline (the full 46in x 36in deck footprint)
     rect_outline(panel_width, panel_c_length);
@@ -208,14 +227,14 @@ module drawing() {
     label("X, in. (left to right) ->", panel_width/2, -3.8, 1.1);
 
     // Kitchen unit footprint + floor anchors
-    translate([kitchen_x0, 0]) {
+    translate([kitchen_x0, kitchen_hatch_inset]) {
         color("Gainsboro") rect_outline(kitchen_box_width, kitchen_box_length);
         label("Kitchen unit", kitchen_box_width/2, kitchen_box_length - 3, 1.3);
         label("(JAGAHAHA)", kitchen_box_width/2, kitchen_box_length - 5, 1.1);
         label(str(kitchen_box_width, "\" x ", kitchen_box_length, "\""), kitchen_box_width/2, kitchen_box_length - 7, 1.1);
         label("slides out tailgate (-Y)", kitchen_box_width/2, 2.5, 1.0);
     }
-    marker(6, kitchen_x0 - 1, 14.5, "DimGray"); // kitchen tie-down: L-track + stud D-rings on the board strips
+    marker(6, kitchen_x0 + kitchen_box_width - 3, 6.5, "DimGray", -2.1); // kitchen tie-down: 2 straps, to H2/H4 and to the footman loops
 
     // Fridge footprint — name/description text kept in the UPPER
     // third of the box (Y=15-22), well clear of the intake fan
@@ -260,11 +279,11 @@ module drawing() {
     rail_xs = [fridge_x0 - fridge_slide_margin - fridge_rail_t,
                fridge_x0 + fridge_ext_length + fridge_slide_margin];
     for (rx = rail_xs)
-        color("DimGray") translate([rx, 2.5]) rect_outline(fridge_rail_t, fridge_slide_length, 0.12);
+        color("DimGray") translate([rx, fridge_riser_y0]) rect_outline(fridge_rail_t, fridge_riser_len, 0.12);
     marker(5, rail_xs[1] + fridge_rail_t/2, 27.5, "DimGray", -2.1);
 
     // Fridge hold-down strap D-rings (x2, tray side apron — separate
-    // from the E-track floor anchors above: these secure the FRIDGE to
+    // from the anchor board's straps above: these secure the FRIDGE to
     // its TRAY, not the tray to the van floor) — side profile + strap
     // geometry is in fridge-slide-detail.svg
     color("Firebrick") translate([fridge_x0 + fridge_ext_length/2 - 0.3, 1.3]) circle(r = 0.3, $fn = 20);

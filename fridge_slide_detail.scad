@@ -3,8 +3,8 @@
 // ============================================================
 // Explicitly shows the fridge's heavy-duty slide, SIDE-MOUNTED (the
 // VADANIA's 3in rail stands vertically beside the tray — fixed member
-// on a steel riser angle bolted to the NO-DRILL ANCHOR BOARD's mat +
-// 3/4in ply rail-line strip (Section 8 — T-nuts from below, nothing
+// on a steel riser angle bolted to the NO-DRILL ANCHOR BOARD's neoprene +
+// 3/4in ply strip (Section 8 — T-nuts from below, nothing
 // bolted to the van), moving member on the tray's 1x3 side apron;
 // NOTHING under the hanging tray), the tray + fridge in their CLOSED
 // (solid) and fully OPEN (dashed) positions, and the 24in of travel
@@ -108,7 +108,7 @@ module drawing() {
     // ---- SIDE-MOUNT slide (fixes the old undermount drawing): the
     // VADANIA's 3in rail stands VERTICALLY beside the tray — fixed
     // member screwed to a steel riser angle bolted to the NO-DRILL
-    // anchor board's rail-line strip (mat + 3/4in ply, T-nuts from
+    // anchor board's strip (neoprene + 3/4in ply, T-nuts from
     // below — Section 8), moving member screwed to the tray's 1x3
     // side apron. NOTHING under the tray: it hangs between the rails,
     // fridge_tray_gap off the floor (the board is BESIDE it, only
@@ -117,8 +117,8 @@ module drawing() {
     // keeps its height. The fixed rail is set back ~2.5in from the
     // tailgate face (the driver-side one clears Panel C's rear
     // corner leg that way). ----
-    rail_y0 = 2.5;                       // set-back from the tailgate face
-    rail_zb = aboard_top + fridge_riser_t; // rail bottom: mat + board + the riser's bolt flange
+    rail_y0 = fridge_riser_y0;           // set-back from the tailgate face
+    rail_zb = aboard_top + fridge_riser_t; // rail bottom: neoprene + strip + the riser's bolt flange
     color("DimGray") translate([rail_y0, rail_zb]) rect_outline(fridge_slide_length, 3);
     // MOVED TO THE DOCUMENT: label_left("FIXED rail (VADANIA VD2576, 3\" tall, stands VERTICALLY beside the tray —", fridge_ext_width + 1.5, 5.0, 1.0);
     // MOVED TO THE DOCUMENT: label_left("screwed to a steel riser angle bolted to the ANCHOR BOARD strip; it adds", fridge_ext_width + 1.5, 3.7, 1.0);
@@ -128,20 +128,38 @@ module drawing() {
     // MOVED TO THE DOCUMENT: label_left("clips, Sec. 5/6) — never to the moving tray, so it can't", fridge_ext_width + 1.5, 7.9, 0.9);
     // MOVED TO THE DOCUMENT: label_left("get pinched between apron and rail when the slide comes home.", fridge_ext_width + 1.5, 6.6, 0.9);
 
-    // NO-DRILL anchor board along this rail line (Section 8): rubber
-    // mat on the van floor, 3/4in ply strip on it, riser flange on
-    // top (T-nut bolt dots drawn) — it runs forward past the drawing
-    // toward the full-width bridge + striker straps/tongues
-    // (fridge_install_detail has the plan view of all of it)
-    color([0.15, 0.15, 0.15]) translate([1, 0]) rect_outline(fridge_slide_length + 6, aboard_mat_t, 0.05);
-    color("Peru") translate([1, aboard_mat_t]) rect_outline(fridge_slide_length + 6, aboard_t, 0.1);
+    // NO-DRILL anchor board along this rail line (Section 8, Oct 2026):
+    // 1/8in neoprene on the folded-seat surface, a one-piece 3/4in ply
+    // strip on it (3"-26" from the hatch), the two steel rungs set flush
+    // into grooves in its underside (neoprene cut away under them), riser
+    // flange on top (T-nut bolt dots drawn). Forward of the strip the
+    // seat surface ends (24.75") and the headrest trough holds the
+    // 3rd-row seat-latch hoop; a strap from a shackle in the riser's
+    // front end runs forward and down to it (H1 / H2).
+    color([0.15, 0.15, 0.15])
+        for (seg = [[aboard_y0, aboard_rungs_y[0]],
+                    [aboard_rungs_y[0] + aboard_rung_w, aboard_rungs_y[1]],
+                    [aboard_rungs_y[1] + aboard_rung_w, aboard_y1]])
+            translate([seg[0], 0]) rect_outline(seg[1] - seg[0], aboard_mat_t, 0.05);
+    color("Peru") translate([aboard_y0, aboard_mat_t]) rect_outline(aboard_strip_len, aboard_t, 0.1);
+    color("SlateGray")
+        for (ry = aboard_rungs_y)
+            translate([ry, aboard_mat_t]) square([aboard_rung_w, aboard_rung_t]); // steel rung in its groove
     color("Black")
-        for (ay = [rail_y0 + 2, rail_y0 + fridge_slide_length - 2])
+        for (ay = aboard_riser_tnut_y)
             translate([ay, aboard_mat_t + aboard_t/2]) circle(r = 0.22); // 1/4-20 T-nut bolts, riser -> board
-    // MOVED TO THE DOCUMENT: label_left("ANCHOR BOARD strip under this rail line (Sec. 8, no-drill): non-slip mat +", fridge_ext_width + 1.5, -0.5, 0.95);
-    // MOVED TO THE DOCUMENT: label_left("3/4\" ply, riser bolted with 1/4-20 T-nuts — NO holes in the van. The board", fridge_ext_width + 1.5, -1.8, 0.95);
-    // MOVED TO THE DOCUMENT: label_left("runs fwd (+Y) to the bridge: 2 steel tongues bolt to the 2nd-row floor", fridge_ext_width + 1.5, -3.1, 0.95);
-    // MOVED TO THE DOCUMENT: label_left("rails' rear ends (F8) + 3 straps drop into the 3rd-row striker loops.", fridge_ext_width + 1.5, -4.4, 0.95);
+    // folded-seat surface ends; the headrest trough and its latch hoop
+    color("Gray") {
+        translate([aboard_seat_solid, -aboard_hoop_drop - 0.6]) square([0.08, aboard_hoop_drop + 0.6]);
+        translate([aboard_seat_solid, -aboard_hoop_drop - 0.6]) square([aboard_hoop_y + 2 - aboard_seat_solid, 0.08]);
+    }
+    color("Black") translate([aboard_hoop_y, -aboard_hoop_drop]) difference() { circle(r = 0.45); circle(r = 0.25); }
+    label("hoop", aboard_hoop_y + 2.2, -aboard_hoop_drop, 1.1);
+    shackle_y = rail_y0 + fridge_slide_length - 0.5;
+    color("Firebrick") {
+        translate([shackle_y, rail_zb]) circle(r = 0.35); // shackle in the riser's front end
+        hull() { translate([shackle_y, rail_zb]) circle(r = 0.12); translate([aboard_hoop_y, -aboard_hoop_drop]) circle(r = 0.12); }
+    }
 
     // ---- CLOSED position: hanging tray + apron + fridge, flush to
     // Y=0 (tailgate) ----

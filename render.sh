@@ -52,14 +52,6 @@ echo "Rendering fridge install detail (top-down)..."
 openscad -o renders/fridge-install-detail.svg fridge_install_detail.scad
 openscad -o renders/fridge-install-detail.png $IMG $FLAT_CAM fridge_install_detail.scad
 
-echo "Rendering no-drill anchor platform overhead detail..."
-openscad -o renders/anchor-platform-overhead.svg anchor_platform_overhead.scad
-openscad -o renders/anchor-platform-overhead.png $IMG $FLAT_CAM anchor_platform_overhead.scad
-
-echo "Rendering anchor board assembly & connection details..."
-openscad -o renders/anchor-board-assembly.svg anchor_board_assembly.scad
-openscad -o renders/anchor-board-assembly.png $IMG $FLAT_CAM anchor_board_assembly.scad
-
 echo "Rendering rear-floor survey plans (F1-F8, one per survey section)..."
 # Whole-vehicle plan per Section 0 survey section: same base floorplan
 # each time, that section's measurement picked out in red.
@@ -73,13 +65,6 @@ for n in $(seq 1 10); do
     openscad -o "renders/vanmeas-v${n}.svg" -D "key=${n}" van_measure_keys.scad
     openscad -o "renders/vanmeas-v${n}.png" --imgsize=2000,1400 $FLAT_CAM -D "key=${n}" van_measure_keys.scad
 done
-
-echo "Rendering anchor board accessory install map (A-G) + build order..."
-openscad -o renders/anchor-board-install.svg anchor_board_install.scad
-# 2600x2300: the sheet is the MAP ONLY now (its prose moved into the
-# markdown), so it is near-square rather than the wide 2-column block
-# $IMG was sized for. A square frame stops the page scaling it down.
-openscad -o renders/anchor-board-install.png --imgsize=2600,2300 $FLAT_CAM anchor_board_install.scad
 
 echo "Rendering fridge wiring diagram..."
 openscad -o renders/fridge-wiring.svg fridge_wiring.scad
@@ -102,15 +87,6 @@ for i in 0 1; do
     openscad -D ONLY=$i -o renders/sheet-cut-$((i+1)).svg sheet_cut_layout.scad
     openscad -D ONLY=$i -o renders/sheet-cut-$((i+1)).png --imgsize=1900,2000 $FLAT_CAM sheet_cut_layout.scad
 done
-
-echo "Rendering tongue -> 2nd-row rail connection detail..."
-# 2900x2700: this sheet is 200x195 in its own units, so it wants a
-# near-square frame. Giving it the landscape $IMG clipped the bands.
-openscad -o renders/rail-tongue-detail.svg rail_tongue_detail.scad
-# 2400x2920 matches the sheet's own 140x170 aspect — the old landscape
-# frame left the content small on the page. Legibility here is
-# text_size x (page_width / sheet_width), so the sheet is kept narrow.
-openscad -o renders/rail-tongue-detail.png --imgsize=2400,2920 $FLAT_CAM rail_tongue_detail.scad
 
 echo "Rendering DELTA 3 / WAVE 3 stowage detail..."
 openscad -o renders/delta3-wave3-detail.svg delta3_wave3_detail.scad
@@ -250,8 +226,7 @@ echo "Rendering per-component header banners (hero + accessory list + part list)
 # Wide banner aspect; the iso projection is baked into the geometry so
 # the standard flat camera is correct (same as the lego step diagrams).
 HDR_IMG="--imgsize=3600,1500"
-for n in $(seq 1 11); do
-    # comp 11 = the Section 8 anchor board (banner only, no Section-6 component)
+for n in $(seq 1 10); do
     openscad -o "renders/steps/comp-${n}-header.svg" -D "comp=${n}" steps/component_headers.scad
     openscad -o "renders/steps/comp-${n}-header.png" $HDR_IMG $FLAT_CAM -D "comp=${n}" steps/component_headers.scad
 done
@@ -270,7 +245,7 @@ python3 normalize_survey_keys.py renders
 # LAST, deliberately: the survey sheets render further down this script,
 # so an earlier trim step silently missed them.
 echo "Trimming bordered sheets..."
-python3 trim_render.py renders/rail-tongue-detail.png renders/sheet-cut-layout.png \
+python3 trim_render.py renders/sheet-cut-layout.png \
     renders/sheet-cut-1.png renders/sheet-cut-2.png \
     renders/vanmeas-v*.png renders/survey-f*.png
 

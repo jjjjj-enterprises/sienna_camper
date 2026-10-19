@@ -122,7 +122,7 @@ module drawing() {
         label("→ out the tailgate", fy + fridge_ext_width/2, fridge_ext_height/2 - 2.0, 1.4);
     } else {
         // kitchen unit
-        ky = y_c + panel_c_length - kitchen_box_length - 0.5;
+        ky = y_c + panel_c_length - kitchen_box_length - kitchen_hatch_inset;
         translate([ky, 0]) dash_box(kitchen_box_length, kitchen_box_height);
         label("Kitchen unit (JAGAHAHA)", ky + kitchen_box_length/2, kitchen_box_height/2 + 1.4, 1.5);
         label("→ slides out the tailgate", ky + kitchen_box_length/2, kitchen_box_height/2 - 1.2, 1.4);

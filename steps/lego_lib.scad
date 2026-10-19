@@ -65,8 +65,8 @@ module wbox(pos, size, off2d = [0, 0], ctx = false) {
 }
 
 // opaque white part with edges, for a part whose footprint ISN'T a
-// rectangle (the anchor board is one comb-shaped piece of ply, so it
-// has to draw as a single outline with no internal butt lines)
+// rectangle (a shaped one-piece part, drawn as a single outline so it
+// shows no internal butt lines)
 module wprism(pts, z0, h, off2d = [0, 0], ctx = false) {
     n = len(pts);
     translate(off2d) {

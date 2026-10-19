@@ -152,22 +152,22 @@ module rear_view() {
     // The fridge's vertical side-mount slide rails, seen end-on from
     // the tailgate: 2 narrow bands flanking the hanging tray (nothing
     // under the tray — see fridge-slide-detail); rails sit on the
-    // anchor board's mat + ply strip (aboard_top).
+    // anchor board's neoprene + ply strip (aboard_top).
     color("DimGray")
         for (rx = [fridge_x0 - fridge_ext_length/2 - fridge_slide_margin - fridge_rail_t,
                    fridge_x0 + fridge_ext_length/2 + fridge_slide_margin])
             translate([rx, aboard_top + fridge_riser_t]) rect_outline(fridge_rail_t, 3);
-    // the no-drill anchor board's strips, end-on (mat + 3/4" ply,
-    // Section 8): one under each fridge rail line, one in the
-    // utility-bay gap (kitchen's strap L-track), one in the 1.5"
-    // band at the panel's passenger edge
-    for (bx = [[-panel_width/2, aboard_strip_w],
-               [fridge_x0 + fridge_ext_length/2 + fridge_slide_margin + fridge_rail_t/2 - 1.25, 4.65],
-               [x_kitchen + kitchen_box_width/2, panel_width/2 - (x_kitchen + kitchen_box_width/2)]]) {
-        color([0.15, 0.15, 0.15]) translate([bx[0], 0]) square([bx[1], aboard_mat_t]);
-        color("Peru") translate([bx[0], aboard_mat_t]) rect_outline(bx[1], aboard_t, 0.12);
+    // the no-drill anchor board, end-on (Section 8, Oct 2026): three
+    // one-piece strips (1/8" neoprene + 3/4" ply) — driver, middle and
+    // passenger — tied by the two steel rungs set into their undersides,
+    // which run the full 46" under the fridge tray and the kitchen unit
+    for (st = aboard_strips) {
+        x0 = -panel_width/2 + st[0];
+        color([0.15, 0.15, 0.15]) translate([x0, 0]) square([st[1] - st[0], aboard_mat_t]);
+        color("Peru") translate([x0, aboard_mat_t]) rect_outline(st[1] - st[0], aboard_t, 0.12);
     }
-    marker(11, fridge_x0 + fridge_ext_length/2 + fridge_slide_margin + fridge_rail_t/2 + 1.1, -1.3);
+    color("SlateGray") translate([-panel_width/2, aboard_mat_t]) rect_outline(aboard_rung_len, aboard_rung_t, 0.06);
+    marker(11, -panel_width/2 + aboard_strips[1][0] - 0.6, -1.3, -1.3); // the anchor board strips
     bay_x0 = fridge_x0 + fridge_ext_length/2 + fridge_slide_margin + fridge_rail_stack;
     bay_x1 = x_kitchen - kitchen_box_width/2;
     // dashed outline = an opening, not a panel

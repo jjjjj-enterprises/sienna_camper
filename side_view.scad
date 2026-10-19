@@ -89,16 +89,19 @@ module side_view() {
     dashed_line(y_panel_c, y_panel_c + panel_c_length, leg_height * 0.4);
     label("fridge + kitchen below deck (see rear view)", y_panel_c + panel_c_length/2, leg_height * 0.4 - 2, 1.2);
 
-    // no-drill anchor board (Section 8), side profile at the floor:
-    // mat + 3/4" ply strips under Panel C's appliance zone, the
-    // steel rail tongue running forward under Panel B to bolt to
-    // the 2nd-row floor rail's rear end (ASSUMED position — F8)
-    translate([y_panel_c + 1, 0.1]) rect_outline(33, 0.75, 0.15);              // the one-piece board, full 33" fore-aft run (strips + bridge, continuous)
-    translate([y_panel_c - 8, 0.1]) rect_outline(11.5, 0.35, 0.1);             // steel rail tongue, fwd under Panel B
-    translate([y_panel_c - 10.2, 0]) rect_outline(2.2, 1.1, 0.15);             // floor rail's rear end
-    dashed_line(y_panel_b + 2, y_panel_c - 10.2, 0.45);                        // rail continues fwd (carriages parked at the front)
-    translate([y_panel_c - 9.1, 0.55]) circle(r = 0.35);                       // tongue-to-rail bolt/clamp
-    label("no-drill anchor board (mat + ply, Sec. 8) — its steel tongue bolts to the 2nd-row floor rail's rear end (F8)", van_interior_length/2, -11.3, 1.3);
+    // no-drill anchor board (Section 8, Oct 2026), side profile at the
+    // floor: a ply strip on neoprene, 3"-26" forward of the hatch, with
+    // the two steel rungs in grooves in its underside; a strap from the
+    // riser's front end runs forward and down to the 3rd-row seat-latch
+    // hoop in the headrest trough (below the folded-seat surface)
+    y_hatch = y_panel_c + panel_c_length;   // Panel C's tailgate edge
+    translate([y_hatch - aboard_y1, aboard_mat_t]) rect_outline(aboard_strip_len, aboard_t, 0.15);  // strip
+    for (ry = aboard_rungs_y)
+        translate([y_hatch - ry - aboard_rung_w, aboard_mat_t]) square([aboard_rung_w, aboard_rung_t]); // rung, end-on
+    translate([y_hatch - aboard_hoop_y, -aboard_hoop_drop]) difference() { circle(r = 0.5); circle(r = 0.3); } // latch hoop
+    hull() { translate([y_hatch - fridge_riser_y0 - fridge_riser_len + 0.5, aboard_top + fridge_riser_t]) circle(r = 0.15);
+             translate([y_hatch - aboard_hoop_y, -aboard_hoop_drop]) circle(r = 0.15); }              // strap to the hoop
+    label("no-drill anchor board (3 ply strips on 2 steel rungs, Sec. 8) — strapped down to the 3rd-row seat-latch hoops", van_interior_length/2, -11.3, 1.3);
 
     // ---- spare tire + tool case ghost inside Panel B (flat on its skid) ----
     color("DimGray") {

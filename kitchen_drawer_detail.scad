@@ -58,7 +58,7 @@ module dim_h(x0, x1, y, txt, size = 2.2) {
 
 // ---- view 1: side section (Y-Z), tailgate at right ----
 module side_section() {
-    ky0 = panel_c_length - kitchen_box_length; // 10 — kitchen flush to the tailgate edge
+    ky0 = panel_c_length - kitchen_hatch_inset - kitchen_box_length; // 1.5in in from the tailgate edge
     pull = 5;                                  // drawer drawn part-open
 
     color("black") {
@@ -110,14 +110,15 @@ module rear_section() {
     color("DimGray") translate([kx0, 0]) rect_outline(kitchen_box_width, kitchen_box_height);
     label("kitchen unit", kx0 + kitchen_box_width/2, kitchen_box_height/2, 2.0);
 
-    // the no-drill anchor board's strips flanking the kitchen, end-on
-    // (mat + 3/4" ply, Section 8) — the unit's notch-seated tie-down
-    // straps land in L-track on these
-    for (bx = [[kx0 - 2.4, 2], [kx0 + kitchen_box_width, panel_width/2 - (kx0 + kitchen_box_width)]]) {
-        color("black") translate([bx[0], 0]) square([bx[1], 0.1]);
-        color("black") translate([bx[0], 0.1]) rect_outline(bx[1], 0.75, 0.12);
+    // the no-drill anchor board's middle and passenger strips flanking
+    // the kitchen, end-on (1/8" neoprene + 3/4" ply, Section 8) — the
+    // unit's rear tie-down strap runs down to footman loops on these
+    for (st = [aboard_strips[1], aboard_strips[2]]) {
+        bx0 = -panel_width/2 + st[0];
+        color("black") translate([bx0, 0]) square([st[1] - st[0], aboard_mat_t]);
+        color("black") translate([bx0, aboard_mat_t]) rect_outline(st[1] - st[0], aboard_t, 0.12);
     }
-    // MOVED TO THE DOCUMENT: label("anchor-board strips (mat + 3/4\" ply) flank the kitchen — its tie-down straps land here (no-drill, Sec. 8)", kx0 + kitchen_box_width/2, -1.8, 0.95);
+    // MOVED TO THE DOCUMENT: label("anchor-board strips (neoprene + 3/4\" ply) flank the kitchen — its rear tie-down strap lands here (no-drill, Sec. 8)", kx0 + kitchen_box_width/2, -1.8, 0.95);
 
     // hanging cheeks, deck underside down to the drawer's underside
     color("black") {

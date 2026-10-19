@@ -189,8 +189,8 @@ module section1_content() {
     mlabel("PANEL C", 27, y_bc + 5.5, 2.2);
 
     // kitchen / cabinet / fridge footprints inside Panel C
-    color("Gainsboro") translate([W - frame_rail_sz - kitchen_box_width, y_tg - kitchen_box_length]) square([kitchen_box_width - 0.4, kitchen_box_length - 0.4]);
-    mlabel("KITCHEN", W - frame_rail_sz - kitchen_box_width/2 - 5, y_tg - kitchen_box_length/2 - 2, 2.0);
+    color("Gainsboro") translate([W - frame_rail_sz - kitchen_box_width, y_tg - kitchen_hatch_inset - kitchen_box_length]) square([kitchen_box_width - 0.4, kitchen_box_length - 0.4]);
+    mlabel("KITCHEN", W - frame_rail_sz - kitchen_box_width/2 - 5, y_tg - kitchen_hatch_inset - kitchen_box_length/2 - 2, 2.0);
     fr_x0 = 1.9;                                   // fridge against the driver-side rear corner leg (1.5in leg + margin)
     color("Silver") translate([fr_x0, y_bc + 0.4]) square([fridge_ext_length - 0.4, fridge_ext_width]);
     mlabel("FRIDGE", fr_x0 + fridge_ext_length/2, y_bc + fridge_ext_width/2, 2.0);

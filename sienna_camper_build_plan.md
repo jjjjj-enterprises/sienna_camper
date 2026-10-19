@@ -38,10 +38,10 @@ The rear view above is too small-scale to label the fridge's 2 cooling fans and 
 | 2 | Exhaust fan (120mm) — blows INTO the open utility bay | X=19.72, Y=14.4, Z=8.8 | 4× M4×20 machine screws, 105mm bolt circle, into a plywood fan ring |
 | 3 | NTC temp sensor | X=18.22, Y=12.2, Z=8.8 | Adhesive thermal pad, or 1× #4 screw through its bracket tab |
 | 4 | Control cluster — switches + surge protector + W1209, **no enclosure** | X=40.4–45.4, Y=35.75 (Panel C's FRONT wall), Z=3.5–14.5 — on the wall's **Panel-B face**, standing ~2" off it | Screwed DIRECTLY to a backer board (3/4" offcut) on the wall; 4× #8×1" screws. Reached by lifting one of Panel B's lift-out bed-top halves |
-| 5 | Anchor-board rail strips (2 of the board's 3, under the slide rails) | A mat + 3/4" ply band on each rail line BESIDE the tray (side-mount) — part of the ONE-piece board, not separate strips; the fixed rails' risers bolt to them | 1/4-20 machine screws into T-nuts from below — NO holes in the van (Section 8) |
+| 5 | Anchor-board strips (driver and middle, under the slide rails) | ⅛" neoprene + ¾" ply, one-piece strips tied by two steel rungs set into their undersides; the fixed rails' risers bolt to them | ¼-20 machine screws into T-nuts from below — NO holes in the van (Anchor Board sheet) |
 | 6 | Kitchen tie-down: 2 straps | Front strap down to seat-latch hoops H2 and H4; rear strap down to footman loops on the board's middle and passenger strips | **2** ratchet straps (400 lb WLL), each dropped into a pair of the unit's own top-edge notches (Anchor Board sheet) |
 | 7 | WAVE 3 hose/cord hook | In the open bay, kitchen side — bundle the hoses so nothing swings out | 1× heavy-duty hook, #8×1.5" screw up into the deck underside |
-| 8 | Fridge hold-down strap D-rings (×2) | Tray side apron, near the tailgate end — hooks to the fridge's 2 end handles | Cam strap, snug not tight. This secures the fridge TO its tray; the anchor board secures the tray to the van. Side profile in the Fridge Slide detail |
+| 8 | Fridge hold-down footman loops (×2) | Tray side apron, near the tailgate end — hooks to the fridge's 2 end handles | Cam strap, snug not tight. This secures the fridge TO its tray; the anchor board secures the tray to the van. Side profile in the Fridge Slide detail |
 | 9 | Board straps to the seat-latch hoops (×2) | A ¼" shackle in each fridge riser's front end → hoops H1 and H2 in the headrest trough, 28" from the hatch | Ratchet straps forward and down: forward and lift restraint. No holes in the van (Anchor Board sheet) |
 | 10 | Striker straps (×3, optional backup) | From the board forward to the 3rd-row striker loops on the 2nd-row floor | 400 lb WLL ratchet straps. Re-tension after the first drive |
 
@@ -184,7 +184,7 @@ Each floor panel, exploded (Panel A: frame + legs + center divider + one right d
 
 ### Bed Platform Detail
 
-Component 2's slatted bed platform (58" x 49" overall, 15 slats pocket-screwed between 1x4 side rails — one flush 3/4" plane, cantilevered 1.5" past the boxes on each side), exploded. **It is three pieces, but only two of them are loose: Panel A's 29" × 49" section is SCREWED DOWN, and Panel B's top is two 29" × 24.5" centerline halves that each lift out on their own.** Per-site leveling is done at the WHEELS with blocks (Block Calculator, Appendix E); the interior leg feet are a one-time set. Both sections rest DIRECTLY on Panel A/B's top rails and the platform ENDS at the B/C seam — Panel C's own fixed deck sits at exactly the same surface height, so the two meet flush and the mattress's last ~20" rides that deck. Leveling happens at the leg feet, down at the floor, and an RV bar bubble level screwed to the driver-side rail's outer edge reads fore-aft pitch while you turn the feet (its twin on the rear-pantry deck edge reads roll):
+Component 2's slatted bed platform (58" x 49" overall, 15 slats glued and pocket-screwed between 1x4 side rails — one flush 3/4" plane, cantilevered 1.5" past the boxes on each side), exploded. **It is three pieces, but only two of them are loose: Panel A's 29" × 49" section is SCREWED DOWN, and Panel B's top is two 29" × 24.5" centerline halves that each lift out on their own.** Per-site leveling is done at the WHEELS with blocks (Block Calculator, Appendix E); the interior leg feet are a one-time set. Both sections rest DIRECTLY on Panel A/B's top rails and the platform ENDS at the B/C seam — Panel C's own fixed deck sits at exactly the same surface height, so the two meet flush and the mattress's last ~20" rides that deck. Leveling happens at the leg feet, down at the floor, and an RV bar bubble level screwed to the driver-side rail's outer edge reads fore-aft pitch while you turn the feet (its twin on the rear-pantry deck edge reads roll):
 
 ![Bed frame detail](renders/bed-frame-detail.svg)
 
@@ -327,7 +327,7 @@ The side doors only matter for **Panel A**: its right drawer (DELTA 3) pulls out
 
   Sourcing: five 42" slats (Panel A) and ten 17.5" slats (the halves, five per 8ft board) plus six 29" side rails — **seven 1×4 × 8ft boards, crosscuts only** (a 1x4 is already ¾"×3½", the slat spec, so nothing gets ripped), plus 52" of 2×2 for the center bearer. No bought slat kit: they come stapled to webbing or riveted to metal side frames, neither of which survives being cut down (Section 4 + Component 2).
 - **Trade-off: no top means no enclosure — answered with CUBE FRAMES.** Removing the plywood tops loses torsional rigidity and a dust barrier. Two fixes are specified: diagonal corner braces up top, and **bottom rails closing each frame into a box** (underside 1" up — at the leg bottoms, just clear of the leveling feet, for the tallest box section and the lowest floor-edge curb) on every face that can take one — Panel A's two END faces (its sides must stay open for the drawer/WAVE 3), ALL 4 faces of Panel B (the full cube), and Panel C's FRONT face (its tailgate face stays open for the appliances; its fixed top + front wall already stiffen it). A closed frame racks far less than rails + brackets alone. The bed frame's slats still have gaps — small items can fall through into the bays below.
-- **Panel C has no drawers.** Its under-deck void instead holds two bought products side by side across the 46" width: a **BougeRV Rocky 40 (41-quart, dual-zone)** — 17.72" side left-right, reversible lid (manual §4.4), optional detachable B240 battery at the tailgate-facing end — on a heavy-duty slide, against the driver-side REAR CORNER leg (1.5" in from the edge); and a **JAGAHAHA slide-out camp kitchen** (26"L x 20"W x 11.8"H closed, with its own 2-burner stove space and built-in slide), against the passenger-side rear corner leg — its shelves swing out on that side. (Panel C's rear leg pair sits at the TRUE corners — inset legs would stand exactly in the appliances' slide paths, a collision the Rocky 40's extra width exposed. The rear-corner floor vents were checked and do NOT reach the leg area, so those legs land on solid floor.) **Both pull straight out the open tailgate** (not a side door). Neither is something this plan builds from plywood — both are bought, standalone units. Unlike everything else in this build, both are **strapped to the van's crash-rated 3rd-row striker loops** via a shared no-drill anchor board (Section 8 — the owner ruled out drilling the vehicle) — too heavy to rely on the same "rests unbolted" approach as the sleeping panels. The gap between them is an **open utility bay — no door**. The exhaust fan blows the fridge bay's warm air INTO the bay and straight out toward the tailgate, and the control panel (switches + surge protector) mounts at the back of the bay on a backer board hung from the deck underside — everything electrical is reachable by just reaching in. The 2 utility bins that live in the bay's spare volume get hook-and-loop tape under them, since there's no door holding loose items in.
+- **Panel C has no drawers.** Its under-deck void instead holds two bought products side by side across the 46" width: a **BougeRV Rocky 40 (41-quart, dual-zone)** — 17.72" side left-right, reversible lid (manual §4.4), optional detachable B240 battery at the tailgate-facing end — on a heavy-duty slide, against the driver-side REAR CORNER leg (1.5" in from the edge); and a **JAGAHAHA slide-out camp kitchen** (26"L x 20"W x 11.8"H closed, with its own 2-burner stove space and built-in slide), against the passenger-side rear corner leg — its shelves swing out on that side. (Panel C's rear leg pair sits at the TRUE corners — inset legs would stand exactly in the appliances' slide paths, a collision the Rocky 40's extra width exposed. The rear-corner floor vents were checked and do NOT reach the leg area, so those legs land on solid floor.) **Both pull straight out the open tailgate** (not a side door). Neither is something this plan builds from plywood — both are bought, standalone units. Unlike everything else in this build, both are **strapped to the 3rd-row seats' latch hoops** via a shared no-drill anchor board (Section 8 — the owner ruled out drilling the vehicle) — too heavy to rely on the same "rests unbolted" approach as the sleeping panels. The gap between them is an **open utility bay — no door**. The exhaust fan blows the fridge bay's warm air INTO the bay and straight out toward the tailgate, and the control panel (switches + surge protector) mounts at the back of the bay on a backer board hung from the deck underside — everything electrical is reachable by just reaching in. The 2 utility bins that live in the bay's spare volume get hook-and-loop tape under them, since there's no door holding loose items in.
 - A **HEST Dually Long mattress (78" x 50" x 4", solid foam — no air chambers)** rides on the **49"** cantilevered platform: **25" of width per person** and ~1.25" of spare length parked at the head end beside the rear-pantry cluster. The platform overhangs the 46" boxes by 1.5" per side — the boxes stay at 46" (floor vents + liftgate pass-through), and the mattress lives ~18.5–22.5" up. ⚠️ **V7 measured wall-to-wall up there at 50" / 49.5" — the platform is 49", and the 50"-wide mattress is a ZERO-CLEARANCE fit between the walls that also overhangs its own frame by ~½" per side.** Solid foam tolerates both, but **dry-fit the foam in the van before cutting the platform to final width** — Appendix A, V7. Budget fallback: the DIY 2-layer foam build (Section 4/Component 9), same 50x78 footprint.
 - Panel legs sit inset **3.5"** from the deck's side edges so they land clear of the floor-level vent intrusion (**MEASURED V4**). The deck itself still overhangs the vents harmlessly at height.
 - **Power:** the fridge is 12V-native, but runs off the EcoFlow DELTA 3 stack (Panel A) via its own dedicated DC cord rather than the van's rear accessory outlet — see Section 1 for why. **The cooktop, Power strip 1, and the DELTA 3's own AC charging cord each get their own dedicated run to the front console** — see Section 5 for all three routes.
@@ -444,7 +444,7 @@ The fridge and kitchen unit are bought products (Section 4) — **neither needs 
 **Two policies, both owner decisions:**
 
 1. **Trim ~½" off all four factory edges first** (cuts T1–T4 on every sheet). Factory edges are chipped, out of square, and frequently not straight — and every part referenced off one inherits that. Trimming first means every later cut runs off a known-straight edge. **The usable sheet is therefore 47" × 95", not 48" × 96", and every part in the tables below is checked against that.**
-2. **Let the store make the rectangles.** Ask for the crosscuts *before* the rips — a crosscut on a full sheet is far easier to hold straight than a rip, and it makes each following piece small enough to handle alone. What comes home is rectangles; what's left for your saw is only the shaped cut (the anchor board's comb), the narrow ¾"×¾" cleats, and the holes.
+2. **Let the store make the rectangles.** Ask for the crosscuts *before* the rips — a crosscut on a full sheet is far easier to hold straight than a rip, and it makes each following piece small enough to handle alone. What comes home is rectangles; what's left for your saw is only the narrow ¾"×¾" cleats, the anchor board's strips, the deck's leg notches and the holes.
 
 **Two things to know before you go:**
 
@@ -457,13 +457,13 @@ The fridge and kitchen unit are bought products (Section 4) — **neither needs 
 |---|---|---|
 | Panel C front wall, 46 × 17 | **1/2"** | the 1/2" sheet's big 47 × 44 leftover |
 | Fridge tray, 17.72 × 28.74 | **1/2"** | the same leftover, **cross-grain** (see below) |
-| Battery drawer, 2 sides + 2 front/back | **3/4"** | the 3/4" sheet: 1 side + 1 front out of its 47 × 19 strip, the other 2 out of **the anchor board's two comb gaps** |
+| Battery drawer, 2 sides + 2 front/back | **3/4"** | the 3/4" sheet: 1 side + 1 front out of its 47 × 19 strip, the other 2 from the sheet's remaining offcut |
 
 **Three consequences:**
 
-1. **It costs ~16 lb** over 3/8" parts (build ≈486 lb, Appendix F). **12 lb of that is the battery drawer's** 3/4" walls — a drawer that also carries the 48 lb DELTA 3 stack, so its 20" slide pair sees ~78 lb of a 100 lb rating (margin ~22%). It still passes, and payload has room (Appendix F), but this is the one place the weight is felt rather than just accounted for. *If you'd rather not carry it, one 4×4 3/8" panel covers just those four walls.*
+1. **It costs ~16 lb** over 3/8" parts (build ≈480 lb, Appendix F). **12 lb of that is the battery drawer's** 3/4" walls — a drawer that also carries the 48 lb DELTA 3 stack, so its 20" slide pair sees ~78 lb of a 100 lb rating (margin ~22%). It still passes, and payload has room (Appendix F), but this is the one place the weight is felt rather than just accounted for. *If you'd rather not carry it, one 4×4 3/8" panel covers just those four walls.*
 2. **The drawer box's corner biscuits are 2× R3, not R1** — R1 is thin-stock sizing and would be lost in 3/4" ply.
-3. **Build order:** two of the four walls come out of the anchor board's comb gaps, which don't exist until you've jigsawed the comb. **Cut the anchor board (Section 8) before the battery drawer box (Component 2).**
+3. **Build order:** nothing on the ¾" sheet depends on another part being cut first.
 
 **The walls are 13.75" tall.** The bay is `leg_height_ab 16.25 − 1.5 − 1.0 = 13.75"`. Measure your own frame's bay before cutting — top of the bottom rail up to the underside of the top rail — since it is set by the legs' cut length and is *not* affected by how far the leveling feet are wound out.
 
@@ -493,16 +493,16 @@ Neither upgrade changes any dimension in the cut list below — same sizes, diff
 
 **Thickness note.** Two sheets are bought and that's all: **one 3/4"** and **one 1/2"**. Panel C's deck stays 3/4" (it carries sitting load) and so do the battery drawer's four walls (from offcuts); the kitchen boxes, the battery-drawer bottom, Panel C's front wall and the fridge tray are 1/2". Nothing in the build is 3/8" ply; between them the two sheets carry every plywood part. **Panel A/B have no tops** (Component 2), and **Panel B has no drawers.**
 
-**3/4" sheet** — Panel C's deck plus the Section 8 anchor board (Component 1 is prefab drawers). Even with the anchor board on it this sheet is still under half used: rip the cleats from the offcut, and keep the rest for the control-panel backer board (Section 6) and repairs:
+**3/4" sheet** — Panel C's deck, the Section 8 anchor board's three strips and the battery drawer's walls (Component 1 is prefab drawers). Even so this sheet is still under half used: rip the cleats from the offcut, and keep the rest for the control-panel backer board (Section 6) and repairs:
 
 | Piece | Qty | Dimensions |
 |---|---|---|
 | Panel C top (deck) | 1 | 33" x 43" — drops BETWEEN the rails onto bearer cleats, flush with the rail tops (deck recess: 3/4" more headroom) |
-| Anchor board (Section 8) | 1 | **ONE comb-shaped piece, 46" x 33" overall** — full-width bridge 46" x 6" with three strips 27" long running back from it (2.5" / 4.65" / 1.5" wide, at X = 0, 19.35 and 44.5). Face grain along the 33" direction; ~1/2" fillet at each inside corner. Its two gaps fall out as usable 16.85" x 27" and 20.5" x 27" offcuts. Final dimensions only after the F1–F8 floor survey |
+| Anchor board strips (Section 8) | 3 | **23" long**, 2½", ~2½" and 1½" wide, each one piece; tied by steel rungs, not glued (Anchor Board sheet) |
 | Deck bearer cleats | 4 | 3/4" x 3/4" strips: 2 x 33" + 2 x 40" (ripped from the offcut; screwed to Panel C's rails' inner faces, tops 3/4" below the rail tops). **Interrupt the FRONT cleat at the 2 lapped front legs** — their tops come up into the deck plane on that face; cut it as 3 short runs rather than one 40" strip |
 | Rear-pantry hold-down cleats | ~4 | ~1" x 1" x 12–14" strips (ripped from the offcut; cab-side + both sides of the drawer cluster) |
-| **Battery drawer side wall** | 2 | **22" x 13.75"** — full depth, and the slide pair screws to these two. One out of the 47" x 19" strip, one out of the anchor board's **gap A** (16.85" x 27", so it comes out rotated). 3/4": glue + **2× R3** per corner |
-| **Battery drawer front/back wall** | 2 | **18.5" x 13.75"** — they fit BETWEEN the side walls, so cut them at 20" with everything else and trim **1.5" (= 2 × 3/4")** off each once the sides exist. One out of the same 47" x 19" strip beside the side wall (22 + 20 = 42 of the 47), one out of the anchor board's **gap B** (20.5" x 27", also rotated). 3/4", 2× R3 per corner |
+| **Battery drawer side wall** | 2 | **22" x 13.75"** — full depth, and the slide pair screws to these two. One out of the 47" x 19" strip, one from the sheet's remaining offcut. 3/4": glue + **2× R3** per corner |
+| **Battery drawer front/back wall** | 2 | **18.5" x 13.75"** — they fit BETWEEN the side walls, so cut them at 20" with everything else and trim **1.5" (= 2 × 3/4")** off each once the sides exist. One out of the same 47" x 19" strip beside the side wall (22 + 20 = 42 of the 47), one from the sheet's remaining offcut. 3/4", 2× R3 per corner |
 
 **1/2" sheet** — the kitchen drawer box + its 2 hanging cheeks and the battery drawer's bottom:
 
@@ -518,21 +518,17 @@ Neither upgrade changes any dimension in the cut list below — same sizes, diff
 
 #### The sheets, as actually cut — from the shop (Sept 9–11 2026)
 
-**Both sheets are cut, and they broke down as drawn** — no dimension, no part and no offcut in the tables above changed. What these add is the *method*, and in particular the one thing this build has that no rectangle needs: the anchor board's comb has **interior corners**, and how you get into them is the whole job. The division of labour turned out to be two saws — **table saw for every long cut, jigsaw for every interior cut** — with a drill bit standing between them.
+**Both sheets are cut, and they broke down as drawn** — no dimension, no part and no offcut in the tables above changed. What these add is the *method*. The division of labour turned out to be two saws — **table saw for every long cut, jigsaw for every interior cut** (the deck's leg notches and the front wall's holes) — with a drill bit standing between them.
 
 <figure class="photo-figure">
 <img src="photos/ply-01-cut-plan-on-sheet.jpg" alt="A large plywood panel on the saw table with the printed cut plan, a four-foot level, a tape measure and a pencil laid on it">
 <figcaption><b>Mark off the printed cut plan, on the sheet, before any blade runs.</b> The sheet layout from Section 3 is printed and sitting on the work — not read off a phone and not held in memory. The straightedge here is a <b>4&nbsp;ft level</b>, which is the longest true edge most shops own and is what a marked line should be struck against; the face grain direction gets confirmed at this stage too, because for the anchor board it is specified (<b>grain along the 33" direction</b>) and it is unrecoverable once the piece is cut. Note what has already happened before this photo: the store broke the sheets into rectangles (Section 3), so what is on the table is a manageable panel rather than a full 4×8.</figcaption>
 </figure>
 
-<figure class="photo-figure">
-<img src="photos/ply-02-comb-laid-out.jpg" alt="The anchor board blank on the garage floor with the comb's cut lines pencilled on and the printed anchor board cut plan taped to it">
-<figcaption><b>Lay the whole comb out on the blank before cutting any of it.</b> Every line is struck in pencil against the straightedge: the two gaps, the strips and the bridge line, with the bridge edge marked "Bottom" so the blank can't get turned round between cuts. The anchor board's own cut plan is taped to the panel, so the dimensions are read off the drawing at the saw, not from memory.</figcaption>
-</figure>
 
 <figure class="photo-figure">
 <img src="photos/ply-03-table-saw-setup.jpg" alt="A Ryobi BT3000 table saw set up in the garage with its rip fence and rails">
-<figcaption><b>Every long cut went on the table saw.</b> Section 3's cut plan offers a track saw or a circular saw on a straightedge; the saw that was in the shop was a table saw, and for a sheet already broken into rectangles it is the better of the three — a fence gives a repeatable width, where a straightedge has to be re-clamped and re-measured for every cut. <b>What a table saw cannot do is the part that makes this board a comb:</b> the two gaps have to <i>stop</i> at the bridge line, and the cut that closes each gap runs perpendicular to the rip. That cut is the jigsaw's, below.</figcaption>
+<figcaption><b>Every long cut went on the table saw.</b> Section 3's cut plan offers a track saw or a circular saw on a straightedge; the saw that was in the shop was a table saw, and for a sheet already broken into rectangles it is the better of the three — a fence gives a repeatable width, where a straightedge has to be re-clamped and re-measured for every cut. <b>What a table saw cannot do is an interior cut</b>: the deck's leg notches stop part-way across. Those are the jigsaw's, below.</figcaption>
 </figure>
 
 <figure class="photo-figure">
@@ -540,14 +536,10 @@ Neither upgrade changes any dimension in the cut list below — same sizes, diff
 <figcaption><b>Put a reverse-tooth blade in the jigsaw — this is the detail worth stealing.</b> The pack is <b>Bosch T101BR</b>, 10 TPI: the <b>R is for reverse</b>, meaning the teeth point <i>down</i> instead of up. An ordinary jigsaw blade cuts on the upstroke and therefore splinters the <b>top</b> face — which on this board is the face you marked, the face you can see, and on veneered ply the face whose thin outer ply tears in long strings. A reverse blade moves that tearout to the underside. Two things come with it: it <b>pushes the saw up off the work</b>, so hold the shoe down and feed slower than you would, and it wants a <b>flat, fully supported</b> cut — it is not the blade for a plunge. Also set the saw's <b>orbital selector</b> (the SELECTOR dial on this SKIL) to suit the stock: more orbit cuts faster and rougher, and on 3/4" ply the low settings are what keep the edge clean. That dial is the "set your jigsaw for the thickness of the wood" step, and it is the one most people never touch.</figcaption>
 </figure>
 
-<figure class="photo-figure">
-<img src="photos/ply-05-comb-cut.jpg" alt="The finished one-piece anchor board comb standing against the garage wall, showing the full-width bridge across the top and three strips running down from it">
-<figcaption><b>The anchor board, cut as ONE piece — bridge and all three strips continuous.</b> This is the part Section 8 spends the most words on, and here it is: no glue, no lap screws, no ply-to-ply joint anywhere in it. <b>The interior corners were drilled before they were sawn</b> — a bit dropped on the corner, then the jigsaw fed into the hole to finish the perpendicular cut. That is exactly the <b>~1/2" fillet at every inside corner</b> the plan calls for, arrived at from the practical end: the drilled hole is both the fillet and the jigsaw's entry, so the step that keeps the comb from starting a tear is the same step that lets you make the cut at all. Cut a square re-entrant corner and you get a stress riser <i>and</i> a blade you cannot turn. The two gaps came out as the offcuts the table above books for the battery drawer's walls — so <b>cut this board before that box</b> (Component 2).</figcaption>
-</figure>
 
 <figure class="photo-figure">
-<img src="photos/ply-06-all-parts-cut.jpg" alt="Every cut plywood part for the build stacked and leaning against the garage wall, with the comb at right and ripped cleats alongside">
-<figcaption><b>Both sheets, down to parts — this is what "two sheets, nothing else" looks like.</b> Panel C's deck, the kitchen box pieces, the battery drawer's walls and bottom, Panel C's front wall, the fridge tray, the ripped <b>3/4" × 3/4" bearer cleats</b> (the long thin strips standing at center), and the comb at the right. Stand them on edge rather than stacking them flat: ply left lying in a pile in a garage picks up a bow from its own weight and from whatever humidity the slab is holding, and the deck and front wall are the two parts that have to stay flat. <b>Label each piece as it comes off the saw</b> — several of these are near-identical rectangles that differ by an inch, and the cut plan's names stop being obvious about a day later.</figcaption>
+<img src="photos/ply-06-all-parts-cut.jpg" alt="Every cut plywood part for the build stacked and leaning against the garage wall, with the first anchor board at right and ripped cleats alongside">
+<figcaption><b>Both sheets, down to parts — this is what "two sheets, nothing else" looks like.</b> Panel C's deck, the kitchen box pieces, the battery drawer's walls and bottom, Panel C's front wall, the fridge tray, the ripped <b>3/4" × 3/4" bearer cleats</b> (the long thin strips standing at center), and, at the right, the first anchor board, a one-piece comb since replaced by three strips (Section 8). Stand them on edge rather than stacking them flat: ply left lying in a pile in a garage picks up a bow from its own weight and from whatever humidity the slab is holding, and the deck and front wall are the two parts that have to stay flat. <b>Label each piece as it comes off the saw</b> — several of these are near-identical rectangles that differ by an inch, and the cut plan's names stop being obvious about a day later.</figcaption>
 </figure>
 
 <figure class="photo-figure">
@@ -673,7 +665,7 @@ Every wooden joint's method — biscuit vs. screw — with the exact biscuit spa
 | **All 2×2 frames** (rails / legs / bottom rails / dividers) | 2×2 corners | 2 × 2½" screws + glue + a steel corner bracket — **no biscuit** |
 | **Leg ↔ end rail** (10 of 12 legs) | **lap**, leg top flush with the rail top | 2 × 2½" screws through the rail's FACE into the leg's side + glue. Clamp flush first — the leg top is the deck-plane reference |
 | **Leg ↔ end rail** (Panel C's 2 rear corner legs) | butt-under | 2 × 2½" screws down into the leg's end grain + **a steel angle bracket into the rail's inner face** — the bracket is the joint here, the screws are alignment |
-| Bed platform slats ↔ 1x4 side rails | end-to-edge | 2 × 1¼" pocket screws per end (**or** 1 × R2 biscuit + glue, cleaner) |
+| Bed platform slats ↔ 1x4 side rails | end-to-edge | Glue + 2 × 1¼" Kreg SML-C125 pocket screws per end (Kreg 320 jig set for ¾"), slats crown-up |
 | DELTA 3 tray / utility-bay bins / adjustable shelf | none | Drop in or rest on pins — no fasteners |
 
 ---
@@ -682,7 +674,7 @@ Every wooden joint's method — biscuit vs. screw — with the exact biscuit spa
 
 | Item | Qty | Est. Unit Cost | Est. Total |
 |---|---|---|---|
-| 3/4" Baltic birch plywood, 4x8 sheet (Panel C deck + the anchor board blank + **all 4 battery-drawer walls** + the bearer and pantry cleats ripped from the offcuts — see Section 3) — **PURCHASED 2026-09-06** | 1 | $65 | $65 |
+| 3/4" Baltic birch plywood, 4x8 sheet (Panel C deck + the anchor board's strips + **all 4 battery-drawer walls** + the bearer and pantry cleats ripped from the offcuts — see Section 3) — **PURCHASED 2026-09-06** | 1 | $65 | $65 |
 | Rear pantry — IRIS USA 12"W stackable drawers, Home Depot #500163 3-pack (buy 2 packs; use 4, 2 spare) | 2 packs | $30.29 | $61 |
 | Rear pantry hold-down — 1 cam-buckle strap + 2 flush deck D-rings + anti-rattle felt tape + Velcro ties (cleats ripped from the 3/4" offcut) | 1 set | $26 | $26 |
 | Pot/pan bay — rigid ~13" milk crate + bungee (e.g. 1 of an ORGANIZE-IT 4-pack; in the ~21.8" bay) | 1 | $15 | $15 |
@@ -708,6 +700,8 @@ Every wooden joint's method — biscuit vs. screw — with the exact biscuit spa
 | [VELCRO Extreme Outdoor, 1" × 10 ft](https://www.amazon.com/VELCRO-Brand-Extreme-Outdoor-Titanium/dp/B005756516) — holds Panel C's non-slip pantry mat down so it can be replaced (loop on the deck, hook on the mat) | 2 rolls | $11 | $22 |
 | Leg leveling feet — [Heavy Duty 3/8-16 furniture levelers w/ T-nut kit, 4-pack](https://www.amazon.com/Furniture-Levelers-Adjustable-Leveling-Cabinets-Sofa/dp/B081ZT4Q4G) (330 lb per foot; buy 3 packs = 12) | 3 packs | $12 | $36 |
 | Bed platform lumber — 1x4 x 8ft pine boards (five 42" slats + ten 17.5" slats + six 29" side rails; crosscuts only) — **PURCHASED 2026-09-06** | 7 | $5 | $35 |
+| Kreg Pocket Hole Jig 320 + stepped bit — the bed slats' pocket holes — **PURCHASED** | 1 | $40 | $40 |
+| Kreg SML-C125-100 pocket screws, #8 × 1¼" coarse thread, 100-pack — 2 per slat end, 60 used — **PURCHASED** | 1 | $8 | $8 |
 | Kitchen drawer slide pair — 24" side-mount — **PURCHASED 2026-07-20: Liberty 942405 soft-close ball-bearing 24", 2-pack, $37.63** | 1 pair | $37.63 | $37.63 |
 | Kitchen drawer magnetic catch — see the drawer-catch line above: **one WOOCH catch is purchased, and two are needed** (box + cheeks come from the plywood sheets' spare area) | 1 | $3 | $3 |
 | RV bubble levels — Larbeti stick-on 2+2 pack, bar + T-shape (PITCH on the platform's driver-side rail edge, ROLL on the rear-pantry deck edge) — **PURCHASED July 2026** | 1 | $10 | $10 |
@@ -740,13 +734,13 @@ Every wooden joint's method — biscuit vs. screw — with the exact biscuit spa
 | 12V fused distribution block (control panel) — **PURCHASED July 2026: Nilight 6-way blade fuse block w/ negative bus, waterproof cover, label stickers, fuse assortment included** (no separate ATO fuse pack needed) | 1 | $17.98 | $17.98 |
 | Illuminated toggle switches (SW1 fridge, SW2 fans, SW3 spare — the cooktop is AC, switched at Power strip 2) | 3 | $5 | $15 |
 | **Windmill Smart Fan 2-in-1 air circulator** (personal comfort, Power Strip 1) — **PURCHASED July 2026** | 1 | $69 | $69 |
-| Anchor board — three ¾" ply strips, one piece each (from the old comb or the ¾" sheet's spare) + ¼-20 T-nuts and 1" button heads for the 2 risers (Anchor Board sheet) | 1 | $10 | $10 |
+| Anchor board — three ¾" ply strips, one piece each (cut from the ¾" sheet's offcut) + ¼-20 T-nuts and 1" button heads for the 2 risers (Anchor Board sheet) | 1 | $10 | $10 |
 | Steel flat bar 2" x 48" x 3/16" (Everbilt 801897) — the 2 rungs under the anchor board, cut to 46" | 2 | $14.59 | $29.18 |
 | ¼" galvanized anchor shackle (Everbilt 43144) — one through each fridge riser's front end, for the H1/H2 straps | 2 | $3.28 | $6.56 |
 | #10 x ⅝" flat-head wood screws — rungs up into the strips, countersunk in the steel | 1 box | $6 | $6 |
 | DEWALT 4-1/2" cut-off wheels, 5-pack — aluminum oxide, 7/8" arbor, angle grinder. Cuts the 2 rungs from the flat bar and the 2 riser angles from the angle stock (H.8). Cut **dry** — never put fluid on an abrasive wheel — **PURCHASED 2026-09-05** | 1 pack | $6.46 | $6.46 |
 | Tap Magic 30004P ProTap cutting fluid, 4 oz — for the **drilling** that follows the cuts: the 2 rungs' screw holes, the 2 riser angles' 1/4-20 holes, and the anchor board's steel work generally. Nothing to do with the cut-off wheels — **PURCHASED 2026-09-06** | 1 | $4.98 | $4.98 |
-| Non-slip rubber utility mat, under the anchor board's strips | 1 | $25 | $25 |
+| Neoprene rubber sheet, ⅛" × 16" × 60" roll — cut into strips under the anchor board's strips | 1 | $20 | $20 |
 | Blue medium-strength threadlocker (Loctite 242 or equivalent — on the anchor board's machine screws) | 1 bottle | $8 | $8 |
 | Erickson ratchet straps (01415), 400 lb WLL / 1,200 lb break, 1" x 10' (2: the board's shackles to hoops H1/H2; 2: kitchen unit, front to H2/H4 and rear to the footman loops; 3 optional backups to the striker loops; 1 spare) | 2 packs of 4 | $32 | $64 |
 | Fridge hold-down — 1 low-profile cam strap + 2 screw-eye D-rings (hooks to the fridge's 2 end handles, down to the tray's side apron — keeps the fridge from lifting off the tray in a hard stop) | 1 set | $10 | $10 |
@@ -801,7 +795,7 @@ Specific products verified against this plan's specs, full URLs shown for copy-p
 
 Slides + electrical together run **~$290-305**. These links satisfy the corresponding BOM rows above — don't double-count.
 
-**Estimated total (summing the BOM table above): ~$3,485–3,855 with the fridge + kitchen included, or ~$2,785–3,005 if you already own equivalents** — the owner-supplied CO monitor and fire extinguisher aren't priced here. The itemized BOM table is the authoritative figure. It includes the bought HEST Dually Long mattress (~$530–590, cover included — the DIY 2-layer fallback, ~$185–255, stays in the BOM as the budget swap), a real BougeRV Rocky 40 + JAGAHAHA kitchen (~$700–850 combined, Rocky price UNVERIFIED), the fridge cooling/control electronics (2 fans, controller, sensor, surge protector, ~$85–120 combined), the no-drill securing hardware — rated straps, the anchor board's steel rungs, shackles and neoprene (~$140, Section 8) — and the RJ-MODINI spare kit (~$350, Appendix F). Two optional material upgrades are documented but NOT in the total above — poplar top-rails (~$25–40) and aluminum corner braces (~$10–15), see Section 3's "Material options & upgrades."
+**Estimated total (summing the BOM table above): ~$3,533–3,903 with the fridge + kitchen included, or ~$2,833–3,053 if you already own equivalents** — the owner-supplied CO monitor and fire extinguisher aren't priced here. The itemized BOM table is the authoritative figure. It includes the bought HEST Dually Long mattress (~$530–590, cover included — the DIY 2-layer fallback, ~$185–255, stays in the BOM as the budget swap), a real BougeRV Rocky 40 + JAGAHAHA kitchen (~$700–850 combined, Rocky price UNVERIFIED), the fridge cooling/control electronics (2 fans, controller, sensor, surge protector, ~$85–120 combined), the no-drill securing hardware — rated straps, the anchor board's steel rungs, shackles and neoprene (~$140, Section 8) — and the RJ-MODINI spare kit (~$350, Appendix F). Two optional material upgrades are documented but NOT in the total above — poplar top-rails (~$25–40) and aluminum corner braces (~$10–15), see Section 3's "Material options & upgrades."
 
 ---
 
@@ -912,7 +906,7 @@ A second, independent cord charges the DELTA 3 stack itself from the front conso
 3. Continue along the van floor track to the front console AC outlet — same routing as the other two forward-running lines.
 4. Leave enough slack at the Panel A end that pulling the DELTA 3 drawer open doesn't strain the connection.
 
-**Outlet facts (VERIFIED): 2 AC outlets total, both fed by the van's single 1500W inverter.** The rear outlet sits on the **passenger-side rear quarter trim: 22.5" above the cargo floor, ~10" forward of the liftgate scuff plate**, socket center **10" laterally in from the right sidewall** (MEASURED V9b, owner Aug 1 2026), directly above the 12V battery access panel and below the rear cup holders. **That is 4" ABOVE deck level (18.5"), not below it — which makes the cord runs easier:** both cords reach the socket from deck level instead of having to drop down the gap between the kitchen unit's outer face and the van wall. Plug access doesn't depend on sliding the kitchen out. **Serviceability note: the 12V battery access panel sits under/behind the kitchen's passenger rear corner — keep it clear: the anchor board's kitchen-side strip stops short of it (Section 8), and battery service = unstrap + slide the kitchen out (Component 7).**
+**Outlet facts (VERIFIED): 2 AC outlets total, both fed by the van's single 1500W inverter.** The rear outlet sits on the **passenger-side rear quarter trim: 22.5" above the cargo floor, ~10" forward of the liftgate scuff plate**, socket center **10" laterally in from the right sidewall** (MEASURED V9b, owner Aug 1 2026), directly above the 12V battery access panel and below the rear cup holders. **That is 4" ABOVE deck level (18.5"), not below it — which makes the cord runs easier:** both cords reach the socket from deck level instead of having to drop down the gap between the kitchen unit's outer face and the van wall. Plug access doesn't depend on sliding the kitchen out. **Serviceability note: the 12V battery access panel sits under/behind the kitchen's passenger rear corner — keep it clear: the anchor board's passenger strip starts 3" in from the hatch, so check it clears the panel (Section 8), and battery service = unstrap + slide the kitchen out (Component 7).**
 
 **Shared-inverter wattage: every AC load shares one 1500W pool (confirmed — both outlets ride the same inverter).** Plugging the cooktop + Power strip 1 into the rear outlet and the DELTA 3 charger into the front one cleans up the *cords*, but not the *budget*: the DELTA 3's AC input alone (up to 1500W at full X-Stream speed) can consume the entire rated capacity. Running the induction cooktop while fast-charging the DELTA 3 could oversubscribe the inverter. In practice this rarely collides — cooktop use happens at camp with the engine off, DELTA 3 charging while driving — but if you ever want both at once (e.g., cooking at a rest stop with the engine idling), cap the DELTA 3's AC charge rate in its app (EcoFlow lets you limit input wattage) to leave headroom. **The cooktop's own half of that budget is now measured, not guessed:** both burners at P6 draw ~1460W and a single burner at max ~950W (bench-tested Sept 2026 — Section 7), so dual-burner cooking uses essentially the whole inverter on its own.
 
@@ -968,7 +962,7 @@ Panel A and Panel B share the same frame construction — neither has a top of i
 - Center divider — 1, **26⅛"** cut, 2x2 pine
 - Corner brackets — 4
 - Diagonal corner braces — 2 (recovers racking rigidity lost without a top). **They mount on the frame's UNDERSIDE**, not the rail tops — the top face is the deck plane and the bed section is screwed down flat onto it, so anything proud of it is a rock you can never shim out. Same face as the 4 corner brackets. Note the frame is built top-face-DOWN, so that face is the one pointing up at you on the bench
-- Drawer box — 1 (right/DELTA 3 side only), 5 pieces: bottom 19.25"x21.25" (1/2" ply, into a 3/8" glued rabbet), 2 side walls 22"x13.75" + 2 front/back walls 18.5"x13.75" (cut at 20", trimmed 1.5" each) (**3/4" ply** — these are the parts no other leftover could hold, Section 3). Glue + **2× R3** per corner since it carries the 48 lb DELTA stack. **Two of the four walls come out of the anchor board's comb gaps, so cut the anchor board (Section 8) first**
+- Drawer box — 1 (right/DELTA 3 side only), 5 pieces: bottom 19.25"x21.25" (1/2" ply, into a 3/8" glued rabbet), 2 side walls 22"x13.75" + 2 front/back walls 18.5"x13.75" (cut at 20", trimmed 1.5" each) (**3/4" ply** — these are the parts no other leftover could hold, Section 3). Glue + **2× R3** per corner since it carries the 48 lb DELTA stack.
 - Drawer slide — 1 pair, 20" full-extension
 - Drawer catch — 1, friction catch or small turn latch
 - DELTA 3 drawer hardware (right drawer) — 1x1 pine locating cleats, 2 screw-eye D-rings + cam strap, 1" cable grommet
@@ -1004,9 +998,9 @@ Panel A and Panel B share the same frame construction — neither has a top of i
 </div>
 <div class="lego-step">
 <div class="lego-num">5</div>
-<div class="lego-parts"><p class="lego-noparts">seven 1x4 boards: 6 rails + 15 slats + pocket screws, plus 52" of 2x2 for Panel B's center bearer (parts list above)</p></div>
+<div class="lego-parts"><p class="lego-noparts">seven 1x4 boards: 6 rails + 15 slats + glue and 1¼" pocket screws, plus 52" of 2x2 for Panel B's center bearer (parts list above)</p></div>
 <div class="lego-main"><img src="renders/bed-frame-detail.png" alt="Bed platform exploded detail">
-<p class="lego-caption">Crosscut everything from seven 1x4 x 8ft pine boards — nothing gets ripped, a 1x4 is already 3/4" x 3-1/2": six 29" side rails, five 42" slats, and ten 17.5" slats (two 42" or five 17.5" per board). <b>Build it as THREE lift-out pieces</b>: Panel A's section is one pair of rails on edge-guides 49" apart outside-to-outside (measurement V7) with its five 42" slats between them; each of Panel B's two halves is a pair of rails 24.5" apart with five 17.5" slats. Every gap lands at ~2.9". Pocket-screw each slat end into the rails' inner edges (2x 1-1/4" pocket screws per end; 2" corner braces work if you don't have a pocket-hole jig). Then add Panel B's center bearer — two 2x2s glued side by side, fore-aft at its centerline, cut to the gap between the end rails less ¼" (~25⅞") and dropped onto four 1" corner braces so it lifts out for the spare, top flush with its long rails: it carries the inner rail of both halves (1-1/2" of bearing each) and halves the deck's unsupported span over Panel B. Last, <b>screw Panel A's section down</b> to its rails (2" screws every ~8", countersunk so nothing sits proud under the foam): it is permanent, it stiffens Panel A against racking, and it is the datum the two loose halves register against. Panel B's halves get no fasteners at all — they just lift, and at 24.5" wide either one will pass back out through the 35" side door. Everything sits in one flush 3/4" plane that ENDS at the B/C seam — Panel C's own deck is at the same height, so the sleeping surface stays flush and the mattress's last ~20" rides that deck. The platform adds only 3/4" to the stack. Last, stick one Larbeti bar level (self-adhesive — degrease the surface first) on the driver-side rail's outer edge at mid-span (the 3/4" face fits it exactly) — it reads fore-aft PITCH from the slider door while you turn the leg feet; its twin reads ROLL from the rear-pantry deck edge (Component 1).</p></div>
+<p class="lego-caption">Crosscut everything from seven 1x4 x 8ft pine boards — nothing gets ripped, a 1x4 is already 3/4" x 3-1/2": six 29" side rails, five 42" slats, and ten 17.5" slats (two 42" or five 17.5" per board). <b>Build it as THREE lift-out pieces</b>: Panel A's section is one pair of rails on edge-guides 49" apart outside-to-outside (measurement V7) with its five 42" slats between them; each of Panel B's two halves is a pair of rails 24.5" apart with five 17.5" slats. Every gap lands at ~2.9". Glue and pocket-screw each slat end into the rails' inner edges: two pocket holes per end drilled with a Kreg 320 jig set for 3/4" stock, glue on the end grain, then 2× Kreg SML-C125 1-1/4" coarse-thread screws. Set every slat crown-up, gapped with 13" ripped-plywood spacers (Bed Platform Assembly sheet). Then add Panel B's center bearer — two 2x2s glued side by side, fore-aft at its centerline, cut to the gap between the end rails less ¼" (~25⅞") and dropped onto four 1" corner braces so it lifts out for the spare, top flush with its long rails: it carries the inner rail of both halves (1-1/2" of bearing each) and halves the deck's unsupported span over Panel B. Last, <b>screw Panel A's section down</b> to its rails (2" screws every ~8", countersunk so nothing sits proud under the foam): it is permanent, it stiffens Panel A against racking, and it is the datum the two loose halves register against. Panel B's halves get no fasteners at all — they just lift, and at 24.5" wide either one will pass back out through the 35" side door. Everything sits in one flush 3/4" plane that ENDS at the B/C seam — Panel C's own deck is at the same height, so the sleeping surface stays flush and the mattress's last ~20" rides that deck. The platform adds only 3/4" to the stack. Last, stick one Larbeti bar level (self-adhesive — degrease the surface first) on the driver-side rail's outer edge at mid-span (the 3/4" face fits it exactly) — it reads fore-aft PITCH from the slider door while you turn the leg feet; its twin reads ROLL from the rear-pantry deck edge (Component 1).</p></div>
 </div>
 <div class="lego-step">
 <div class="lego-num">6</div>
@@ -1074,7 +1068,7 @@ Effective leg height = cut length + the 1" foot.</p>
 
 <figure class="photo-figure">
 <img src="photos/drawer-02-walls-cut.jpg" alt="Four cut plywood drawer walls laid out flat on the garage floor">
-<figcaption><b>All four walls cut and rabbeted:</b> two side walls at 22 × 13¾" that run full depth and carry the slides, and two front/back walls at 18½ × 13¾" that fit between them. Label each one as it comes off the saw. Two of them come out of the anchor board's comb gaps, rotated, and the grain direction is hard to read later.</figcaption>
+<figcaption><b>All four walls cut and rabbeted:</b> two side walls at 22 × 13¾" that run full depth and carry the slides, and two front/back walls at 18½ × 13¾" that fit between them. Label each one as it comes off the saw. Two of them come out of the offcut rotated, and the grain direction is hard to read later.</figcaption>
 </figure>
 
 <figure class="photo-figure">
@@ -1267,7 +1261,7 @@ Build this one before Component 1 (Rear Pantry) — the prefab drawer cluster si
 - 12V surge protector/fused distribution block, 3 illuminated toggle switches, ¾" backer board (no enclosure)
 - Anchor board: three ¾" ply strips tied by two 2" × 3/16" steel rungs, on ⅛" neoprene (Section 8, Anchor Board sheet)
 - 2 ¼" anchor shackles + 2 stainless footman loops + 4 ratchet straps
-- 5 Erickson 400lb-WLL ratchet straps (2 kitchen, in the unit's notches + 3 to the striker loops)
+- 4 Erickson 400lb-WLL ratchet straps (2 from the risers' shackles to seat-latch hoops H1/H2, 2 for the kitchen unit in its notches) + up to 3 optional backups to the striker loops
 - 1 low-profile cam strap + 2 screw-eye D-rings (fridge hold-down, hooks to its 2 end handles)
 - 3 screw-mount cable clips (fridge DC line slack, clipped to the slide's fixed outer rail)
 - Utility bay fit-out — 2 low-profile bins + hook-and-loop tape (no door: the bay between the fridge and kitchen stays open)
@@ -1673,7 +1667,7 @@ Appendices B and C consolidate Sections 4 and 3; Appendix B (build order), Appen
 - **Feeds:** Section 5/7 — the cooktop and Power strip 1 tap the rear outlet; DELTA 3 charging has the front one. Section 1/7 uses the 1500W rating for the DELTA 3's charge rate and the cooktop check.
 - **V9a** — front console outlet — wattage rating: **1500W** (already verified).
 - **V9b** — rear outlet position: **22.5" up, 10" inboard of the right sidewall** (MEASURED — owner, Aug 1 2026). At 22.5" the socket sits **4" ABOVE the 18.5" deck plane** — the cooktop and Power strip 1 cords reach it from deck level instead of having to drop down the gap between the kitchen unit and the van wall. See Section 5's routing note.
-- **Check** — does the quarter trim / cup holder intrude inboard of the 46" deck width at deck height near that corner?: **the trim sits ~10" in from the sidewall at outlet height**, so the corner is where the deck and the trim come closest — keep the anchor board's kitchen-side strip clear of it as Section 8 already requires.
+- **Check** — does the quarter trim / cup holder intrude inboard of the 46" deck width at deck height near that corner?: **the trim sits ~10" in from the sidewall at outlet height**, so the corner is where the deck and the trim come closest — keep the anchor board's passenger strip clear of it (it starts 3" in from the hatch).
 
 ##### V10 — Cargo floor level — flat, or sloped front-to-back?
 
@@ -1711,8 +1705,8 @@ your measurement live.*
 | 5b | Floor vents at Panel C's REAR corners | Panel C's rear legs sit at the TRUE corners now | must be vent-free for ~4" | ✅ **CLEAR — the rear-corner floor vents do not reach the leg area** (owner, Aug 2026). Panel C's rear legs land on solid floor |
 | — | Fridge cord length | (confirms it reaches the new DC line's connection point inside Panel C's void — Section 5) | — | |
 | — | Fridge slide clearance — how far it must come out before the lid opens fully | `fridge_slide_length` (confirms 24" is enough) | 24" slide | |
-| 6 | Kitchen unit width, closed | `kitchen_box_width` | 20" | **20.5"** (MEASURED — owner, Aug 2 2026). Half an inch over the listing figure, and it lands entirely on the utility bay — see the open issue below |
-| 7 | Kitchen unit length, closed | `kitchen_box_length` | 26" | **25 13/16" (25.8125")** (MEASURED — owner, Aug 2 2026) |
+| 6 | Kitchen unit width, closed | `kitchen_box_width` | 20" | **20⅛" (20.125")** (RE-MEASURED — owner, Oct 18 2026; it read 20.5" in August, and the open issue below was written against that, so the bay is ⅜" wider than it says). At x 24⅜"–44½" from Panel C's driver line |
+| 7 | Kitchen unit length, closed | `kitchen_box_length` | 26" | **25⅞" (25.875")** (RE-MEASURED — owner, Oct 18 2026; 25 13/16" in August). Its hatch end sits **1½" in** from Panel C's tailgate edge (`kitchen_hatch_inset`) |
 | 8 | Kitchen unit height, closed | `kitchen_box_height` | 11.8" | **11.55"** (MEASURED — owner, Aug 2 2026). A quarter-inch shorter, so the kitchen drawer above it gains that much clearance |
 | 9 | Stove tray length x width x clearance height | (Section 7 — the COOKTRON cooktop's fit depends on this; the current numbers came from listing photos, not a spec sheet) | 23" x 15.7" x 5.7" | |
 | 10 | Kitchen unit empty weight | (Section 8 weight table) | ~45 lb | |
@@ -1906,7 +1900,7 @@ The order to build in — **dependency-first, not the Component numbering.** Wor
 2. Left bay: no shelf, no glide strips — the WAVE 3 sits on the bay floor. 2 D-rings in the end bottom rails + a cam strap fore-aft over the unit.
 
 **Phase 6 — Bed platform** (Component 2 — *needs Panel A & B built*)
-1. Assemble the three pieces — Panel A: 2× 29" rails 49" apart + 5× 42" slats; each Panel B half: 2× 29" rails 24.5" apart + 5× 17.5" slats (pocket screws or R2 biscuits). Drop Panel B's center bearer onto its corner braces first, so both halves have something to land on (it lifts out again for the spare), and **screw Panel A's section down** — it is permanent.
+1. Assemble the three pieces — Panel A: 2× 29" rails 49" apart + 5× 42" slats; each Panel B half: 2× 29" rails 24.5" apart + 5× 17.5" slats (glue + 2 pocket screws per slat end, crown-up; Bed Platform Assembly sheet). Drop Panel B's center bearer onto its corner braces first, so both halves have something to land on (it lifts out again for the spare), and **screw Panel A's section down** — it is permanent.
 2. Screw the PITCH bubble level to the driver-side rail edge.
 
 **Phase 7 — Seam hardware** (Component 5): bumper strips + 2 alignment pins at the A/B and B/C seams.
@@ -1928,7 +1922,7 @@ The order to build in — **dependency-first, not the Component numbering.** Wor
 
 Consolidates Section 4's BOM into a shopping order with links. Prices are estimates; items marked **UNVERIFIED** need a live-listing check. **Purchased** = already bought (July 2026); **owned** = existing gear, not priced.
 
-**ASK THE STORE TO CUT THE SHEETS** — hand them the cutting layout in Section 3: trim ~½" off all four factory edges of every sheet, then the numbered crosscuts before the rips, exact-fit parts ~⅛" oversize. You come home with rectangles; only the anchor board's comb outline, the ¾"×¾" cleats and the holes are left for your saw.
+**ASK THE STORE TO CUT THE SHEETS** — hand them the cutting layout in Section 3: trim ~½" off all four factory edges of every sheet, then the numbered crosscuts before the rips, exact-fit parts ~⅛" oversize. You come home with rectangles; only the anchor board's three strips, the ¾"×¾" cleats and the holes are left for your saw.
 
 **Lumber & Plywood** — 3/4" Baltic birch sheet ($65), 1/2" Baltic birch sheet ($50), **no 3/8" material at all (those four parts come out of these two sheets' leftovers, ~−$50 and ~+16 lb; Section 3)**, 12× 2×2 pine 8ft ($96–180), 7× 1×4 pine 8ft ($35), 1× 1×3 pine 6ft ($6).
 
@@ -1958,11 +1952,11 @@ Consolidates Section 4's BOM into a shopping order with links. Prices are estima
 
 Finished sizes; add saw kerf. Full context in Section 3.
 
-**3/4" Baltic birch plywood — 1 sheet (4×8):** Panel C deck 1× **33×43"** (it drops BETWEEN the rails onto bearer cleats); anchor board blank 1× 46×33" (the Section 8 comb — cut to outline at home); deck bearer cleats 4× ¾×¾ (2× 33" + 2× 40"); rear-pantry hold-down cleats ~4× 1×1×12–14" (both ripped from the offcuts) — the rest is spare stock.
+**3/4" Baltic birch plywood — 1 sheet (4×8):** Panel C deck 1× **33×43"** (it drops BETWEEN the rails onto bearer cleats); anchor board strips 3× 23" long (2½", ~2½", 1½" wide; Section 8 — rip at home); deck bearer cleats 4× ¾×¾ (2× 33" + 2× 40"); rear-pantry hold-down cleats ~4× 1×1×12–14" (both ripped from the offcuts) — the rest is spare stock.
 
 **1/2" Baltic birch plywood — 1 sheet (4×8):** kitchen-drawer box (bottom 1× **18×26"**; sides 2× 26×4"; front/back 2× **17×4"**) + hanging cheeks 2× **26×5.45"**; battery-drawer bottom 1× **19.25×21.25"**; **Panel C front wall 1× 46×17"**; **fridge tray 1× 17.72×28.74"** (from a 29×18 blank, cross-grain). **No 3/8" sheet.**
 
-**Battery-drawer walls — 3/4", from the 3/4" sheet's offcuts:** 2× **22×13.75"** sides + 2× **18.5×13.75"** front/back. One of each comes out of the 47×19" strip; the other two come out of the anchor board's comb gaps, so **cut the comb first**. 2× R3 biscuits per corner.
+**Battery-drawer walls — 3/4", from the 3/4" sheet's offcuts:** 2× **22×13.75"** sides + 2× **18.5×13.75"** front/back. One of each comes out of the 47×19" strip; the other two come from the sheet's remaining offcut. 2× R3 biscuits per corner.
 
 **2×2 pine — 11 boards bought, 9 used, 801⅛" of parts still to cut:** end rails 6× 46" (the outboard pair on every panel, full deck width); side rails 2× **26⅛"** (Panel A) + 2× **26⅛"** (Panel B) + 2× **32⅞"** (Panel C) — **each ~2⅞" shorter than its panel, because it fits BETWEEN the end rails, sized for the stock as measured (1‑7/16" rather than 1½")**; center divider (Panel A) 1× **26⅛"**; legs **2× 17.5" (Panel C front, lapped) + 2× 16" (Panel C rear, butt-under) + 8× 16.75" (Panels A/B, lapped)** — **all twelve already cut, bored and footed**, each cut 1" short with the foot making up the rest (*the legs are LAPPED to the rails*); bottom rails 5× 46" + 2× **23¼"** (Panel B's side pair — the lapped legs sit 1.4375" inboard at each end); Panel B center bearer 2× **26⅛"**. Section 3's remaining total is 801⅛" and matches; 9 boards (864") covers it, leaving 2 of the 11 spare — see the board-by-board packing plan in **Appendix H**.
 
@@ -2011,37 +2005,37 @@ Every component's weight, computed from the real material dimensions (Baltic bir
 | Electrical (2 fans, controller, fuse, 2 strips, cords) | Hardware/misc | 6.0 | mid | cooling + power runs |
 | Cooktop + cookware (stowed) | Hardware/misc | 12.0 | rear | induction top + pots in the kitchen |
 
-**Subtotals:** Structure **168.5** · Appliances **85.6** · Power/climate **81.7** · Bedding **35.0** · Hardware/misc **115.1**
-**Build total (added): ≈ 486 lb** — including Panel B's 2 storage totes (~4 lb), the **RJ-MODINI spare kit stowed at the axle (~40 lb)** — carried inside deliberately instead of on a hitch basket, which would have added its own 30–60 lb of carrier plus a ~1.4× lever on the rear axle — and the no-drill anchor board (~23 lb).
+**Subtotals:** Structure **168.5** · Appliances **85.6** · Power/climate **81.7** · Bedding **35.0** · Hardware/misc **109.6**
+**Build total (added): ≈ 480 lb** — including Panel B's 2 storage totes (~4 lb), the **RJ-MODINI spare kit stowed at the axle (~40 lb)** — carried inside deliberately instead of on a hitch basket, which would have added its own 30–60 lb of carrier plus a ~1.4× lever on the rear axle — and the no-drill anchor board (~18 lb).
 
 **But the 2nd-row seats come OUT** (Section 9), so the conversion *removes* weight too:
 
 | | Weight |
 |---|--:|
-| Build (added) | +486 lb |
+| Build (added) | +480 lb |
 | **2nd-row seats removed** (2 × ~48–70 lb) *est.* | **−120 lb** |
-| **NET permanent weight added vs. stock** | **≈ 366 lb** |
+| **NET permanent weight added vs. stock** | **≈ 360 lb** |
 
-So the van, converted and empty, weighs only about **366 lb more than a stock seatless curb** — and because the seats were part of the factory curb weight, pulling them **frees ~120 lb of payload** for your gear. **Weigh your actual seats to confirm** — captain's chairs vary; 120 lb is an estimate.
+So the van, converted and empty, weighs only about **360 lb more than a stock seatless curb** — and because the seats were part of the factory curb weight, pulling them **frees ~120 lb of payload** for your gear. **Weigh your actual seats to confirm** — captain's chairs vary; 120 lb is an estimate.
 
 **Loaded scenarios** (payload = everything you add to the van — build + people + cargo):
 
 | Scenario | Weight |
 |---|--:|
-| Net build (added − seats removed) | ≈ 366 lb |
-| + provisions (food, water, cookware, bedding ~120 lb) | ≈ 486 lb |
-| + 2 occupants (~340 lb, in the front seats while driving) | ≈ 826 lb |
+| Net build (added − seats removed) | ≈ 360 lb |
+| + provisions (food, water, cookware, bedding ~120 lb) | ≈ 480 lb |
+| + 2 occupants (~340 lb, in the front seats while driving) | ≈ 820 lb |
 
 #### Weight distribution
 
-- **Fore–aft:** the build's own center of mass sits **≈ 51.1" back** from the front seatbacks — aft of the 47" geometric center (the prefab pantry and the axle-stowed spare pull it forward; the anchor board pulls it back). Breaking it into thirds: **front 31%** (152 lb — Panel A + the DELTA 3/WAVE 3 stack + the bed platform), **middle 25%** (122 lb — Panel B carries the spare + totes at the axle), **rear 44%** (212 lb). That rear share is the **tailgate cluster** — the prefab drawer pantry (~15 lb), the fridge (41 lb), the kitchen unit (45 lb), the anchor board (~23 lb), and Panel C's own structure — most of which has to live at the back for slide-out access.
+- **Fore–aft:** the build's own center of mass sits **≈ 50.9" back** from the front seatbacks — aft of the 47" geometric center (the prefab pantry and the axle-stowed spare pull it forward; the anchor board pulls it back). Breaking it into thirds: **front 32%** (152 lb — Panel A + the DELTA 3/WAVE 3 stack + the bed platform), **middle 25%** (122 lb — Panel B carries the spare + totes at the axle), **rear 43%** (208 lb). That rear share is the **tailgate cluster** — the prefab drawer pantry (~15 lb), the fridge (41 lb), the kitchen unit (45 lb), the anchor board (~18 lb), and Panel C's own structure — most of which has to live at the back for slide-out access.
 - **Lateral:** **≈ 1.0" toward the passenger side** — trivial (the fridge-slide steel risers on the driver side pulled it in a bit more). This is by design: the DELTA 3 stack (48 lb, passenger) and the WAVE 3 (34 lb, driver) sit in opposite bays of Panel A, and the fridge (driver) and kitchen (passenger) also cross-balance in Panel C. The reviewer's "heavy battery off to one side" concern is effectively cancelled by the WAVE 3 on the other side.
 - **Height:** everything is low (floor-level bays) except the 16.8" pantry cluster at the rear and, when parked, the sleeping load on the ~20–27" platform. Overall CG stays low — no rollover concern beyond a stock minivan.
 
 #### Effects on drivability
 
-- **Payload headroom:** loaded for travel (net build + provisions + 2 people, with the seats out) is **≈ 826 lb** — and that already includes the spare tire + jack. A 4th-gen Sienna's payload is roughly **1,100–1,300 lb** (the AWD Woodland is at the lower end), so there's a **~274–474 lb margin** — the removed seats buy back ~120 lb of that. Comfortable, but not unlimited once you add lots of water and gear. **VERIFY the exact figure on the driver door-jamb sticker** — that number, and the **rear GAWR**, are the hard limits.
-- **Rear bias:** with 44% of the build mass in the rear third (much of it at/behind the rear axle), the fixed build alone loads the rear axle and slightly lightens the front — which reads as lighter steering, a bit more rear squat, and a raised headlight aim. **But while driving, the two occupants (340 lb) sit up front and more than offset that**, so the *loaded* vehicle is reasonably balanced. The rear bias matters most when driving **solo with a full rear and no front passenger**.
+- **Payload headroom:** loaded for travel (net build + provisions + 2 people, with the seats out) is **≈ 820 lb** — and that already includes the spare tire + jack. A 4th-gen Sienna's payload is roughly **1,100–1,300 lb** (the AWD Woodland is at the lower end), so there's a **~280–480 lb margin** — the removed seats buy back ~120 lb of that. Comfortable, but not unlimited once you add lots of water and gear. **VERIFY the exact figure on the driver door-jamb sticker** — that number, and the **rear GAWR**, are the hard limits.
+- **Rear bias:** with 43% of the build mass in the rear third (much of it at/behind the rear axle), the fixed build alone loads the rear axle and slightly lightens the front — which reads as lighter steering, a bit more rear squat, and a raised headlight aim. **But while driving, the two occupants (340 lb) sit up front and more than offset that**, so the *loaded* vehicle is reasonably balanced. The rear bias matters most when driving **solo with a full rear and no front passenger**.
 - **Lateral / height:** negligible effect — the ~1.0" lateral offset is unnoticeable, and the low CG keeps handling stock-like.
 
 #### Recommendations
@@ -2051,7 +2045,7 @@ So the van, converted and empty, weighs only about **366 lb more than a stock se
 3. **Re-aim the headlights** after the build is in and loaded — rear squat raises the beam.
 4. **Set tire pressures to the door placard** (consider the upper end for the rear given the bias) and re-check with the van loaded.
 5. **Driving solo?** Expect a slightly lighter front end with a full rear — nothing unsafe at these weights, just drive to it.
-6. **Leg-foot load is not a concern:** ~486 lb + occupants + cargo (~1,045 lb worst case) over 12 feet is well under the feet's 330 lb-each rating (~87 lb/foot worst case, about a quarter of capacity).
+6. **Leg-foot load is not a concern:** ~480 lb + occupants + cargo (~1,040 lb worst case) over 12 feet is well under the feet's 330 lb-each rating (~87 lb/foot worst case, about a quarter of capacity).
 7. **If you add heavy items later** (second battery, water tank, awning), re-run `weight_budget.py` and re-check the rear axle before a trip.
 
 ### Appendix G — Nighttime Van + Tent Cooling Setup
@@ -2144,11 +2138,11 @@ Actual paid amounts, so Section 4's estimates can stop being estimates. **These 
 
 #### H.3 — Why there's no 3/8" line on the order
 
-**There is no 3/8" purchase — the four parts come out of the two sheets you're already buying.** Panel C's front wall and the fridge tray off the ½" sheet's leftover; the battery drawer's four walls off the ¾" sheet, one side and one front from its 47 × 19 strip and the other two from the anchor board's own comb gaps.
+**There is no 3/8" purchase — the four parts come out of the two sheets you're already buying.** Panel C's front wall and the fridge tray off the ½" sheet's leftover; the battery drawer's four walls off the ¾" sheet, one side and one front from its 47 × 19 strip and the other two from the remaining offcut.
 
 **What it costs, so it isn't a surprise later:** the parts are thicker, which puts **~16 lb** on the build (Appendix F). **12 lb of that is the battery drawer**, whose 20" slide pair carries ~78 lb of its 100 lb rating. Nothing fails, and it saves ~$50 and a third sheet to haul. **The one part worth reconsidering:** a single 3/8" 4×4 panel would cover just those four drawer walls and hand the 12 lb straight back.
 
-**Two knock-ons:** the drawer's corner biscuits are **R3** at ¾", and **the anchor board must be cut before the drawer box**, since two of its walls come out of the comb's gaps. Full reasoning — including why the walls can't be ½" and why the tray ends up cross-grain — is in **Section 3**.
+**Two knock-ons:** the drawer's corner biscuits are **R3** at ¾", and two of its walls come out of the ¾" sheet's remaining offcut rather than the 47 × 19 strip. Full reasoning — including why the walls can't be ½" and why the tray ends up cross-grain — is in **Section 3**.
 
 #### H.4 — On the sheet goods, before you pick them off the rack
 
@@ -2207,7 +2201,7 @@ The store copy asks for **8 edge trims + 12 part cuts** across two sheets. If yo
 
 Yours, at home — each is either narrower than a store saw will rip, shaped rather than straight, or has to be fitted to something you'll measure first:
 
-- **The anchor board's comb outline** — a full-width 46 × 6" bridge with three strips 27" long running back from it (2.5" / 4.65" / 1.5" wide, at X = 0, 19.35, 44.5), ~½" fillet at each inside corner. Jigsaw/router from the 46 × 33 blank. **Its two gaps are parts, not offcuts:** gap A (16.85 × 27") gives a **battery drawer side, 22 × 13.75**, gap B (20.5 × 27") gives a **battery drawer back, 18.5 × 13.75** — both rotated out of the gap, so mind the grain. **Cut the comb before you build the drawer box.**
+- **The anchor board's three strips** — 23" long, 2½", ~2½" and 1½" wide, ripped and crosscut from the ¾" offcut. Each is one piece; the two steel rungs tie them together (Anchor Board sheet).
 - **The other two battery-drawer walls** — one **22 × 13.75** side and one **18.5 × 13.75** front, side by side out of the ¾" sheet's 47 × 19 strip (22 + 18.5 = 40.5 of the 47, with 6.5" to spare). Rip the strip to 13.75" wide first, then two crosscuts; the 47 × 5.25 band left over is pantry-cleat stock. All four walls take **2 × R3** biscuits per corner, not R1.
 - **Panel C deck's two leg notches** — 1.5" × 1.5" out of the front edge, 3.5" in from each side, for the lapped front legs. Jigsaw them after the deck is fitted to its opening, not before.
 - **Every strip under 4" wide:** the ¾×¾ deck bearer cleats (2× 33" + 2× 40"), the ~1×1 pantry hold-down cleats, the DELTA 3 locating cleats.
@@ -2356,16 +2350,16 @@ Two loads, both real:
 - **Case A — rack at its ceiling:** 2 × 80 lb bikes + 58 lb rack = **218 lb**
 - **Case B — realistic fat-tire e-bikes:** 2 × 65 lb bikes + 58 lb rack = **188 lb**
 
-**Against payload**, the full number counts, every pound, no leverage discount. Appendix F puts the loaded-for-travel van (net build + provisions + 2 occupants, seats out) at **≈ 826 lb** against a working payload assumption of **~1,100 lb**:
+**Against payload**, the full number counts, every pound, no leverage discount. Appendix F puts the loaded-for-travel van (net build + provisions + 2 occupants, seats out) at **≈ 820 lb** against a working payload assumption of **~1,100 lb**:
 
 | | Weight |
 |---|--:|
-| Appendix F, loaded for travel | ≈ 826 lb |
-| + Sport Rider, Case B (188 lb) | ≈ **1,014 lb** |
-| + Sport Rider, Case A (218 lb) | ≈ **1,044 lb** |
+| Appendix F, loaded for travel | ≈ 820 lb |
+| + Sport Rider, Case B (188 lb) | ≈ **1,008 lb** |
+| + Sport Rider, Case A (218 lb) | ≈ **1,038 lb** |
 | Working payload assumption (VERIFY on the door-jamb sticker) | ~1,100 lb |
 
-**That leaves roughly 55–85 lb of margin, down from ~275 lb.** The rack does not break the payload budget — it consumes most of what was left of it. Practical consequence: with the rack loaded, **water becomes the constraint**. A 6-gallon jug is ~50 lb (Appendix F, recommendation 2), so two jugs and a cooler of food put you over. If you carry bikes, carry less water and refill more often, or leave the DELTA 3's Smart Extra Battery (24 lb of the 48 lb stack) at home for bike trips.
+**That leaves roughly 60–90 lb of margin, down from ~280 lb.** The rack does not break the payload budget — it consumes most of what was left of it. Practical consequence: with the rack loaded, **water becomes the constraint**. A 6-gallon jug is ~50 lb (Appendix F, recommendation 2), so two jugs and a cooler of food put you over. If you carry bikes, carry less water and refill more often, or leave the DELTA 3's Smart Extra Battery (24 lb of the 48 lb stack) at home for bike trips.
 
 **Against the rear axle**, leverage applies. A load hung a distance *d* behind the rear axle on a wheelbase *L* adds **(1 + d/L)** of itself to the rear axle and **removes (d/L)** from the front. The Sienna's wheelbase is **120.5"** (the figure Appendix E's leveling calculator already uses). **`d` is UNVERIFIED — measure it:** from the rear axle centerline to the receiver pin is roughly 45" on a 4th-gen Sienna, and the *loaded* rack's center of mass sits farther back still, call it ~60". Both cases:
 
@@ -2377,7 +2371,7 @@ Two loads, both real:
 | Case B (188 lb) → rear axle | +258 lb | +282 lb |
 | Case B (188 lb) → front axle | −70 lb | −94 lb |
 
-So a loaded rack puts roughly **260–330 lb onto the rear axle and lifts 70–110 lb off the front.** Appendix F already flags this build as rear-biased (44% of build mass in the rear third) and notes that the two front occupants offset it while driving. **The bike rack lands on the same side of the scale as the build's existing bias, and it is the single largest thing that has been added to that side.** Check the **rear GAWR** on the door-jamb sticker — that is the number this can actually violate, before payload does.
+So a loaded rack puts roughly **260–330 lb onto the rear axle and lifts 70–110 lb off the front.** Appendix F already flags this build as rear-biased (43% of build mass in the rear third) and notes that the two front occupants offset it while driving. **The bike rack lands on the same side of the scale as the build's existing bias, and it is the single largest thing that has been added to that side.** Check the **rear GAWR** on the door-jamb sticker — that is the number this can actually violate, before payload does.
 
 **Reconciling with Appendix F.** Appendix F deliberately rejected a hitch cargo basket for the spare tire, on exactly this reasoning: "30–60 lb of carrier plus a ~1.4× lever on the rear axle." That call still stands, and the 1.4× figure there is the same lever computed above — this appendix does not overturn it. The difference is that the spare tire *had* an interior home at the axle, which is the best place in the van for it, and the bikes have no interior home at all. The lever cost is accepted here because the alternative is not carrying bikes; it was rejected there because the alternative was strictly better. **The two decisions are consistent, and stacking them is not** — do not put the spare on a hitch basket *and* the bikes on the hitch rack.
 
@@ -2415,7 +2409,7 @@ Two secondary items: **the bikes will obscure the license plate and rear lights*
 5. **Test the tailgate and both Panel C slides with the rack tilted and loaded**, before the first trip rather than on it.
 6. **Re-aim the headlights** after the rack is on and loaded — this adds to the rear squat Appendix F already calls for re-aiming after.
 
-**Not rolled into Appendix F's totals on purpose.** The 218 lb is a bolt-on carried some trips and not others, so folding it into the ≈486 lb build total would misstate the van's permanent weight. If you decide to make the rack permanent, add it to `weight_budget.py` as a `rear` zone line and re-run — the fore-aft center of mass and the rear-third share will both move noticeably.
+**Not rolled into Appendix F's totals on purpose.** The 218 lb is a bolt-on carried some trips and not others, so folding it into the ≈480 lb build total would misstate the van's permanent weight. If you decide to make the rack permanent, add it to `weight_budget.py` as a `rear` zone line and re-run — the fore-aft center of mass and the rear-third share will both move noticeably.
 
 <div class="pagebreak"></div>
 

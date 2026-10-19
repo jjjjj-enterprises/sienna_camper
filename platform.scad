@@ -218,6 +218,7 @@ module panel_module(length, width, y_offset, wireframe = false, has_kitchen_frid
                 bx(width, pcwall_t, leg_height, wireframe);
         fridge_bay_module(y_offset, wireframe, x_fridge_module, length);
         kitchen_box_module(y_offset, wireframe, x_kitchen, length);
+        anchor_board_module(y_offset, length, wireframe);
         cabinet_door_module(y_offset, wireframe, length);
     } else if (bare_bay) {
         // Panel B: NO drawers, NO divider — the side doors don't
@@ -352,7 +353,7 @@ module fridge_bay_module(y_offset, wireframe = false, x_offset = 0, panel_length
     color("DimGray")
         for (rx = [x0 - fridge_slide_margin - fridge_rail_t,
                    x0 + fridge_ext_length + fridge_slide_margin])
-            translate([rx, y_offset + panel_length - fridge_slide_length - 2.5, aboard_top + fridge_riser_t])
+            translate([rx, y_offset + panel_length - fridge_riser_y0 - fridge_riser_len, aboard_top + fridge_riser_t])
                 bx(fridge_rail_t, fridge_slide_length, 3, wireframe);
 
     // fridge (real BougeRV exterior dimensions, rotated 12.6in side
@@ -404,27 +405,83 @@ module fridge_bay_module(y_offset, wireframe = false, x_offset = 0, panel_length
         translate([ccx, y_offset + panel_length, cluster_z])
             bx(cluster_w, cluster_proj, cluster_h, wireframe);
 
-    // No-drill anchor board under the fridge's slide rails — see
-    // "Securing heavy components" (Section 8): each FIXED rail's steel
-    // riser angle bolts to a 3/4in ply rail-line strip (T-nuts from
-    // below) lying on a non-slip mat — BESIDE the tray, never under
-    // it — and the whole board straps to the 3rd-row striker loops.
-    // NOTHING bolts to the van. Independent of Panel C's own lift-out
-    // frame (which never touches the fridge or its slide — Panel C's
-    // legs stand clear of this whole zone).
-    for (ax = [-fridge_ext_length/2 - fridge_slide_margin - fridge_rail_t/2,
-               fridge_ext_length/2 + fridge_slide_margin + fridge_rail_t/2]) {
-        // rubber mat, then the ply strip on it, along each rail line —
-        // running FORWARD (-Y, toward the bridge/Panel B) and stopping
-        // ~2in short of the tailgate face (clear of the corner legs)
-        color([0.15, 0.15, 0.15])
-            translate([ax - aboard_strip_w/2, y_offset + fridge_y0 - 4, 0])
-                bx(aboard_strip_w, fridge_ext_width + 2, aboard_mat_t, wireframe);
-        color("Tan")
-            translate([ax - aboard_strip_w/2, y_offset + fridge_y0 - 4, aboard_mat_t])
-                bx(aboard_strip_w, fridge_ext_width + 2, aboard_t, wireframe);
-    }
+    // The no-drill anchor board under the rails (strips, rungs, hoop
+    // straps) is drawn once for all of Panel C by anchor_board_module().
   }
+}
+
+// No-drill anchor board (Section 8, Oct 2026 redesign): three separate
+// one-piece 3/4in ply strips on 1/8in neoprene, tied by two 2 x 3/16in
+// steel rungs set flush into grooves in their undersides. The fridge
+// slide risers bolt to the driver and middle strips (T-nuts from below).
+// Forward + lift restraint: a strap from a shackle in each riser's front
+// end down to the 3rd-row seat-latch hoops H1 / H2 in the headrest
+// trough. The kitchen unit's front strap goes to H2 + H4, its rear strap
+// to footman loops on the middle and passenger strips. NOTHING bolts to
+// the van. Board coordinates (params.scad): d = inches forward of the
+// hatch, xb = inches from Panel C's driver line.
+module anchor_board_module(y_offset, panel_length, wireframe = false) {
+    function gx(xb) = -panel_width/2 + xb;            // driver line -> model X
+    function gy(d)  = y_offset + panel_length - d;    // from the hatch -> model Y
+    // a strap drawn as a thin band between two 3D points
+    module strap3d(a, b, w = 1) {
+        color("DarkRed") hull() {
+            translate(a) cube([w, 0.08, 0.08], center = true);
+            translate(b) cube([w, 0.08, 0.08], center = true);
+        }
+    }
+    // strips: neoprene, then ply, with the rung grooves cut in underneath
+    for (st = aboard_strips) {
+        color([0.15, 0.15, 0.15])
+            translate([gx(st[0]), gy(aboard_y1), 0])
+                bx(st[1] - st[0], aboard_strip_len, aboard_mat_t, wireframe);
+        color("Tan") difference() {
+            translate([gx(st[0]), gy(aboard_y1), aboard_mat_t])
+                bx(st[1] - st[0], aboard_strip_len, aboard_t, wireframe);
+            if (!wireframe) for (ry = aboard_rungs_y)
+                translate([gx(st[0]) - 0.1, gy(ry + aboard_rung_w), aboard_mat_t - 0.01])
+                    cube([st[1] - st[0] + 0.2, aboard_rung_w, aboard_groove_d + 0.01]);
+        }
+    }
+    // the two steel rungs, full width, flush in the grooves
+    color("SlateGray")
+        for (ry = aboard_rungs_y)
+            translate([gx(0), gy(ry + aboard_rung_w), aboard_mat_t])
+                bx(aboard_rung_len, aboard_rung_w, aboard_rung_t, wireframe);
+    // the 3rd-row seat-latch hoops H1-H4, in the headrest trough
+    color("WhiteSmoke")
+        for (hx = aboard_hoops_x)
+            translate([gx(hx - aboard_hoop_w/2), gy(aboard_hoop_y) - 0.15, -aboard_hoop_drop])
+                cube([aboard_hoop_w, 0.3, 0.3]);
+    hoop = function(i) [gx(aboard_hoops_x[i]), gy(aboard_hoop_y), -aboard_hoop_drop + 0.15];
+    // riser straps: shackle at each riser's front end -> H1 (driver), H2 (kitchen)
+    shackle_d = fridge_riser_y0 + fridge_riser_len - 0.5;
+    for (i = [0, 1]) {
+        st = aboard_strips[i];
+        p = [gx((st[0] + st[1]) / 2), gy(shackle_d), aboard_top + fridge_riser_t];
+        color("Goldenrod") translate(p) sphere(r = 0.35);
+        strap3d(p, hoop(i));
+    }
+    // kitchen straps — the unit's hatch end sits kitchen_hatch_inset in
+    kx0 = gx(panel_width - frame_rail_sz - kitchen_box_width);
+    kx1 = kx0 + kitchen_box_width;
+    kz  = kitchen_box_height;
+    k_front_d = kitchen_hatch_inset + kitchen_box_length - 2;   // front notch pair
+    k_rear_d  = kitchen_hatch_inset + 2.3;                      // rear (hatch-end) notch pair
+    // front strap: over the top, down to H2 and H4
+    strap3d([kx0, gy(k_front_d), kz], [kx1, gy(k_front_d), kz]);
+    strap3d([kx0, gy(k_front_d), kz], hoop(1));
+    strap3d([kx1, gy(k_front_d), kz], hoop(3));
+    // rear strap: over the top, down to the two footman loops
+    loop_d = (aboard_loop_y[0] + aboard_loop_y[1]) / 2;
+    loops = [[gx(aboard_strips[1][1] - 0.375), gy(loop_d), aboard_top],
+             [gx((aboard_strips[2][0] + aboard_strips[2][1]) / 2), gy(loop_d), aboard_top]];
+    color("Silver") for (lp = loops)
+        translate([lp[0] - 0.25, gy(aboard_loop_y[1]), aboard_top])
+            cube([0.5, aboard_loop_y[1] - aboard_loop_y[0], 0.3]);
+    strap3d([kx0, gy(k_rear_d), kz], [kx1, gy(k_rear_d), kz]);
+    strap3d([kx0, gy(k_rear_d), kz], loops[0]);
+    strap3d([kx1, gy(k_rear_d), kz], loops[1]);
 }
 
 // Kitchen unit: the real JAGAHAHA slide-out camp kitchen (26x20x11.8
@@ -433,8 +490,9 @@ module fridge_bay_module(y_offset, wireframe = false, x_offset = 0, panel_length
 // footprint living inside Panel C's void (flush to the tailgate-
 // facing edge so its own built-in slide can pull it straight out
 // the open tailgate) plus its no-drill tie-down: 2 ratchet straps,
-// each seated in one face's pair of the unit's own top-edge notches
-// and hooked into L-track on the anchor board's strips
+// each seated in one face's pair of the unit's own top-edge notches:
+// the front strap down to seat-latch hoops H2 and H4, the rear strap
+// to footman loops on the anchor board's middle and passenger strips
 // (Section 8 — upgraded from a plain strap-to-factory-hook design
 // after confirming the Sienna's factory cargo hooks are rated for
 // cargo nets only, NOT for restraining a 45lb+ item; the drilled
@@ -445,31 +503,16 @@ module fridge_bay_module(y_offset, wireframe = false, x_offset = 0, panel_length
 module kitchen_box_module(y_offset, wireframe = false, x_offset = 0, panel_length) {
   translate([x_offset, 0, 0]) {
     x0 = -kitchen_box_width/2;
-    y0 = panel_length - kitchen_box_length; // flush to the tailgate-facing edge
+    y0 = panel_length - kitchen_hatch_inset - kitchen_box_length; // 1.5in in from the tailgate-facing edge
 
     color("BurlyWood", 0.85)
         translate([x0, y_offset + y0, 0])
             bx(kitchen_box_width, kitchen_box_length, kitchen_box_height, wireframe);
 
-    // No-drill kitchen tie-down (Section 8): a mat + 3/4in ply strip
-    // of the anchor board runs along the kitchen's cabinet-gap side,
-    // carrying a length of L-track with stud-fitting D-rings; the
-    // 2 ratchet straps run straight across into those, each seated in
-    // one face's pair of the unit's top-edge notches. Nothing bolts to
-    // the van — the board straps to the 3rd-row strikers.
-    color([0.15, 0.15, 0.15])
-        translate([x0 - 2.4, y_offset + y0 - 2, 0])
-            bx(2, kitchen_box_length, aboard_mat_t, wireframe);
-    color("Tan")
-        translate([x0 - 2.4, y_offset + y0 - 2, aboard_mat_t])
-            bx(2, kitchen_box_length, aboard_t, wireframe);
-    color("DimGray")
-        translate([x0 - 1.9, y_offset + y0 - 1, aboard_top])
-            bx(1, kitchen_box_length - 2, 0.4, wireframe); // L-track on the strip
-    color("DarkRed")
-        for (sy = [y_offset + y0 + 2, y_offset + y0 + kitchen_box_length - 2])
-            translate([x0 - 1.5, sy - 0.5, kitchen_box_height])
-                bx(kitchen_box_width + 2, 1, 0.3, wireframe); // ratchet strap, over the top to the strip's L-track
+    // No-drill kitchen tie-down (Section 8): 2 ratchet straps, each
+    // seated in one face's pair of the unit's top-edge notches — drawn
+    // with the board in anchor_board_module() (front strap to hoops
+    // H2/H4, rear strap to the footman loops on the board's strips).
 
     // Kitchen drawer (Component 7): a shallow slide-out drawer in
     // the dead air above the kitchen unit, hung from the deck by two

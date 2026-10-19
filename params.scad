@@ -709,7 +709,7 @@ fridge_side_clearance = 2;  // with forced airflow; manual's passive figures are
 // fridge stack — an undermount arrangement (rail flat under the tray)
 // would add ~1.2in and the fridge would no longer clear Panel C's
 // tailgate end rail. The board raises only the RAILS (aboard_top
-// below); the moving member simply screws to the apron ~0.85in lower
+// below); the moving member simply screws to the apron ~0.875in lower
 // in their shared overlap, so the TRAY keeps its 0.5in floor hang and
 // the stack height is untouched. The cost lands on WIDTH instead: see
 // fridge_rail_stack below and the cabinet-gap assert — the utility
@@ -722,120 +722,84 @@ fridge_riser_t      = 0.25; // steel riser angle between the fixed rail and the 
 fridge_rail_stack   = fridge_rail_t + fridge_riser_t; // 1.0 per side, OUTBOARD of the tray apron (the apron itself lives in fridge_slide_margin)
 
 /* [No-drill anchor board — Section 8] */
-// The securing chassis: a rubber mat + 3/4in ply board (bridge + rail-
-// line strips) on the van floor, strapped to the 3rd-row striker loops.
-// Nothing bolts to the vehicle. The board is ONE comb-shaped piece,
-// 46 x 33 overall — bridge and strips continuous, so there is no
-// ply-to-ply joinery (no glue, no lap screws; assembly sheet V1/V5).
-// Strip outlines are cut only after the Appendix A F1-F7 floor survey.
-// (F4 Aug 2026) That survey is now DONE: the striker row measures
-// 44.5in from the closed hatch — 1.5in nearer than the 46-50in that
-// was assumed, so the steel tongues come in at the SHORT end of the
-// 10-14in range. All 3 loops are exposed and hookable with the seats
-// folded, ~1.5in of inside clearance each, spaced ~12.5-13in apart
-// with the outer two ~11in in from each sidewall (photos, Aug 2026).
-// The survey also killed two of the fallbacks: there is no hard step
-// face at the striker row for the tongues to butt against (F7 — it is
-// carpet over a ~1in soft step), and the stowage well is filled by
-// the folded seats rather than open (F1/F2/F3), so the load path is
-// the rail ends plus the straps. These drive the renders, not a cut list.
-aboard_mat_t = 0.1;   // non-slip rubber mat under every strip
-aboard_t     = 0.75;  // anchor board ply thickness
-aboard_top   = aboard_mat_t + aboard_t; // 0.85 — the riser/rail base plane
-aboard_strip_w = 2.5; // rail-line strip width (covers riser flange + rail line)
-aboard_bridge_d = 6;  // full-width bridge depth (fore-aft), at the appliance zone's front
-aboard_tongue_w = 2;  // steel flat-bar tongue width (2 x 3/16in), bridge -> the rail ends
-aboard_depth      = 33; // board overall fore-aft, hatch (y=0) forward
-aboard_strip_len  = 27; // the three comb strips; the bridge is the last aboard_bridge_d
+// REDESIGNED Oct 18 2026 from the owner's van survey. The old one-piece
+// comb (crossbar + three strips) and its two steel tongues to the 2nd-row
+// seat-track caps are GONE: from 26in forward the side trim closes the van
+// to 42in, so a full-width crossbar could not reach the driver strip, and
+// the seat-track caps sit below the board.
+//
+// THE BOARD NOW: three separate one-piece 3/4in ply strips, each on a 1/8in
+// neoprene strip, tied into one unit by two 2 x 3/16in steel RUNGS set
+// flush into 3/16in-deep grooves in the strips' undersides. The rungs pass
+// under the fridge tray (which hangs fridge_tray_gap over the seat) and
+// under the kitchen unit. Nothing bolts to the vehicle.
+//
+// THE ANCHORS: the 3rd-row seats' four latch hoops (H1-H4), in the headrest
+// trough beyond the folded-seat surface. A ratchet strap from a 1/4in
+// shackle in each fridge riser's front end runs forward and down to H1
+// (driver riser) and H2 (kitchen riser). The kitchen unit's front strap
+// goes down to H2 and H4; its rear strap to two footman loops on the board.
+// Backup straps to the 3rd-row striker loops are optional.
+//
+// COORDINATES (survey convention): fore-aft = inches FORWARD of the closed
+// hatch (Panel C's tailgate edge); side-to-side = inches from the DRIVER
+// LINE (Panel C's driver-side outer edge), so the passenger line is
+// panel_width (46).
+aboard_mat_t = 0.125; // 1/8in neoprene under each strip
+aboard_t     = 0.75;  // strip ply thickness
+aboard_top   = aboard_mat_t + aboard_t; // 0.875 — the riser/rail base plane
+aboard_y0    = 3;     // strips' back (hatch) ends, from the hatch
+aboard_y1    = 26;    // strips' front ends, from the hatch
+aboard_strip_len = aboard_y1 - aboard_y0; // 23 — all three strips
+// [x0, x1] from the driver line: driver, middle, passenger
+aboard_strips = [[0, 2.5], [21.875, 24.375], [44.5, 46]];
+aboard_strip_names = ["driver", "middle", "passenger"];
+// steel rungs, 2 x 3/16in flat bar, full board width, in grooves underneath
+aboard_rung_w   = 2;
+aboard_rung_t   = 0.1875;
+aboard_rung_len = 46;      // x 0 -> 46
+aboard_rungs_y  = [6.5, 20]; // each rung's hatch-side edge, from the hatch (6.5-8.5, 20-22)
+aboard_groove_d = aboard_rung_t; // groove depth = rung thickness: flush
+// van survey, Oct 18 2026
+aboard_seat_solid = 24.75; // folded-seat surface is solid to here from the hatch
+aboard_trim_y     = 26;    // from here forward the side trim narrows the space ...
+aboard_trim_in    = 2;     // ... to 42in: 2in in from each 46in line
+aboard_hoop_y     = 28;    // seat-latch hoops, from the hatch
+aboard_hoop_drop  = 2.75;  // hoops sit this far below the folded-seat surface
+aboard_hoop_w     = 3;     // each hoop's width
+aboard_hoops_x    = [4.75, 24.75, 31.25, 41.75]; // H1-H4 centers, from the driver line
+// fridge slide risers (steel angle) on the driver + middle strips
+fridge_riser_y0  = 2.5;    // riser back end, from the hatch (front end at 26.5)
+fridge_riser_len = fridge_slide_length; // 24
+aboard_riser_tnut_y = [fridge_riser_y0 + 2, fridge_riser_y0 + fridge_riser_len - 2]; // 4.5, 24.5 — first/last T-nut
+// kitchen rear strap: stainless footman loops, lengthwise, on the middle
+// strip's outer (kitchen-side) band and on the passenger strip
+aboard_loop_y = [9.5, 12.5];
 
-// ---- TONGUE -> RAIL CONNECTION (Aug 2026, fully measured) -------
-// The anchor board's forward load path. Everything here is measured on
-// the vehicle; the reasoning below is compressed on purpose, because this
-// joint went through five revisions and the dead ends are worth keeping
-// short but not losing.
-//
-// THE GEOMETRY, as photographed and taped Aug 1 2026:
-//   The rail's rear end is closed by a STEEL SADDLE CAP straddling it: a
-//   flat TOP face at 1.0in above the floor carrying a single 1/4in round
-//   hole (with two closed oblong stiffening dimples either side), two
-//   vertical SIDE SKIRTS hanging down, and an OPEN REAR between them.
-//   Over the whole thing sits a plastic end cap held by one flush slotted
-//   fastener — try a 90deg turn first, that shape is often a quarter-turn
-//   catch. Keep both plastic caps for passenger mode.
-//
-// THE DESIGN: the tongue runs forward off the bridge, steps UP 0.15in,
-// rides ON the cap's top face, and a VERTICAL 1/4in PIN drops through the
-// tongue into the cap's 1/4in hole. Forward load is carried entirely by
-// that pin in SHEAR. Nothing is drilled into the vehicle, and the joint
-// comes apart by lifting the tongue.
-//
-// WHY NOT THE OBVIOUS ALTERNATIVES — all four were tried and dropped:
-//   * A FASTENER IN THE TRACK SLOT (T-bolt, channel nut). The slot runs
-//     FORE-AFT, the same direction as the load, so it resists forward
-//     motion by FRICTION only: ~1,200lb clamp x mu 0.18 = ~215lb per
-//     bolt, ~430lb for the pair. That was the original plan's forward
-//     path and it was its weakest link.
-//   * A NUT BAR SLID IN FROM THE END. Impossible: the steel cap closes
-//     the channel and a pin behind it blocks entry from the rear.
-//   * BUTTING THE TONGUE ON THE RAIL'S END FACE. There is no such face —
-//     the cap's rear is open and its rear edge is a rolled hem.
-//   * A BOLT THROUGH THE CAP'S HOLE. Possible but awkward; there is no
-//     access behind the top face to start a nut. A pin needs no nut,
-//     because the load is shear, not clamp.
-//   * (And F7 had already killed butting the striker-row step: carpet
-//     over soft trim, not a hard face.)
-//
-// CAPACITY, and where the limit actually sits:
-//   1/4in mild-steel pin, single shear: ~0.049 sq in x ~36ksi
-//     ~= 1,760lb per pin, ~3,500lb for the pair.
-//   But the GOVERNING limit is HOLE-EDGE BEARING / TEAR-OUT in the cap's
-//   stamped top face, not the pin. At an assumed 0.08in thickness the
-//   bearing area is 0.25 x 0.08 = 0.02 sq in -> roughly 1,400lb per
-//   tongue, ~2,800lb for the pair. Still ~18g on a ~155lb loaded board,
-//   and ~6x the friction-only option — but it is the number that matters.
-//   MEASURE THE CAP'S THICKNESS to replace that assumption.
-//   Nothing in this design is crash-rated; the plan says so throughout.
-//
-// THE HOLD-DOWN IS ESSENTIAL, NOT OPTIONAL. A vertical pin lifts straight
-// out, so something must keep the tongue seated. The cap's open rear makes
-// that easy: a clip hooked over the side skirts, or the saddle clamp on
-// the rail just forward of the cap. This is the one part of the joint
-// still to be chosen by whoever builds it.
-rail_end_y      = 42;    // MEASURED F8a (Aug 2026) — hatch -> rail rear ends
-rail_spacing    = 17.5;  // MEASURED F8b (Aug 2026) — rail center to rail center
-rail_slot_w     = 0.75;  // MEASURED — the track slot at the surface (unused by the
-                         // final design; kept because it rules the T-bolt option in/out)
-rail_chan_d     = 1.0;   // MEASURED — internal channel depth
-rail_chan_d_min = 0.75;  // MEASURED — bosses rise ~0.25in off the bottom in places
-rail_top_z      = 0.5;   // MEASURED — the METAL track top above the floor pan
-rail_housing_z  = 1.0;   // MEASURED — top of the plastic housing over the rail
-rail_cap_hole_d = 0.25;  // MEASURED — the round hole in the steel saddle cap
-rail_cap_hole_z = 1.0;   // MEASURED — its center above the floor pan, and the cap's top face
-rail_cap_hole_x = 0;     // MEASURED — centered on the rail, laterally
-rail_cap_t_est  = 0.08;  // ASSUMED, not measured — the cap's sheet thickness. This is the
-                         // one number the joint's capacity now hinges on; go measure it.
-tongue_t        = 0.1875; // 3/16in flat bar
-tongue_pin_d    = 0.25;  // vertical pin; slightly undersize + a lead chamfer so it drops in
-tongue_lap      = 4;     // how far the tongue lies ON the bridge, bolted through
-tongue_span     = rail_end_y - aboard_depth;  // 9 — open floor it crosses
-tongue_len      = tongue_lap + tongue_span + 3; // 16 — 3in of overlap on the cap
-tongue_step_up  = rail_cap_hole_z - aboard_top; // 0.15 — shim this under the lap on the bridge
-tongue_bolt_d   = 0.25;  // the 2 bolts through the bridge
-// pin bearing capacity in the cap's top face, on the ASSUMED thickness
-tongue_pin_bearing_area = tongue_pin_d * rail_cap_t_est; // 0.02 sq in
-
-assert(tongue_lap <= aboard_bridge_d,
-       str("Tongue lap (", tongue_lap, "in) must sit within the bridge's ",
-           aboard_bridge_d, "in depth so both its bolts land in plywood"));
-assert(rail_spacing + aboard_tongue_w <= panel_width,
-       "Tongue pair at the measured rail spacing must land inside the board's width");
-// The plastic-housing clash the earlier revisions fought is GONE: the
-// tongue now stops on the steel cap and never passes over the housing, so
-// there is no crush tube and no windowing. What is left open is the
-// hold-down choice, and the cap's sheet thickness.
-echo(str("NOTE (Section 8): tongue pin is VERTICAL into the cap's ", rail_cap_hole_d,
-         "in hole. Capacity is governed by hole-edge bearing in the cap's top face, on an ASSUMED ",
-         rail_cap_t_est, "in thickness (~1,400lb/tongue) — measure it. Hold-down still to be chosen."));
+for (s = aboard_strips)
+    assert(s[0] >= 0 && s[1] <= panel_width && s[1] > s[0],
+           str("Anchor strip ", s, " must lie inside Panel C's ", panel_width, "in width"));
+assert(aboard_y1 <= aboard_trim_y,
+       str("Strips run to ", aboard_y1, "in but the side trim narrows the van from ",
+           aboard_trim_y, "in — the outer strips would ride up on it"));
+for (ry = aboard_rungs_y)
+    assert(ry >= aboard_y0 && ry + aboard_rung_w <= aboard_y1,
+           str("Rung at ", ry, "in must sit fully within the strips' ", aboard_y0, "-", aboard_y1, "in run"));
+assert(aboard_groove_d < aboard_t / 2,
+       "Rung groove must leave over half the strip's ply above it");
+// the rungs pass UNDER the hanging fridge tray: rung top must clear it
+assert(aboard_mat_t + aboard_rung_t <= fridge_tray_gap,
+       str("Rung top (", aboard_mat_t + aboard_rung_t, "in over the seat) hits the fridge tray hanging at ",
+           fridge_tray_gap, "in"));
+// every riser T-nut must be over solid seat, not over the trough
+assert(max(aboard_riser_tnut_y) <= aboard_seat_solid,
+       str("Last riser T-nut at ", max(aboard_riser_tnut_y), "in is past the solid seat surface (",
+           aboard_seat_solid, "in)"));
+for (hx = aboard_hoops_x)
+    assert(hx - aboard_hoop_w/2 >= aboard_trim_in && hx + aboard_hoop_w/2 <= panel_width - aboard_trim_in,
+           str("Hoop at ", hx, "in must lie between the side trims"));
+assert(aboard_hoop_y > aboard_seat_solid,
+       "The hoops are in the headrest trough, forward of the solid seat surface");
 fridge_stack_top    = fridge_tray_gap + fridge_tray_t + fridge_ext_height; // 16.67 — top of the mounted fridge
 fridge_exit_clearance_min = 0.25; // required running clearance under Panel C's tailgate end rail (van bounce)
 // The DRIVER-side rail+riser tucks into the corner-leg band (the 1.5in
@@ -955,11 +919,14 @@ if (fridge_slide_margin < fridge_apron_t)
 // lift-out frame like the fridge does. It lives under the deck in
 // Panel C too, flush to the LEFT edge, sliding out the tailgate on
 // its own built-in rails.
-// ALL THREE MEASURED on the physical unit (owner, Aug 2 2026) — these
-// replace the listing figures (20 x 26 x 11.8). Rows 6/7/8 of the
-// fridge-and-kitchen measurement table.
-kitchen_box_width  = 20.5;    // X — MEASURED (was 20 from the listing)
-kitchen_box_length = 25.8125; // Y, closed — MEASURED 25-13/16 (was 26)
+// ALL THREE MEASURED on the physical unit (owner, Aug 2 2026; width and
+// length re-measured Oct 18 2026) — these replace the listing figures
+// (20 x 26 x 11.8). Rows 6/7/8 of the fridge-and-kitchen measurement table.
+kitchen_box_width  = 20.125;  // X — MEASURED 20-1/8, Oct 2026 (was 20.5 in Aug, 20 from the listing)
+kitchen_box_length = 25.875;  // Y, closed — MEASURED 25-7/8, Oct 2026 (was 25-13/16 in Aug, 26 listed)
+// The unit's hatch end sits 1.5in in from Panel C's tailgate edge (owner,
+// Oct 2026), its passenger side against the rear corner leg: x 24.375–44.5.
+kitchen_hatch_inset = 1.5;
 kitchen_box_height = 11.55;   // Z, closed — MEASURED (was 11.8)
 // HOLD-DOWN — the unit tells you how it wants to be strapped (owner photos +
 // the maker's assembly video, Aug 2 2026). It carries FOUR notches routed into
@@ -967,9 +934,10 @@ kitchen_box_height = 11.55;   // Z, closed — MEASURED (was 11.8)
 // face, and the same on the BACK. A strap laid across the top drops into that
 // face's two notches and cannot then slide along the box.
 // So: TWO straps, not the four criss-crossed diagonally over a top that was
-// assumed smooth. One strap per face, seated in that face's two notches, ends
-// running down to L-track D-rings on the anchor board's two kitchen-side strips
-// (the utility-bay-side strip and the 1.5in band at the panel edge — Section 8).
+// assumed smooth. One strap per face, seated in that face's two notches
+// (Oct 2026 anchor board, Section 8): the FRONT strap runs forward and down
+// to seat-latch hoops H2 and H4; the REAR strap down to the two stainless
+// footman loops on the board's middle strip (outer band) and passenger strip.
 // The unit's own D-rings give each strap a positive attachment on the box, so
 // nothing relies on friction against plywood.
 kitchen_notches      = 4;  // 2 per face, front and back

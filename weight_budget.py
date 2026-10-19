@@ -59,7 +59,7 @@ add("Mattress (HEST Dually Long)", "Bedding", 35.0, 40, 0, "ESTIMATE - solid foa
 add("Fridge + kitchen-drawer slides (heavy)", "Hardware/misc", 8.0, 80, 0, "24\" heavy-duty pairs")
 add("Fridge-slide steel riser angles (2)", "Hardware/misc", 9.8, 80, -12, "2x2x3/16\" x 24\" steel, fixed rails -> anchor board (aluminum angle saves ~6 lb)")
 add("12 leveling feet + inserts", "Hardware/misc", 4.3, 47, 0, "4 per panel; star knobs + jam nuts deleted Sept 2026")
-add("Anchor board (3/4\" ply + 2 steel tongues) + L-track + 7 straps + mat", "Hardware/misc", ply(500,0.75)+2.6+1.0+1.5+3.5+4.0+1.0, 76, 0, "no-drill striker tie-down chassis at Panel C (Section 8)")
+add("Anchor board (3 3/4\" ply strips + 2 steel rungs) + straps + neoprene", "Hardware/misc", ply(23*6.5,0.75)+9.8+0.5+0.5+4.4, 76, 0, "no-drill tie-down chassis at Panel C, strapped to the seat-latch hoops (Section 8)")
 add("Corner brackets, braces, screws, glue", "Hardware/misc", 6.0, 47, 0, "spread across all modules")
 add("Seam draw-latches (4) + alignment pins + bumpers", "Hardware/misc", 1.5, 47, 0, "at the A/B + B/C seams")
 add("Electrical (2 fans, controller, fuse, 2 strips, cords)", "Hardware/misc", 6.0, 55, 0, "cooling + power runs")

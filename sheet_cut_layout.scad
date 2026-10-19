@@ -4,7 +4,7 @@
 // Every cut here is a STRAIGHT, full-width or full-length cut, in an
 // order a store panel saw can actually follow. The point is to come home
 // with rectangles instead of sheets: the only cuts left for the shop are
-// the shaped one (the anchor board's comb) and the narrow strips.
+// the narrow strips (the anchor board's three, among them).
 //
 // TWO POLICIES BAKED INTO THIS SHEET:
 //
@@ -20,7 +20,7 @@
 //     bought: Panel C's front wall and the fridge tray from the 1/2"
 //     sheet's big 47x44 leftover, and the battery drawer's 4 walls from
 //     the 3/4" sheet — 1 side + 1 front out of its 47x19 strip, the
-//     other 2 out of the anchor board's own comb gaps. Two sheets, two
+//     other 2 out of the anchor-strip blank's two big offcuts. Two sheets, two
 //     columns. (History: the plan called for a 3/8" HALF sheet, which
 //     was 2 sq ft short of the 18.0 sq ft of parts; that was corrected
 //     to two 4x4 handy panels, and then deleted outright when the
@@ -127,14 +127,23 @@ module sheet_A(col) {
     // ---------------- 3/4" full sheet ------------------------
     // Now also carries all 4 battery-drawer walls (3/8" buy deleted):
     // 1 side + 1 front out of the 47x19 bottom strip, the other 2 out
-    // of the anchor board's comb gaps once the comb is cut.
-    sheet_block(col, "3/4\" — one 4x8", "deck + anchor board + walls", 47, 95);
-    part(col, 0, 62, 46, 33, "ANCHOR BOARD blank", "46 x 33 — face grain along the 33\"");
-    // the comb's two gaps, drawn where they fall out of the blank
+    // of the anchor-strip blank's two big offcuts.
+    // ANCHOR BOARD (Oct 2026 redesign): three separate one-piece strips,
+    // 23" long, face grain along their length — 2.5", 2.5" and 1.5" wide.
+    // They come out of the same 46x33 blank (in the build, out of the old
+    // comb: its crossbar is cut off and each of its strips trimmed to 23").
+    // The two offcuts between them still carry 2 battery-drawer walls.
+    sheet_block(col, "3/4\" — one 4x8", "deck + anchor strips + walls", 47, 95);
+    part(col, 0, 62, 46, 33, "ANCHOR STRIP blank", "46 x 33 — grain along the 33\"");
+    sx = [0, 21.5, 44.5];                  // where each strip lies in the blank
+    for (i = [0 : 2])
+        part(col, sx[i], 95 - aboard_strip_len, aboard_strips[i][1] - aboard_strips[i][0],
+             aboard_strip_len, "", "");
     spare(col, 2.5, 68, 16.85, 27, "");
     spare(col, 24, 68, 20.5, 27, "");
     txt("gap A", cx(col, 2.5) + 1.2, cy(col, 74), 2.1, "left", GRY);
     txt("gap B", cx(col, 24) + 1.2, cy(col, 74), 2.1, "left", GRY);
+    txt("3 strips x 23\"", cx(col, 2.5) + 1.2, cy(col, 70), 2.1, "left", GRY);
     part(col, 0, 19, 33, 43, "PANEL C DECK", "33 x 43");
     spare(col, 33, 19, 14, 43, "-> bearer cleats");
     // the side wall's length IS drawer_depth — it came down 25 -> 22 when
@@ -188,7 +197,7 @@ KEY_A = [
     "S1  crosscut 33\" off one end",
     "S2  crosscut 43\" off what's left",
     "S3  rip the 47x33 piece to 46\" wide",
-    "      = ANCHOR BOARD blank 46 x 33",
+    "      = ANCHOR STRIP blank 46 x 33",
     "S4  rip the 47x43 piece to 33\" wide",
     "      = PANEL C DECK, cut 1/8\" OVER",
     "",

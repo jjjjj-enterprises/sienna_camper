@@ -411,14 +411,6 @@ def main():
 
 *Top-down view: Panel A/B/C plus the fridge and kitchen unit living inside Panel C's footprint, drawn to scale inside the interior envelope. Front of the vehicle is at the top, tailgate at the bottom. Seam bumpers, alignment pins, and grab-handle positions are all marked.*
 """
-    # The md carries its own copy of the anchor-platform overhead
-    # figure (for GitHub readers); the PDF shows it inside the
-    # Overhead Floorplan section above instead — strip the md copy
-    # so the figure doesn't appear twice.
-    md_text = re.sub(
-        r'### No-Drill Anchor Platform — Overhead Detail.*?renders/anchor-platform-overhead\.svg\)\n*',
-        '', md_text, flags=re.DOTALL)
-
     md_text = md_text.replace(
         "Parametric 3D model: [`platform.scad`](platform.scad) (dimensions in [`params.scad`](params.scad) — edit one file to regenerate every view via `./render.sh`).",
         "Parametric 3D model: `platform.scad` (dimensions in `params.scad` — edit one file to regenerate every view via `./render.sh`)."
@@ -473,7 +465,6 @@ def main():
     for alt in ["Side profile", "Rear view", "Rear view — deployed",
                 "Driver-side elevation", "Passenger-side elevation",
                 "Plywood cutting layout",
-                "Tongue to 2nd-row rail connection detail",
                 "Fridge install detail", "Fridge wiring diagram", "Fridge slide detail",
                 "Kitchen drawer detail", "Seam draw-latch positioning",
                 "Anchor board — assembly and connection details",

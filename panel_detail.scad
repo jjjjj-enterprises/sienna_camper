@@ -169,7 +169,7 @@ module drawing_c() {
     // filled solid — a dark box there reads as a 3rd object floating
     // near the lifted top instead of "empty space below the deck").
     fr_y0 = L - fridge_ext_width;
-    kt_y0 = L - kitchen_box_length;
+    kt_y0 = L - kitchen_hatch_inset - kitchen_box_length;
     ifill("Gainsboro") {
         translate([x_fridge_module - fridge_ext_length/2, fr_y0, 0]) cube([fridge_ext_length, fridge_ext_width, 0.05]);
         translate([x_kitchen - kitchen_box_width/2, kt_y0, 0]) cube([kitchen_box_width, kitchen_box_length, 0.05]);

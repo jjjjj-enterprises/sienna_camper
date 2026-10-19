@@ -314,6 +314,12 @@ module accessory_c6() {
 module hero_c7() {
     wbox([-PW/2, 0, LH+RS], [PW, LC, PT], [0, 0], true);            // deck (context)
     lib_legs(LC, PW, 0, true);
+    // the no-drill anchor board on the floor (Section 8): three ply strips
+    // 3"-26" in from the hatch (y = 0 here), the two steel rungs across
+    // all three in grooves underneath — drawn first, so it sits under
+    // everything else
+    for (ry = aboard_rungs_y) wbox([-PW/2, ry, aboard_mat_t], [aboard_rung_len, aboard_rung_w, aboard_rung_t]);
+    for (st = aboard_strips) wbox([-PW/2 + st[0], aboard_y0, aboard_mat_t], [st[1] - st[0], aboard_strip_len, aboard_t]);
     wbox([-21, -8, 1], [26, 18, 16]);                               // fridge pulled out (-Y = tailgate)
     wbox([-21, -8, 0], [26, 18, 1]);                                // fridge tray under it
     wbox([2, -8, 0], [18, 18, 20]);                                 // kitchen unit pulled out
@@ -330,32 +336,38 @@ module hero_c7() {
     part_badge("05", [-8, -8, 12], [-11, 5], 2.7);              // Rocky 40 fridge
     part_badge("06", [11, 0, 16], [11, 5], 2.7);               // kitchen unit
     part_badge("07", [11, 0, 23], [4, 9], 2.7);               // cooktop
+    part_badge("08", [-PW/2 + aboard_strips[2][0] + 0.75, aboard_y1 - 1, aboard_top], [2, -9], 2.7); // anchor strip
+    part_badge("09", [19, aboard_rungs_y[1] + 1, aboard_mat_t + aboard_rung_t], [-7, -7], 2.7);     // steel rung
 }
 module accessory_c7() {
     cols = 4; cw = 14.5; ch = 17.0; top = HH - 5.5;
-    labels = [["A","L-track + stud","x7"],["B","bolt + T-nut","x30"],["C","ratchet strap","x7"],
+    labels = [["A","anchor shackle","x2"],["B","bolt + T-nut","x8"],["C","ratchet strap","x4"],
               ["D","120mm fan","x2"],["E","PWM controller","x1"],["F","toggle switch","x3"],
               ["G","fuse block","x1"],["H","magnetic catch","x1"],
-              ["I","louver vent","x1"],["J","slide 24\" pr","x2"],["K","wood screw","x16"]];
+              ["I","louver vent","x1"],["J","slide 24\" pr","x2"],["K","wood screw","x16"],
+              ["L","footman loop","x2"]];
     for (i = [0:len(labels)-1]) translate([gx(i,cols,cw), gy(i,cols,ch,top)])
         accessory_cell(labels[i][0],labels[i][1],labels[i][2],cw-0.6,ch-0.7) {
-            if (i==0) ic_etrack(); else if (i==1) ic_carriage_bolt(); else if (i==2) ic_ratchet_strap();
+            if (i==0) ic_box("shkl"); else if (i==1) ic_carriage_bolt(); else if (i==2) ic_ratchet_strap();
             else if (i==3) ic_fan(); else if (i==4) ic_controller(); else if (i==5) ic_toggle();
             else if (i==6) ic_fuseblock(); else if (i==7) ic_mag_catch();
-            else if (i==8) ic_louver(); else if (i==9) ic_slide(); else ic_screw();
+            else if (i==8) ic_louver(); else if (i==9) ic_slide(); else if (i==10) ic_screw();
+            else ic_footman();
         }
 }
 module partlist_c7() {
     cols = 4; cw = 17.5; ch = 17.5; top = HH - 5.5;
     names = [["01","fridge tray","1x"],["02","kitchen drawer","1x"],["03","drawer cheek","2x"],
              ["04","control backer","1x"],["05","Rocky 40 fridge","1x"],
-             ["06","kitchen unit","1x"],["07","cooktop","1x"]];
-    sc = [0.32,0.34,0.34,0.55,0.32,0.34,0.5];
+             ["06","kitchen unit","1x"],["07","cooktop","1x"],
+             ["08","anchor strip 23\"","3x"],["09","steel rung 46\"","2x"]];
+    sc = [0.32,0.34,0.34,0.55,0.32,0.34,0.5,0.34,0.2];
     for (i = [0:len(names)-1]) translate([gx(i,cols,cw), gy(i,cols,ch,top)])
         part_cell(names[i][0],names[i][1],names[i][2],sc[i],cw,ch) {
             if (i==0) piso([28,18,1]); else if (i==1) piso([26,16,4.5]); else if (i==2) piso([26,6,0.5]);
             else if (i==3) piso([14,10,0.75]); else if (i==4) piso([28,18,16]);
-            else if (i==5) piso([20,18,20]); else piso([14,12,3]);
+            else if (i==5) piso([20,18,20]); else if (i==6) piso([14,12,3]);
+            else if (i==7) piso([2.5,23,0.75]); else piso([46,2,0.19]);
         }
 }
 
@@ -451,58 +463,6 @@ module accessory_c10() {
 // ============================================================
 // dispatch + banner layout
 // ============================================================
-// ============================================================
-// COMPONENT 11 (banner only) — the Section 8 no-drill anchor board
-// ============================================================
-module hero_c11() {
-    // the bench-built board, iso: ONE comb-shaped piece of 3/4" ply
-    // flat on the floor plane (bridge + 3 strips, continuous — there
-    // are no wood joints to show), tongues emerging forward
-    wprism([[-23, 0], [-20.5, 0], [-20.5, 27], [-3.65, 27], [-3.65, 0], [1, 0],
-            [1, 27], [21.5, 27], [21.5, 0], [23, 0], [23, 33], [-23, 33]], 0.1, 0.75);
-    for (tx = [-9, 6]) wbox([tx, 33, 0.1], [2, 10, 0.19]);        // steel tongues, fwd of the bridge
-    // riser angles on the rail strips (context lines)
-    wbox([-22.75, 2, 0.85], [2, 24, 0.19], [0, 0], true);
-    wbox([-3.4, 2, 0.85], [2, 24, 0.19], [0, 0], true);
-    // L-track on the kitchen-side strips
-    wbox([-0.5, 2.5, 0.85], [1, 22, 0.4], [0, 0], true);
-    wbox([21.75, 2.5, 0.85], [1, 22, 0.4], [0, 0], true);
-    // numbered callouts -> PART LIST. One badge, because it is one
-    // part: anchored at a strip-to-bridge root, where a lapped build
-    // would have had a joint.
-    part_badge("01", [-1.3, 27, 0.85], [-7, 8], 2.7);             // the one-piece board
-    part_badge("02", [7, 38, 0.3], [9, 5], 2.7);                  // steel tongue
-}
-module accessory_c11() {
-    cols = 4; cw = 14.5; ch = 17.0; top = HH - 5.5;
-    // no lap screws and no wood glue: the board is one piece, so every
-    // fastener left on this list holds HARDWARE to the ply, not ply to ply
-    labels = [["A","L-track cut-dn","x2"],["B","stud D-ring","x7"],["C","ratchet strap","x7"],
-              ["D","bolt + T-nut","x30"],["E","rubber mat","x1"],["F","threadlocker","x1"],
-              ["G","rail-end bolt","x2"]];
-    for (i = [0:len(labels)-1]) translate([gx(i,cols,cw), gy(i,cols,ch,top)])
-        accessory_cell(labels[i][0],labels[i][1],labels[i][2],cw-0.6,ch-0.7) {
-            if (i==0) ic_etrack(); else if (i==1) ic_dring(); else if (i==2) ic_ratchet_strap();
-            else if (i==3) ic_carriage_bolt(); else if (i==4) ic_foam(); else if (i==5) ic_box("242");
-            else ic_box("F8");
-        }
-}
-// the comb, centered on the origin so part_cell can scale it in place
-ABOARD_PTS = [[-23,-16.5],[-20.5,-16.5],[-20.5,10.5],[-3.65,10.5],[-3.65,-16.5],[1,-16.5],
-              [1,10.5],[21.5,10.5],[21.5,-16.5],[23,-16.5],[23,16.5],[-23,16.5]];
-
-module partlist_c11() {
-    cols = 4; cw = 17.5; ch = 17.5; top = HH - 5.5;
-    // TWO parts, not five: the bridge and all three strips are one
-    // piece of ply, so there is nothing to join
-    names = [["01","board 46x33 ONE PC","1x"],["02","steel tongue 2x16","2x"]];
-    sc = [0.26, 0.55];
-    for (i = [0:len(names)-1]) translate([gx(i,cols,cw), gy(i,cols,ch,top)])
-        part_cell(names[i][0],names[i][1],names[i][2],sc[i],cw,ch) {
-            if (i==0) wprism(ABOARD_PTS, -0.375, 0.75); else piso([2,16,0.19]);
-        }
-}
-
 titles = [ "", // 1-indexed padding
     "COMPONENT 1 — REAR PANTRY (PREFAB DRAWER CLUSTER + POT BAY)",
     "COMPONENT 2 — PANEL A & BED PLATFORM",
@@ -514,7 +474,6 @@ titles = [ "", // 1-indexed padding
     "COMPONENT 8 — ECOFLOW STOWAGE (DELTA 3 + WAVE 3)",
     "COMPONENT 9 — MATTRESS",
     "COMPONENT 10 — FINAL ASSEMBLY, CURTAIN & TEST FIT",
-    "ANCHOR BOARD — NO-DRILL RAIL PLATFORM (SECTION 8)",
 ];
 
 module banner(hero_w, acc_w, part_w, hero_dx, hero_dy, hero_s) {
@@ -556,6 +515,4 @@ if (comp == 1) {
     banner(58, 60, 56, 28, 22, 0.80) { hero_c9(); accessory_c9(); translate([2, 0]) partlist_c9(); }
 } else if (comp == 10) {
     banner(58, 60, 52, 28, 24, 0.85) { hero_c10(); accessory_c10(); partlist_note(52, "(no cut parts)", "finishing + test-fit only"); }
-} else if (comp == 11) {
-    banner(62, 60, 74, 24, 30, 0.80) { hero_c11(); accessory_c11(); partlist_c11(); }
 }
