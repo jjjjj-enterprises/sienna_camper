@@ -729,15 +729,17 @@ fridge_rail_stack   = fridge_rail_t + fridge_riser_t; // 1.0 per side, OUTBOARD 
 // the seat-track caps sit below the board.
 //
 // THE BOARD NOW: three separate one-piece 3/4in ply strips, each on a 1/8in
-// neoprene strip, tied into one unit by two 2 x 3/16in steel RUNGS set
+// neoprene strip, tied into one unit by two 3 x 3/16in steel RUNGS set
 // flush into 3/16in-deep grooves in the strips' undersides. The rungs pass
 // under the fridge tray (which hangs fridge_tray_gap over the seat) and
 // under the kitchen unit. Nothing bolts to the vehicle.
 //
 // THE ANCHORS: the 3rd-row seats' four latch hoops (H1-H4), in the headrest
-// trough beyond the folded-seat surface. A ratchet strap from a 1/4in
-// shackle in each fridge riser's front end runs forward and down to H1
-// (driver riser) and H2 (kitchen riser). The kitchen unit's front strap
+// trough beyond the folded-seat surface. A forged 1/4-20 eye bolt hangs
+// down through each fridge riser's front end; a short 1/4in chain (quick
+// link at the eye, anchor shackle at the hoop) runs forward and down to H1
+// (driver riser) and H2 (kitchen riser), tightened by the eye bolt's nut —
+// the ~5in run is too short for any ratchet strap. The kitchen unit's front strap
 // goes down to H2 and H4; its rear strap to two footman loops on the board.
 // Backup straps to the 3rd-row striker loops are optional.
 //
@@ -749,16 +751,18 @@ aboard_mat_t = 0.125; // 1/8in neoprene under each strip
 aboard_t     = 0.75;  // strip ply thickness
 aboard_top   = aboard_mat_t + aboard_t; // 0.875 — the riser/rail base plane
 aboard_y0    = 3;     // strips' back (hatch) ends, from the hatch
-aboard_y1    = 26;    // strips' front ends, from the hatch
-aboard_strip_len = aboard_y1 - aboard_y0; // 23 — all three strips
+aboard_y1    = 25.5;  // strips' front ends, from the hatch — 1/2in short of the risers'
+                       // front ends, so the eye bolts hang free just ahead of them
+aboard_strip_len = aboard_y1 - aboard_y0; // 22.5 — all three strips
 // [x0, x1] from the driver line: driver, middle, passenger
 aboard_strips = [[0, 2.5], [21.875, 24.375], [44.5, 46]];
 aboard_strip_names = ["driver", "middle", "passenger"];
-// steel rungs, 2 x 3/16in flat bar, full board width, in grooves underneath
-aboard_rung_w   = 2;
+// steel rungs, 3 x 3/16in flat bar (Steelworks, Lowe's — the 2in bar was
+// unavailable), full board width, in grooves underneath
+aboard_rung_w   = 3;
 aboard_rung_t   = 0.1875;
 aboard_rung_len = 46;      // x 0 -> 46
-aboard_rungs_y  = [6.5, 20]; // each rung's hatch-side edge, from the hatch (6.5-8.5, 20-22)
+aboard_rungs_y  = [6, 19.5]; // each rung's hatch-side edge, from the hatch (6-9, 19.5-22.5)
 aboard_groove_d = aboard_rung_t; // groove depth = rung thickness: flush
 // van survey, Oct 18 2026
 aboard_seat_solid = 24.75; // folded-seat surface is solid to here from the hatch

@@ -14,10 +14,10 @@ Parametric 3D model: [`platform.scad`](platform.scad) (dimensions in [`params.sc
 
 The anchor board is the no-drill chassis under Panel C that the fridge slides and the kitchen unit's straps fasten to. **Its shop drawing is the Anchor Board sheet** (in the shop-drawing pages at the end of this PDF): plan, section, rung detail, T-nuts, cut list, hardware and build order.
 
-- **Three ¾" plywood strips**, each one piece, running from **3" to 26" from the hatch**: the driver strip (2½" wide, on Panel C's driver line), the middle strip (about 2½", 21⅞"–24⅜" from the driver line) and the passenger strip (1½", 44½"–46"). Each lies on a ⅛" neoprene strip.
-- **Two steel rungs**, 2" × 3/16" flat bar 46" long, set flush into grooves in the strips' undersides at 6½"–8½" and 20"–22" from the hatch and screwed up into each strip. They tie the strips into one board and pass under the fridge tray (which hangs ⅜" over the seat surface) and the kitchen unit. There is **no crossbar**: from 26" forward the van's side trim closes to 42", and the fridge tray fills the space between the driver and middle strips for its whole length.
+- **Three ¾" plywood strips**, each one piece, running from **3" to 25½" from the hatch**: the driver strip (2½" wide, on Panel C's driver line), the middle strip (about 2½", 21⅞"–24⅜" from the driver line) and the passenger strip (1½", 44½"–46"). Each lies on a ⅛" neoprene strip.
+- **Two steel rungs**, 3" × 3/16" flat bar 46" long, set flush into grooves in the strips' undersides at 6"–9" and 19½"–22½" from the hatch and screwed up into each strip. They tie the strips into one board and pass under the fridge tray (which hangs ⅜" over the seat surface) and the kitchen unit. There is **no crossbar**: from 26" forward the van's side trim closes to 42", and the fridge tray fills the space between the driver and middle strips for its whole length.
 - **The fridge slides' riser angles** bolt down into 8 T-nuts in the driver and middle strips (Fridge Slides and Riser Angles sheets).
-- **Anchors: the 3rd-row seats' latch hoops.** Four steel hoops sit in the headrest trough 28" from the hatch, 2¾" below the folded-seat surface, centered 4¾", 24¾", 31¼" and 41¾" from the driver line (H1–H4). A ratchet strap from a ¼" anchor shackle in each riser's front end runs forward and down to **H1** (driver) and **H2**, so a hard stop pulls it tight and it also holds the board down.
+- **Anchors: the 3rd-row seats' latch hoops.** Four steel hoops sit in the headrest trough 28" from the hatch, 2¾" below the folded-seat surface, centered 4¾", 24¾", 31¼" and 41¾" from the driver line (H1–H4). A short chain runs forward and down from each riser's front end to **H1** (driver) and **H2**: a forged ¼-20 eye bolt hanging down through each riser's front end, a ¼" quick link, a short length of ¼" chain and a ¼" anchor shackle around the hoop. Turning the eye bolt's nut draws the chain tight, so a hard stop pulls against it and it also holds the board down. The run is only about 5", too short for any ratchet strap.
 - **Kitchen unit:** a front strap in its front notches to **H2** and **H4**, and a rear strap in its rear notches to footman loops on the middle strip's outer band and on the passenger strip.
 - **Optional backup:** ratchet straps from the board forward to the three 3rd-row striker loops on the 2nd-row floor.
 
@@ -42,7 +42,7 @@ The rear view above is too small-scale to label the fridge's 2 cooling fans and 
 | 6 | Kitchen tie-down: 2 straps | Front strap down to seat-latch hoops H2 and H4; rear strap down to footman loops on the board's middle and passenger strips | **2** ratchet straps (400 lb WLL), each dropped into a pair of the unit's own top-edge notches (Anchor Board sheet) |
 | 7 | WAVE 3 hose/cord hook | In the open bay, kitchen side — bundle the hoses so nothing swings out | 1× heavy-duty hook, #8×1.5" screw up into the deck underside |
 | 8 | Fridge hold-down footman loops (×2) | Tray side apron, near the tailgate end — hooks to the fridge's 2 end handles | Cam strap, snug not tight. This secures the fridge TO its tray; the anchor board secures the tray to the van. Side profile in the Fridge Slide detail |
-| 9 | Board straps to the seat-latch hoops (×2) | A ¼" shackle in each fridge riser's front end → hoops H1 and H2 in the headrest trough, 28" from the hatch | Ratchet straps forward and down: forward and lift restraint. No holes in the van (Anchor Board sheet) |
+| 9 | Board chains to the seat-latch hoops (×2) | A forged ¼-20 eye bolt in each fridge riser's front end → hoops H1 and H2 in the headrest trough, 28" from the hatch | ¼" grade 30 chain, quick link at the eye bolt, anchor shackle at the hoop; tightened with the eye bolt's nut and jam-nutted (the ~5" run is too short for any ratchet strap): forward and lift restraint. No holes in the van (Anchor Board sheet) |
 | 10 | Striker straps (×3, optional backup) | From the board forward to the 3rd-row striker loops on the 2nd-row floor | 400 lb WLL ratchet straps. Re-tension after the first drive |
 
 All coordinates are measured from Panel C's tailgate-facing left corner at
@@ -461,7 +461,7 @@ The fridge and kitchen unit are bought products (Section 4) — **neither needs 
 
 **Three consequences:**
 
-1. **It costs ~16 lb** over 3/8" parts (build ≈480 lb, Appendix F). **12 lb of that is the battery drawer's** 3/4" walls — a drawer that also carries the 48 lb DELTA 3 stack, so its 20" slide pair sees ~78 lb of a 100 lb rating (margin ~22%). It still passes, and payload has room (Appendix F), but this is the one place the weight is felt rather than just accounted for. *If you'd rather not carry it, one 4×4 3/8" panel covers just those four walls.*
+1. **It costs ~16 lb** over 3/8" parts (build ≈485 lb, Appendix F). **12 lb of that is the battery drawer's** 3/4" walls — a drawer that also carries the 48 lb DELTA 3 stack, so its 20" slide pair sees ~78 lb of a 100 lb rating (margin ~22%). It still passes, and payload has room (Appendix F), but this is the one place the weight is felt rather than just accounted for. *If you'd rather not carry it, one 4×4 3/8" panel covers just those four walls.*
 2. **The drawer box's corner biscuits are 2× R3, not R1** — R1 is thin-stock sizing and would be lost in 3/4" ply.
 3. **Build order:** nothing on the ¾" sheet depends on another part being cut first.
 
@@ -498,7 +498,7 @@ Neither upgrade changes any dimension in the cut list below — same sizes, diff
 | Piece | Qty | Dimensions |
 |---|---|---|
 | Panel C top (deck) | 1 | 33" x 43" — drops BETWEEN the rails onto bearer cleats, flush with the rail tops (deck recess: 3/4" more headroom) |
-| Anchor board strips (Section 8) | 3 | **23" long**, 2½", ~2½" and 1½" wide, each one piece; tied by steel rungs, not glued (Anchor Board sheet) |
+| Anchor board strips (Section 8) | 3 | **22½" long**, 2½", ~2½" and 1½" wide, each one piece; tied by steel rungs, not glued (Anchor Board sheet) |
 | Deck bearer cleats | 4 | 3/4" x 3/4" strips: 2 x 33" + 2 x 40" (ripped from the offcut; screwed to Panel C's rails' inner faces, tops 3/4" below the rail tops). **Interrupt the FRONT cleat at the 2 lapped front legs** — their tops come up into the deck plane on that face; cut it as 3 short runs rather than one 40" strip |
 | Rear-pantry hold-down cleats | ~4 | ~1" x 1" x 12–14" strips (ripped from the offcut; cab-side + both sides of the drawer cluster) |
 | **Battery drawer side wall** | 2 | **22" x 13.75"** — full depth, and the slide pair screws to these two. One out of the 47" x 19" strip, one from the sheet's remaining offcut. 3/4": glue + **2× R3** per corner |
@@ -735,14 +735,17 @@ Every wooden joint's method — biscuit vs. screw — with the exact biscuit spa
 | Illuminated toggle switches (SW1 fridge, SW2 fans, SW3 spare — the cooktop is AC, switched at Power strip 2) | 3 | $5 | $15 |
 | **Windmill Smart Fan 2-in-1 air circulator** (personal comfort, Power Strip 1) — **PURCHASED July 2026** | 1 | $69 | $69 |
 | Anchor board — three ¾" ply strips, one piece each (cut from the ¾" sheet's offcut) + ¼-20 T-nuts and 1" button heads for the 2 risers (Anchor Board sheet) | 1 | $10 | $10 |
-| Steel flat bar 2" x 48" x 3/16" (Everbilt 801897) — the 2 rungs under the anchor board, cut to 46" | 2 | $14.59 | $29.18 |
-| ¼" galvanized anchor shackle (Everbilt 43144) — one through each fridge riser's front end, for the H1/H2 straps | 2 | $3.28 | $6.56 |
-| #10 x ⅝" flat-head wood screws — rungs up into the strips, countersunk in the steel | 1 box | $6 | $6 |
+| Steel flat bar 3" x 48" x 3/16" (Steelworks 11679, Lowe's) — the 2 rungs under the anchor board, cut to 46" | 2 | $20 | $40 |
+| ¼" galvanized anchor shackle (Everbilt 43144) — closes each riser chain around its hoop, H1/H2 | 2 | $3.28 | $6.56 |
+| Forged ¼-20 × 2" shoulder eye bolts with nuts, hot-dip galvanized (Hardware Essentials 851885), 5-pack, 500 lb WLL — one down through each fridge riser's front end (+ 2 ¼-20 jam nuts) | 1 | $18 | $18 |
+| ¼" grade 30 galvanized chain, by the foot (RELIABILT at Lowe's; Everbilt 806666 at Home Depot), 1,250–1,300 lb WLL — two short pieces, eye bolt to hoop | 1 ft | $3.67 | $3.67 |
+| ¼" stainless quick links (Everbilt 43394), 1,200 lb WLL — chain to eye bolt | 2 | $4 | $8 |
+| #8 x ⅝" flat-head wood screws, 12-pack (Everbilt 825381) — rungs up into the strips, chamfered into the steel | 1 | $1.38 | $1.38 |
 | DEWALT 4-1/2" cut-off wheels, 5-pack — aluminum oxide, 7/8" arbor, angle grinder. Cuts the 2 rungs from the flat bar and the 2 riser angles from the angle stock (H.8). Cut **dry** — never put fluid on an abrasive wheel — **PURCHASED 2026-09-05** | 1 pack | $6.46 | $6.46 |
 | Tap Magic 30004P ProTap cutting fluid, 4 oz — for the **drilling** that follows the cuts: the 2 rungs' screw holes, the 2 riser angles' 1/4-20 holes, and the anchor board's steel work generally. Nothing to do with the cut-off wheels — **PURCHASED 2026-09-06** | 1 | $4.98 | $4.98 |
 | Neoprene rubber sheet, ⅛" × 16" × 60" roll — cut into strips under the anchor board's strips | 1 | $20 | $20 |
 | Blue medium-strength threadlocker (Loctite 242 or equivalent — on the anchor board's machine screws) | 1 bottle | $8 | $8 |
-| Erickson ratchet straps (01415), 400 lb WLL / 1,200 lb break, 1" x 10' (2: the board's shackles to hoops H1/H2; 2: kitchen unit, front to H2/H4 and rear to the footman loops; 3 optional backups to the striker loops; 1 spare) | 2 packs of 4 | $32 | $64 |
+| Erickson ratchet straps (01415), 400 lb WLL / 1,200 lb break, 1" x 10' (2: kitchen unit, front to H2/H4 and rear to the footman loops; 3 optional backups to the striker loops; 3 spare) | 2 packs of 4 | $32 | $64 |
 | Fridge hold-down — 1 low-profile cam strap + 2 screw-eye D-rings (hooks to the fridge's 2 end handles, down to the tray's side apron — keeps the fridge from lifting off the tray in a hard stop) | 1 set | $10 | $10 |
 | Cable clips for the fridge DC line's slide-travel slack (3, screwed to the slide's fixed outer rail — same VIPMOON-type clip as the cooktop run, buy links below) | 3 | $1 | $3 |
 | Tension rod + blackout curtain fabric | 1 | $40 | $40 |
@@ -795,7 +798,7 @@ Specific products verified against this plan's specs, full URLs shown for copy-p
 
 Slides + electrical together run **~$290-305**. These links satisfy the corresponding BOM rows above — don't double-count.
 
-**Estimated total (summing the BOM table above): ~$3,533–3,903 with the fridge + kitchen included, or ~$2,833–3,053 if you already own equivalents** — the owner-supplied CO monitor and fire extinguisher aren't priced here. The itemized BOM table is the authoritative figure. It includes the bought HEST Dually Long mattress (~$530–590, cover included — the DIY 2-layer fallback, ~$185–255, stays in the BOM as the budget swap), a real BougeRV Rocky 40 + JAGAHAHA kitchen (~$700–850 combined, Rocky price UNVERIFIED), the fridge cooling/control electronics (2 fans, controller, sensor, surge protector, ~$85–120 combined), the no-drill securing hardware — rated straps, the anchor board's steel rungs, shackles and neoprene (~$140, Section 8) — and the RJ-MODINI spare kit (~$350, Appendix F). Two optional material upgrades are documented but NOT in the total above — poplar top-rails (~$25–40) and aluminum corner braces (~$10–15), see Section 3's "Material options & upgrades."
+**Estimated total (summing the BOM table above): ~$3,569–3,939 with the fridge + kitchen included, or ~$2,869–3,089 if you already own equivalents** — the owner-supplied CO monitor and fire extinguisher aren't priced here. The itemized BOM table is the authoritative figure. It includes the bought HEST Dually Long mattress (~$530–590, cover included — the DIY 2-layer fallback, ~$185–255, stays in the BOM as the budget swap), a real BougeRV Rocky 40 + JAGAHAHA kitchen (~$700–850 combined, Rocky price UNVERIFIED), the fridge cooling/control electronics (2 fans, controller, sensor, surge protector, ~$85–120 combined), the no-drill securing hardware — rated straps, the anchor board's steel rungs, shackles and neoprene (~$140, Section 8) — and the RJ-MODINI spare kit (~$350, Appendix F). Two optional material upgrades are documented but NOT in the total above — poplar top-rails (~$25–40) and aluminum corner braces (~$10–15), see Section 3's "Material options & upgrades."
 
 ---
 
@@ -1259,10 +1262,10 @@ Build this one before Component 1 (Rear Pantry) — the prefab drawer cluster si
 - JAGAHAHA slide-out camp kitchen + COOKTRON induction cooktop
 - 120mm 12V fan + PWM temperature controller w/ NTC probe
 - 12V surge protector/fused distribution block, 3 illuminated toggle switches, ¾" backer board (no enclosure)
-- Anchor board: three ¾" ply strips tied by two 2" × 3/16" steel rungs, on ⅛" neoprene (Section 8, Anchor Board sheet)
-- 2 ¼" anchor shackles + 2 stainless footman loops + 4 ratchet straps
-- 4 Erickson 400lb-WLL ratchet straps (2 from the risers' shackles to seat-latch hoops H1/H2, 2 for the kitchen unit in its notches) + up to 3 optional backups to the striker loops
-- 1 low-profile cam strap + 2 screw-eye D-rings (fridge hold-down, hooks to its 2 end handles)
+- Anchor board: three ¾" ply strips tied by two 3" × 3/16" steel rungs, on ⅛" neoprene (Section 8, Anchor Board sheet)
+- 2 forged ¼-20 eye bolts + 2 short ¼" chains + 2 quick links + 2 ¼" anchor shackles (the risers to seat-latch hoops H1/H2) + 2 stainless footman loops
+- 2 Erickson 400lb-WLL ratchet straps (the kitchen unit, in its notches) + up to 3 optional backups to the striker loops
+- 1 low-profile cam strap + 2 stainless footman loops (fridge hold-down, through its 2 end handles)
 - 3 screw-mount cable clips (fridge DC line slack, clipped to the slide's fixed outer rail)
 - Utility bay fit-out — 2 low-profile bins + hook-and-loop tape (no door: the bay between the fridge and kitchen stays open)
 - Kitchen drawer — box (1/2" ply, 18" x 26" x 4.5") + 2 hanging cheeks (1/2" ply, 26" x 5.45") + 24" full-extension slide pair (100lb) + magnetic catch
@@ -1276,9 +1279,9 @@ Build this one before Component 1 (Rear Pantry) — the prefab drawer cluster si
 </div>
 <div class="lego-step">
 <div class="lego-num">2</div>
-<div class="lego-parts"><p class="lego-noparts">anchor board (3 strips + 2 steel rungs) + neoprene + 2 shackles + 2 footman loops + 4 ratchet straps</p></div>
+<div class="lego-parts"><p class="lego-noparts">anchor board (3 strips + 2 steel rungs) + neoprene + 2 eye bolts, chains and shackles + 2 footman loops + 2 ratchet straps</p></div>
 <div class="lego-main">
-<p class="lego-caption">Bench-build the anchor board (Anchor Board sheet): three one-piece plywood strips, two steel rungs set flush into grooves in their undersides and screwed up into each strip, T-nuts for the two risers, a shackle hole in each riser's front end, footman loops for the kitchen's rear strap, and neoprene cut to each strip. In the van: neoprene, then the board, back ends 3" from the hatch; hook H1's strap and lay it forward; bolt the fridge tray assembly down; strap both shackles to H1 and H2 and tension them. <em>Re-tension after the first drive.</em></p></div>
+<p class="lego-caption">Bench-build the anchor board (Anchor Board sheet): three one-piece plywood strips, two steel rungs set flush into grooves in their undersides and screwed up into each strip, T-nuts for the two risers, an eye-bolt hole in each riser's front end, footman loops for the kitchen's rear strap, and neoprene cut to each strip. In the van: neoprene, then the board, back ends 3" from the hatch; shackle H1's chain and lay it forward; bolt the fridge tray assembly down; shackle the second chain to H2, quick-link both chains to their eye bolts and tighten the eye bolts' nuts. <em>Re-check after the first drive.</em></p></div>
 </div>
 <div class="lego-step">
 <div class="lego-num">3</div>
@@ -1494,7 +1497,7 @@ Panel A, Panel B, and Panel C each rest unbolted on the van floor — nothing is
 
 **Three load paths:**
 
-1. **Forward and lift — two straps to the hoops.** A ¼" anchor shackle in the front end of each fridge riser takes a ratchet strap forward and down to hoop H1 (driver riser) and H2 (kitchen riser). The load runs hoop → strap → shackle → riser → four bolts → strip → rungs → the whole board. Hook H1's strap before the fridge tray goes in: the tray covers it.
+1. **Forward and lift — two chains to the hoops.** A forged ¼-20 shoulder eye bolt hangs down through the front end of each fridge riser, just ahead of its strip; a ¼" quick link, a short ¼" chain and a ¼" anchor shackle take it forward and down to hoop H1 (driver riser) and H2 (kitchen riser). The run is only about 5", too short for any ratchet strap's mechanism, so the eye bolt's nut is the tensioner: turn it down to draw the chain tight, then jam a second nut on top. The load runs hoop → shackle → chain → eye bolt → riser → four bolts → strip → rungs → the whole board. Shackle H1's chain on before the fridge tray goes in: the tray covers it.
 2. **The kitchen unit** — a strap across its top in its front notches down to H2 and H4, and one in its rear notches down to footman loops on the middle and passenger strips. The notches stop it sliding along the straps.
 3. **Lateral** — the strips' edges, the van walls and trim close on both sides, the neoprene's grip, and the straps' angles.
 
@@ -1504,9 +1507,9 @@ Panel A, Panel B, and Panel C each rest unbolted on the van floor — nothing is
 
 **Install and upkeep:**
 
-1. **Bench-build the board** (Anchor Board sheet): strips, rungs, T-nuts, shackle holes, loops, neoprene.
+1. **Bench-build the board** (Anchor Board sheet): strips, rungs, T-nuts, eye-bolt holes, loops, neoprene.
 2. **In the van:** neoprene, then the board, back ends 3" from the hatch. Hook the H1 strap in and lay it forward.
-3. **Bolt the fridge tray assembly down**, then strap both shackles to H1 and H2 and tension them.
+3. **Bolt the fridge tray assembly down**, then chain both eye bolts to H1 and H2 and tighten them.
 4. **Kitchen unit in**, both straps seated in its notches and tensioned.
 5. **Re-tension every strap after the first drive**, then check at the start of each trip.
 6. **To return the van to stock:** release the straps and lift everything out. No holes were made.
@@ -1884,7 +1887,7 @@ The order to build in — **dependency-first, not the Component numbering.** Wor
 
 **Phase 3 — Panel C build-out (fridge / kitchen / cooling)** (Components 4 + 7)
 1. Set the fixed top between the rails on its bearer cleats (flush with the rail tops — deck recess) and screw it down; add the front wall (mount the low intake louver).
-2. Bench-build the no-drill anchor board (strips + steel rungs + risers, Anchor Board sheet), set it in the van on its neoprene, and strap the risers' shackles to the 3rd-row seat-latch hoops H1 and H2; nothing is drilled into the van. *Verify strap tension after the first drive.* **The hybrid's 12V battery access panel is at the passenger rear corner (under the rear outlet) and stays reachable by unstrapping/sliding the kitchen out.**
+2. Bench-build the no-drill anchor board (strips + steel rungs + risers, Anchor Board sheet), set it in the van on its neoprene, and chain the risers' eye bolts to the 3rd-row seat-latch hoops H1 and H2; nothing is drilled into the van. *Re-check the chains and straps after the first drive.* **The hybrid's 12V battery access panel is at the passenger rear corner (under the rear outlet) and stays reachable by unstrapping/sliding the kitchen out.**
 3. Fridge on its tray + locking slide (driver corner); kitchen unit strapped down (passenger corner). Let the fridge stand 12h before first power-up.
 4. Hang the kitchen drawer; velcro the 2 utility bins into the open bay (no door).
 5. Cooling + control cluster: intake fan (blows IN), exhaust fan + NTC on the fridge's kitchen-facing wall, W1209 + fuse block + switches on the backer board in the open utility bay.
@@ -1936,7 +1939,7 @@ Consolidates Section 4's BOM into a shopping order with links. Prices are estima
 
 **Electrical & cooling** — 120mm 12V fans ×2 ($18–20); W1209 controller + probe ($10); Nilight fuse block (*purchased*, $18); Ampper switches 10-pack (*purchased*, $9); 3" snap-in soffit vents ×3 (*purchased*, 4-pack); grommets (EASYEAH 20-pack, *purchased*, $10); power strips ×2 ($50); AC cords ($24 — two short rear-outlet hops + the DELTA 3 charging line); fridge DC cord + SAE seam disconnects (one OYMSAE 2-pack does both, purchased, $22); 2-way rear-outlet tap ($5); cord clips ($9); fused car-plug→SAE adapter + SAE→12V-socket pigtail ($18); 18AWG hookup wire, crimp assortment + WAGO lever nuts ($30).
 
-**Anchoring (no-drill, Section 8)** — Erickson ratchet straps, 2 4-packs ($64); two 2" × 3/16" × 48" steel flat bars for the rungs ($29); 2 anchor shackles ($7); anchor-board T-nuts and screws ($15); ⅛" neoprene ($20); fridge-slide steel riser angles ×2 ($24).
+**Anchoring (no-drill, Section 8)** — Erickson ratchet straps, 2 4-packs ($64); eye bolts, ¼" chain and quick links for the hoop connections ($30); two 3" × 3/16" × 48" steel flat bars for the rungs ($40); 2 anchor shackles ($7); anchor-board T-nuts and screws ($15); ⅛" neoprene ($20); fridge-slide steel riser angles ×2 ($24).
 
 **Comfort & interior** — [HEST Dually Long mattress](https://hest.com/products/dually) ($530–590); Windmill Smart fan ($69, PURCHASED); tension rod + blackout curtain ($40); [PeaceOut Sienna bug nets](https://peaceout.ca/en/products/toyota-sienna-front-sliding-doors-bug-nets) (~$197); [EcoFlow WAVE vent kit](https://us.ecoflow.com/products/wave-car-vent-kit) ($39); non-slip mat ($12); WAVE 3 hose hook ($4); WAVE 3 D-rings + cam strap ($11); DELTA 3 drawer hardware ($15).
 
@@ -1952,7 +1955,7 @@ Consolidates Section 4's BOM into a shopping order with links. Prices are estima
 
 Finished sizes; add saw kerf. Full context in Section 3.
 
-**3/4" Baltic birch plywood — 1 sheet (4×8):** Panel C deck 1× **33×43"** (it drops BETWEEN the rails onto bearer cleats); anchor board strips 3× 23" long (2½", ~2½", 1½" wide; Section 8 — rip at home); deck bearer cleats 4× ¾×¾ (2× 33" + 2× 40"); rear-pantry hold-down cleats ~4× 1×1×12–14" (both ripped from the offcuts) — the rest is spare stock.
+**3/4" Baltic birch plywood — 1 sheet (4×8):** Panel C deck 1× **33×43"** (it drops BETWEEN the rails onto bearer cleats); anchor board strips 3× 22½" long (2½", ~2½", 1½" wide; Section 8 — rip at home); deck bearer cleats 4× ¾×¾ (2× 33" + 2× 40"); rear-pantry hold-down cleats ~4× 1×1×12–14" (both ripped from the offcuts) — the rest is spare stock.
 
 **1/2" Baltic birch plywood — 1 sheet (4×8):** kitchen-drawer box (bottom 1× **18×26"**; sides 2× 26×4"; front/back 2× **17×4"**) + hanging cheeks 2× **26×5.45"**; battery-drawer bottom 1× **19.25×21.25"**; **Panel C front wall 1× 46×17"**; **fridge tray 1× 17.72×28.74"** (from a 29×18 blank, cross-grain). **No 3/8" sheet.**
 
@@ -1999,43 +2002,43 @@ Every component's weight, computed from the real material dimensions (Baltic bir
 | Fridge + kitchen-drawer slides (heavy) | Hardware/misc | 8.0 | rear | 24" heavy-duty pairs |
 | Fridge-slide steel riser angles (2) | Hardware/misc | 9.8 | rear | 2×2×3/16" × 24" steel, fixed rails → anchor board (aluminum angle saves ~6 lb) |
 | 12 leveling feet + inserts | Hardware/misc | 4.3 | mid | 4 per panel; no star knobs or jam nuts |
-| Anchor board (3 ¾" ply strips + 2 steel rungs) + straps + neoprene | Hardware/misc | 18.0 | rear | no-drill tie-down chassis at Panel C, strapped to the seat-latch hoops (Section 8) |
+| Anchor board (3 ¾" ply strips + 2 3" steel rungs) + straps + neoprene | Hardware/misc | 22.8 | rear | no-drill tie-down chassis at Panel C, strapped to the seat-latch hoops (Section 8) |
 | Corner brackets, braces, screws, glue | Hardware/misc | 6.0 | mid | spread across all modules |
 | Seam draw-latches (4) + pins + bumpers | Hardware/misc | 1.5 | mid | at the A/B + B/C seams |
 | Electrical (2 fans, controller, fuse, 2 strips, cords) | Hardware/misc | 6.0 | mid | cooling + power runs |
 | Cooktop + cookware (stowed) | Hardware/misc | 12.0 | rear | induction top + pots in the kitchen |
 
-**Subtotals:** Structure **168.5** · Appliances **85.6** · Power/climate **81.7** · Bedding **35.0** · Hardware/misc **109.6**
-**Build total (added): ≈ 480 lb** — including Panel B's 2 storage totes (~4 lb), the **RJ-MODINI spare kit stowed at the axle (~40 lb)** — carried inside deliberately instead of on a hitch basket, which would have added its own 30–60 lb of carrier plus a ~1.4× lever on the rear axle — and the no-drill anchor board (~18 lb).
+**Subtotals:** Structure **168.5** · Appliances **85.6** · Power/climate **81.7** · Bedding **35.0** · Hardware/misc **114.4**
+**Build total (added): ≈ 485 lb** — including Panel B's 2 storage totes (~4 lb), the **RJ-MODINI spare kit stowed at the axle (~40 lb)** — carried inside deliberately instead of on a hitch basket, which would have added its own 30–60 lb of carrier plus a ~1.4× lever on the rear axle — and the no-drill anchor board (~23 lb).
 
 **But the 2nd-row seats come OUT** (Section 9), so the conversion *removes* weight too:
 
 | | Weight |
 |---|--:|
-| Build (added) | +480 lb |
+| Build (added) | +485 lb |
 | **2nd-row seats removed** (2 × ~48–70 lb) *est.* | **−120 lb** |
-| **NET permanent weight added vs. stock** | **≈ 360 lb** |
+| **NET permanent weight added vs. stock** | **≈ 365 lb** |
 
-So the van, converted and empty, weighs only about **360 lb more than a stock seatless curb** — and because the seats were part of the factory curb weight, pulling them **frees ~120 lb of payload** for your gear. **Weigh your actual seats to confirm** — captain's chairs vary; 120 lb is an estimate.
+So the van, converted and empty, weighs only about **365 lb more than a stock seatless curb** — and because the seats were part of the factory curb weight, pulling them **frees ~120 lb of payload** for your gear. **Weigh your actual seats to confirm** — captain's chairs vary; 120 lb is an estimate.
 
 **Loaded scenarios** (payload = everything you add to the van — build + people + cargo):
 
 | Scenario | Weight |
 |---|--:|
-| Net build (added − seats removed) | ≈ 360 lb |
-| + provisions (food, water, cookware, bedding ~120 lb) | ≈ 480 lb |
-| + 2 occupants (~340 lb, in the front seats while driving) | ≈ 820 lb |
+| Net build (added − seats removed) | ≈ 365 lb |
+| + provisions (food, water, cookware, bedding ~120 lb) | ≈ 485 lb |
+| + 2 occupants (~340 lb, in the front seats while driving) | ≈ 825 lb |
 
 #### Weight distribution
 
-- **Fore–aft:** the build's own center of mass sits **≈ 50.9" back** from the front seatbacks — aft of the 47" geometric center (the prefab pantry and the axle-stowed spare pull it forward; the anchor board pulls it back). Breaking it into thirds: **front 32%** (152 lb — Panel A + the DELTA 3/WAVE 3 stack + the bed platform), **middle 25%** (122 lb — Panel B carries the spare + totes at the axle), **rear 43%** (208 lb). That rear share is the **tailgate cluster** — the prefab drawer pantry (~15 lb), the fridge (41 lb), the kitchen unit (45 lb), the anchor board (~18 lb), and Panel C's own structure — most of which has to live at the back for slide-out access.
+- **Fore–aft:** the build's own center of mass sits **≈ 51.1" back** from the front seatbacks — aft of the 47" geometric center (the prefab pantry and the axle-stowed spare pull it forward; the anchor board pulls it back). Breaking it into thirds: **front 31%** (152 lb — Panel A + the DELTA 3/WAVE 3 stack + the bed platform), **middle 25%** (122 lb — Panel B carries the spare + totes at the axle), **rear 44%** (212 lb). That rear share is the **tailgate cluster** — the prefab drawer pantry (~15 lb), the fridge (41 lb), the kitchen unit (45 lb), the anchor board (~23 lb), and Panel C's own structure — most of which has to live at the back for slide-out access.
 - **Lateral:** **≈ 1.0" toward the passenger side** — trivial (the fridge-slide steel risers on the driver side pulled it in a bit more). This is by design: the DELTA 3 stack (48 lb, passenger) and the WAVE 3 (34 lb, driver) sit in opposite bays of Panel A, and the fridge (driver) and kitchen (passenger) also cross-balance in Panel C. The reviewer's "heavy battery off to one side" concern is effectively cancelled by the WAVE 3 on the other side.
 - **Height:** everything is low (floor-level bays) except the 16.8" pantry cluster at the rear and, when parked, the sleeping load on the ~20–27" platform. Overall CG stays low — no rollover concern beyond a stock minivan.
 
 #### Effects on drivability
 
-- **Payload headroom:** loaded for travel (net build + provisions + 2 people, with the seats out) is **≈ 820 lb** — and that already includes the spare tire + jack. A 4th-gen Sienna's payload is roughly **1,100–1,300 lb** (the AWD Woodland is at the lower end), so there's a **~280–480 lb margin** — the removed seats buy back ~120 lb of that. Comfortable, but not unlimited once you add lots of water and gear. **VERIFY the exact figure on the driver door-jamb sticker** — that number, and the **rear GAWR**, are the hard limits.
-- **Rear bias:** with 43% of the build mass in the rear third (much of it at/behind the rear axle), the fixed build alone loads the rear axle and slightly lightens the front — which reads as lighter steering, a bit more rear squat, and a raised headlight aim. **But while driving, the two occupants (340 lb) sit up front and more than offset that**, so the *loaded* vehicle is reasonably balanced. The rear bias matters most when driving **solo with a full rear and no front passenger**.
+- **Payload headroom:** loaded for travel (net build + provisions + 2 people, with the seats out) is **≈ 825 lb** — and that already includes the spare tire + jack. A 4th-gen Sienna's payload is roughly **1,100–1,300 lb** (the AWD Woodland is at the lower end), so there's a **~275–475 lb margin** — the removed seats buy back ~120 lb of that. Comfortable, but not unlimited once you add lots of water and gear. **VERIFY the exact figure on the driver door-jamb sticker** — that number, and the **rear GAWR**, are the hard limits.
+- **Rear bias:** with 44% of the build mass in the rear third (much of it at/behind the rear axle), the fixed build alone loads the rear axle and slightly lightens the front — which reads as lighter steering, a bit more rear squat, and a raised headlight aim. **But while driving, the two occupants (340 lb) sit up front and more than offset that**, so the *loaded* vehicle is reasonably balanced. The rear bias matters most when driving **solo with a full rear and no front passenger**.
 - **Lateral / height:** negligible effect — the ~1.0" lateral offset is unnoticeable, and the low CG keeps handling stock-like.
 
 #### Recommendations
@@ -2045,7 +2048,7 @@ So the van, converted and empty, weighs only about **360 lb more than a stock se
 3. **Re-aim the headlights** after the build is in and loaded — rear squat raises the beam.
 4. **Set tire pressures to the door placard** (consider the upper end for the rear given the bias) and re-check with the van loaded.
 5. **Driving solo?** Expect a slightly lighter front end with a full rear — nothing unsafe at these weights, just drive to it.
-6. **Leg-foot load is not a concern:** ~480 lb + occupants + cargo (~1,040 lb worst case) over 12 feet is well under the feet's 330 lb-each rating (~87 lb/foot worst case, about a quarter of capacity).
+6. **Leg-foot load is not a concern:** ~485 lb + occupants + cargo (~1,045 lb worst case) over 12 feet is well under the feet's 330 lb-each rating (~87 lb/foot worst case, about a quarter of capacity).
 7. **If you add heavy items later** (second battery, water tank, awning), re-run `weight_budget.py` and re-check the rear axle before a trip.
 
 ### Appendix G — Nighttime Van + Tent Cooling Setup
@@ -2172,7 +2175,7 @@ Actual paid amounts, so Section 4's estimates can stop being estimates. **These 
 **2. The biscuits may not exist in the size this plan names.** The joinery guide specifies Ryobi **R1/R2/R3**, which is the DBJ50's own sizing; Home Depot stocks standard **#0/#10/#20**. Before buying: open the DBJ50's chip guide and see which family it actually cuts. Note the plan needs the **larger** size in one place — the battery drawer has ¾" walls, so those corners want **R3 (or #20)**. Get the assortment if there is one; a joiner that takes both is common.
 
 **3. The steel is the one line likely to fail at Home Depot.** Both pieces are specified at **3/16"** wall, and HD's metal rack is usually ⅛" and ¼" with 3/16" hit-or-miss. What substitutes:
-- **Flat bar for the 2 anchor-board rungs:** 3/16" × 2" (Everbilt 801897, 48"). ¼" also works if you groove the strips ¼" deep instead; ⅛" is too flexible.
+- **Flat bar for the 2 anchor-board rungs:** 3/16" × 3" (Steelworks 11679 at Lowe's, 48"; Home Depot's 2" Everbilt 801897 was unavailable). ¼" also works if you groove the strips ¼" deep instead; ⅛" is too flexible.
 - **Angle for the 2 fridge-slide risers:** the model reserves **0.25"** for this (`fridge_riser_t`), described as "3/16" angle + fit allowance", so **either 3/16" or ¼" lands inside the allowance.** ⅛" does not — it drops the fixed rails 1/8" and changes the moving-member overlap on the tray apron.
 - If neither thickness is on the rack, this is a metal-supply errand, not a Home Depot one. Don't let an associate talk you into ⅛".
 
@@ -2201,7 +2204,7 @@ The store copy asks for **8 edge trims + 12 part cuts** across two sheets. If yo
 
 Yours, at home — each is either narrower than a store saw will rip, shaped rather than straight, or has to be fitted to something you'll measure first:
 
-- **The anchor board's three strips** — 23" long, 2½", ~2½" and 1½" wide, ripped and crosscut from the ¾" offcut. Each is one piece; the two steel rungs tie them together (Anchor Board sheet).
+- **The anchor board's three strips** — 22½" long, 2½", ~2½" and 1½" wide, ripped and crosscut from the ¾" offcut. Each is one piece; the two steel rungs tie them together (Anchor Board sheet).
 - **The other two battery-drawer walls** — one **22 × 13.75** side and one **18.5 × 13.75** front, side by side out of the ¾" sheet's 47 × 19 strip (22 + 18.5 = 40.5 of the 47, with 6.5" to spare). Rip the strip to 13.75" wide first, then two crosscuts; the 47 × 5.25 band left over is pantry-cleat stock. All four walls take **2 × R3** biscuits per corner, not R1.
 - **Panel C deck's two leg notches** — 1.5" × 1.5" out of the front edge, 3.5" in from each side, for the lapped front legs. Jigsaw them after the deck is fitted to its opening, not before.
 - **Every strip under 4" wide:** the ¾×¾ deck bearer cleats (2× 33" + 2× 40"), the ~1×1 pantry hold-down cleats, the DELTA 3 locating cleats.
@@ -2350,16 +2353,16 @@ Two loads, both real:
 - **Case A — rack at its ceiling:** 2 × 80 lb bikes + 58 lb rack = **218 lb**
 - **Case B — realistic fat-tire e-bikes:** 2 × 65 lb bikes + 58 lb rack = **188 lb**
 
-**Against payload**, the full number counts, every pound, no leverage discount. Appendix F puts the loaded-for-travel van (net build + provisions + 2 occupants, seats out) at **≈ 820 lb** against a working payload assumption of **~1,100 lb**:
+**Against payload**, the full number counts, every pound, no leverage discount. Appendix F puts the loaded-for-travel van (net build + provisions + 2 occupants, seats out) at **≈ 825 lb** against a working payload assumption of **~1,100 lb**:
 
 | | Weight |
 |---|--:|
-| Appendix F, loaded for travel | ≈ 820 lb |
-| + Sport Rider, Case B (188 lb) | ≈ **1,008 lb** |
-| + Sport Rider, Case A (218 lb) | ≈ **1,038 lb** |
+| Appendix F, loaded for travel | ≈ 825 lb |
+| + Sport Rider, Case B (188 lb) | ≈ **1,013 lb** |
+| + Sport Rider, Case A (218 lb) | ≈ **1,043 lb** |
 | Working payload assumption (VERIFY on the door-jamb sticker) | ~1,100 lb |
 
-**That leaves roughly 60–90 lb of margin, down from ~280 lb.** The rack does not break the payload budget — it consumes most of what was left of it. Practical consequence: with the rack loaded, **water becomes the constraint**. A 6-gallon jug is ~50 lb (Appendix F, recommendation 2), so two jugs and a cooler of food put you over. If you carry bikes, carry less water and refill more often, or leave the DELTA 3's Smart Extra Battery (24 lb of the 48 lb stack) at home for bike trips.
+**That leaves roughly 55–85 lb of margin, down from ~275 lb.** The rack does not break the payload budget — it consumes most of what was left of it. Practical consequence: with the rack loaded, **water becomes the constraint**. A 6-gallon jug is ~50 lb (Appendix F, recommendation 2), so two jugs and a cooler of food put you over. If you carry bikes, carry less water and refill more often, or leave the DELTA 3's Smart Extra Battery (24 lb of the 48 lb stack) at home for bike trips.
 
 **Against the rear axle**, leverage applies. A load hung a distance *d* behind the rear axle on a wheelbase *L* adds **(1 + d/L)** of itself to the rear axle and **removes (d/L)** from the front. The Sienna's wheelbase is **120.5"** (the figure Appendix E's leveling calculator already uses). **`d` is UNVERIFIED — measure it:** from the rear axle centerline to the receiver pin is roughly 45" on a 4th-gen Sienna, and the *loaded* rack's center of mass sits farther back still, call it ~60". Both cases:
 
@@ -2371,7 +2374,7 @@ Two loads, both real:
 | Case B (188 lb) → rear axle | +258 lb | +282 lb |
 | Case B (188 lb) → front axle | −70 lb | −94 lb |
 
-So a loaded rack puts roughly **260–330 lb onto the rear axle and lifts 70–110 lb off the front.** Appendix F already flags this build as rear-biased (43% of build mass in the rear third) and notes that the two front occupants offset it while driving. **The bike rack lands on the same side of the scale as the build's existing bias, and it is the single largest thing that has been added to that side.** Check the **rear GAWR** on the door-jamb sticker — that is the number this can actually violate, before payload does.
+So a loaded rack puts roughly **260–330 lb onto the rear axle and lifts 70–110 lb off the front.** Appendix F already flags this build as rear-biased (44% of build mass in the rear third) and notes that the two front occupants offset it while driving. **The bike rack lands on the same side of the scale as the build's existing bias, and it is the single largest thing that has been added to that side.** Check the **rear GAWR** on the door-jamb sticker — that is the number this can actually violate, before payload does.
 
 **Reconciling with Appendix F.** Appendix F deliberately rejected a hitch cargo basket for the spare tire, on exactly this reasoning: "30–60 lb of carrier plus a ~1.4× lever on the rear axle." That call still stands, and the 1.4× figure there is the same lever computed above — this appendix does not overturn it. The difference is that the spare tire *had* an interior home at the axle, which is the best place in the van for it, and the bikes have no interior home at all. The lever cost is accepted here because the alternative is not carrying bikes; it was rejected there because the alternative was strictly better. **The two decisions are consistent, and stacking them is not** — do not put the spare on a hitch basket *and* the bikes on the hitch rack.
 
@@ -2409,7 +2412,7 @@ Two secondary items: **the bikes will obscure the license plate and rear lights*
 5. **Test the tailgate and both Panel C slides with the rack tilted and loaded**, before the first trip rather than on it.
 6. **Re-aim the headlights** after the rack is on and loaded — this adds to the rear squat Appendix F already calls for re-aiming after.
 
-**Not rolled into Appendix F's totals on purpose.** The 218 lb is a bolt-on carried some trips and not others, so folding it into the ≈480 lb build total would misstate the van's permanent weight. If you decide to make the rack permanent, add it to `weight_budget.py` as a `rear` zone line and re-run — the fore-aft center of mass and the rear-third share will both move noticeably.
+**Not rolled into Appendix F's totals on purpose.** The 218 lb is a bolt-on carried some trips and not others, so folding it into the ≈485 lb build total would misstate the van's permanent weight. If you decide to make the rack permanent, add it to `weight_budget.py` as a `rear` zone line and re-run — the fore-aft center of mass and the rear-third share will both move noticeably.
 
 <div class="pagebreak"></div>
 
