@@ -220,14 +220,14 @@ footer p{max-width:72ch; margin:0 0 6px}
     <div class="tb-cell"><span class="k">Deck top</span><span class="v">18½"<small>= rail top · flush with the bed on A/B</small></span></div>
     <div class="tb-cell"><span class="k">Under the rear rail</span><span class="v">17"<small>floor to underside · fridge needs 16.67</small></span></div>
     <div class="tb-cell"><span class="k">Stock</span><span class="v">1-7/16" 2×2<small>measured · sets every between-length</small></span></div>
-    <div class="tb-cell"><span class="k">Screws</span><span class="v">26 × 2½" + ~50 × 1¼"<small>SPAX #8 Torx · Everbilt #8 flat head</small></span></div>
+    <div class="tb-cell"><span class="k">Screws</span><span class="v">26 × 2½" + ~54 × 1¼"<small>SPAX #8 Torx · Everbilt #8 flat head · braces: 12 × 3"</small></span></div>
     <div class="tb-cell"><span class="k">Drawn from</span><span class="v">Build plan<small>Section 3, Comp. 4 · params.scad · A/B as built</small></span></div>
-    <div class="tb-cell"><span class="k">Status</span><span class="v">Built to the deck<small>13 Oct: frame, wall, cleats, deck. Height and pantry mat next</small></span></div>
+    <div class="tb-cell"><span class="k">Status</span><span class="v">Built to the deck<small>13 Oct: frame, wall, cleats, deck. Side braces, height and pantry mat next</small></span></div>
   </div>
 </div>
 
 <section>
-  <div class="sec-h"><span class="n">A</span><h2>Check before you cut</h2><span class="aside">2 methods · 1 check · 2 carry-overs</span></div>
+  <div class="sec-h"><span class="n">A</span><h2>Check before you cut</h2><span class="aside">3 methods · 1 check · 2 carry-overs</span></div>
   <p class="lede">The frame is Panels A and B again with different lengths. What's new is the deck, the wall and the rear corners.</p>
 
   <div class="flags">
@@ -263,6 +263,14 @@ footer p{max-width:72ch; margin:0 0 6px}
       <h3><span class="tag">Carry-over</span> The control cluster's drawn site overlaps a leg</h3>
       <p>The electrics plan puts the control cluster on the wall's Panel B face at 40.4–45.4" from the driver edge, "over the passenger front leg". The wall sits behind that leg, so the leg stands 1-7/16" proud of the wall right in the middle of the cluster's footprint. None of this changes what you cut today. Just don't put anything in that column. The cluster gets re-sited when the electrics go in (Component 6).</p>
     </div>
+
+    <div class="flag">
+      <h3><span class="tag">Method</span> Side braces tie the rear corner legs to the front, 12½" off the floor</h3>
+      <p>The rear legs are butted under the rail and held by 2 screws and a bracket, and below the deck nothing ties them to the front of the panel. One already broke when Panel C was tipped over to hang the kitchen drawer. A 2×2 brace on each side, from the rear leg's forward face to the front wall, closes that gap (Section F).</p>
+      <p><b>They run in the rear legs' band</b>: the outer 1-7/16" under each side rail, flush with the side rails' outside faces. Inboard of that band is the fridge and kitchen slide path. The front legs are 2" further in, so a brace can't reach them directly. Each one stops at a 4⅞" block glued to the wall's fridge face, and the block screws through the wall into the leg.</p>
+      <p><b>Not at the floor.</b> The bottom crossbar at the wall end is only 1-7/16" tall, and a brace that low would sit on the fridge riser's flange, the H1 eye bolt and the kitchen strap's footman loop. The kitchen's rear strap climbs the passenger band to the unit's lid, which is about 11⅞" up if the unit sits on the board's rungs. So the brace's bottom goes at <strong>12½"</strong> (11½" above the leg bottoms). That's about ½" over the strap and still under the rear legs' L-brackets, which start at 15".</p>
+      <p class="verdict">The side trim from 26" forward of the hatch comes 2" inside Panel C's edges but stands no more than 2" tall (owner, 24 Oct), so the braces and blocks clear it by over 10".</p>
+    </div>
   </div>
 </section>
 
@@ -282,6 +290,9 @@ footer p{max-width:72ch; margin:0 0 6px}
         <rect class="dash" x="181" y="65.8" width="66" height="15.8"/>
         <rect class="dash" x="280" y="65.8" width="66" height="15.8"/>
         <rect class="dash" x="379" y="65.8" width="66" height="15.8"/>
+        <!-- side-brace blocks, on the wall's fridge face at its ends (braces hidden under the side rails) -->
+        <rect class="dash" x="60" y="87.1" width="53.6" height="15.8"/>
+        <rect class="dash" x="512.4" y="87.1" width="53.6" height="15.8"/>
         <!-- ring -->
         <rect class="ply" x="60" y="50" width="506" height="15.8"/>
         <rect class="ply" x="60" y="427.4" width="506" height="15.8"/>
@@ -332,9 +343,10 @@ footer p{max-width:72ch; margin:0 0 6px}
           <path class="thin" d="M420 74 V132"/><circle class="keydot" cx="420" cy="142" r="9.5"/><text class="keynum" x="420" y="146" text-anchor="middle">7</text>
           <path class="thin" d="M84 85 L112 134"/><circle class="keydot" cx="118" cy="142" r="9.5"/><text class="keynum" x="118" y="146" text-anchor="middle">8</text>
           <path class="thin" d="M214 81.6 V132"/><circle class="keydot" cx="214" cy="142" r="9.5"/><text class="keynum" x="214" y="146" text-anchor="middle">9</text>
+          <path class="thin" d="M106 101 L152 172"/><circle class="keydot" cx="158" cy="180" r="9.5"/><text class="keynum" x="158" y="184" text-anchor="middle">10</text>
         </g>
       </svg>
-      <figcaption><b>Fig 1 — plan, deck off</b>The end rails are the outboard pair and set the 46". Everything else is fitted between them. The front bottom rail sits directly under the front top rail, so it's hidden in this view. The back blocks are dashed because they sit low, behind it. The rear legs are dashed because they stand under the rear rail's ends.</figcaption>
+      <figcaption><b>Fig 1 — plan, deck off</b>The end rails are the outboard pair and set the 46". Everything else is fitted between them. The front bottom rail sits directly under the front top rail, so it's hidden in this view. The back blocks are dashed because they sit low, behind it. The rear legs are dashed because they stand under the rear rail's ends. The side braces run directly under the side rails, 12½" off the floor, so they're hidden too. Their blocks are dashed at the wall's two ends.</figcaption>
     </figure>
   </div>
 
@@ -349,6 +361,7 @@ footer p{max-width:72ch; margin:0 0 6px}
       <li><span class="n">7</span><span class="d"><b>Deck cleats — ¾ × ¾"</b>, already ripped. <span>Front 36¼" between the legs, rear 38⅞", sides 28⅝". Tops ¾" below the rail top, stopping 2⅛" short of each corner.</span></span></li>
       <li><span class="n">8</span><span class="d"><b>Corner bracket ×4 — 2" stainless L</b>. <span>Inside each corner, top edge ¾" below the rail top, level with the cleats, so the deck's corners rest on them.</span></span></li>
       <li><span class="n">9</span><span class="d"><b>Back block ×3 — 6" of 2×2</b>, from offcuts <span>(dashed). Behind the bottom rail, between the legs, flush with the legs' back faces. The wall's bottom edge screws to them.</span></span></li>
+      <li><span class="n">10</span><span class="d"><b>Side brace ×2 — 29½", block ×2 — 4⅞"</b>, 2×2 <span>(hidden, dashed). Each brace runs under its side rail from the rear leg's forward face to a block on the wall's fridge face, bottom 12½" off the floor (Section F).</span></span></li>
     </ol>
   </div>
 </section>
@@ -416,6 +429,10 @@ footer p{max-width:72ch; margin:0 0 6px}
         <rect class="clt" x="297" y="213.7" width="66" height="15.8" opacity=".5"/>
         <rect class="clt" x="396" y="213.7" width="66" height="15.8" opacity=".5"/>
         <rect class="dash" x="521.4" y="81" width="55" height="121"/>
+        <!-- side-brace blocks, on this face, 12–13-7/16" up from the wall's bottom edge -->
+        <rect class="ply" x="77" y="87.2" width="53.6" height="15.8"/>
+        <rect class="ply" x="529.4" y="87.2" width="53.6" height="15.8"/>
+        <text class="t-sm" x="136" y="99">brace block</text>
         <!-- fan -->
         <circle class="hole" cx="199.2" cy="138.2" r="26.1"/>
         <path class="thin" d="M168 138.2 H230 M199.2 107 V169"/>
@@ -451,7 +468,7 @@ footer p{max-width:72ch; margin:0 0 6px}
         <text class="t-dim" x="36" y="142" text-anchor="middle" transform="rotate(-90 36 142)">17"</text>
         <text class="t-sm" x="77" y="290">1" grommet: 2¼" over, 4" up · ○ = screw, 7 total</text>
       </svg>
-      <figcaption><b>Fig 3 — front wall, from the fridge side</b>Driver on the left, the same view as the plan's flat-pattern render. Every height is from the wall's own bottom edge. Screws: 2 into each leg at 4⅛" from each end, about 6" and 13" up, and 1 into each block about 1¼" up, clear of the block's own screws near its ends. Drive them from this side, before the deck goes on.</figcaption>
+      <figcaption><b>Fig 3 — front wall, from the fridge side</b>Driver on the left, the same view as the plan's flat-pattern render. Every height is from the wall's own bottom edge. Screws: 2 into each leg at 4⅛" from each end, about 6" and 13" up, and 1 into each block about 1¼" up, clear of the block's own screws near its ends. Drive them from this side, before the deck goes on. The two side-brace blocks (Section F) go on this face at the wall's ends, 12" up from its bottom edge, over the upper leg screws. Those heads have to be flush.</figcaption>
     </figure>
   </div>
 </section>
@@ -518,7 +535,226 @@ footer p{max-width:72ch; margin:0 0 6px}
 </section>
 
 <section>
-  <div class="sec-h"><span class="n">F</span><h2>Cut list</h2><span class="aside">2×2 stock measured at 1-7/16"</span></div>
+  <div class="sec-h"><span class="n">F</span><h2>Side braces</h2><span class="aside">rear leg → wall block, both sides · to scale</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 800 420" role="img" aria-label="Driver side of Panel C seen from outboard, Panel B to the left and the tailgate to the right: the side rail along the top, the 16-inch rear leg under the rear rail, the front leg set in behind the half-inch wall, and the new 29-and-a-half-inch side brace from the rear leg's forward face to the end of a block on the wall, its bottom 12 and a half inches off the floor, with the fridge on its tray, the slide riser, the eye bolt and the anchor strip drawn beyond and below it">
+        <path class="ln" d="M40 350 H700"/>
+        <!-- beyond: fridge, slide hardware, anchor strip -->
+        <rect class="dash" x="205.2" y="100" width="431" height="244.4"/>
+        <rect class="dash" x="238.75" y="306.9" width="360" height="30"/>
+        <rect class="slide" x="238.75" y="334.1" width="360" height="2.8"/>
+        <rect class="cav" x="253.75" y="336.9" width="337.5" height="11.2"/>
+        <path class="ln" d="M246.25 345 V304" stroke-width="2.4"/>
+        <circle class="ring" cx="246.25" cy="354" r="3.5"/>
+        <path class="dash" d="M100 346 H246.25"/>
+        <!-- wall end: bottom rail, front leg, end rail, wall -->
+        <rect class="ply" x="100" y="313.4" width="21.56" height="21.6"/>
+        <rect class="cav" x="121.56" y="73.4" width="21.56" height="261.6"/>
+        <rect class="blk" x="127.3" y="335" width="10" height="15"/>
+        <rect class="ply" x="100" y="73.4" width="21.56" height="21.6"/>
+        <rect class="unit" x="143.13" y="87.5" width="7.5" height="255"/>
+        <!-- side rail, rear corner -->
+        <rect class="ply" x="121.56" y="73.4" width="493.13" height="21.6"/>
+        <rect class="ply" x="614.69" y="73.4" width="21.56" height="21.6"/>
+        <rect class="ply" x="614.69" y="95" width="21.56" height="240"/>
+        <rect class="blk" x="620.4" y="335" width="10" height="15"/>
+        <rect class="slide" x="612.2" y="95" width="2.5" height="30"/>
+        <!-- block end + brace, and the 3" SPAX into each end (drawn inside the wood) -->
+        <rect class="ply" x="150.63" y="140.9" width="21.56" height="21.6"/>
+        <rect class="ply" x="172.19" y="140.9" width="442.5" height="21.6" style="stroke-width:2.6"/>
+        <path class="ln" d="M143.13 145.6 H188.13 M143.13 153.1 H188.13 M636.25 145.6 H591.25 M636.25 153.1 H591.25" stroke-width="2.2"/>
+
+        <text class="t-sm" x="100" y="24">← PANEL B</text>
+        <text class="t-sm" x="636" y="24" text-anchor="end">TAILGATE →</text>
+        <text class="t-sm" x="368" y="88" text-anchor="middle">side rail, 32⅞" (built)</text>
+        <text class="t-lab" x="393" y="156" text-anchor="middle">SIDE BRACE — 29½", NEW</text>
+        <path class="thin" d="M161 140.9 V54"/>
+        <text class="t-sm" x="166" y="50">block, 4⅞" across, on the wall's fridge face</text>
+        <text class="t-sm" x="135.5" y="230" text-anchor="middle" transform="rotate(-90 135.5 230)">FRONT LEG, 3-7/16" IN</text>
+        <text class="t-sm" x="629.5" y="230" text-anchor="middle" transform="rotate(-90 629.5 230)">REAR LEG, 16"</text>
+        <text class="t-sm" x="156" y="296">wall</text>
+        <text class="t-sm" x="94" y="328" text-anchor="end">bottom rail</text>
+        <text class="t-sm" x="94" y="88" text-anchor="end">end rail</text>
+        <text class="t-lab" x="420" y="230" text-anchor="middle">FRIDGE ON ITS TRAY, BEYOND</text>
+        <text class="t-sm" x="420" y="246" text-anchor="middle">closed: 28.74" from the hatch, top 16.67"</text>
+        <text class="t-sm" x="420" y="300" text-anchor="middle">slide riser + rail, under 3"</text>
+        <text class="t-sm" x="252" y="300">H1 eye bolt</text>
+        <text class="t-sm" x="420" y="346" text-anchor="middle">anchor strip</text>
+        <text class="t-sm" x="158" y="374">side trim from 26" forward: 2" tall at most</text>
+        <text class="t-sm" x="604" y="135" text-anchor="end">L-bracket, 15–17"</text>
+
+        <!-- dims -->
+        <path class="thin" d="M172.19 138 V112 M614.69 138 V112 M172.19 118 H614.69"/>
+        <text class="t-dim" x="393" y="113" text-anchor="middle">29½" — rear leg to block</text>
+        <path class="thin" d="M150.63 354 V406 M636.25 354 V406 M150.63 400 H636.25"/>
+        <text class="t-dim" x="393" y="394" text-anchor="middle">32⅜" — hatch to the wall's fridge face</text>
+        <path class="thin" d="M640 72.5 H652 M640 95 H652 M640 140.9 H652 M640 162.5 H652 M640 335 H652"/>
+        <text class="t-dim" x="656" y="76">18½ deck</text>
+        <text class="t-dim" x="656" y="99">17 rail underside</text>
+        <text class="t-dim" x="656" y="144">13-15/16 top</text>
+        <text class="t-dim" x="656" y="166">12½ brace bottom</text>
+        <text class="t-dim" x="656" y="339">1 leg bottom</text>
+      </svg>
+      <figcaption><b>Fig 6 — driver side, from outboard</b>Heights in inches from the van floor, feet at 1". The passenger side is the mirror image. The brace sits in the rear leg's 1-7/16" band, flush with the side rail's outside face above it, so the fridge (dashed, beyond) slides past its inboard face. Each end takes 2 × 3" SPAX into the brace's end grain, drawn inside the wood: at the rear through the leg from its tailgate face, at the front from the Panel B side through the wall's end and the block. The wall's end covers the band just past the block, which is why the brace can't continue to the bottom crossbar.</figcaption>
+    </figure>
+  </div>
+  <div class="figs two" style="margin-top:26px">
+    <figure>
+      <svg viewBox="0 0 520 300" role="img" aria-label="Plan of the driver front corner cut at brace height, Panel B at the top: the front leg, the half-inch wall behind it, a 4-and-7/8-inch block on the wall's fridge face running from the panel edge to the leg's inboard face, the brace butting the block's back face under the side rail, two 3-inch screws through the leg and wall into the block, two 1-and-a-quarter-inch screws through the wall, two 3-inch screws through the wall's end and the block into the brace, and the closed fridge about 2 and a quarter inches behind the block">
+        <rect class="dash" x="60" y="40" width="210" height="43.1"/>
+        <rect class="dash" x="60" y="83.1" width="43.1" height="204.4"/>
+        <rect class="blk" x="163.1" y="83.1" width="43.1" height="43.1"/>
+        <rect class="unit" x="60" y="126.25" width="210" height="15"/>
+        <rect class="ply" x="60" y="141.25" width="146.25" height="43.1"/>
+        <rect class="ply" x="60" y="184.4" width="43.1" height="103.1" style="stroke-width:2.6"/>
+        <rect class="dash" x="135" y="250.3" width="135" height="37.2"/>
+        <path class="brk" d="M270 36 l-5 8 l10 8 l-5 8"/>
+        <path class="brk" d="M56 291 l8 -6 l8 6 l8 -6 l8 6 l8 -6"/>
+        <!-- screws -->
+        <path class="ln" d="M172.5 83.1 V173.1 M195 83.1 V173.1" stroke-width="2.4"/>
+        <path class="ln" d="M120 126.25 V163.75 M146.25 126.25 V163.75" stroke-width="2.4"/>
+        <path class="ln" d="M82.5 126.25 V216.25" stroke-width="2.4"/>
+
+        <path class="thin" d="M60 36 V20 M206.25 36 V20 M60 26 H206.25"/>
+        <text class="t-dim" x="133" y="18" text-anchor="middle">4⅞"</text>
+        <text class="t-sm" x="165" y="66" text-anchor="middle">FRONT END RAIL — above</text>
+        <text class="t-sm" x="214" y="108">FRONT LEG</text>
+        <text class="t-sm" x="278" y="137">FRONT WALL, ½"</text>
+        <text class="t-sm" x="108" y="200">BLOCK</text>
+        <text class="t-sm" x="98" y="240" text-anchor="middle" transform="rotate(-90 98 240)">SIDE BRACE</text>
+        <text class="t-sm" x="48" y="185" text-anchor="middle" transform="rotate(-90 48 185)">side rail above; brace under it</text>
+        <text class="t-sm" x="142" y="276">fridge, closed</text>
+        <path class="thin" d="M216 184.4 H228 M216 250.3 H228 M222 184.4 V250.3"/>
+        <text class="t-dim" x="230" y="222">2¼"</text>
+        <path class="thin" d="M200 160 L286 168"/>
+        <text class="t-sm" x="290" y="172">2 × 3" SPAX from the Panel B side,</text>
+        <text class="t-sm" x="290" y="186">through leg + wall into the block</text>
+        <path class="thin" d="M146.25 152 L286 208"/>
+        <text class="t-sm" x="290" y="212">2 × 1¼" through the wall's end</text>
+        <path class="thin" d="M82.5 205 L286 240"/>
+        <text class="t-sm" x="290" y="244">2 × 3" SPAX from the Panel B side,</text>
+        <text class="t-sm" x="290" y="258">wall's end + block into the brace</text>
+      </svg>
+      <figcaption><b>Fig 7 — front corner, cut at 13", from above</b>Panel B at the top, driver edge on the left, about 1:2.5. The leg's back face is covered by the wall, so the block on the wall's fridge face picks up the brace and the screws reach it through the leg. The brace's own 2 screws come straight through the wall's end and the block, outboard of the leg, where the Panel B side is open. The 3" screws go ⅜" in from each side of the leg and ⅜" up from the block's bottom, below the wall screw already in the leg. The passenger corner is the mirror image.</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 470 446" role="img" aria-label="Section looking forward through the passenger side about 10 inches from the hatch: the kitchen unit's lid at about 11 and 7/8 inches, the rear strap over the lid and down its side to the footman loop on the passenger strip, the kitchen drawer and its cheek hung from the deck, and the brace in the band beside them with its bottom at 12 and a half inches, half an inch over the strap and three quarters of an inch outboard of the cheek">
+        <path class="ln" d="M40 420 H300"/>
+        <rect class="cav" x="210" y="402.5" width="30" height="15"/>
+        <rect class="unit" x="60" y="182.5" width="150" height="231.25"/>
+        <path class="brk" d="M60 290 l-5 6 l10 6 l-5 6"/>
+        <rect class="dash" x="60" y="83.75" width="116.25" height="90"/>
+        <rect class="ply" x="186.25" y="65" width="10" height="108.75"/>
+        <rect class="ply" x="60" y="50" width="151.25" height="15"/>
+        <rect class="clt" x="196.25" y="65" width="15" height="15"/>
+        <rect class="ply" x="211.25" y="50" width="28.75" height="28.75"/>
+        <rect class="ply" x="211.25" y="141.25" width="28.75" height="28.75" style="stroke-width:2.6"/>
+        <path class="ring" d="M217 402.5 v-5 a8 6 0 0 1 16 0 v5"/>
+        <path class="strapln" d="M225 397 C222 390 211 388 211 375 V181 H60"/>
+
+        <text class="t-lab" x="135" y="300" text-anchor="middle">KITCHEN UNIT</text>
+        <text class="t-sm" x="66" y="202">lid ~11⅞" on the rungs</text>
+        <text class="t-sm" x="118" y="130" text-anchor="middle">DRAWER (built)</text>
+        <path class="thin" d="M244 50 H256 M244 80 H256 M244 170 H256 M244 402.5 H256"/>
+        <text class="t-dim" x="262" y="54">18½ deck · side rail</text>
+        <text class="t-dim" x="262" y="84">17 rail underside</text>
+        <path class="thin" d="M196.25 112 H258"/>
+        <text class="t-sm" x="262" y="116">drawer cheek, ¾" clear</text>
+        <text class="t-lab" x="262" y="158">← SIDE BRACE</text>
+        <text class="t-dim" x="262" y="174">12½ brace bottom</text>
+        <text class="t-sm" x="262" y="194">≥ ½" over the strap</text>
+        <path class="thin" d="M212 300 H258"/>
+        <text class="t-sm" x="262" y="304">rear kitchen strap</text>
+        <path class="thin" d="M233 398 L258 388"/>
+        <text class="t-sm" x="262" y="388">footman loop</text>
+        <text class="t-dim" x="262" y="406">⅞ passenger strip</text>
+        <text class="t-sm" x="262" y="437">floor (folded seat)</text>
+      </svg>
+      <figcaption><b>Fig 8 — passenger side, looking forward</b>Cut about 10" from the hatch, through the footman loop, about 1:5. The rear strap climbs the 1-7/16" band beside the kitchen unit, which is why the brace can't sit lower here. If the unit turns out to sit straight on the seat rather than on the rungs, its lid is 11.55" and the gap only gets bigger. The drawer's outer cheek hangs inboard of the side cleat, ¾" from the brace.</figcaption>
+    </figure>
+  </div>
+  <div class="figs" style="margin-top:26px">
+    <figure>
+      <svg viewBox="0 0 520 270" style="max-width:720px; margin:0 auto" role="img" aria-label="The driver end of the wall seen from the fridge side at about half full size: the 4-and-7/8-inch block glued across the wall's fridge face from 12 and a half to 13-15/16 inches off the floor, the brace's end butting it at the wall's end, the front leg dashed behind the wall, two 1-and-a-quarter-inch wall screws at 2 and 2-7/8 inches, two 3-inch screws at 3-3/4 and 4-1/2 inches coming through the leg, and the existing wall screw at 13 and a half inches under the block">
+        <rect class="unit" x="60" y="60" width="240" height="160"/>
+        <path class="brk" d="M300 56 l-5 8 l10 8 l-5 8"/>
+        <rect class="dash" x="197.5" y="60" width="57.5" height="160"/>
+        <rect class="ply" x="60" y="102.5" width="195" height="57.5"/>
+        <rect class="ply" x="60" y="102.5" width="57.5" height="57.5" style="stroke-width:2.6"/>
+        <path class="thin" d="M60 160 L117.5 102.5 M60 131 L88.5 102.5 M88.5 160 L117.5 131"/>
+        <!-- screws: 1¼ through the wall, 3 through the leg, the old leg screw -->
+        <circle class="dash" cx="140" cy="130" r="4.5"/>
+        <circle class="dash" cx="175" cy="130" r="4.5"/>
+        <circle class="dash" cx="210" cy="145" r="4.5"/>
+        <circle class="dash" cx="240" cy="145" r="4.5"/>
+        <circle class="dash" cx="225" cy="120" r="4.5"/>
+        <circle class="ring" cx="90" cy="115" r="4.5"/>
+        <circle class="ring" cx="90" cy="135" r="4.5"/>
+
+        <text class="t-sm" x="60" y="48">DRIVER EDGE (wall's end)</text>
+        <text class="t-sm" x="66" y="84">WALL, fridge face</text>
+        <text class="t-sm" x="125" y="156">BLOCK</text>
+        <path class="thin" d="M88.5 160 V184"/>
+        <text class="t-sm" x="60" y="196">brace end</text>
+        <text class="t-sm" x="262" y="214">leg</text>
+        <path class="thin" d="M60 224 V244 M90 224 V244 M140 224 V244 M175 224 V244 M210 224 V244 M240 224 V244 M60 238 H240"/>
+        <text class="t-dim" x="90" y="258" text-anchor="middle">¾</text>
+        <text class="t-dim" x="140" y="258" text-anchor="middle">2</text>
+        <text class="t-dim" x="175" y="258" text-anchor="middle">2⅞</text>
+        <text class="t-dim" x="210" y="258" text-anchor="middle">3¾</text>
+        <text class="t-dim" x="240" y="258" text-anchor="middle">4½</text>
+        <path class="thin" d="M258 102.5 H310 M232 120 H310 M246 145 H310 M258 160 H310"/>
+        <text class="t-dim" x="314" y="106">13-15/16 block top</text>
+        <text class="t-dim" x="314" y="124">13½ old leg screw</text>
+        <text class="t-dim" x="314" y="149">12⅞ 3" screws</text>
+        <text class="t-dim" x="314" y="164">12½ block bottom</text>
+        <text class="t-sm" x="330" y="190">○ brace's 2 × 3" SPAX (in it), ¾"</text>
+        <text class="t-sm" x="330" y="204">  over, 13⅛" and 13⅝" up</text>
+        <text class="t-sm" x="330" y="218">◌ hidden: 1¼" at 13¼", 3" at</text>
+        <text class="t-sm" x="330" y="232">  12⅞", old screw under block</text>
+      </svg>
+      <figcaption><b>Fig 9 — the joint, from the fridge side</b>Driver end, about ½ full size, every dimension from the wall's end or the floor. The brace's end covers the block's first 1-7/16". Its two 3" SPAX (○) are driven from the Panel B side, ¾" from the wall's end, through the wall and the block and 1-1/16" into the brace's end. The 1¼" wall screws stay at 2" and 2⅞", clear of them. The 3" screws come through the leg from the Panel B side and stop ⅜" short of the block's back face. The passenger end is the mirror image.</figcaption>
+    </figure>
+  </div>
+  <div class="figs" style="margin-top:26px">
+    <figure>
+      <svg viewBox="0 0 540 260" style="max-width:720px; margin:0 auto" role="img" aria-label="Section along the brace, cut through its middle and looking inboard, Panel B on the left: the front leg dashed beyond, the half-inch wall, the 1-7/16-inch block on the wall's fridge face, and the brace butting the block's back face, with two 3-inch SPAX driven from the Panel B side through the wall and block into the brace's end, the 3-inch and 1-and-a-quarter-inch screws dashed beyond, and the old wall screw into the leg">
+        <rect class="dash" x="97.5" y="60" width="57.5" height="160"/>
+        <rect class="unit" x="155" y="60" width="20" height="160"/>
+        <rect class="ply" x="175" y="102.5" width="57.5" height="57.5"/>
+        <rect class="ply" x="232.5" y="102.5" width="147.5" height="57.5" style="stroke-width:2.6"/>
+        <path class="brk" d="M380 98 l-5 8 l10 8 l-5 8 l10 8 l-5 8 l10 8 l-5 8"/>
+        <path class="brk" d="M150 56 l8 6 l8 -6 l8 6 l8 -6 M150 224 l8 6 l8 -6 l8 6 l8 -6"/>
+        <!-- the brace's 3" SPAX: wall face -> through wall + block -> into the brace's end -->
+        <path class="ln" d="M155 115 H275 M155 135 H275" stroke-width="2.4"/>
+        <!-- beyond: 3" through leg + wall, 1¼" through wall, old screw into leg -->
+        <path class="dash" d="M97.5 145 H217.5 M155 130 H205 M175 120 H125"/>
+
+        <text class="t-sm" x="40" y="40">← PANEL B</text>
+        <text class="t-sm" x="126" y="240" text-anchor="middle">leg, beyond</text>
+        <text class="t-sm" x="165" y="46" text-anchor="middle">wall ½"</text>
+        <text class="t-sm" x="204" y="178" text-anchor="middle">block</text>
+        <text class="t-lab" x="318" y="96" text-anchor="middle">BRACE</text>
+        <path class="thin" d="M175 184 V214 M232.5 166 V214 M175 208 H232.5"/>
+        <text class="t-dim" x="204" y="242" text-anchor="middle">1-7/16</text>
+        <path class="thin" d="M272 114 L262 68"/>
+        <text class="t-sm" x="234" y="62">3" SPAX tips, 1-1/16" into the brace's end</text>
+        <path class="thin" d="M384 102.5 H398 M384 115 H398 M384 135 H398 M384 160 H398"/>
+        <text class="t-dim" x="402" y="106">13-15/16</text>
+        <text class="t-dim" x="402" y="119">13⅝ screw</text>
+        <text class="t-dim" x="402" y="139">13⅛ screw</text>
+        <text class="t-dim" x="402" y="164">12½</text>
+        <text class="t-sm" x="236" y="186">driven from the Panel B side,</text>
+        <text class="t-sm" x="236" y="200">glue on the brace's end</text>
+      </svg>
+      <figcaption><b>Fig 10 — section along the brace, looking inboard</b>Cut through the brace's middle, about ½ full size, Panel B on the left as in Fig 6. The brace's two 3" SPAX run straight in from the wall's Panel B face, ¾" from its end: ½" of wall, 1-7/16" of block, then 1-1/16" into the brace's end grain. The rear end is the same with the leg in place of the wall and block: 1-7/16" of leg, 1-9/16" into the brace. Everything dashed is inboard of the cut: the leg, the 3" screws through it into the block, the 1¼" wall screws, and the old screw from the fridge side into the leg, whose head the block now covers.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">G</span><h2>Cut list</h2><span class="aside">2×2 stock measured at 1-7/16"</span></div>
   <div class="tw">
     <table>
       <thead><tr><th>Piece</th><th class="num">Qty</th><th class="num">Length</th><th>Notes</th></tr></thead>
@@ -531,6 +767,8 @@ footer p{max-width:72ch; margin:0 0 6px}
         <tr><td>Deck, ¾" birch</td><td class="num">1</td><td class="num">33 × 43"</td><td class="ok">Done: trimmed, notched, screwed down.</td></tr>
         <tr><td>Front wall, ½" ply</td><td class="num">1</td><td class="num">46 × 17"</td><td class="ok">Done: holes cut, hung.</td></tr>
         <tr><td>Deck cleats, ¾ × ¾"</td><td class="num">4</td><td class="num">36¼ · 38⅞ · 28⅝ × 2</td><td class="ok">Done: fitted.</td></tr>
+        <tr><td>Side brace</td><td class="num">2</td><td class="num">29½"</td><td>To cut. <span class="note">Cut each to the gap you measure at 12½", from the rear leg's forward face to its block (Fig 6).</span></td></tr>
+        <tr><td>Brace block</td><td class="num">2</td><td class="num">4⅞"</td><td>To cut, from an offcut. <span class="note">From the wall's end to the front leg's inboard face (Fig 7).</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -541,24 +779,25 @@ footer p{max-width:72ch; margin:0 0 6px}
       <tbody>
         <tr><td>1</td><td>46" + 46" <span class="note">end rails</span></td><td class="num">92"</td><td>Now, off a stop block</td></tr>
         <tr><td>2</td><td>46" + 33⅛" <span class="note">bottom rail + one side rail, rough</span></td><td class="num">~79¼"</td><td>Trim the side rail at step 01</td></tr>
-        <tr><td>3</td><td>33⅛" <span class="note">the other side rail, rough</span></td><td class="num">~33"</td><td>About 63" left over for a recut</td></tr>
+        <tr><td>3</td><td>33⅛" <span class="note">the other side rail, rough</span></td><td class="num">~33"</td><td>About 63" left over: both side braces (59") come out of it</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
 <section>
-  <div class="sec-h"><span class="n">G</span><h2>Hardware</h2><span class="aside">Panel C only</span></div>
+  <div class="sec-h"><span class="n">H</span><h2>Hardware</h2><span class="aside">Panel C only</span></div>
   <div class="tw">
     <table>
       <thead><tr><th>Item</th><th class="num">Qty</th><th>Where</th></tr></thead>
       <tbody>
         <tr><td>SPAX #8 × 2½" Torx</td><td class="num">26</td><td>8 corners · 4 front-leg laps · 4 down into the rear legs · 4 bottom rail · 6 back blocks</td></tr>
         <tr><td>2" stainless L-bracket</td><td class="num">6</td><td>4 ring corners + 2 rear legs. <span class="note">A, B and C's corners use 12 of the 16 bought, and the rear legs take 2 of the 4 spares.</span></td></tr>
-        <tr><td>Everbilt #8 × 1¼" flat head</td><td class="num">~50</td><td class="tight">7 wall · ~22 cleats at 6" · ~20 deck at 8". The first box went to brackets and braces, so plan on a second 100-ct box.</td></tr>
+        <tr><td>Everbilt #8 × 1¼" flat head</td><td class="num">~54</td><td class="tight">7 wall · ~22 cleats at 6" · ~20 deck at 8" · 4 brace blocks. The first box went to brackets and braces, so plan on a second 100-ct box.</td></tr>
         <tr><td>3" snap-in soffit vent</td><td class="num">3</td><td>From the 4-pack you have (Flag 2)</td></tr>
         <tr><td>1" grommet</td><td class="num">1</td><td>Fridge DC line, from the EASYEAH pack</td></tr>
-        <tr><td>Wood glue</td><td class="num">—</td><td>Every wood-to-wood joint, the cleats and the back blocks</td></tr>
+        <tr><td>SPAX #9 × 3" Torx</td><td class="num">12</td><td class="tight">To buy, a small box. 4 for the brace blocks through the front legs and the wall, 8 for the braces: 2 into each end (Figs 7, 9, 10).</td></tr>
+        <tr><td>Wood glue</td><td class="num">—</td><td>Every wood-to-wood joint, the cleats, the back blocks and the side braces</td></tr>
         <tr><td>Black non-slip mat</td><td class="num">14¼ × 43"</td><td>Pantry end of the deck, cut around the cleats and D-rings</td></tr>
         <tr><td>VELCRO Extreme Outdoor, 1" × 10 ft</td><td class="num">2 rolls</td><td class="tight">To buy, about $11 a roll: heat-rated adhesive. ~115" of edge loop, hook on the mat and loop on the deck. <a href="https://www.amazon.com/VELCRO-Brand-Extreme-Outdoor-Titanium/dp/B005756516">Amazon</a></td></tr>
       </tbody>
@@ -567,7 +806,7 @@ footer p{max-width:72ch; margin:0 0 6px}
 </section>
 
 <section>
-  <div class="sec-h"><span class="n">H</span><h2>Build order</h2><span class="aside">same bench method as A and B</span></div>
+  <div class="sec-h"><span class="n">I</span><h2>Build order</h2><span class="aside">same bench method as A and B</span></div>
   <div class="steps">
     <div class="step done"><div class="sn"></div><div class="sb">
       <span class="hold done">Done</span>
@@ -617,6 +856,12 @@ footer p{max-width:72ch; margin:0 0 6px}
       <p>Measure the opening and trim the deck 1/16" under it. Drop it in, mark the two front legs off the real thing, lift it out and cut the 1½" notches (Fig 5). Drop it back in. It should be flush with the rail tops all round. Screw it into the cleats every 8", countersunk flush, because the mattress lies on it.</p>
     </div></div>
     <div class="step"><div class="sn"></div><div class="sb">
+      <h3>Side braces, 12½" off the floor</h3>
+      <p>Work with Panel C standing on its feet at 1" on a flat floor. Don't tip it onto its rear legs to reach in.</p>
+      <p><b>Blocks first.</b> Glue a 4⅞" block to the wall's fridge face at each end, its outer end flush with the wall's end and its bottom edge 12" above the wall's bottom edge, which is 12½" off the floor. It covers the upper wall screw in each leg, about 13" up. That head has to be countersunk flush. If it stands proud, relieve the block over it. From the Panel B side, drive 2 × 3" SPAX through the leg's front face and the wall into the block, ⅜" up from the block's bottom and ⅜" in from each side of the leg. Then drive 2 × 1¼" through the wall into the block at 2" and 2⅞" from the wall's end, 13¼" off the floor, clear of where the brace's own screws will go (Figs 7 and 9).</p>
+      <p><b>Then the braces.</b> Measure each gap at 12½", rear leg's forward face to the block, about 29½", and cut to it. Glue both ends, set the rear end on a 12½" spacer (the block sets the front), keep the brace flush with the side rail's outside face above it, and clamp it. At the rear, pilot and drive 2 × 3" SPAX through the leg's tailgate face into the brace's end. At the front, from the Panel B side, pilot and drive 2 × 3" SPAX through the wall's end and the block into the brace's end. Both pairs go ¾" in from the outside face, at 13⅛" and 13⅝" off the floor (Figs 9 and 10). These go into end grain, so the glue matters: let it cure before the panel moves. Nothing goes into the inboard face, because the fridge and kitchen slide past it.</p>
+    </div></div>
+    <div class="step"><div class="sn"></div><div class="sb">
       <h3>Set the height against A and B</h3>
       <p>In the van, or on a flat floor beside them: Panel C's deck at 18½", the rear feet 1/16" further out than the front. Bring A and B up to meet it, not C down to meet them (Flag 4). The rear rail's underside sets anywhere from 17" to 17¾", and all of that clears the fridge on its tray. Never set it below 17". The bare fridge already slides under it. Check again once the slide tray is built.</p>
     </div></div>
@@ -630,7 +875,7 @@ footer p{max-width:72ch; margin:0 0 6px}
 
 <footer>
   <p>Geometry from <code>params.scad</code> (<code>panel_c_length</code>, <code>leg_inset</code>, <code>leg_lap</code>, <code>pcwall_*</code>, <code>intake_*</code>, the fridge stack) and <code>platform.scad</code>'s <code>module_frame</code> and front-wall placement, with lengths set to the measured 1-7/16" stock per Section 3, and Panels A and B as built for method.</p>
-  <p>Where the model and this sheet differ: <code>module_frame</code> draws the front bottom rail as a 39" piece on the legs' own line, which passes through the legs. The cut list's 46" and A/B as built put it across the legs' outer faces, and this sheet follows the build. The plan's front-wall render matches Fig 3.</p>
+  <p>Where the model and this sheet differ: <code>module_frame</code> draws the front bottom rail as a 39" piece on the legs' own line, which passes through the legs. The cut list's 46" and A/B as built put it across the legs' outer faces, and this sheet follows the build. The plan's front-wall render matches Fig 3. The side braces and their blocks (Section F, added 24 Oct) are in the model as <code>pc_brace_*</code>, drawn at 1½" stock (29¼" and 5"); this sheet sizes them to the measured 1-7/16" (29½" and 4⅞").</p>
 </footer>
 
 </div>

@@ -216,6 +216,17 @@ module panel_module(length, width, y_offset, wireframe = false, has_kitchen_frid
         color("Tan", 0.9)
             translate([-width/2, y_offset + frame_rail_sz + leg_lap, 0])
                 bx(width, pcwall_t, leg_height, wireframe);
+        // SIDE BRACES (Oct 2026, params.scad): one per side in the rear
+        // legs' outer band, rear leg -> a block on the wall's fridge face
+        color("SaddleBrown")
+            for (sx = [-1, 1]) {
+                translate([sx < 0 ? -width/2 : width/2 - pc_brace_block_len,
+                           y_offset + frame_rail_sz + leg_lap + pcwall_t, pc_brace_z])
+                    bx(pc_brace_block_len, frame_rail_sz, frame_rail_sz, wireframe);
+                translate([sx < 0 ? -width/2 : width/2 - frame_rail_sz,
+                           y_offset + pc_brace_y0, pc_brace_z])
+                    bx(frame_rail_sz, pc_brace_len, frame_rail_sz, wireframe);
+            }
         fridge_bay_module(y_offset, wireframe, x_fridge_module, length);
         kitchen_box_module(y_offset, wireframe, x_kitchen, length);
         anchor_board_module(y_offset, length, wireframe);

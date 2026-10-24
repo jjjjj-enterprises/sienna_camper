@@ -89,6 +89,8 @@ module drawing() {
     label("bare-frame deep storage", y_b + panel_b_length/2, leg_height_ab/2, 1.5);
     // Panel C deck — recessed between its rails, flush with the rail tops
     translate([y_c + frame_rail_sz, z_rail_top - panel_thickness]) rect_outline(panel_c_length - 2 * frame_rail_sz, panel_thickness);
+    // Panel C side brace (Oct 2026): outermost, so it's what this door sees first
+    translate([y_c + pc_brace_y0, pc_brace_z]) rect_outline(pc_brace_len, frame_rail_sz);
 
     // ---- under-deck contents facing THIS side ----
     // Panel A item

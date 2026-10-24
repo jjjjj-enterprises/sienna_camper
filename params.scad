@@ -407,6 +407,8 @@ function leg_y_lap(inset)   = leg_is_lapped(inset) ? leg_lap : 0;
 // stay open — the drawer and WAVE 3 exit there at floor level);
 // Panel B gets ALL 4 (nothing exits it sideways — the full cube);
 // Panel C gets its FRONT face only (the appliances slide out the
+// [+ Oct 2026: two raised SIDE BRACES instead of side bottom rails —
+//  see the Panel C side-brace block below the kitchen drawer]
 // tailgate at floor level, and their bays occupy both sides' floor
 // runs). The existing diagonal corner braces stay on top.
 bottom_rail_z  = 1;     // underside of the bottom rails — dropped to the leg bottoms (owner, July 2026): as low as they go without hitting the leveling feet (0-1in) below, giving the tallest box section (marginally stiffer) and the lowest floor-edge curb. Leaves room at the corners to get a wrench onto the feet's hex collars.
@@ -737,7 +739,7 @@ fridge_rail_stack   = fridge_rail_t + fridge_riser_t; // 1.0 per side, OUTBOARD 
 // THE ANCHORS: the 3rd-row seats' four latch hoops (H1-H4), in the headrest
 // trough beyond the folded-seat surface. A forged 1/4-20 eye bolt hangs
 // down through each fridge riser's front end; a short 1/4in chain (quick
-// link at the eye, anchor shackle at the hoop) runs forward and down to H1
+// link at the eye; the chain wraps the hoop's 5/8in bar and a 2nd quick link closes it) runs forward and down to H1
 // (driver riser) and H2 (kitchen riser), tightened by the eye bolt's nut —
 // the ~5in run is too short for any ratchet strap. The kitchen unit's front strap
 // goes down to H2 and H4; its rear strap to two footman loops on the board.
@@ -769,7 +771,7 @@ aboard_seat_solid = 24.75; // folded-seat surface is solid to here from the hatc
 aboard_trim_y     = 26;    // from here forward the side trim narrows the space ...
 aboard_trim_in    = 2;     // ... to 42in: 2in in from each 46in line
 aboard_hoop_y     = 28;    // seat-latch hoops, from the hatch
-aboard_hoop_drop  = 2.75;  // hoops sit this far below the folded-seat surface
+aboard_hoop_drop  = 1.875; // seat top -> top of the hoop bar, seat LOADED (owner, Oct 24 2026; 2-3/8 unloaded, the Oct 18 survey's 2-3/4 superseded) — the chains are tensioned loaded
 aboard_hoop_w     = 3;     // each hoop's width
 aboard_hoops_x    = [4.75, 24.75, 31.25, 41.75]; // H1-H4 centers, from the driver line
 // fridge slide risers (steel angle) on the driver + middle strips
@@ -986,6 +988,29 @@ assert(kdrawer_span + 2 * kdrawer_cheek_t <= kitchen_box_width,
 assert(kdrawer_z0 + kdrawer_box_h <= leg_height,
        str("Kitchen drawer top (", kdrawer_z0 + kdrawer_box_h,
            "in) must clear under Panel C's tailgate-face rail (", leg_height, "in)"));
+
+/* [Panel C side braces — owner, Oct 24 2026] */
+// Nothing tied Panel C's butt-under rear corner legs to the front of the
+// panel below the deck (one broke when the panel was tipped to hang the
+// kitchen drawer). Each side gets a 2x2 brace in the rear legs' outer
+// frame_rail_sz band, under the side rail: from the rear leg's forward
+// face to a block glued across the front wall's fridge face, from the
+// wall's end to the inset front leg (screwed through the leg + wall).
+// It can't sit at the floor or reach the front bottom rail: that band
+// holds the fridge riser flange, the H1 eye bolt and the kitchen rear
+// strap's footman loop, and the strap climbs it to the kitchen's lid.
+// Fixed with 2 x 3in SPAX into each end's end grain + glue (Panel C sheet).
+pc_brace_z         = 12.5;  // underside off the floor, feet at nominal
+pc_brace_block_len = leg_inset + frame_rail_sz;   // 5 (4-7/8 as built): wall's end -> front leg's inboard face
+pc_brace_y0        = frame_rail_sz + leg_lap + pcwall_t + frame_rail_sz; // block's back face, from Panel C's B-facing edge
+pc_brace_len       = panel_c_length - frame_rail_sz - pc_brace_y0;     // 29.25 (29-1/2 at the measured 1-7/16 stock)
+kitchen_lid_on_rungs = aboard_mat_t + aboard_rung_t + kitchen_box_height; // ~11.86 if the unit rides the rungs
+assert(pc_brace_z - kitchen_lid_on_rungs >= 0.5,
+       str("Side brace underside (", pc_brace_z, "in) leaves under 1/2in over the kitchen strap at the lid (",
+           kitchen_lid_on_rungs, "in)"));
+assert(pc_brace_z + frame_rail_sz <= leg_height - 2,
+       str("Side brace top (", pc_brace_z + frame_rail_sz,
+           "in) runs into the rear legs' 2in L-brackets under the side rails"));
 
 /* [EcoFlow DELTA 3 Plus + Smart Extra Battery — Panel A, right drawer] */
 // Real dimensions from EcoFlow's own spec sheets, not yet confirmed

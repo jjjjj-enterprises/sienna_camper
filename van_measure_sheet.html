@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Panel C Foot Test</title>
+<title>Van Measure Sheet</title>
 <style>
 :root{
   --bg:#f6f4ef; --paper:#fffdf8; --ink:#1d1c1a; --ink-2:#55524c; --ink-3:#8a867e;
@@ -49,11 +49,12 @@ svg .grn{fill:var(--ok)}
 </head>
 <body>
 <div class="sheet">
-<h1>Panel C foot test: the feet that wobble</h1>
-<p class="sub">Do all of this with Panel C sitting in the van where it lives: back edge at the hatch, 3rd row folded. Do it with the anchor board in and strapped down: its strips lie on the flat seat surface and may stop the rocking on their own. If nothing rocks, no pads are needed.</p>
+<h1>Van measurements: foot test and hoop drop</h1>
+<p class="sub">Two things to measure in the van, 3rd row folded. They need the van in different states, so the order matters: do the hoop drop (2) first, with the anchor board out, then the foot test (1) with everything in.</p>
 
 <section>
   <h2><span class="n">1</span>The feet that wobble</h2>
+  <p>Do this with Panel C sitting in the van where it lives: back edge at the hatch. Do it with the anchor board in and its chains on: its strips lie on the flat seat surface and may stop the rocking on their own. If nothing rocks, no pads are needed.</p>
   <p>A folded 3rd-row seat has a flat top with rounded edges, and there are gaps between the seats. By "flat seat surface" I mean the flat top, away from those rounded edges and gaps. A foot standing on a rounded edge rocks. A foot standing on the flat top doesn't.</p>
 
   <svg viewBox="0 0 640 230" role="img" aria-label="Two side views. Left: a leg's foot sitting on the rounded edge of a folded seat, which rocks. Right: the same foot standing on a scrap of plywood that reaches onto the flat top of the seat, which is solid">
@@ -90,12 +91,77 @@ svg .grn{fill:var(--ok)}
   <p class="cap">The scrap only proves the size. Its thickness raises Panel C, so the real pad will probably be thinner: ⅛" steel or ¼" hardboard, cut to the size that worked.</p>
 </section>
 
+<section>
+  <h2><span class="n">2</span>Hoop drop: what the chains have to reach</h2>
+  <p>Each fridge riser gets an eye bolt hanging down from its front end, 26" from the hatch, and a short chain from it to a seat-latch hoop: H1 for the driver riser, H2 for the kitchen riser. The chain hardware is bought to fit, so measure both hoops first. Do it with the anchor board <b>out</b> and the seat top bare, from the hatch end.</p>
+
+  <svg viewBox="0 0 640 305" role="img" aria-label="Side view looking at the driver side: the folded seat's flat top ending at a rounded edge, the headrest trough beyond it with a latch hoop's bar seen end-on about 2 and three quarter inches down, a straightedge lying on the seat top and reaching over the trough, and five measurements: D from the straightedge down to the top of the bar, T the bar's thickness, G the clear space under the bar, E the room under where the eye bolt will hang, and F from the closed hatch to the center of the bar">
+    <defs>
+      <marker id="ar2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 1 L9 5 L0 9 Z" fill="var(--alert)"/>
+      </marker>
+    </defs>
+    <!-- seat, trough, far wall -->
+    <path d="M20 225 V100 H190 Q205 100 207 120 V215 H470 V120 H620" fill="none" stroke="var(--line)" stroke-width="1.5"/>
+    <path d="M20 225 V100 H190 Q205 100 207 120 V225 Z" fill="var(--seat)" stroke="var(--line)"/>
+    <text x="100" y="160" class="sm" text-anchor="middle">folded seat</text>
+    <text x="420" y="232" class="sm" text-anchor="middle">headrest trough</text>
+    <text x="478" y="114" class="sm">toward Panel B</text>
+    <!-- hoop: legs behind, bar end-on -->
+    <rect x="291.5" y="186" width="12" height="29" fill="var(--steel)" opacity=".45"/>
+    <circle cx="297.5" cy="186" r="6.5" fill="var(--steel)" stroke="var(--line)"/>
+    <!-- straightedge on the bare seat top -->
+    <rect x="40" y="90" width="410" height="10" fill="var(--wood)" stroke="var(--line)"/>
+    <text x="60" y="84" class="sm">straightedge or level, flat on the seat top and reaching over the trough</text>
+    <!-- eye-bolt spot -->
+    <line x1="237.5" y1="100" x2="237.5" y2="215" stroke="var(--ink-3)" stroke-dasharray="4 3"/>
+    <!-- D -->
+    <line x1="330" y1="101" x2="330" y2="178" stroke="var(--alert)" stroke-width="1.5" marker-start="url(#ar2)" marker-end="url(#ar2)"/>
+    <line x1="304" y1="179.5" x2="336" y2="179.5" stroke="var(--alert)" stroke-width="1"/>
+    <text x="338" y="136" class="big red">D</text>
+    <text x="352" y="136" class="sm">seat top → TOP of the bar</text>
+    <text x="352" y="149" class="sm">(done: 1⅞" loaded, 2⅜" bare)</text>
+    <!-- T -->
+    <line x1="303" y1="183" x2="346" y2="172" stroke="var(--alert)" stroke-width="1"/>
+    <text x="350" y="176" class="big red">T</text>
+    <text x="364" y="176" class="sm">bar thickness: ⅝"</text>
+    <!-- G -->
+    <line x1="312" y1="193.5" x2="312" y2="213" stroke="var(--alert)" stroke-width="1.5" marker-start="url(#ar2)" marker-end="url(#ar2)"/>
+    <text x="318" y="208" class="big red">G</text>
+    <!-- E -->
+    <line x1="226" y1="101" x2="226" y2="213" stroke="var(--alert)" stroke-width="1.5" marker-start="url(#ar2)" marker-end="url(#ar2)"/>
+    <text x="229" y="200" class="big red">E</text>
+    <text x="237.5" y="246" class="sm" text-anchor="middle">↑ eye-bolt line, 26" from the hatch</text>
+    <!-- F -->
+    <line x1="22" y1="278" x2="296" y2="278" stroke="var(--alert)" stroke-width="1.5" marker-end="url(#ar2)"/>
+    <line x1="297.5" y1="194" x2="297.5" y2="286" stroke="var(--alert)" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="24" y="298" class="sm">← to the closed hatch</text>
+    <text x="40" y="270" class="big red">F</text>
+    <text x="54" y="270" class="sm">hatch → CENTER of the bar (survey: 28")</text>
+  </svg>
+  <p class="cap">Side view, looking at the driver side, hatch on the left. The board is out. The bar is the hoop's crossbar seen end-on; its two legs drop into the trough behind it.</p>
+
+  <ol>
+    <li><b>D, the drop.</b> <b>Done: 1⅞" with weight on the seat, 2⅜" without, the same at all four hoops</b> (24 Oct). The loaded figure is the one that counts: the chains are tensioned with the fridge in. Lay a straightedge or level flat on the bare seat top so it reaches out over the trough above the hoop. Measure straight down from its underside to the <b>top</b> of the hoop's bar.</li>
+    <li><b>T, the bar's thickness.</b> <b>Done: ⅝"</b> (24 Oct). That's too thick for a ¼" shackle, so the chain wraps the bar and a second quick link closes it.</li>
+    <li><b>G, the room under the bar.</b> <b>Done: ¾"</b> (24 Oct), enough for the ¼" chain to wrap under. From the bar's underside down to whatever is below it, inside the hoop. The chain has to wrap under the bar, so it needs at least ½".</li>
+    <li><b>E, the room under the eye bolt.</b> <b>Done: 2" at the hoop, and much deeper toward the hatch</b> (24 Oct), so the eye at 26" hangs free. No eye bolt needed for this one: it measures the van, not the bolt. At 26" from the hatch, on the riser's line, measure from the straightedge down to whatever is below. The eye bolt's eye hangs about 1½" below the seat top, so it needs about 1¾". The riser lines are about ¾" in from the driver line (H1's chain) and about 23¼" (H2's).</li>
+    <li><b>F, where the bar is.</b> <b>Done: 28"</b> (24 Oct), as the survey said. Tape from the closed hatch along the seat to the <b>center</b> of the bar.</li>
+    <li>Look along the path from the eye-bolt spot to the hoop: is anything in the way? A latch cover, a seat-belt buckle, a trim lip?</li>
+  </ol>
+  <p class="cap">With D, F and the eye bolt's spot, the chain's length comes out by geometry, so the chain gets cut once. H1 is 4¾" from the driver line, under where the fridge tray's front corner will be. H2 is 24¾", just passenger-side of the middle strip.</p>
+</section>
+
 <section class="answer">
   <h2>What to send me</h2>
   <table>
-    <tr><td>Which feet rock (FL, FR, RL, RR)</td><td class="blank">_____</td></tr>
+    <tr><td><b>1.</b> Which feet rock (FL, FR, RL, RR)</td><td class="blank">_____</td></tr>
     <tr><td>For each one: scrap size that stopped it, and which way it reached</td><td class="blank">_____ × _____ " , toward _____</td></tr>
     <tr><td>Any gap between seats under a foot: how wide</td><td class="blank">_____ "</td></tr>
+    <tr><td><b>2.</b> H1 (driver hoop): D drop · T bar · G under bar · F from hatch</td><td class="blank">D 1⅞ (loaded) · T ⅝ · G ¾ · F 28</td></tr>
+    <tr><td>H2 (middle hoop): D drop · T bar · G under bar · F from hatch</td><td class="blank">D 1⅞ (loaded) · T ⅝ · G ¾ · F 28</td></tr>
+    <tr><td>E, room under each eye bolt: H1's riser · H2's riser</td><td class="blank">2" at the hoop, deeper at 26" · same</td></tr>
+    <tr><td>Anything in the chain's path?</td><td class="blank">_____</td></tr>
   </table>
 </section>
 </div>

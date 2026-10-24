@@ -182,6 +182,14 @@ module drawing_c() {
     marker3d(5, [x_kitchen, (kt_y0 + L) / 2, 0], [-11, -6]);
     marker3d(6, [0, -7 + pcwall_t/2, pcwall_h * 0.75], [-12, 5]);
     marker3d(7, [0, RS/2, bottom_rail_z + RS], [-10, -7]);
+
+    // side braces (Oct 2026): rear leg -> block on the wall's fridge face
+    for (sx = [-1, 1]) {
+        wbox([sx < 0 ? -W/2 : W/2 - pc_brace_block_len, RS + leg_lap + pcwall_t, pc_brace_z],
+             [pc_brace_block_len, RS, RS]);
+        wbox([sx < 0 ? -W/2 : W/2 - RS, pc_brace_y0, pc_brace_z], [RS, pc_brace_len, RS]);
+    }
+    marker3d(8, [-W/2 + RS/2, pc_brace_y0 + pc_brace_len/2, pc_brace_z + RS], [-11, 4]);
 }
 
 // Panel B: bare frame + legs — NO divider, NO drawers. The side
@@ -247,6 +255,7 @@ module drawing() {
             ["5", "Kitchen zone (reserved)", str(kitchen_box_width, "\" x ", kitchen_box_length, "\", flush RIGHT/passenger"), "bought product — see fridge-install-detail"],
             ["6", "Front wall (the ONLY wall)", str(W, "\" x ", pcwall_h, "\", ", inch_frac(pcwall_t), "\" ply, on the B-facing face"), "fan hole + 2 grommets — Panel C Front Wall render"],
             ["7", "Bottom rail (x1, FRONT face only)", str("2x2 pine, underside at ", bottom_rail_z, "\", on the front legs' line"), "tailgate face stays open (appliances exit there); REAR legs at the TRUE corners"],
+            ["8", "Side braces (x2) + blocks (x2)", str("2x2, ", pc_brace_len, "\" (29-1/2\" as built), underside at ", pc_brace_z, "\"; blocks ", pc_brace_block_len, "\" (4-7/8\")"), "rear leg -> block on the wall's fridge face; 2x 3\" SPAX into each end + glue"],
         ]);
     } else if (!is_a) {
         // MOVED TO THE DOCUMENT: cap("NO divider, NO drawers, no skirts — the side doors don't reach Panel B, so its whole bay is deep storage, loaded from above.", 13, -19, 1.4);

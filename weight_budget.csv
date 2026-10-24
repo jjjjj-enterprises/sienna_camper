@@ -2,7 +2,7 @@ Component,Category,Weight (lb),Fore-aft y (in from front),"Lateral x (in, -drive
 Panel A frame (2x2 pine),Structure,12.0,14.5,0,rails+legs+divider+bottom rails (16.25in legs — deck recess)
 "Panel A drawer box + slides (3/4"" birch walls, 1/2"" bottom)",Structure,34.2,14.5,11,"holds the DELTA 3 stack; walls went 3/8->3/4 (Aug 2026, no 3/8"" sheet bought — cut from 3/4"" offcuts)"
 "Panel B frame (2x2 pine, full cube)",Structure,12.9,43.5,0,bare-frame deep-storage box (16.25in legs — deck recess)
-Panel C frame (2x2 pine),Structure,10.0,76,0,rails+legs+front bottom rail
+Panel C frame (2x2 pine),Structure,12.5,76,0,rails+legs+front bottom rail+side braces and blocks (Oct 2026)
 "Panel C deck (3/4"" birch, 33x43 recessed + cleats)",Structure,27.2,76,0,"drops between the rails onto bearer cleats, flush (deck recess)"
 "Panel C front wall (1/2"" birch)",Structure,9.6,60,0,"intake fan + grommets; 3/8->1/2 (Aug 2026, from the 1/2"" sheet's leftover)"
 "Fridge tray (1/2"" birch + 2 1x3 side aprons)",Structure,8.0,80,-12,"hangs between the side-mount slide rails; 3/8->1/2 (Aug 2026, from the 1/2"" sheet's leftover)"
@@ -26,11 +26,11 @@ Seam draw-latches (4) + alignment pins + bumpers,Hardware/misc,1.5,47,0,at the A
 "Electrical (2 fans, controller, fuse, 2 strips, cords)",Hardware/misc,6.0,55,0,cooling + power runs
 Cooktop + cookware (stowed),Hardware/misc,12.0,80,13,induction top + pots in the kitchen
 
-Structure subtotal,,168.5,,,
+Structure subtotal,,171.0,,,
 Hardware/misc subtotal,,114.4,,,
 Appliances subtotal,,85.6,,,
 Power/climate subtotal,,81.7,,,
 Bedding subtotal,,35.0,,,
-BUILD TOTAL (added),,485.2,,,
+BUILD TOTAL (added),,487.7,,,
 Removed: 2nd-row seats x2 (est.),credit,-120,,,WEIGH to confirm; ~48-70 lb each
-NET added vs stock (build - seats),,365.2,,,
+NET added vs stock (build - seats),,367.7,,,
