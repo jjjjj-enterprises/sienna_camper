@@ -18,7 +18,7 @@ The anchor board is the no-drill chassis under Panel C that the fridge slides an
 - **Two steel rungs**, 3" × 3/16" flat bar 46" long, set flush into grooves in the strips' undersides at 6"–9" and 19½"–22½" from the hatch and screwed up into each strip. They tie the strips into one board and pass under the fridge tray (which hangs ⅜" over the seat surface) and the kitchen unit. There is **no crossbar**: from 26" forward the van's side trim closes to 42", and the fridge tray fills the space between the driver and middle strips for its whole length.
 - **The fridge slides' riser angles** bolt down into 8 T-nuts in the driver and middle strips (Fridge Slides and Riser Angles sheets).
 - **Anchors: the 3rd-row seats' latch hoops.** Four steel hoops sit in the headrest trough 28" from the hatch, their ⅝" bars 1⅞" below the folded-seat surface with the seat loaded (2⅜" bare), centered 4¾", 24¾", 31¼" and 41¾" from the driver line (H1–H4). A short chain runs forward and down from each riser's front end to **H1** (driver) and **H2**: a forged ¼-20 eye bolt hanging down through each riser's front end, a ¼" quick link, a short length of ¼" chain wrapped once around the hoop's ⅝" bar, closed by a second quick link. Turning the eye bolt's nut draws the chain tight, so a hard stop pulls against it and it also holds the board down. The run is only about 5", too short for any ratchet strap.
-- **Kitchen unit:** a front strap in its front notches to **H2** and **H4**, and a rear strap in its rear notches to footman loops on the middle strip's outer band and on the passenger strip.
+- **Kitchen unit:** a front strap in its front notches to **H2** and **H4**, and a rear strap in its rear notches to a short ¼-20 eye bolt in the kitchen riser's second T-nut, 11" from the hatch (the 2¼" middle strip is too narrow outboard of the riser for a footman loop) and a footman loop on the passenger strip.
 - **Optional backup:** ratchet straps from the board forward to the three 3rd-row striker loops on the 2nd-row floor.
 
 Nothing drills into the van, and nothing joins plywood to plywood.
@@ -39,7 +39,7 @@ The rear view above is too small-scale to label the fridge's 2 cooling fans and 
 | 3 | NTC temp sensor | X=18.22, Y=12.2, Z=8.8 | Adhesive thermal pad, or 1× #4 screw through its bracket tab |
 | 4 | Control cluster — switches + surge protector + W1209, **no enclosure** | X=40.4–45.4, Y=35.75 (Panel C's FRONT wall), Z=3.5–14.5 — on the wall's **Panel-B face**, standing ~2" off it | Screwed DIRECTLY to a backer board (3/4" offcut) on the wall; 4× #8×1" screws. Reached by lifting one of Panel B's lift-out bed-top halves |
 | 5 | Anchor-board strips (driver and middle, under the slide rails) | ⅛" neoprene + ¾" ply, one-piece strips tied by two steel rungs set into their undersides; the fixed rails' risers bolt to them | ¼-20 machine screws into T-nuts from below — NO holes in the van (Anchor Board sheet) |
-| 6 | Kitchen tie-down: 2 straps | Front strap down to seat-latch hoops H2 and H4; rear strap down to footman loops on the board's middle and passenger strips | **2** ratchet straps (400 lb WLL), each dropped into a pair of the unit's own top-edge notches (Anchor Board sheet) |
+| 6 | Kitchen tie-down: 2 straps | Front strap down to seat-latch hoops H2 and H4; rear strap down to an eye bolt in the kitchen riser's flange and a footman loop on the passenger strip | **2** ratchet straps (400 lb WLL), each dropped into a pair of the unit's own top-edge notches (Anchor Board sheet) |
 | 7 | WAVE 3 hose/cord hook | In the open bay, kitchen side — bundle the hoses so nothing swings out | 1× heavy-duty hook, #8×1.5" screw up into the deck underside |
 | 8 | Fridge hold-down footman loops (×2) | Tray side apron, near the tailgate end — hooks to the fridge's 2 end handles | Cam strap, snug not tight. This secures the fridge TO its tray; the anchor board secures the tray to the van. Side profile in the Fridge Slide detail |
 | 9 | Board chains to the seat-latch hoops (×2) | A forged ¼-20 eye bolt in each fridge riser's front end → hoops H1 and H2 in the headrest trough, 28" from the hatch | ¼" grade 30 chain, a quick link at the eye bolt and a second one closing the chain around the hoop's ⅝" bar; tightened with the eye bolt's nut and jam-nutted (the ~5" run is too short for any ratchet strap): forward and lift restraint. No holes in the van (Anchor Board sheet) |
@@ -1264,7 +1264,7 @@ Build this one before Component 1 (Rear Pantry) — the prefab drawer cluster si
 - 120mm 12V fan + PWM temperature controller w/ NTC probe
 - 12V surge protector/fused distribution block, 3 illuminated toggle switches, ¾" backer board (no enclosure)
 - Anchor board: three ¾" ply strips tied by two 3" × 3/16" steel rungs, on ⅛" neoprene (Section 8, Anchor Board sheet)
-- 2 forged ¼-20 eye bolts + 2 short ¼" chains + 4 quick links (the risers to seat-latch hoops H1/H2) + 2 stainless footman loops
+- 2 forged ¼-20 eye bolts + 2 short ¼" chains + 4 quick links (the risers to seat-latch hoops H1/H2) + a 3rd eye bolt, cut short, in the kitchen riser + 1 stainless footman loop
 - 2 Erickson 400lb-WLL ratchet straps (the kitchen unit, in its notches) + up to 3 optional backups to the striker loops
 - 1 low-profile cam strap + 2 stainless footman loops (fridge hold-down, through its 2 end handles)
 - 3 screw-mount cable clips (fridge DC line slack, clipped to the slide's fixed outer rail)
@@ -1280,7 +1280,7 @@ Build this one before Component 1 (Rear Pantry) — the prefab drawer cluster si
 </div>
 <div class="lego-step">
 <div class="lego-num">2</div>
-<div class="lego-parts"><p class="lego-noparts">anchor board (3 strips + 2 steel rungs) + neoprene + 2 eye bolts, chains and quick links + 2 footman loops + 2 ratchet straps</p></div>
+<div class="lego-parts"><p class="lego-noparts">anchor board (3 strips + 2 steel rungs) + neoprene + 3 eye bolts, chains and quick links + 1 footman loop + 2 ratchet straps</p></div>
 <div class="lego-main">
 <p class="lego-caption">Bench-build the anchor board (Anchor Board sheet): three one-piece plywood strips, two steel rungs set flush into grooves in their undersides and screwed up into each strip, T-nuts for the two risers, an eye-bolt hole in each riser's front end, footman loops for the kitchen's rear strap, and neoprene cut to each strip. In the van: neoprene, then the board, back ends 3" from the hatch; wrap H1's chain around its bar, close it with a quick link and lay it forward; bolt the fridge tray assembly down; wrap the second chain around H2, quick-link both chains to their eye bolts and tighten the eye bolts' nuts. <em>Re-check after the first drive.</em></p></div>
 </div>
@@ -1306,7 +1306,7 @@ Build this one before Component 1 (Rear Pantry) — the prefab drawer cluster si
 <div class="lego-num">6</div>
 <div class="lego-parts"><p class="lego-noparts">kitchen unit + 4 ratchet straps</p></div>
 <div class="lego-main">
-<p class="lego-caption">Slide the JAGAHAHA kitchen unit into place against Panel C's passenger-side rear corner leg (1.5" in from the edge) — its shelves swing out on that side — and strap it down with <strong>2</strong> Erickson 400 lb-WLL ratchet straps, each dropped into a pair of the <strong>notches routed in the unit's top edge</strong> so it can't slide along the box: the front strap down to seat-latch hoops H2 and H4, the rear strap down to the footman loops on the board's middle and passenger strips (Anchor Board sheet).</p></div>
+<p class="lego-caption">Slide the JAGAHAHA kitchen unit into place against Panel C's passenger-side rear corner leg (1.5" in from the edge) — its shelves swing out on that side — and strap it down with <strong>2</strong> Erickson 400 lb-WLL ratchet straps, each dropped into a pair of the <strong>notches routed in the unit's top edge</strong> so it can't slide along the box: the front strap down to seat-latch hoops H2 and H4, the rear strap down to the kitchen riser's eye bolt and the passenger strip's footman loop (Anchor Board sheet).</p></div>
 </div>
 <div class="lego-step">
 <div class="lego-num">7</div>
@@ -1499,7 +1499,7 @@ Panel A, Panel B, and Panel C each rest unbolted on the van floor — nothing is
 **Three load paths:**
 
 1. **Forward and lift — two chains to the hoops.** A forged ¼-20 shoulder eye bolt hangs down through the front end of each fridge riser, just ahead of its strip; a ¼" quick link and a short ¼" chain, wrapped once around the hoop's ⅝" bar and closed by a second quick link, take it forward and down to hoop H1 (driver riser) and H2 (kitchen riser). The run is only about 5", too short for any ratchet strap's mechanism, so the eye bolt's nut is the tensioner: turn it down to draw the chain tight, then jam a second nut on top. The load runs hoop → chain loop → quick link → chain → eye bolt → riser → four bolts → strip → rungs → the whole board. Wrap H1's chain on before the fridge tray goes in: the tray covers it.
-2. **The kitchen unit** — a strap across its top in its front notches down to H2 and H4, and one in its rear notches down to footman loops on the middle and passenger strips. The notches stop it sliding along the straps.
+2. **The kitchen unit** — a strap across its top in its front notches down to H2 and H4, and one in its rear notches down to the kitchen riser's eye bolt and a footman loop on the passenger strip. The notches stop it sliding along the straps.
 3. **Lateral** — the strips' edges, the van walls and trim close on both sides, the neoprene's grip, and the straps' angles.
 
 **Optional backup:** ratchet straps from the board forward to the three 3rd-row striker loops on the 2nd-row floor. They pass under Panel C's front edge and Panel B's end rail through the 3" relief notches there.

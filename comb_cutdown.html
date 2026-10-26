@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- ARTIFACT-BODY-START -->
+<title>Comb Cut-Down</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#E9ECE7; --surface:#FBFCFA; --surface-2:#F1F4EF;
+  --ink:#16201C; --ink-2:#4E5A55; --ink-3:#79857F;
+  --rule:#C6CDC5; --rule-strong:#8E9A93;
+  --ply:#9A7A3E; --ply-fill:rgba(200,164,107,.30);
+  --amber:#B8661A; --amber-fill:rgba(201,118,27,.15);
+  --alert:#9E2C1B; --alert-fill:rgba(158,44,27,.09);
+  --good:#2C6349;
+  --font-d:Archivo,"Helvetica Neue",Arial,sans-serif;
+  --font-b:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+    --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+    --rule:#2F3833; --rule-strong:#56615A;
+    --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+    --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+    --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+    --good:#5FB78D;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+  --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+  --rule:#2F3833; --rule-strong:#56615A;
+  --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+  --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+  --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+  --good:#5FB78D;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-b); font-size:15px; line-height:1.55;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+.sheet{max-width:1080px; margin:0 auto; padding-block:28px 64px; padding-left:20px; padding-right:20px}
+
+/* ---- title block: a drawing title block, not a hero ---- */
+.tb{border:1.5px solid var(--ink); background:var(--surface)}
+.tb-head{display:flex; flex-wrap:wrap; align-items:flex-end; gap:6px 20px; padding:18px 20px 14px; border-bottom:1.5px solid var(--ink)}
+.tb-head h1{
+  font-family:var(--font-d); font-weight:700; font-size:clamp(25px,4.6vw,38px);
+  line-height:1.03; letter-spacing:-.018em; margin:0; text-wrap:balance;
+}
+.tb-head p{margin:0; color:var(--ink-2); font-size:14.5px; max-width:56ch}
+.tb-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr))}
+.tb-cell{padding:10px 14px 12px; border-right:1px solid var(--rule); border-top:1px solid var(--rule)}
+.tb-cell:first-child{border-top:0}
+.tb-cell .k{
+  font-family:var(--font-m); font-size:10.5px; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:3px;
+}
+.tb-cell .v{font-family:var(--font-m); font-size:15px; font-weight:500; font-variant-numeric:tabular-nums}
+.tb-cell .v small{font-family:var(--font-b); font-size:12.5px; color:var(--ink-2); display:block; font-weight:400; letter-spacing:0}
+
+/* ---- section headings ---- */
+section{margin-top:44px}
+.sec-h{display:flex; align-items:baseline; gap:12px; border-bottom:1.5px solid var(--ink); padding-bottom:7px; margin-bottom:18px}
+.sec-h .n{
+  font-family:var(--font-m); font-size:12px; font-weight:600; color:var(--ink-3);
+  letter-spacing:.09em; flex:none;
+}
+.sec-h h2{font-family:var(--font-d); font-weight:600; font-size:20px; letter-spacing:-.01em; margin:0; text-wrap:balance}
+.sec-h .aside{margin-left:auto; font-family:var(--font-m); font-size:11.5px; color:var(--ink-3); text-align:right}
+
+p{margin:0 0 12px; max-width:68ch}
+.lede{color:var(--ink-2)}
+a{color:inherit}
+code{font-family:var(--font-m); font-size:.92em; background:var(--surface-2); padding:1px 4px; border-radius:2px}
+strong{font-weight:600}
+
+/* ---- flags ---- */
+.flags{display:grid; gap:14px}
+.flag{
+  border:1px solid var(--alert); border-left-width:4px; background:var(--alert-fill);
+  padding:14px 16px 15px;
+}
+.flag h3{
+  font-family:var(--font-d); font-size:15.5px; font-weight:600; margin:0 0 7px;
+  color:var(--alert); display:flex; gap:9px; align-items:baseline; text-wrap:balance;
+}
+.flag h3 .tag{
+  font-family:var(--font-m); font-size:10px; letter-spacing:.1em; border:1px solid currentColor;
+  padding:1px 5px; flex:none; text-transform:uppercase;
+}
+.flag p{margin:0 0 8px; font-size:14px}
+.flag p:last-child{margin-bottom:0}
+.flag .math{
+  font-family:var(--font-m); font-size:13px; font-variant-numeric:tabular-nums;
+  background:var(--surface); border:1px solid var(--rule); padding:8px 11px; margin:9px 0;
+  display:block; overflow-x:auto; white-space:nowrap; color:var(--ink);
+}
+.flag .verdict{font-weight:600}
+
+/* ---- figures ---- */
+.figs{display:grid; gap:26px}
+@media (min-width:780px){ .figs.two{grid-template-columns:1fr 1fr} }
+figure{margin:0; border:1px solid var(--rule-strong); background:var(--surface); display:flex; flex-direction:column}
+figure svg{display:block; width:100%; height:auto; padding:10px 8px 0}
+figcaption{
+  border-top:1px solid var(--rule); padding:9px 13px 11px; font-size:13px; color:var(--ink-2);
+  margin-top:auto;
+}
+figcaption b{font-family:var(--font-m); font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink); display:block; margin-bottom:3px}
+
+svg .ply{fill:var(--ply-fill); stroke:var(--ink); stroke-width:1.7}
+svg .cav{fill:var(--surface); stroke:var(--ink); stroke-width:1.7}
+svg .unit{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.9}
+svg .blk{fill:var(--ink-2); stroke:none}
+svg .slide{fill:var(--ink); stroke:none}
+svg .ln{fill:none; stroke:var(--ink); stroke-width:1.7}
+svg .thin{fill:none; stroke:var(--rule-strong); stroke-width:1}
+svg .dash{fill:none; stroke:var(--ink-2); stroke-width:1.4; stroke-dasharray:6 4}
+svg .strap{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.5; stroke-dasharray:5 3}
+svg .strapln{fill:none; stroke:var(--amber); stroke-width:2.2}
+svg .ring{fill:none; stroke:var(--ink); stroke-width:2.4}
+svg .hole{fill:var(--paper); stroke:var(--ink); stroke-width:1.7}
+svg text{font-family:var(--font-m); fill:var(--ink-2)}
+svg .t-dim{font-size:12.5px; font-weight:500; font-variant-numeric:tabular-nums}
+svg .t-lab{font-size:12px; fill:var(--ink)}
+svg .t-sm{font-size:10.5px; fill:var(--ink-3)}
+svg .clt{fill:var(--ply); stroke:var(--ink); stroke-width:1.2; opacity:.75}
+svg .brk{fill:none; stroke:var(--ink-2); stroke-width:1.2}
+svg .keydot{fill:var(--ink)}
+svg .keynum{font-size:11.5px; font-weight:600; fill:var(--surface)}
+
+/* ---- legend ---- */
+.legend{margin-top:16px; border:1px solid var(--rule); background:var(--surface)}
+.legend li{display:flex; gap:11px; padding:8px 13px; border-top:1px solid var(--rule); align-items:baseline}
+.legend li:first-child{border-top:0}
+.legend ol{margin:0; padding:0; list-style:none}
+.legend .n{
+  font-family:var(--font-m); font-size:11px; font-weight:600; color:var(--surface);
+  background:var(--ink); width:19px; height:19px; border-radius:50%; flex:none;
+  display:inline-flex; align-items:center; justify-content:center; transform:translateY(2px);
+}
+.legend .d{font-size:13.5px}
+.legend .d b{font-weight:600}
+.legend .d span{color:var(--ink-2)}
+
+/* ---- tables ---- */
+.tw{overflow-x:auto; border:1px solid var(--rule-strong); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:13.5px}
+th,td{padding:8px 12px; text-align:left; border-top:1px solid var(--rule); vertical-align:top}
+thead th{
+  border-top:0; border-bottom:1.5px solid var(--ink); font-family:var(--font-m);
+  font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:500;
+  white-space:nowrap;
+}
+td.num,th.num{font-family:var(--font-m); font-variant-numeric:tabular-nums; white-space:nowrap}
+tbody tr:nth-child(even){background:var(--surface-2)}
+td .note{display:block; color:var(--ink-2); font-size:12.5px; margin-top:2px}
+.ok{color:var(--good); font-weight:600}
+.tight{color:var(--alert); font-weight:600}
+
+/* ---- steps ---- */
+.steps{counter-reset:s; display:grid; gap:0; border:1px solid var(--rule-strong); background:var(--surface)}
+.step{display:grid; grid-template-columns:52px 1fr; border-top:1px solid var(--rule)}
+.step:first-child{border-top:0}
+.step .sn{
+  counter-increment:s; font-family:var(--font-m); font-size:16px; font-weight:600; color:var(--ink-3);
+  padding:14px 0 14px 16px; border-right:1px solid var(--rule); font-variant-numeric:tabular-nums;
+}
+.step .sn::before{content:counter(s,decimal-leading-zero)}
+.step .sb{padding:13px 16px 15px}
+.step h3{font-family:var(--font-d); font-size:15px; font-weight:600; margin:0 0 4px; text-wrap:balance}
+.step p{margin:0; font-size:13.8px; color:var(--ink-2); max-width:70ch}
+.step p + p{margin-top:7px}
+.step.done .sn{color:var(--good)}
+.step .hold.done{color:var(--good); border-color:var(--good)}
+.step .hold{
+  display:inline-block; font-family:var(--font-m); font-size:10.5px; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--alert); border:1px solid var(--alert); padding:1px 5px; margin-bottom:6px;
+}
+
+footer{margin-top:52px; border-top:1px solid var(--rule); padding-top:14px; color:var(--ink-3); font-size:12.5px}
+footer p{max-width:72ch; margin:0 0 6px}
+
+@media print{
+  /* Letter with the same 0.65in margin as the main build plan, so these
+     pages sit flush with it when build_pdf.py appends them — and so the
+     stamped footer at 30pt lands clear of the content. */
+  @page{size:Letter; margin:0.65in}
+  :root{--paper:#fff; --surface:#fff; --surface-2:#f4f4f4}
+  body{font-size:10.5pt}
+  .sheet{max-width:none; padding:0}
+  section{break-inside:auto; margin-top:22px}
+  figure,.flag,.step,.tw{break-inside:avoid}
+  .sec-h{break-after:avoid; page-break-after:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+svg .waste{fill:var(--alert-fill); stroke:none}
+svg .cut{fill:none; stroke:var(--alert); stroke-width:2.2; stroke-dasharray:7 4}
+svg .t-cut{font-size:11.5px; fill:var(--alert); font-weight:600}
+svg .tn{fill:var(--surface); stroke:var(--alert); stroke-width:1.8}
+svg .grv{fill:none; stroke:var(--ink-2); stroke-width:1.3; stroke-dasharray:4 3}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="tb">
+  <div class="tb-head">
+    <h1>Comb Cut-Down</h1>
+    <p>Turning the old one-piece comb into the anchor board's three new strips. Mark everything off the bolted-on risers first, then take it apart.</p>
+  </div>
+  <div class="tb-grid">
+    <div class="tb-cell"><span class="k">Makes</span><span class="v">3 strips<small>driver 2½ · middle ~2½ · passenger 1½" wide</small></span></div>
+    <div class="tb-cell"><span class="k">Strip length</span><span class="v">22½"<small>all three, back ends even</small></span></div>
+    <div class="tb-cell"><span class="k">Back cut</span><span class="v">½" fwd of riser<small>plywood end: driver 1", middle 1⅛"</small></span></div>
+    <div class="tb-cell"><span class="k">Front cut</span><span class="v">1" short of riser<small>23" from the riser end · plywood: driver 23½", middle 23⅝"</small></span></div>
+    <div class="tb-cell"><span class="k">Goes to</span><span class="v">Anchor Board<small>steps 1–2; then grooves and rungs</small></span></div>
+    <div class="tb-cell"><span class="k">Status</span><span class="v">Rungs cut<small>25 Oct: comb still whole, rungs not drilled. Comb measured: crossbar 4", riser ⅝" from the strip's hatch end</small></span></div>
+  </div>
+</div>
+
+<section>
+  <div class="sec-h"><span class="n">A</span><h2>Check before you cut</h2><span class="aside">4 checks, all with the risers still on</span></div>
+  <div class="flags">
+    <div class="flag">
+      <h3><span class="tag">Check</span> Mark off the risers, not off this drawing</h3>
+      <p>The drawing is your comb as measured: the crossbar cut down to 4" deep, each 24" riser ⅝" in from the strip's hatch end, and the comb 30⅞" overall. <strong>Measure the back line from the riser's end, not the strip's:</strong> ½" forward of the riser is 1⅛" from the strip's end. Measured from the strip's end instead, both lines come out ⅝" toward the hatch and the front lands 1⅝" short of the riser. The risers are still the reference for the marks. The riser is 24" long. The strip keeps ½" + 22½" + 1" of it: <strong>½" of riser hangs past the strip's back end and 1" past its front end.</strong></p>
+      <p class="verdict">If the front line doesn't land 1" short of the riser's front end, stop: something's off.</p>
+    </div>
+    <div class="flag">
+      <h3><span class="tag">As built</span> The two risers sit ⅛" apart on the comb</h3>
+      <p>The driver riser starts <strong>½"</strong> in from its strip's hatch end; the middle riser starts <strong>⅝"</strong> in (owner, 25 Oct). Mark each strip off its own riser, so the lines are the same from the riser and ⅛" different from the plywood:</p>
+      <p class="math">from the riser's hatch end: back ½" · front 23"   (both strips)<br>from the plywood's hatch end: driver 1" · 23½"   ·   middle 1⅛" · 23⅝"</p>
+      <p class="verdict">Each strip still comes out 22½" with its riser ½" past the back and 1" past the front, so once the strips are separate the two risers line up and the ⅛" disappears. The passenger strip has no riser: mark it 22½" long anywhere in its length. It lines up with the others by its back end when the strips are laid out for the grooves.</p>
+    </div>
+    <div class="flag">
+      <h3><span class="tag">Check</span> Both cut lines in plain strip</h3>
+      <p>The front line has to fall behind the crossbar, in the strip itself. On your comb it lands <strong>3¼" behind the crossbar's inner edge</strong> (7¼" from its outer edge), so there's room. The back line takes <strong>1⅛"</strong> off the hatch end: the ⅝" of strip behind the riser, plus the ½" the riser now overhangs.</p>
+    </div>
+    <div class="flag">
+      <h3><span class="tag">Check</span> The T-nuts stay out of the grooves</h3>
+      <p>From the new back line the riser's T-nuts should sit at about <strong>1½", 8", 15" and 21½"</strong>. The rung grooves go across the underside at <strong>3–6" and 16½–19½"</strong>. If any T-nut lands inside a groove band, stop before cutting.</p>
+    </div>
+    <div class="flag">
+      <h3><span class="tag">Check</span> Widths, and metal in the way</h3>
+      <p>The driver strip is 2½" and the middle about 2½". The passenger strip is 1½": if yours is wider, rip it, keeping its outside edge. Look for screws or old tongue bolts in the cut lines and the groove bands.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">B</span><h2>The comb, marked</h2><span class="aside">top face up · hatch end at the bottom · to scale</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 700 490" role="img" aria-label="The old comb from above, hatch end at the bottom: a 46-inch crossbar across the front and three strips running back from it. Red dashed cut lines cross all three strips 3 inches from the hatch end and 25 and a half inches from it, keeping 22 and a half inches of each strip. The crossbar and the first 1 and a half inches of strip behind it are waste, as are the last 3 inches at the hatch end. The driver and middle strips carry risers, dashed, overhanging the kept strip by half an inch at the back and an inch at the front, with their four T-nuts. The passenger strip has a rip line leaving it 1 and a half inches wide.">
+        <!-- the comb, one piece -->
+        <path class="ply" d="M70 42.75 H576 V382.4 H548.5 V86.75 H338.1 V382.4 H310.6 V86.75 H97.5 V382.4 H70 Z"/>
+        <!-- waste: crossbar + 1½" of strip, the hatch-end 3", the passenger rip -->
+        <path class="waste" d="M70 42.75 H576 V122.5 H548.5 V86.75 H338.1 V122.5 H310.6 V86.75 H97.5 V122.5 H70 Z"/>
+        <rect class="waste" x="70" y="370" width="27.5" height="12.4"/>
+        <rect class="waste" x="310.6" y="370" width="27.5" height="12.4"/>
+        <rect class="waste" x="548.5" y="370" width="27.5" height="12.4"/>
+        <rect class="waste" x="548.5" y="122.5" width="11" height="247.5"/>
+        <!-- risers, bolted on -->
+        <rect class="dash" x="73" y="111.5" width="22" height="264"/>
+        <rect class="dash" x="313" y="111.5" width="22" height="264"/>
+        <circle class="tn" cx="84" cy="353.5" r="4"/><circle class="tn" cx="84" cy="282" r="4"/><circle class="tn" cx="84" cy="205" r="4"/><circle class="tn" cx="84" cy="133.5" r="4"/>
+        <circle class="tn" cx="324" cy="353.5" r="4"/><circle class="tn" cx="324" cy="282" r="4"/><circle class="tn" cx="324" cy="205" r="4"/><circle class="tn" cx="324" cy="133.5" r="4"/>
+        <!-- cut lines -->
+        <path class="cut" d="M62 122.5 H106 M302 122.5 H346 M540 122.5 H584"/>
+        <path class="cut" d="M62 370 H106 M302 370 H346 M540 370 H584"/>
+        <path class="cut" d="M559.5 116 V376"/>
+
+        <text class="t-lab" x="323" y="66" text-anchor="middle">CROSSBAR, 4" — cut off (waste)</text>
+        <text class="t-sm" x="200" y="429" text-anchor="middle">HATCH END of the old comb</text>
+        <path class="thin" d="M556 300 L520 300"/><text class="t-sm" x="516" y="304" text-anchor="end">rip to 1½"</text>
+        <text class="t-sm" x="200" y="246" text-anchor="middle">gap</text>
+        <text class="t-sm" x="440" y="246" text-anchor="middle">gap</text>
+        <path class="thin" d="M97.5 110 L110 100"/><text class="t-sm" x="112" y="98">riser front 1" past the cut</text>
+        <path class="thin" d="M97.5 373 L110 392"/><text class="t-sm" x="112" y="396">riser back ½" past the cut</text>
+        <path class="thin" d="M335 205 L380 205"/><text class="t-sm" x="384" y="209">T-nuts, stay in the wood</text>
+
+        <!-- dims, right -->
+        <path class="thin" d="M584 42.75 H632 M584 86.75 H608 M584 122.5 H632 M584 370 H632 M580 382.4 H632 M626 42.75 V382.4"/>
+        <text class="t-dim" x="640" y="78">7¼"</text><text class="t-sm" x="640" y="92">waste:</text><text class="t-sm" x="640" y="105">4" bar</text><text class="t-sm" x="640" y="118">+ 3¼"</text>
+        <text class="t-dim" x="640" y="246">22½"</text><text class="t-sm" x="640" y="260">KEEP</text>
+        <text class="t-dim" x="640" y="386">1⅛"</text><text class="t-sm" x="640" y="400">waste</text>
+        <!-- widths, bottom -->
+        <path class="thin" d="M70 410 V452 M97.5 410 V452 M310.6 410 V452 M338.1 410 V452 M559.5 410 V452 M576 410 V452 M70 446 H97.5 M310.6 446 H338.1 M559.5 446 H576"/>
+        <text class="t-dim" x="84" y="464" text-anchor="middle">2½</text>
+        <text class="t-dim" x="324" y="464" text-anchor="middle">2½</text>
+        <text class="t-dim" x="568" y="464" text-anchor="middle">1½</text>
+        <text class="t-sm" x="84" y="482" text-anchor="middle">DRIVER</text>
+        <text class="t-sm" x="324" y="482" text-anchor="middle">MIDDLE</text>
+        <text class="t-sm" x="568" y="482" text-anchor="middle">PASSENGER</text>
+      </svg>
+      <figcaption><b>Fig 1 — the comb, marked for cutting</b>Red = cut, red shading = waste. About 1:8, drawn to your comb as measured: 30⅞" long with a 4" crossbar, each riser ⅝" in from the strip's hatch end. The riser stops 2¼" short of the crossbar's inner edge, and the front cut is 1" behind the riser's front end. The kept strips are the anchor board's driver strip (0–2½" from the driver line), middle strip (21⅞–24⅜") and passenger strip (44½–46"), the same places they sit now.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">C</span><h2>One strip, close up</h2><span class="aside">driver strip · top face up · hatch end left</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 720 282" role="img" aria-label="The driver strip enlarged, hatch end on the left: the back cut line half an inch forward of the riser's back end, the front cut line 22 and a half inches on and an inch short of the riser's front end, the four T-nuts at 1 and a half, 8, 15 and 21 and a half inches from the back cut, and the two rung grooves on the underside, dashed, at 3 to 6 and 16 and a half to 19 and a half inches">
+        <rect class="ply" x="97.5" y="90" width="537.5" height="50"/>
+        <path class="brk" d="M635 86 l-6 8 l12 8 l-6 8 l12 8 l-6 8 l12 8"/>
+        <rect class="waste" x="97.5" y="90" width="22.5" height="50"/>
+        <rect class="waste" x="570" y="90" width="65" height="50"/>
+        <rect class="dash" x="110" y="95" width="480" height="40"/>
+        <rect class="grv" x="180" y="90" width="60" height="50"/>
+        <rect class="grv" x="450" y="90" width="60" height="50"/>
+        <circle class="tn" cx="150" cy="115" r="6"/><circle class="tn" cx="280" cy="115" r="6"/><circle class="tn" cx="420" cy="115" r="6"/><circle class="tn" cx="550" cy="115" r="6"/>
+        <path class="cut" d="M120 66 V164 M570 66 V164"/>
+
+        <text class="t-cut" x="120" y="60" text-anchor="middle">BACK CUT</text>
+        <text class="t-cut" x="570" y="60" text-anchor="middle">FRONT CUT</text>
+        <text class="t-sm" x="40" y="80">← hatch</text>
+        <text class="t-sm" x="652" y="104">crossbar</text><text class="t-sm" x="652" y="118">→</text>
+        <text class="t-sm" x="210" y="84" text-anchor="middle">groove 1, underside</text>
+        <text class="t-sm" x="480" y="84" text-anchor="middle">groove 2, underside</text>
+        <text class="t-sm" x="345" y="120" text-anchor="middle">riser (dashed)</text>
+        <!-- riser overhangs -->
+        <path class="thin" d="M97.5 140 V156 M120 156 V148"/>
+        <text class="t-dim" x="92" y="160" text-anchor="end">1⅛</text>
+        <path class="thin" d="M590 140 V156 M635 140 V156"/>
+        <text class="t-dim" x="580" y="172" text-anchor="middle">1</text>
+        <text class="t-dim" x="613" y="172" text-anchor="middle">2¼</text>
+        <!-- chain from the back cut -->
+        <path class="thin" d="M120 172 V222 M150 172 V200 M180 172 V214 M240 172 V214 M280 172 V200 M420 172 V200 M450 172 V214 M510 172 V214 M550 172 V200 M570 172 V222"/>
+        <text class="t-dim" x="150" y="194" text-anchor="middle">1½</text>
+        <text class="t-dim" x="280" y="194" text-anchor="middle">8</text>
+        <text class="t-dim" x="420" y="194" text-anchor="middle">15</text>
+        <text class="t-dim" x="550" y="194" text-anchor="middle">21½</text>
+        <text class="t-sm" x="210" y="214" text-anchor="middle">3–6</text>
+        <text class="t-sm" x="480" y="214" text-anchor="middle">16½–19½</text>
+        <path class="thin" d="M120 236 H570"/>
+        <text class="t-dim" x="345" y="254" text-anchor="middle">22½" — every dimension from the back cut</text>
+        <text class="t-sm" x="345" y="268" text-anchor="middle">○ T-nut · dashed band = rung groove on the underside, cut after the strips are free</text>
+      </svg>
+      <figcaption><b>Fig 2 — the driver strip, before it comes apart</b>About 1:3, your comb. At the hatch end the strip runs ⅝" past the riser today; the back cut goes ½" forward of the riser's end, 1⅛" from the strip's end. At the front the riser stops 2¼" short of the crossbar, and the front cut is 1" short of the riser. The middle strip is the same with its own riser. The passenger strip has no riser: carry its back line across from the other two with a straightedge, and mark 22½" from there. The grooves are shown only to check the T-nuts against; they're cut later, all three strips at once.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">D</span><h2>Order of work</h2><span class="aside">then Anchor Board sheet, step 2</span></div>
+  <div class="steps">
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Label everything</h3><p>D, M, P on the strips, TOP on their top faces, an arrow toward the hatch end. The matching letter on each riser.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Mark the back and front lines off the risers</h3><p>Driver and middle strips: square a line across ½" forward of the riser's hatch-end edge, then another 22½" forward of that. Check it's 1" short of the riser's front end. Carry the back line across to the passenger strip with a straightedge and mark 22½" on it too.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Run the four checks (Section A)</h3><p>Front lines behind the crossbar, T-nuts clear of 3–6" and 16½–19½", widths, and no metal in the lines or the bands.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Unbolt the risers</h3><p>Bag each riser's bolts and washers with its letter. The T-nuts stay in the wood.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Cut</h3><p>Cut the crossbar off first, then each strip on its back and front lines: three 22½" strips. Rip the passenger strip to 1½" if it's wider, keeping its outside edge. Chamfer the top edges at both ends. Then go to the Anchor Board sheet's grooves step.</p></div></div>
+  </div>
+</section>
+
+<footer>
+  <p>Comb as measured by the owner, 25 Oct 2026: crossbar cut to 4", 24" risers ⅝" in from the strips' hatch ends, 30⅞" overall (the original design had a 6" crossbar and 33" overall). New strips, grooves and T-nut spacing from the Anchor Board sheet. Shop sheet only: not part of <code>Project_Smores.pdf</code>.</p>
+</footer>
+
+</div>
+</body>
+</html>

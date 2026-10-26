@@ -778,8 +778,9 @@ aboard_hoops_x    = [4.75, 24.75, 31.25, 41.75]; // H1-H4 centers, from the driv
 fridge_riser_y0  = 2.5;    // riser back end, from the hatch (front end at 26.5)
 fridge_riser_len = fridge_slide_length; // 24
 aboard_riser_tnut_y = [fridge_riser_y0 + 2, fridge_riser_y0 + fridge_riser_len - 2]; // 4.5, 24.5 — first/last T-nut
-// kitchen rear strap: stainless footman loops, lengthwise, on the middle
-// strip's outer (kitchen-side) band and on the passenger strip
+// kitchen rear strap: a short 1/4-20 eye bolt in the kitchen riser's 2nd T-nut (the 2-1/4in
+// middle strip leaves only 1/2in outboard of the riser flange) and a stainless footman loop,
+// lengthwise, on the passenger strip
 aboard_loop_y = [9.5, 12.5];
 
 for (s = aboard_strips)
