@@ -228,7 +228,79 @@ svg .t-al{font-size:11.5px; fill:var(--alert); font-weight:600}
 </div>
 
 <section>
-  <div class="sec-h"><span class="n">A</span><h2>Cut across the side rail</h2><span class="aside">driver side, looking forward from the tailgate · 40 px = 1"</span></div>
+  <div class="sec-h"><span class="n">A</span><h2>The whole end, from the tailgate</h2><span class="aside">looking forward · hatch open · 12 px = 1"</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 680 560" role="img" aria-label="End view looking forward from the tailgate: Panel C 46 inches wide between van walls 50 inches apart, the tote on the driver side 25 inches across at the bottom and 30.15 at the rim, 14.3 inches tall, the microwave flush to the passenger edge 17.3 wide and 10.2 tall, and one strap from the driver rail anchor up over the tote lid, down to the microwave's outer top corner and to the passenger rail anchor">
+        <!-- van walls -->
+        <path class="wall" d="M40 40 V480 M640 40 V480"/>
+        <text class="t-sm" x="46" y="52">van wall</text>
+        <text class="t-sm" x="634" y="52" text-anchor="end">van wall</text>
+        <path class="ln" d="M30 480 H650"/>
+        <text class="t-sm" x="340" y="498" text-anchor="middle">floor</text>
+
+        <!-- Panel C: tailgate legs, side rails (cut), deck between -->
+        <rect class="rail" x="64" y="258.0" width="18" height="222.0"/>
+        <rect class="rail" x="598" y="258.0" width="18" height="222.0"/>
+        <rect class="ply" x="82" y="258.0" width="516" height="9"/>
+        <text class="t-sm" x="340" y="328.0" text-anchor="middle">fridge (driver) and kitchen (passenger) slide out below</text>
+        <rect class="mat" x="82" y="255.0" width="516" height="3"/>
+
+        <!-- tote -->
+        <path class="tote" d="M82.0 255.0 L51.1 86.4 L412.9 86.4 L382.0 255.0 Z"/>
+        <path class="thin" d="M51.1 102.4 H412.9"/>
+        <text class="t-lab" x="232.0" y="172.2" text-anchor="middle">TOTE</text>
+        <text class="t-sm" x="232.0" y="188.2" text-anchor="middle">lid on</text>
+
+        <!-- microwave -->
+        <rect class="unit" x="408.4" y="135.6" width="207.6" height="119.4"/>
+        <text class="t-lab" x="512.2" y="196.8" text-anchor="middle">MICROWAVE</text>
+        <text class="t-sm" x="512.2" y="212.8" text-anchor="middle">door toward you</text>
+
+        <!-- strap: driver anchor -> rim corner -> across lid -> microwave outer top corner -> passenger anchor -->
+        <path class="strapln" d="M60 267.0 L51.1 86.4 L412.9 86.4 L616.0 135.6 L620 267.0"/>
+        <rect x="218.0" y="79.4" width="28" height="9" fill="var(--amber)"/>
+        <text class="t-sm" x="232.0" y="72.4" text-anchor="middle">cam buckle on the lid</text>
+        <circle class="ring" cx="60" cy="267.0" r="4.5"/>
+        <circle class="ring" cx="620" cy="267.0" r="4.5"/>
+
+        <!-- dims: across -->
+        <path class="thin" d="M64 278.0 V298.0 M616 278.0 V298.0"/>
+        <path class="thin" d="M64 292.0 H616"/>
+        <text class="t-dim" x="340" y="288.0" text-anchor="middle">46" Panel C · 50" wall to wall</text>
+        <path class="thin" d="M82.0 302.0 V316.0 M382.0 302.0 V316.0"/>
+        <path class="thin" d="M82.0 310.0 H382.0"/>
+        <text class="t-dim" x="232.0" y="306.0" text-anchor="middle">25" bottom</text>
+        <path class="thin" d="M408.4 302.0 V316.0"/>
+        <path class="thin" d="M408.4 310.0 H616"/>
+        <text class="t-dim" x="512.2" y="306.0" text-anchor="middle">17.3"</text>
+        <path class="thin" d="M51.1 56.4 V42.4 M412.9 56.4 V42.4"/>
+        <path class="thin" d="M51.1 48.4 H412.9"/>
+        <text class="t-dim" x="232.0" y="42.4" text-anchor="middle">30.15" rim</text>
+        <!-- dims: heights -->
+        <path class="thin" d="M300 86.4 V255.0 M294 86.4 H306 M294 255.0 H306"/>
+        <text class="t-dim" x="308" y="150">14.3"</text>
+        <path class="thin" d="M616.0 135.6 H662"/>
+        <path class="thin" d="M656 135.6 V255.0"/>
+        <text class="t-dim" x="662" y="196.8" text-anchor="end" transform="rotate(90 662 196.8)">10.2"</text>
+        <path class="thin" d="M20 258.0 H64 M20 480 H30"/>
+        <path class="thin" d="M24 258.0 V480"/>
+        <text class="t-dim" x="16" y="369.0" text-anchor="middle" transform="rotate(-90 16 369.0)">deck 18½"</text>
+        <!-- the two gaps between tote and microwave -->
+        <text class="t-sm" x="395.2" y="248.0" text-anchor="middle">2¼"</text>
+        <path class="thin" d="M405 134 L430 124"/>
+        <text class="t-sm" x="433" y="128">~⅜"</text>
+        <path class="thin" d="M82.0 255.0 L82.0 198.0"/>
+        <path class="thin" d="M64 202.0 H82.0"/>
+        <text class="t-sm" x="86.0" y="198.0">1½"</text>
+      </svg>
+      <figcaption><b>Fig 1 — the whole end, looking forward</b>Drawn to scale. The tote stands 1½" in from the driver edge and the microwave sits flush with the passenger edge. The tote's side flares 0.18" for every inch of height, so the gap between them closes from 2¼" at the deck to about ⅜" at the microwave's top corner. The strap runs from the driver rail's anchor up to the lid, across it, then drops to the microwave's outer top corner and down to the passenger rail's anchor. It bears on the whole lid but only that one corner of the microwave.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">B</span><h2>Cut across the side rail</h2><span class="aside">driver side, looking forward from the tailgate · 40 px = 1"</span></div>
   <div class="figs">
     <figure>
       <svg viewBox="0 0 640 400" role="img" aria-label="Section across Panel C's driver side top rail: the deck sits flush between the rails, the anchor's clip is screwed to the rail's outer face with a one-inch screw, the ring swings up toward the strap, the strap runs up the tote's side, and the van wall is about two inches outside">
@@ -248,9 +320,11 @@ svg .t-al{font-size:11.5px; fill:var(--alert); font-weight:600}
 
         <!-- mat and tote bottom corner (flared side) -->
         <rect class="mat" x="360" y="175" width="260" height="5"/>
-        <path class="tote" d="M372 175 L349 52 L620 52 L620 175 Z"/>
-        <text class="t-lab" x="500" y="110" text-anchor="middle">TOTE</text>
-        <text class="t-sm" x="500" y="128" text-anchor="middle">(bottom 3" shown, its side flares out)</text>
+        <path class="tote" d="M360 175 L338.4 55 L620 55 L620 175 Z" stroke="none"/>
+        <path d="M360 175 L338.4 55 M620 175 V55" stroke="var(--amber)" stroke-width="1.9" fill="none"/>
+        <path d="M332 60 l12 -10 l12 10 l12 -10 l12 10 l12 -10" stroke="var(--amber)" stroke-width="1.5" fill="none"/>
+        <text class="t-lab" x="500" y="110" text-anchor="middle">TOTE, driver end</text>
+        <text class="t-sm" x="500" y="128" text-anchor="middle">bottom 3" of its 14.3", broken off</text>
         <text class="t-sm" x="500" y="168" text-anchor="middle">rubber mat under it</text>
 
         <!-- D-ring clip on the rail's outer face, ring swung up -->
@@ -281,32 +355,41 @@ svg .t-al{font-size:11.5px; fill:var(--alert); font-weight:600}
           <path class="thin" d="M297 225 L280 258"/><circle class="keydot" cx="274" cy="270" r="9.5"/><text class="keynum" x="274" y="274" text-anchor="middle">2</text>
         </g>
       </svg>
-      <figcaption><b>Fig 1 — cut across the rail</b>The clip screws to the rail's outside face, below the deck, so it takes none of the deck's width. With the strap tight, the ring swings up and lies close to the rail. It sticks out about ¾", well inside the 2" to the van wall. The footman loop's ¾" screws go about ⅝" into the 1½" rail (a clip D-ring's 1" screws about ⅞"), both well short of the deck cleat behind it.</figcaption>
+      <figcaption><b>Fig 2 — cut across the rail</b>The clip screws to the rail's outside face, below the deck, so it takes none of the deck's width. With the strap tight, the ring swings up and lies close to the rail. It sticks out about ¾", well inside the 2" to the van wall. The footman loop's ¾" screws go about ⅝" into the 1½" rail (a clip D-ring's 1" screws about ⅞"), both well short of the deck cleat behind it.</figcaption>
     </figure>
   </div>
 </section>
 
 <section>
-  <div class="sec-h"><span class="n">B</span><h2>From outside the panel</h2><span class="aside">driver side · tailgate at right · 14 px = 1"</span></div>
+  <div class="sec-h"><span class="n">C</span><h2>From outside the panel</h2><span class="aside">driver side · tailgate at right · 14 px = 1"</span></div>
   <div class="figs">
     <figure>
-      <svg viewBox="0 0 640 420" role="img" aria-label="Elevation of Panel C's driver side from outside: the top rail along the deck line, the tailgate leg at right, the tote above with its base flush at the tailgate edge and its rim flaring past it, the mattress beyond, and the strap coming down to a D-ring seven and a half inches from the tailgate end">
+      <svg viewBox="0 0 640 560" role="img" aria-label="Elevation of Panel C's driver side from outside: the top rail along the deck line, the tailgate leg at right, the tote above with its base flush at the tailgate edge and its rim flaring past it, the mattress beyond, and the strap coming down to a D-ring seven and a half inches from the tailgate end">
         <!-- Panel C side: 35.75in long, tailgate end at x=580 -->
         <!-- top rail band 1.5in -->
         <rect class="rail" x="80" y="260" width="500" height="21"/>
         <text class="t-sm" x="110" y="275">top rail</text>
         <!-- tailgate leg and cab-end leg -->
-        <rect class="rail" x="559" y="260" width="21" height="140"/>
-        <rect class="rail" x="80" y="260" width="21" height="140"/>
-        <text class="t-sm" x="569" y="414" text-anchor="middle">tailgate leg</text>
-        <path class="thin" d="M30 260 H80"/><text class="t-sm" x="30" y="296">deck top 18½"</text>
+        <rect class="rail" x="559" y="260" width="21" height="259"/>
+        <rect class="rail" x="80" y="260" width="21" height="259"/>
+        <path class="ln" d="M40 519 H600"/>
+        <text class="t-sm" x="320" y="538" text-anchor="middle">floor</text>
+        <text class="t-sm" x="569" y="538" text-anchor="middle">tailgate leg</text>
+        <path class="thin" d="M30 260 H80"/><text class="t-sm" x="108" y="300">deck top 18½" above the floor</text>
 
         <!-- tote: base 15.125 from tailgate edge (x 580 -> 368.25), rim 20.5 (flares 2.69 each end), 14.3 tall -->
         <path class="tote" d="M368.25 260 L330.6 59.8 L617.6 59.8 L580 260 Z"/>
-        <text class="t-lab" x="474" y="150" text-anchor="middle">TOTE</text>
-        <text class="t-sm" x="474" y="168" text-anchor="middle">bottom 15⅛" · rim 20½"</text>
+        <text class="t-lab" x="420" y="150" text-anchor="middle">TOTE</text>
+        <text class="t-sm" x="420" y="166" text-anchor="middle">short end</text>
+        <!-- tote dims: rim, bottom, height -->
+        <path class="thin" d="M330.6 54 V30 M617.6 54 V30 M330.6 36 H617.6"/>
+        <text class="t-dim" x="474" y="26" text-anchor="middle">20½" rim</text>
+        <path class="thin" d="M368.25 252 V236 M580 252 V236 M368.25 244 H580"/>
+        <text class="t-dim" x="470" y="232" text-anchor="end">15⅛" bottom</text>
+        <path class="thin" d="M326 59.8 H300 M362 260 H300 M306 59.8 V260"/>
+        <text class="t-dim" x="296" y="160" text-anchor="middle" transform="rotate(-90 296 160)">14.3"</text>
         <path class="hid" d="M580 40 V258"/>
-        <text class="t-sm" x="586" y="36" text-anchor="end">deck's tailgate edge</text>
+        <text class="t-sm" x="630" y="90" transform="rotate(90 630 90)">deck's tailgate edge</text>
 
         <!-- mattress beyond, 4in tall from 14.5in forward -->
         <rect class="hid" x="40" y="204" width="337" height="56"/>
@@ -328,13 +411,13 @@ svg .t-al{font-size:11.5px; fill:var(--alert); font-weight:600}
           <path class="thin" d="M467 272 L430 300"/><circle class="keydot" cx="420" cy="308" r="9.5"/><text class="keynum" x="420" y="312" text-anchor="middle">2</text>
         </g>
       </svg>
-      <figcaption><b>Fig 2 — Panel C's side from outside</b>Put the strap and both D-rings 7½" from the tailgate end. That's the middle of the tote's 15⅛" bottom and close to the microwave's middle, so the strap crosses square. It's well clear of the tailgate leg, so the screws go into the rail alone. The passenger side is the mirror image, under the microwave.</figcaption>
+      <figcaption><b>Fig 3 — Panel C's side from outside</b>Put the strap and both D-rings 7½" from the tailgate end. That's the middle of the tote's 15⅛" bottom and close to the microwave's middle, so the strap crosses square. It's well clear of the tailgate leg, so the screws go into the rail alone. The passenger side is the mirror image, under the microwave.</figcaption>
     </figure>
   </div>
 </section>
 
 <section>
-  <div class="sec-h"><span class="n">C</span><h2>The D-ring, face on</h2><span class="aside">full size-ish · 80 px = 1"</span></div>
+  <div class="sec-h"><span class="n">D</span><h2>The anchor, face on</h2><span class="aside">full size-ish · 80 px = 1"</span></div>
   <div class="figs two">
     <figure>
       <svg viewBox="0 0 420 300" role="img" aria-label="Face view of the D-ring's two-hole clip on the inch-and-a-half rail face: the two screws on a horizontal line three quarters of an inch below the deck top, the ring hinged in the clip and swung up">
@@ -355,7 +438,7 @@ svg .t-al{font-size:11.5px; fill:var(--alert); font-weight:600}
         <text class="t-dim" x="350" y="116">¾"</text>
         <text class="t-sm" x="210" y="190" text-anchor="middle">screws in a level line, along the rail</text>
       </svg>
-      <figcaption><b>Fig 3 — clip on the rail face</b>Set the screws in a level line along the rail, both on the ¾" centerline, so each has the most wood above and below it. A clip up to about 1⅜" tall fits on the 1½" face.</figcaption>
+      <figcaption><b>Fig 4 — clip on the rail face</b>Set the screws in a level line along the rail, both on the ¾" centerline, so each has the most wood above and below it. A clip up to about 1⅜" tall fits on the 1½" face.</figcaption>
     </figure>
 
     <figure>
