@@ -26,7 +26,7 @@ add("Fridge tray (1/2\" birch + 2 1x3 side aprons)", "Structure", ply(17.72*28.7
 # box grew with the Aug 2026 width change: bottom 18x26 + 2 sides 26x4
 # + front/back 17x4 = 812 sq in (was 744 at the 16in box)
 add("Kitchen drawer + cheeks (1/2\" birch)", "Structure", ply(812,0.5)+ply(322,0.5), 80, 13, "hung over the kitchen unit; 18in box (Aug 2026)")
-add("Rear pantry: 4x IRIS 12\"W drawer units + hold-down", "Structure", 13.0+2.0, 87, -10, "2x2 prefab cluster (est ~3.2lb/unit) + cleats/strap — replaces the ~42lb plywood pantry")
+add("Rear pantry: 27-gal tote + strap", "Structure", 7.0, 87, -10, "Tough Box tote (est.) + 1 cam strap — replaced the IRIS drawer cluster 30 Oct 2026")
 add("Panel B: 2x Sterilite 28-Qt under-bed totes (empty)", "Hardware/misc", 4.0, 43.5, 5, "restacked ON the spare (2 of the original 4)")
 add("RJ-MODINI spare kit + jack (Panel B bay, flat at the axle)", "Hardware/misc", 40.0, 43.5, -4, "T155/85R18 steel wheel + 2-ton jack/tools — VERIFY kit weight on arrival")
 # Bed platform, Aug 2026: THREE pieces, two of them loose — Panel A's 29x49

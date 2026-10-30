@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tote Strap Anchors</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#E9ECE7; --surface:#FBFCFA; --surface-2:#F1F4EF;
+  --ink:#16201C; --ink-2:#4E5A55; --ink-3:#79857F;
+  --rule:#C6CDC5; --rule-strong:#8E9A93;
+  --ply:#9A7A3E; --ply-fill:rgba(200,164,107,.30);
+  --amber:#B8661A; --amber-fill:rgba(201,118,27,.15);
+  --alert:#9E2C1B; --alert-fill:rgba(158,44,27,.09);
+  --good:#2C6349;
+  --font-d:Archivo,"Helvetica Neue",Arial,sans-serif;
+  --font-b:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+    --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+    --rule:#2F3833; --rule-strong:#56615A;
+    --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+    --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+    --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+    --good:#5FB78D;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+  --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+  --rule:#2F3833; --rule-strong:#56615A;
+  --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+  --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+  --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+  --good:#5FB78D;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-b); font-size:15px; line-height:1.55;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+.sheet{max-width:1080px; margin:0 auto; padding-block:28px 64px; padding-left:20px; padding-right:20px}
+
+/* ---- title block: a drawing title block, not a hero ---- */
+.tb{border:1.5px solid var(--ink); background:var(--surface)}
+.tb-head{display:flex; flex-wrap:wrap; align-items:flex-end; gap:6px 20px; padding:18px 20px 14px; border-bottom:1.5px solid var(--ink)}
+.tb-head h1{
+  font-family:var(--font-d); font-weight:700; font-size:clamp(25px,4.6vw,38px);
+  line-height:1.03; letter-spacing:-.018em; margin:0; text-wrap:balance;
+}
+.tb-head p{margin:0; color:var(--ink-2); font-size:14.5px; max-width:56ch}
+.tb-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr))}
+.tb-cell{padding:10px 14px 12px; border-right:1px solid var(--rule); border-top:1px solid var(--rule)}
+.tb-cell:first-child{border-top:0}
+.tb-cell .k{
+  font-family:var(--font-m); font-size:10.5px; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:3px;
+}
+.tb-cell .v{font-family:var(--font-m); font-size:15px; font-weight:500; font-variant-numeric:tabular-nums}
+.tb-cell .v small{font-family:var(--font-b); font-size:12.5px; color:var(--ink-2); display:block; font-weight:400; letter-spacing:0}
+
+/* ---- section headings ---- */
+section{margin-top:44px}
+.sec-h{display:flex; align-items:baseline; gap:12px; border-bottom:1.5px solid var(--ink); padding-bottom:7px; margin-bottom:18px}
+.sec-h .n{
+  font-family:var(--font-m); font-size:12px; font-weight:600; color:var(--ink-3);
+  letter-spacing:.09em; flex:none;
+}
+.sec-h h2{font-family:var(--font-d); font-weight:600; font-size:20px; letter-spacing:-.01em; margin:0; text-wrap:balance}
+.sec-h .aside{margin-left:auto; font-family:var(--font-m); font-size:11.5px; color:var(--ink-3); text-align:right}
+
+p{margin:0 0 12px; max-width:68ch}
+.lede{color:var(--ink-2)}
+a{color:inherit}
+code{font-family:var(--font-m); font-size:.92em; background:var(--surface-2); padding:1px 4px; border-radius:2px}
+strong{font-weight:600}
+
+/* ---- flags ---- */
+.flags{display:grid; gap:14px}
+.flag{
+  border:1px solid var(--alert); border-left-width:4px; background:var(--alert-fill);
+  padding:14px 16px 15px;
+}
+.flag h3{
+  font-family:var(--font-d); font-size:15.5px; font-weight:600; margin:0 0 7px;
+  color:var(--alert); display:flex; gap:9px; align-items:baseline; text-wrap:balance;
+}
+.flag h3 .tag{
+  font-family:var(--font-m); font-size:10px; letter-spacing:.1em; border:1px solid currentColor;
+  padding:1px 5px; flex:none; text-transform:uppercase;
+}
+.flag p{margin:0 0 8px; font-size:14px}
+.flag p:last-child{margin-bottom:0}
+.flag .math{
+  font-family:var(--font-m); font-size:13px; font-variant-numeric:tabular-nums;
+  background:var(--surface); border:1px solid var(--rule); padding:8px 11px; margin:9px 0;
+  display:block; overflow-x:auto; white-space:nowrap; color:var(--ink);
+}
+.flag .verdict{font-weight:600}
+
+/* ---- figures ---- */
+.figs{display:grid; gap:26px}
+@media (min-width:780px){ .figs.two{grid-template-columns:1fr 1fr} }
+figure{margin:0; border:1px solid var(--rule-strong); background:var(--surface); display:flex; flex-direction:column}
+figure svg{display:block; width:100%; height:auto; padding:10px 8px 0}
+figcaption{
+  border-top:1px solid var(--rule); padding:9px 13px 11px; font-size:13px; color:var(--ink-2);
+  margin-top:auto;
+}
+figcaption b{font-family:var(--font-m); font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink); display:block; margin-bottom:3px}
+
+svg .ply{fill:var(--ply-fill); stroke:var(--ink); stroke-width:1.7}
+svg .cav{fill:var(--surface); stroke:var(--ink); stroke-width:1.7}
+svg .unit{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.9}
+svg .blk{fill:var(--ink-2); stroke:none}
+svg .slide{fill:var(--ink); stroke:none}
+svg .ln{fill:none; stroke:var(--ink); stroke-width:1.7}
+svg .thin{fill:none; stroke:var(--rule-strong); stroke-width:1}
+svg .dash{fill:none; stroke:var(--ink-2); stroke-width:1.4; stroke-dasharray:6 4}
+svg .strap{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.5; stroke-dasharray:5 3}
+svg .strapln{fill:none; stroke:var(--amber); stroke-width:2.2}
+svg .ring{fill:none; stroke:var(--ink); stroke-width:2.4}
+svg .hole{fill:var(--paper); stroke:var(--ink); stroke-width:1.7}
+svg text{font-family:var(--font-m); fill:var(--ink-2)}
+svg .t-dim{font-size:12.5px; font-weight:500; font-variant-numeric:tabular-nums}
+svg .t-lab{font-size:12px; fill:var(--ink)}
+svg .t-sm{font-size:10.5px; fill:var(--ink-3)}
+svg .keydot{fill:var(--ink)}
+svg .keynum{font-size:11.5px; font-weight:600; fill:var(--surface)}
+
+/* ---- legend ---- */
+.legend{margin-top:16px; border:1px solid var(--rule); background:var(--surface)}
+.legend li{display:flex; gap:11px; padding:8px 13px; border-top:1px solid var(--rule); align-items:baseline}
+.legend li:first-child{border-top:0}
+.legend ol{margin:0; padding:0; list-style:none}
+.legend .n{
+  font-family:var(--font-m); font-size:11px; font-weight:600; color:var(--surface);
+  background:var(--ink); width:19px; height:19px; border-radius:50%; flex:none;
+  display:inline-flex; align-items:center; justify-content:center; transform:translateY(2px);
+}
+.legend .d{font-size:13.5px}
+.legend .d b{font-weight:600}
+.legend .d span{color:var(--ink-2)}
+
+/* ---- tables ---- */
+.tw{overflow-x:auto; border:1px solid var(--rule-strong); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:13.5px}
+th,td{padding:8px 12px; text-align:left; border-top:1px solid var(--rule); vertical-align:top}
+thead th{
+  border-top:0; border-bottom:1.5px solid var(--ink); font-family:var(--font-m);
+  font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:500;
+  white-space:nowrap;
+}
+td.num,th.num{font-family:var(--font-m); font-variant-numeric:tabular-nums; white-space:nowrap}
+tbody tr:nth-child(even){background:var(--surface-2)}
+td .note{display:block; color:var(--ink-2); font-size:12.5px; margin-top:2px}
+.ok{color:var(--good); font-weight:600}
+.tight{color:var(--alert); font-weight:600}
+
+/* ---- steps ---- */
+.steps{counter-reset:s; display:grid; gap:0; border:1px solid var(--rule-strong); background:var(--surface)}
+.step{display:grid; grid-template-columns:52px 1fr; border-top:1px solid var(--rule)}
+.step:first-child{border-top:0}
+.step .sn{
+  counter-increment:s; font-family:var(--font-m); font-size:16px; font-weight:600; color:var(--ink-3);
+  padding:14px 0 14px 16px; border-right:1px solid var(--rule); font-variant-numeric:tabular-nums;
+}
+.step .sn::before{content:counter(s,decimal-leading-zero)}
+.step .sb{padding:13px 16px 15px}
+.step h3{font-family:var(--font-d); font-size:15px; font-weight:600; margin:0 0 4px; text-wrap:balance}
+.step p{margin:0; font-size:13.8px; color:var(--ink-2); max-width:70ch}
+.step p + p{margin-top:7px}
+.step .hold{
+  display:inline-block; font-family:var(--font-m); font-size:10.5px; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--alert); border:1px solid var(--alert); padding:1px 5px; margin-bottom:6px;
+}
+
+footer{margin-top:52px; border-top:1px solid var(--rule); padding-top:14px; color:var(--ink-3); font-size:12.5px}
+footer p{max-width:72ch; margin:0 0 6px}
+
+@media print{
+  /* Letter with the same 0.65in margin as the main build plan, so these
+     pages sit flush with it when build_pdf.py appends them — and so the
+     stamped footer at 30pt lands clear of the content. */
+  @page{size:Letter; margin:0.65in}
+  :root{--paper:#fff; --surface:#fff; --surface-2:#f4f4f4}
+  body{font-size:10.5pt}
+  .sheet{max-width:none; padding:0}
+  section{break-inside:auto; margin-top:22px}
+  figure,.flag,.step,.tw{break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+<style>
+svg .mat{fill:var(--ink); stroke:none}
+svg .rail{fill:var(--surface-2); stroke:var(--ink); stroke-width:1.7}
+svg .tote{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.9}
+svg .hid{fill:none; stroke:var(--ink-3); stroke-width:1.3; stroke-dasharray:4 3}
+svg .screw{fill:none; stroke:var(--alert); stroke-width:2.4}
+svg .plate{fill:var(--ink-2); stroke:var(--ink); stroke-width:1.2}
+svg .wall{fill:none; stroke:var(--ink-3); stroke-width:3; stroke-dasharray:10 5}
+svg .t-al{font-size:11.5px; fill:var(--alert); font-weight:600}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="tb">
+  <div class="tb-head">
+    <h1>Tote + Microwave Strap Anchors</h1>
+    <p>One cam strap goes over the tote lid and the microwave, side to side across the van. Each end hooks to a footman loop (or a clip D-ring) screwed to the outside face of Panel C's side top rail, just under the deck. Mirror the driver-side drawings for the passenger side.</p>
+  </div>
+  <div class="tb-grid">
+    <div class="tb-cell"><span class="k">Anchors</span><span class="v">2 footman loops<small>stainless, from the spares</small></span></div>
+    <div class="tb-cell"><span class="k">Where</span><span class="v">7½" in<small>from the tailgate end, both sides</small></span></div>
+    <div class="tb-cell"><span class="k">Height</span><span class="v">¾" down<small>centered on the 1½" rail face</small></span></div>
+    <div class="tb-cell"><span class="k">Screws</span><span class="v">#10 × ¾"<small>the loops' own screws · pilot first</small></span></div>
+    <div class="tb-cell"><span class="k">Strap</span><span class="v">1" cam · 8 ft<small>snap hooks · buckle on the tote lid</small></span></div>
+  </div>
+</div>
+
+<section>
+  <div class="sec-h"><span class="n">A</span><h2>Cut across the side rail</h2><span class="aside">driver side, looking forward from the tailgate · 40 px = 1"</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 640 400" role="img" aria-label="Section across Panel C's driver side top rail: the deck sits flush between the rails, the anchor's clip is screwed to the rail's outer face with a one-inch screw, the ring swings up toward the strap, the strap runs up the tote's side, and the van wall is about two inches outside">
+        <!-- van wall -->
+        <path class="wall" d="M220 40 V380"/>
+        <text class="t-sm" x="214" y="372" text-anchor="end">van wall</text>
+        <path class="thin" d="M220 300 H300"/><path class="thin" d="M220 294 V306 M300 294 V306"/>
+        <text class="t-dim" x="260" y="322" text-anchor="middle">~2"</text>
+
+        <!-- top rail 2x2 and deck flush between rails -->
+        <rect class="rail" x="300" y="180" width="60" height="60"/>
+        <text class="t-lab" x="330" y="262" text-anchor="middle">2×2 rail</text>
+        <rect class="ply" x="360" y="180" width="260" height="30"/>
+        <text class="t-sm" x="500" y="200" text-anchor="middle">¾" deck, flush with the rail top</text>
+        <rect class="hid" x="360" y="210" width="40" height="40"/>
+        <text class="t-sm" x="408" y="238">deck cleat</text>
+
+        <!-- mat and tote bottom corner (flared side) -->
+        <rect class="mat" x="360" y="175" width="260" height="5"/>
+        <path class="tote" d="M372 175 L349 52 L620 52 L620 175 Z"/>
+        <text class="t-lab" x="500" y="110" text-anchor="middle">TOTE</text>
+        <text class="t-sm" x="500" y="128" text-anchor="middle">(bottom 3" shown, its side flares out)</text>
+        <text class="t-sm" x="500" y="168" text-anchor="middle">rubber mat under it</text>
+
+        <!-- D-ring clip on the rail's outer face, ring swung up -->
+        <rect class="plate" x="294" y="195" width="6" height="30"/>
+        <path class="ring" d="M294 200 C268 196 262 168 276 156 C284 150 292 160 294 170"/>
+        <!-- screw: 1in long incl. the plate -->
+        <path class="screw" d="M294 210 H334"/>
+        <path d="M290 203 v14" stroke="var(--alert)" stroke-width="3"/>
+        <text class="t-al" x="356" y="290">#10 × ¾" (loop) or #8 × 1" (clip)</text>
+        <path class="thin" d="M334 214 L360 280"/>
+        <text class="t-sm" x="356" y="306">⅝–⅞" into the rail, well short of the cleat</text>
+
+        <!-- strap from the ring up the tote side -->
+        <path class="strapln" d="M272 158 L300 100 L346 40"/>
+        <text class="t-sm" x="300" y="34" text-anchor="end">strap, up and over the lid</text>
+
+        <!-- dims: rail face 1.5 and D-ring center 3/4 below deck top -->
+        <path class="thin" d="M300 180 H160 M300 240 H160"/>
+        <path class="thin" d="M168 180 V240"/>
+        <text class="t-dim" x="152" y="214" text-anchor="end">1½"</text>
+        <path class="thin" d="M300 210 H186"/>
+        <text class="t-sm" x="152" y="232" text-anchor="end">clip centered</text>
+        <text class="t-sm" x="152" y="246" text-anchor="end">¾" below deck top</text>
+
+        <!-- keys -->
+        <g>
+          <path class="thin" d="M276 156 L250 130"/><circle class="keydot" cx="242" cy="122" r="9.5"/><text class="keynum" x="242" y="126" text-anchor="middle">1</text>
+          <path class="thin" d="M297 225 L280 258"/><circle class="keydot" cx="274" cy="270" r="9.5"/><text class="keynum" x="274" y="274" text-anchor="middle">2</text>
+        </g>
+      </svg>
+      <figcaption><b>Fig 1 — cut across the rail</b>The clip screws to the rail's outside face, below the deck, so it takes none of the deck's width. With the strap tight, the ring swings up and lies close to the rail. It sticks out about ¾", well inside the 2" to the van wall. The footman loop's ¾" screws go about ⅝" into the 1½" rail (a clip D-ring's 1" screws about ⅞"), both well short of the deck cleat behind it.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">B</span><h2>From outside the panel</h2><span class="aside">driver side · tailgate at right · 14 px = 1"</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 640 420" role="img" aria-label="Elevation of Panel C's driver side from outside: the top rail along the deck line, the tailgate leg at right, the tote above with its base flush at the tailgate edge and its rim flaring past it, the mattress beyond, and the strap coming down to a D-ring seven and a half inches from the tailgate end">
+        <!-- Panel C side: 35.75in long, tailgate end at x=580 -->
+        <!-- top rail band 1.5in -->
+        <rect class="rail" x="80" y="260" width="500" height="21"/>
+        <text class="t-sm" x="110" y="275">top rail</text>
+        <!-- tailgate leg and cab-end leg -->
+        <rect class="rail" x="559" y="260" width="21" height="140"/>
+        <rect class="rail" x="80" y="260" width="21" height="140"/>
+        <text class="t-sm" x="569" y="414" text-anchor="middle">tailgate leg</text>
+        <path class="thin" d="M30 260 H80"/><text class="t-sm" x="30" y="296">deck top 18½"</text>
+
+        <!-- tote: base 15.125 from tailgate edge (x 580 -> 368.25), rim 20.5 (flares 2.69 each end), 14.3 tall -->
+        <path class="tote" d="M368.25 260 L330.6 59.8 L617.6 59.8 L580 260 Z"/>
+        <text class="t-lab" x="474" y="150" text-anchor="middle">TOTE</text>
+        <text class="t-sm" x="474" y="168" text-anchor="middle">bottom 15⅛" · rim 20½"</text>
+        <path class="hid" d="M580 40 V258"/>
+        <text class="t-sm" x="586" y="36" text-anchor="end">deck's tailgate edge</text>
+
+        <!-- mattress beyond, 4in tall from 14.5in forward -->
+        <rect class="hid" x="40" y="204" width="337" height="56"/>
+        <text class="t-sm" x="200" y="236" text-anchor="middle">mattress foot (beyond)</text>
+
+        <!-- strap at 7.5in from the tailgate end: x = 580 - 105 = 475 -->
+        <path class="strapln" d="M475 59.8 V262"/>
+        <rect class="plate" x="467" y="264" width="16" height="12"/>
+        <circle cx="471" cy="270" r="1.8" fill="var(--surface)"/><circle cx="479" cy="270" r="1.8" fill="var(--surface)"/>
+        <path class="ring" d="M467 266 C462 254 488 254 483 266"/>
+
+        <!-- dim 7.5 -->
+        <path class="thin" d="M475 290 V330 M580 290 V330"/>
+        <path class="thin" d="M475 324 H580"/>
+        <text class="t-dim" x="527" y="346" text-anchor="middle">7½"</text>
+        <text class="t-sm" x="548" y="362" text-anchor="end">to the strap and D-ring center</text>
+
+        <g>
+          <path class="thin" d="M467 272 L430 300"/><circle class="keydot" cx="420" cy="308" r="9.5"/><text class="keynum" x="420" y="312" text-anchor="middle">2</text>
+        </g>
+      </svg>
+      <figcaption><b>Fig 2 — Panel C's side from outside</b>Put the strap and both D-rings 7½" from the tailgate end. That's the middle of the tote's 15⅛" bottom and close to the microwave's middle, so the strap crosses square. It's well clear of the tailgate leg, so the screws go into the rail alone. The passenger side is the mirror image, under the microwave.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">C</span><h2>The D-ring, face on</h2><span class="aside">full size-ish · 80 px = 1"</span></div>
+  <div class="figs two">
+    <figure>
+      <svg viewBox="0 0 420 300" role="img" aria-label="Face view of the D-ring's two-hole clip on the inch-and-a-half rail face: the two screws on a horizontal line three quarters of an inch below the deck top, the ring hinged in the clip and swung up">
+        <rect class="rail" x="20" y="80" width="380" height="120"/>
+        <path class="ln" d="M20 80 H400"/>
+        <text class="t-sm" x="26" y="74">deck top / rail top</text>
+        <!-- clip -->
+        <rect class="plate" x="150" y="118" width="120" height="44" rx="6"/>
+        <circle cx="172" cy="140" r="7" fill="var(--surface)" stroke="var(--ink)"/>
+        <circle cx="248" cy="140" r="7" fill="var(--surface)" stroke="var(--ink)"/>
+        <!-- ring, swung up -->
+        <path class="ring" d="M178 122 C170 60 250 60 242 122" stroke-width="4"/>
+        <path class="thin" d="M172 140 V230 M248 140 V230"/>
+        <path class="thin" d="M172 224 H248"/>
+        <text class="t-dim" x="210" y="248" text-anchor="middle">hole spacing: match your part</text>
+        <path class="thin" d="M300 80 H340 M300 140 H340"/>
+        <path class="thin" d="M334 80 V140"/>
+        <text class="t-dim" x="350" y="116">¾"</text>
+        <text class="t-sm" x="210" y="190" text-anchor="middle">screws in a level line, along the rail</text>
+      </svg>
+      <figcaption><b>Fig 3 — clip on the rail face</b>Set the screws in a level line along the rail, both on the ¾" centerline, so each has the most wood above and below it. A clip up to about 1⅜" tall fits on the 1½" face.</figcaption>
+    </figure>
+
+    <figure>
+      <svg viewBox="0 0 420 300" role="img" aria-label="Install steps checklist graphic">
+        <text class="t-lab" x="20" y="40">1  Mark 7½" from the tailgate end, both rails</text>
+        <text class="t-lab" x="20" y="72">2  Hold the clip centered on the face, mark holes</text>
+        <text class="t-lab" x="20" y="104">3  3/32" pilots, ¾" deep (tape flag on the bit)</text>
+        <text class="t-lab" x="20" y="136">4  #8 × 1" screws, snug, don't strip</text>
+        <text class="t-lab" x="20" y="168">5  Mats down, tote + microwave in place</text>
+        <text class="t-lab" x="20" y="200">6  Hook one end, over the tote lid and microwave</text>
+        <text class="t-lab" x="20" y="232">7  Hook the other end, cinch at the tote lid</text>
+        <text class="t-sm"  x="20" y="270">Touch up the black paint over the screw heads if you like.</text>
+      </svg>
+      <figcaption><b>Install order</b>Both D-rings go in before the van, on the bench. The only thing you do in the van is the strap.</figcaption>
+    </figure>
+  </div>
+
+  <div class="legend">
+    <ol>
+      <li><span class="n">1</span><span class="d"><b>Anchor</b> <span>— the stainless footman loops on hand (6 spares) are the anchor: the strap's snap hook clips into the loop. A clip D-ring drawn here works the same; rate either for 400 lb or more. Not the recessed deck D-rings from the old pantry kit.</span></span></li>
+      <li><span class="n">2</span><span class="d"><b>2-hole mount</b> on the rail's outer face <span>— the footman loops' own #10 × ¾" screws, or #8 × 1" for a clip D-ring. Either stops well short of the deck cleat behind the rail.</span></span></li>
+    </ol>
+  </div>
+</section>
+
+<footer><p>Drawn 30 Oct 2026. Panel C's rail and deck are from the plan (deck flush between the rails). The tote and microwave sizes are the owner's measurements. The ~2" to the van wall is from V7 (50" wall to wall vs the 46" panel).</p></footer>
+</div>
+</body>
+</html>

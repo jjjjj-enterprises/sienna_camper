@@ -2,7 +2,7 @@
 
 *Free to view, share, and build from for personal, non-commercial use only. Commercial use, resale, or redistribution for profit is prohibited without prior written permission. © 2026 JJJJJ Enterprises, LLC — all rights reserved.*
 
-Two-person setup, 2nd row seats **removed entirely** (3rd row folded flat; seat removal/reinstall procedure incl. the SRS airbag emulators: Section 9). Layout, tailgate to front seats: **Kitchen (Panel C's fridge/kitchen void) → Rear pantry (prefab drawers on Panel C's deck) → Bed (Panel B + Panel A) → front seats.** The rear pantry is a **prefab drawer cluster**: a 2×2 array of IRIS USA 12"W stackable drawers sitting on the tailgate end of Panel C's deck, held by a cleat pocket + a cam strap, with a pot/pan crate in the ~21.8" of open deck beside it — nothing built, and each drawer unit lifts straight out (Component 1). Panel A and B have no top of their own (capped by the three-piece bed frame — Panel A's section is screwed down, and Panel B's top is two centerline halves that lift out individually), while Panel C keeps its fixed top — **recessed flush into its rail plane** (the deck ply drops between the rails onto cleats; Panels A/B's rails sit at 16.25" vs Panel C's 17", so the platform on their rails lands in the same flush 18.5" plane — ¾" more headroom; the legs themselves are 1.5" taller than those figures because they are lapped past the rails, see Section 3) — forming one continuous deck with 79¼" of sleeping length for the HEST Dually Long mattress (78" x 50" x 4") (Panel A sits flush with the front seatbacks). Panel B is a bare-frame deep-storage bay — the side doors don't reach it, so it has no drawers and loads from above by lifting out either half of its **two-piece bed top**; Panel A holds a right drawer (EcoFlow DELTA 3) plus a left open-storage bay (EcoFlow WAVE 3, no drawer box); Panel C's under-deck void instead houses a real BougeRV compressor fridge and a real JAGAHAHA slide-out camp kitchen, both on heavy-duty slides pulling straight out the open tailgate — bought products, not built from plywood — plus a shallow slide-out **kitchen drawer** hung under the deck in the dead air above the kitchen unit. The fridge and its cooling fans run off the EcoFlow DELTA 3 stack (Panel A) via their own DC line, so they keep running when people are away from the van regardless of ignition state; the DELTA 3 itself gets AC-charged from the front console outlet while driving, while the induction cooktop and Power strip 1 plug into the van's REAR AC outlet (back passenger area — verified to exist), right beside them: two short cords, no seam crossings.
+Two-person setup, 2nd row seats **removed entirely** (3rd row folded flat; seat removal/reinstall procedure incl. the SRS airbag emulators: Section 9). Layout, tailgate to front seats: **Kitchen (Panel C's fridge/kitchen void) → Rear pantry (prefab drawers on Panel C's deck) → Bed (Panel B + Panel A) → front seats.** The rear pantry is **one 27-gallon Tough Box tote** on the tailgate end of Panel C's deck, beside the microwave, the pots inside it; **one cam strap over both** to two anchors on Panel C's side rails, no cleats — nothing built, and the tote lifts straight out (Component 1; changed from an IRIS drawer cluster 30 Oct 2026). Panel A and B have no top of their own (capped by the three-piece bed frame — Panel A's section is screwed down, and Panel B's top is two centerline halves that lift out individually), while Panel C keeps its fixed top — **recessed flush into its rail plane** (the deck ply drops between the rails onto cleats; Panels A/B's rails sit at 16.25" vs Panel C's 17", so the platform on their rails lands in the same flush 18.5" plane — ¾" more headroom; the legs themselves are 1.5" taller than those figures because they are lapped past the rails, see Section 3) — forming one continuous deck with 79¼" of sleeping length for the HEST Dually Long mattress (78" x 50" x 4") (Panel A sits flush with the front seatbacks). Panel B is a bare-frame deep-storage bay — the side doors don't reach it, so it has no drawers and loads from above by lifting out either half of its **two-piece bed top**; Panel A holds a right drawer (EcoFlow DELTA 3) plus a left open-storage bay (EcoFlow WAVE 3, no drawer box); Panel C's under-deck void instead houses a real BougeRV compressor fridge and a real JAGAHAHA slide-out camp kitchen, both on heavy-duty slides pulling straight out the open tailgate — bought products, not built from plywood — plus a shallow slide-out **kitchen drawer** hung under the deck in the dead air above the kitchen unit. The fridge and its cooling fans run off the EcoFlow DELTA 3 stack (Panel A) via their own DC line, so they keep running when people are away from the van regardless of ignition state; the DELTA 3 itself gets AC-charged from the front console outlet while driving, while the induction cooktop and Power strip 1 plug into the van's REAR AC outlet (back passenger area — verified to exist), right beside them: two short cords, no seam crossings.
 
 **Vehicle measurements** — the van was surveyed on Aug 1 2026 and every dimension in this plan comes from that survey. The full record (V1–V10 interior/opening measurements, F1–F8 rear-floor survey, and the few items still open) is **Appendix A**.
 
@@ -15,7 +15,7 @@ Parametric 3D model: [`platform.scad`](platform.scad) (dimensions in [`params.sc
 The anchor board is the no-drill chassis under Panel C that the fridge slides and the kitchen unit's straps fasten to. **Its shop drawing is the Anchor Board sheet** (in the shop-drawing pages at the end of this PDF): plan, section, rung detail, T-nuts, cut list, hardware and build order.
 
 - **Three ¾" plywood strips**, each one piece, running from **3" to 25½" from the hatch**: the driver strip (2½" wide, on Panel C's driver line), the middle strip (about 2½", 21⅞"–24⅜" from the driver line) and the passenger strip (1½", 44½"–46"). Each lies on a ⅛" neoprene strip.
-- **Two steel rungs**, 3" × 3/16" flat bar 46" long, set flush into grooves in the strips' undersides at 6"–9" and 19½"–22½" from the hatch and screwed up into each strip. They tie the strips into one board and pass under the fridge tray (which hangs ⅜" over the seat surface) and the kitchen unit. There is **no crossbar**: from 26" forward the van's side trim closes to 42", and the fridge tray fills the space between the driver and middle strips for its whole length.
+- **Two steel rungs**, 3" × 3/16" flat bar 46" long, set flush into grooves in the strips' undersides at 6"–9" and 19½"–22½" from the hatch, bedded in E6000 and screwed up into each strip (holes countersunk with a ⅝" countersink bit so the heads sit flush). **Assembled on the bench 30 Oct 2026; van fit pending.** They tie the strips into one board and pass under the fridge tray (which hangs ⅜" over the seat surface) and the kitchen unit. There is **no crossbar**: from 26" forward the van's side trim closes to 42", and the fridge tray fills the space between the driver and middle strips for its whole length.
 - **The fridge slides' riser angles** bolt down into 8 T-nuts in the driver and middle strips (Fridge Slides and Riser Angles sheets).
 - **Anchors: the 3rd-row seats' latch hoops.** Four steel hoops sit in the headrest trough 28" from the hatch, their ⅝" bars 1⅞" below the folded-seat surface with the seat loaded (2⅜" bare), centered 4¾", 24¾", 31¼" and 41¾" from the driver line (H1–H4). A short chain runs forward and down from each riser's front end to **H1** (driver) and **H2**: a forged ¼-20 eye bolt hanging down through each riser's front end, a ¼" quick link, a short length of ¼" chain wrapped once around the hoop's ⅝" bar, closed by a second quick link. Turning the eye bolt's nut draws the chain tight, so a hard stop pulls against it and it also holds the board down. The run is only about 5", too short for any ratchet strap.
 - **Kitchen unit:** a front strap in its front notches to **H2** and **H4**, and a rear strap in its rear notches to a short ¼-20 eye bolt in the kitchen riser's second T-nut, 11" from the hatch (the 2¼" middle strip is too narrow outboard of the riser for a footman loop) and a footman loop on the passenger strip.
@@ -148,17 +148,14 @@ The kitchen drawer — a shallow slide-out drawer hung under Panel C's deck in t
 - Box: 1/2" ply, glue + 1-1/4" screws, ~3.5" clear inside — utensils / cutting board / flat dry goods / griddle plate.
 - Face gets a magnetic catch so nothing rattles in transit.
 
-### Rear Pantry — Prefab Drawer Cluster + Pot Bay
+### Rear Pantry — Tote + Microwave
 
-The rear pantry is **bought prefab drawers** (Component 1): a 2×2 array of IRIS USA 12"W stackable drawers (Home Depot #500163) on the tailgate end of Panel C's deck, plus a pot/pan bay in the ~21.8" of open deck beside it. Nothing is built — a cleat pocket + one cam strap hold it, and each drawer unit lifts straight out (removable). The pantry weighs ~15 lb:
-
-![Rear pantry layout](renders/rear-pantry-detail.svg)
-
+The rear pantry is **one bought 27-gallon Tough Box tote** (Component 1) on the tailgate end of Panel C's deck, with the microwave beside it on the passenger side. One cam strap goes over both, to a footman loop on the outside face of each side top rail, 7½" from the tailgate end. **Its shop drawing is the Tote + Microwave Strap Anchors sheet** at the end of this PDF.
 
 *Notes for this sheet:*
 
-- Nothing built. Each drawer unit lifts straight out once the cam strap is loosened.
-- Canned goods LOW, boxed dry goods UP. Cab-side cleat stops the forward slide under braking; the strap doubles as drawer-shut + hold-down.
+- The old rear-pantry render (IRIS drawer cluster + pot crate) is retired with the design; the model (`params.scad`, `rear_pantry_detail.scad`) has not been redrawn yet. Where they differ, the text and the strap-anchor sheet are right.
+- Heavy things low in the tote. The strap doubles as the lid's hold-down.
 
 ### Floor Panel Detail
 
@@ -311,7 +308,7 @@ The side doors only matter for **Panel A**: its right drawer (DELTA 3) pulls out
 
 ### Layout
 
-- **Rear pantry — prefab drawer cluster + pot bay**: the pantry is **bought prefab drawers** — nothing built. A **2×2 array of IRIS USA 12"W stackable drawers** (Home Depot #500163, two 3-packs) sits on the **tailgate end of Panel C's deck**, in the tailgate-end footprint, 14.5" deep (the units' 14.3" depth is carried entirely by the deck — V5 measured the hatch reserve at zero, so there is nothing left to hang 0.3" proud into; the sleeping run is 79.25"). The cluster is **24.2" W × 14.3" D × 16.8" H**, leaving **~21.8" of open deck** on the passenger side for a **pot/pan crate** (~13" milk crate — the pots' own 11×11 box drops inside) and the relocated power/wiring. It's held by a **cleat pocket + one cam strap across the drawer fronts** (which also keeps the drawers shut) — no fasteners into the units, so each drawer unit **lifts straight out** and clears the gate. **Power strip 1 and the ROLL bubble level sit at the deck edge** in the 21.8" pot bay (still reached from the bed). See the Rear Pantry render and Section 6, Component 1.
+- **Rear pantry — tote + microwave** (changed 30 Oct 2026): a **27-gallon Tough Box tote** (bottom 15⅛ × 25", rim 20½ × 30.15", 14.3" tall) sits on the **tailgate end of Panel C's deck**, 25" side across the van, bottom flush with the tailgate edge and ~1½" in from the driver edge. The pots' 11×11 box goes inside it. The **microwave** sits flush with the passenger edge beside it. **One cam strap over both**, hooked to a footman loop on the outside face of each side top rail; a non-slip mat under both; no cleats. The tote's bottom pokes ⅝" past the 14½" pantry end into the foot of the mattress (79¼" run, 78" mattress), and its rim hangs ~2¾" past the deck's tailgate edge ~33" up — **check the closed hatch clears it at the van**. **Power strip 1 and the ROLL bubble level need a new spot** (the old pot bay is now the microwave's) — re-site them at Component 6. See Section 6, Component 1.
 - **One continuous sleeping deck**, 46" wide x 93.75" long (Panels A + B + C, flush with the front seatbacks — no gap), deck surface sitting **18.5"** above the van floor: **the horizontal ply is recessed INTO the rail plane** (deck recess — Panel C's deck drops between its rails onto 3/4"×3/4" bearer cleats, flush with the rail tops; Panels A/B instead sit their rails at **16.25"**, so the 3/4" bed platform resting ON their rails tops out at the same 18.5" plane). That buys 3/4" of headroom: **19.5" sitting headroom** over the 4" mattress (V3 measured the cabin at 42"). Panel C's `leg_height` stays 17", driven by the fridge's mounted stack (see below), not by the folded 3rd-row well depth — confirm 17" clears your actual well before cutting.
 - **Panel A and Panel B share the same frame, and neither has a top of its own.** Panel A has a center divider splitting its bay in two, reached through the side doors: the right (passenger) side is the one real drawer (DELTA 3), the left (driver) side is WAVE 3 open storage (the unit is too wide for a boxed drawer — Section 1). **Panel B has NO drawers and no divider** — the sliding-door openings sit over the old 2nd-row footprint (Panel A), not over Panel B, so nothing pulled sideways from Panel B could clear a door. Its whole bay is deep storage instead, loaded from above by lifting out **either half of its two-piece bed top** (long-term/bulky items you don't touch at camp). The slatted bed platform (Component 2, 15 slats between 1x4 side rails, 58" x 49" overall — cantilevered 1.5" past the boxes each side, 3/4" thick; **width set by V7**) spans Panel A + B ONLY and ENDS at the B/C seam: Panel C's own fixed deck is at exactly the same surface height, so the two meet flush and the mattress's last ~20" rides that deck (an 80" platform would have to sit ON that deck — 3/4" too high). It rests DIRECTLY on Panel A/B's top rails as one flush 3/4" plane (slats pocket-screwed between the side rails). Leveling happens at the leg feet down at the floor — each leg is cut 1" short and carries a hand-adjustable leveling foot.
 
@@ -335,7 +332,7 @@ The side doors only matter for **Panel A**: its right drawer (DELTA 3) pulls out
 - **Camp power/cooling (EcoFlow):** an EcoFlow DELTA 3 Plus + Smart Extra Battery (~48 lb combined) stows unstacked, side by side, in Panel A's **right (passenger-side)** drawer — a normal drawer, not strapped down like Panel C's appliances, since 48 lb is well within what the drawer slides already handle and this gear is never used while driving. Within the drawer, the **DELTA 3 Plus sits outboard** (nearest the pull wall — it's what the WAVE 3 actually plugs into, used whether or not the extra battery is along) and the **Smart Extra Battery sits inboard** (grabbed less often, for extra runtime only). The **WAVE 3 portable AC/heater stores in Panel A's LEFT (driver-side) bay as open storage, not a drawer** — it's 20.4" wide, too wide for a boxed drawer's 19" clear interior, but the raw bay (20.75", no box walls to eat into it) fits it with ~0.35" to spare. It sits directly on the bay floor under a cam strap hooked to 2 D-rings on the frame, reached by hand through the driver's side door — Panel A has only one actual drawer (right/DELTA 3). For camp use, the unit gets carried to wherever it actually runs (Panel C's tailgate deck or the front seat — see the sleeping-configurations note below); it's storage-only in Panel A, not used in place there.
   - **Side-door access (V8).** The usable clear opening at the door's real stopping point measures **29"** against Panel A + Panel B's combined 58" drawer run, so barely half that run can land within reach from any one door position. The door's fore-aft position is **measured too**: the opening starts level with the front seatback, i.e. at **Y = 0**. So the 29" clear gap runs from 0" to 29" — **exactly spanning Panel A's 29" length**. Panel A is therefore reachable end to end, and Panel B (29–58") gets **zero overlap — blocked outright** behind the van's own body structure. **Both design decisions rest on measurements:** the DELTA 3 stack belongs in **Panel A**, and Panel B correctly has no drawers, which is why its bed top is two lift-out halves instead (Component 2). The coincidence is worth noticing — the door runs out precisely at the A/B seam, so there is no margin either way, and the DELTA drawer (22" fore-aft, centered in the 29") clears it with ~3.5" a side. Both units are charged at camp via shore power or solar — this design does not route van power to either (see Section 5).
   - **Why the fridge (and its fan system) run off the DELTA 3 stack, not the van's rear outlet.** It costs two things: a long cord run across all 3 module seams, and competing with the WAVE 3 for the DELTA 3's battery budget. This design accepts both costs deliberately, for a concrete reliability win: **the fridge keeps running when people are away from the vehicle, regardless of the van's ignition state** — many factory 12V outlets cut off with the key out, which would mean the fridge stops cooling every time the van is parked and locked, and putting the fridge on the DELTA 3 makes that risk moot rather than just hoping the outlet turns out to be always-hot. **The real numbers make this hold up:** the DELTA 3 Plus + Smart Extra Battery combined is 2048Wh; the Rocky 40 is rated 60W max / 45W ECO (dual-zone, compressor duty-cycled) — realistically ~450–1050Wh/day depending on mode, partition use, and ambient temp, so a full charge runs the fridge alone for roughly **2 to 4.5 days** unattended, worst case to best case. And recharging is fast: the DELTA 3 Plus's AC input maxes out at 1500W, an almost exact match for the Sienna's front console outlet (**confirmed 1500W**) — a full 0-100% charge takes about 56 minutes, so even a short errand run tops it back off. EcoFlow's DELTA 3 line supports charging and discharging at the same time (running the fridge while AC-charging is normal, it just slows the charge rate somewhat), so there's no need to choose one or the other. **The fan system runs off the DELTA 3 too, not just the fridge** — the fans exist to vent the compressor's heat, so they need to stay available under the exact same conditions the fridge does (parked, people away, ignition off); leaving them on the van's outlet would defeat the point. The rear 12V accessory outlet is unused by this design — free for anything else you'd like to plug in there later. **One real trade-off to plan around:** the front console circuit has 3 things wanting it (the cooktop, Power strip 1, and the DELTA 3's AC charging, which alone can draw up to the circuit's full 1500W) — see the shared-circuit note in Section 5.
-- **Modular lift-out design**: Panel A, Panel B, and Panel C are each built as an independent, self-supporting module — own frame, own 4 legs (the fridge and kitchen unit are bought products with no frame of their own, and aren't lifted out as part of this; the rear pantry isn't its own module either — see below). All three lift straight out and drop straight back in without touching the others (for deep cleaning or reconfiguring — day-to-day storage access is through the drawers/shelves, not by removing a module). With no tops or skirts, each panel is gripped by its exposed 2x2 top rails (no routed hand-holds needed), and anti-rattle bumpers + alignment pins + hand-released seam draw-latches at the A/B and B/C seams keep things fast to install/remove, quiet in transit, and clamped into one rigid beam (Component 5) — see Section 8. The rear pantry's prefab drawer units just sit on Panel C's deck behind a cleat pocket and one cam-buckle strap (Component 1) — loosen the strap and any unit lifts straight out, contents and all.
+- **Modular lift-out design**: Panel A, Panel B, and Panel C are each built as an independent, self-supporting module — own frame, own 4 legs (the fridge and kitchen unit are bought products with no frame of their own, and aren't lifted out as part of this; the rear pantry isn't its own module either — see below). All three lift straight out and drop straight back in without touching the others (for deep cleaning or reconfiguring — day-to-day storage access is through the drawers/shelves, not by removing a module). With no tops or skirts, each panel is gripped by its exposed 2x2 top rails (no routed hand-holds needed), and anti-rattle bumpers + alignment pins + hand-released seam draw-latches at the A/B and B/C seams keep things fast to install/remove, quiet in transit, and clamped into one rigid beam (Component 5) — see Section 8. The rear pantry's tote and the microwave just sit on Panel C's deck under one cam strap (Component 1) — unhook the strap and either lifts straight out, contents and all.
 
 ### WAVE 3 sleeping configurations: tent vs. no tent
 
@@ -357,7 +354,7 @@ The WAVE 3 is **stored** in Panel A's left bay either way (see the DELTA 3/WAVE 
 
 | Section | Length | Width | Notes |
 |---|---|---|---|
-| Rear pantry — prefab drawer cluster + pot bay (on Panel C's deck, tailgate end) | 14.3" (carried entirely by Panel C's last 14.5" of deck) | 24.2" cluster + ~21.8" bay = 46" | **Bought, not built** — a 2×2 IRIS drawer cluster (24.2" × 14.3" × 16.8") on the driver side + a rigid ~13" pot crate in the ~21.8" open deck; held by a cleat pocket + a cam strap (each unit lifts out). Power strip 1 + the ROLL bubble level relocate to the deck edge here. |
+| Rear pantry — tote + microwave (on Panel C's deck, tailgate end) | tote bottom 15⅛" (⅝" past the 14.5" pantry end, into the mattress foot); microwave 14" | tote 25" (rim 30.15") + microwave 17.3" across 46" | **Bought, not built** — a 27-gal Tough Box tote on the driver side + the microwave flush to the passenger edge; one cam strap over both to footman loops on the side rails, mat underneath, no cleats. Power strip 1 + the ROLL bubble level still need a spot. |
 | Panel A | 29" | 46" | **No top of its own** — capped by the bed frame's screwed-down section (Component 2); right (DELTA 3) drawer through the passenger door, left bay is WAVE 3 open storage through the driver door (no drawer box) |
 | Panel B | 29" | 46" | **No top of its own** — capped by the same bed frame; **no drawers, no divider, no skirts** (the side doors don't reach it): a bare 2x2 frame whose bay is deep storage, loaded from above by lifting the platform + mattress |
 | Panel C | 35.75" (21.25" mattress-covered + 14.5" rear pantry) | 46" | **Keeps its fixed top** (recessed flush between its rails on bearer cleats — deck plane 18.5") — the mattress-covered part only reaches ~21.25" into it (the rear pantry claims the last 14.5", Section 1), and the fridge/kitchen void underneath needs the enclosure regardless; no drawers |
@@ -408,8 +405,8 @@ Two coordinate conventions, each picked to match how you'd actually stand at the
 | Power strip 2 (cooktop) | C | ~34.5–37.5 | ~26 (kitchen unit's front face) | ~1.5 |
 | Right drawer (the only one) | A | 23.75–43.75 | 3.5–25.5 | 0–13.75 |
 | Center divider | A | 22.25–23.75 | 1.5–27.5 | 0–16.25 |
-| Rear pantry: 2×2 IRIS drawer cluster (bought) | C | driver 0–24.2 | 0–14.3 | 18.5–35.3 |
-| Rear pantry: pot/pan crate + hold-down cleats/strap | C | passenger 24.2–46 | 0–14 | 18.5 (on the deck) |
+| Rear pantry: 27-gal tote (bought; bottom, rim flares 2.6–2.7" each side) | C | driver 1.5–26.5 | 0–15.1 | 18.5–32.8 |
+| Microwave (BLACK+DECKER EM720CPN-P) | C | passenger 28.7–46 | 0–14 | 18.5–28.7 |
 | Power strip 1 + ROLL bubble level (relocated to the deck edge) | C | ~33 (passenger bay) | on the deck, back edge | ~19.25–20.25 (just above the deck) |
 
 Coordinates for the fixed/structural items (drawers, panels, fridge, kitchen) come directly from `params.scad`/`platform.scad`'s real geometry. Power strip 1/2 positions are schematic markers in the 2D diagrams (approximate, not separately modeled in the 3D assembly) — confirm exact placement against the real frame once built.
@@ -486,7 +483,7 @@ Neither upgrade changes any dimension in the cut list below — same sizes, diff
 **Weight-reduction swaps.** Separately, and pulling the *other* way, the build is lightened wherever safe — plywood is thin wherever it isn't carrying real load. This is reflected in the cut list and in Appendix F:
 
 - **Kitchen-drawer cheeks → 1/2"**; **bed platform → 15 (short) slats over 6 rails**, plus Panel B's center bearer (fine under the solid-foam mattress). See Component 2.
-- **The rear pantry goes further than thinning — it's not plywood at all:** it's the prefab IRIS drawer cluster (~15 lb, Component 1).
+- **The rear pantry goes further than thinning — it's not plywood at all:** it's one bought 27-gallon tote (~7 lb with its strap, Component 1).
 - **Kept 3/4":** Panel C's deck — it carries sitting load. **Note the tension with the poplar upgrade above:** poplar *adds* ~20% weight, so if you're chasing weight, keep poplar to the grip rails only or skip it.
 
 ### Plywood — 1 sheet 3/4" + 1 sheet 1/2", Baltic birch (or shop-grade) — **two sheets, nothing else**
@@ -500,7 +497,6 @@ Neither upgrade changes any dimension in the cut list below — same sizes, diff
 | Panel C top (deck) | 1 | 33" x 43" — drops BETWEEN the rails onto bearer cleats, flush with the rail tops (deck recess: 3/4" more headroom) |
 | Anchor board strips (Section 8) | 3 | **22½" long**, 2½", ~2½" and 1½" wide, each one piece; tied by steel rungs, not glued (Anchor Board sheet) |
 | Deck bearer cleats | 4 | 3/4" x 3/4" strips: 2 x 33" + 2 x 40" (ripped from the offcut; screwed to Panel C's rails' inner faces, tops 3/4" below the rail tops). **Interrupt the FRONT cleat at the 2 lapped front legs** — their tops come up into the deck plane on that face; cut it as 3 short runs rather than one 40" strip |
-| Rear-pantry hold-down cleats | ~4 | ~1" x 1" x 12–14" strips (ripped from the offcut; cab-side + both sides of the drawer cluster) |
 | **Battery drawer side wall** | 2 | **22" x 13.75"** — full depth, and the slide pair screws to these two. One out of the 47" x 19" strip, one from the sheet's remaining offcut. 3/4": glue + **2× R3** per corner |
 | **Battery drawer front/back wall** | 2 | **18.5" x 13.75"** — they fit BETWEEN the side walls, so cut them at 20" with everything else and trim **1.5" (= 2 × 3/4")** off each once the sides exist. One out of the same 47" x 19" strip beside the side wall (22 + 20 = 42 of the 47), one from the sheet's remaining offcut. 3/4", 2× R3 per corner |
 
@@ -621,9 +617,7 @@ Photographed doing it (Sept 3 2026). Four things here that no drawing was tellin
 | Anti-rattle bumper strips | 2 strips (one at each lift-out seam: A/B, B/C — the pantry and fridge/kitchen aren't lift-out modules, so no seams of their own). Adhesive-backed felt or closed-cell foam weatherstrip |
 | Alignment dowel pins | 4 pins (2 per seam x 2 seams), 3/8" dowel rod, ~3/4" long, friction-fit into a matching hole on each module face |
 | Seam draw-latches | 4 over-center draw latches (2 per seam x 2 seams), stainless/zinc, ~3" body. Mounted LOW on the bottom-rail band (~1.75" up), over the inset leg line, one on each side of each seam. Base plate on one module, hooked bail + lever on its neighbour — flip to clamp the two tight against the bumper, flip to release. Alignment pins LOCATE the modules; these CLAMP them into one rigid beam (with the bed platform tying the A/B tops). Hand-released, so the modular lift-out is preserved — see Component 5 |
-| Rear pantry — prefab drawer cluster | 4x IRIS USA 12"W stackable drawers (Home Depot #500163, two 3-packs), 12.1" x 14.3" x 8.4" each, stacked 2 wide x 2 high (24.2" x 14.3" x 16.8", ~13 lb). Contains its own contents; each unit lifts out for the gate |
-| Rear pantry — hold-down | ~1" birch cleats (cab side + both sides, ripped from the 3/4" offcut) + 1 cam-buckle strap across the drawer fronts + 2 flush deck D-rings (strap anchors) + anti-rattle felt tape + 2 Velcro ties linking top units to bottom |
-| Pot/pan bay | 1 rigid ~13" milk crate (the pots' 11x11 box drops inside) in the ~21.8" of open deck beside the cluster + a corner cleat + a bungee |
+| Rear pantry — tote + microwave | 1 × 27-gal Tough Box tote (bottom 15⅛ × 25", 14.3" tall) beside the microwave; **1 × 1" cam strap with snap hooks, 8 ft**, over both; **2 stainless footman loops** (from the spares) on the outside face of Panel C's side top rails, 7½" from the tailgate end, ¾" below the deck top, on their #10 × ¾" screws. No cleats: the deck mat grips, the mattress stops them forward |
 | Panel B deep-storage totes | 2x Sterilite 28-Qt under-bed lidded totes (23.5" x 16.9" x 5.9"), restacked ON the spare in Panel B's bay — containerized top-load storage (lift the platform, lift out whole totes) |
 | Spare tire stowage | RJ-MODINI kit (T155/85R18 on an 18x4 steel wheel, 28.5" dia x ~6.4" stored, ~40 lb w/ 2-ton jack) FLAT in Panel B's bay at the axle: a cradle skid (2 battens 2⅛" × 24" standing on edge, fore-aft between the 2nd-row seat tracks (centered 18½" and 27½" from the driver edge), with 3 cleats 3" × 30" glued and screwed flat across them, all ¾" ply — 2⅞" tall, so the cleats clear the seat tracks and caps and the spare still clears the 2-7/16" bottom-rail curb (cut 14 Oct)) over a non-slip liner offcut + 1" cam strap to 2 footman loops on the bottom rails + tool case nested in the wheel — install/access diagrams on the Spare Tire Stowage render |
 | Panel A/B diagonal corner braces | 4 used (2 per panel, Panels A + B) from the purchased Sumnacon 4" 8-pack (4 spares), steel flat-strap — recovers some of the racking rigidity lost by removing each panel's own top |
@@ -676,10 +670,9 @@ Every wooden joint's method — biscuit vs. screw — with the exact biscuit spa
 
 | Item | Qty | Est. Unit Cost | Est. Total |
 |---|---|---|---|
-| 3/4" Baltic birch plywood, 4x8 sheet (Panel C deck + the anchor board's strips + **all 4 battery-drawer walls** + the bearer and pantry cleats ripped from the offcuts — see Section 3) — **PURCHASED 2026-09-06** | 1 | $65 | $65 |
-| Rear pantry — IRIS USA 12"W stackable drawers, Home Depot #500163 3-pack (buy 2 packs; use 4, 2 spare) | 2 packs | $30.29 | $61 |
-| Rear pantry hold-down — 1 cam-buckle strap + 2 flush deck D-rings + anti-rattle felt tape + Velcro ties (cleats ripped from the 3/4" offcut) | 1 set | $26 | $26 |
-| Pot/pan bay — rigid ~13" milk crate + bungee (e.g. 1 of an ORGANIZE-IT 4-pack; in the ~21.8" bay) | 1 | $15 | $15 |
+| 3/4" Baltic birch plywood, 4x8 sheet (Panel C deck + the anchor board's strips + **all 4 battery-drawer walls** + the bearer cleats ripped from the offcuts — see Section 3) — **PURCHASED 2026-09-06** | 1 | $65 | $65 |
+| Rear pantry — 27-gal Tough Box tote with lid, black/yellow (CPC27GTBY) — **BOUGHT**; replaces the IRIS drawer cluster (30 Oct 2026; the 2 IRIS 3-packs already bought are spares or returns) | 1 | — | — |
+| Tote + microwave hold-down — 1" cam strap with snap hooks, 8 ft (to buy) + 2 stainless footman loops from the spares (on hand). The old pantry kit's recessed deck D-rings, felt and Velcro ties are spare | 1 | $10 | $10 |
 | Panel B totes — Sterilite 28-Qt under-bed lidded (23.5" x 16.9" x 5.9"), restacked on the spare | 2 | $12 | $24 |
 | RJ-MODINI spare kit — 2011-2026 Sienna incl. Hybrid (T155/85R18 steel, 28.5" dia + 2-ton jack + wrenches/sockets + cases) — **$349.95 on Amazon** | 1 | $350 | $350 |
 | Spare hold-down hardware: 2x 1" footman loops (from a 4-pack, screws included) + 1" x 6 ft cam-buckle strap (Masterwise multi-pack, purchased — a ~5.5 ft over-stack run, so 6 ft reaches; spares cover the pantry + DELTA 3 drawer straps); skid + liner from offcuts | 1 set | $24 | $24 |
@@ -730,7 +723,7 @@ Every wooden joint's method — biscuit vs. screw — with the exact biscuit spa
 | 1x3 pine, 6 ft (rip the fridge tray's two 28¾" side aprons from it) — **PURCHASED 2026-09-06** | 1 | $6 | $6 |
 | **[JAGAHAHA wooden slide-out camp kitchen](https://www.amazon.com/dp/B0FLDCNYZX)**, right-side variant (kitchen faces out the passenger side), built for a 2-burner stove (confirmed product link — **no listed price found in research; treat as an UNVERIFIED estimate** until you check the live listing) | 1 | $300–350 | $300–350 |
 | [COOKTRON Portable Induction Cooktop 2 Burner w/ Removable Iron Cast Griddle Pan](https://www.amazon.com/dp/B09MCR1SDT) — confirmed exact product, 18.1"x9.1"x4.3" (fits the JAGAHAHA's 23"x15.7"x5.7" stove tray with margin on every axis); see Section 7 for why the Duxtop 9620LS was dropped | 1 | $189.99 | $189.99 |
-| BLACK+DECKER EM720CPN-P microwave, 0.7 cu ft / **700W output** — Target TCIN 50568401, pickup San Antonio North — **PURCHASED 2026-09-06**. ⚠️ **Two things still open, one settled — see the power note in Section 7.** (a) 700W is the *output* rating; input draw for this class is **~1200W, UNVERIFIED** — read the nameplate. (b) ✅ **SETTLED: never run at the same time as the cooktop.** The van has ONE 1500W inverter feeding BOTH outlets, so the remaining watch item is pausing DELTA 3 AC charging before use. (c) **Home: Panel C's deck, the passenger-side bay at the tailgate end, directly above the kitchen drawer** — beside the pantry drawer cluster, door facing the tailgate so it's used from outside with the hatch up. It is ~17.3" W × 13–14" D × 10.2" H in the ~21.8" × 14.5" bay, leaving ~4" for side vents; run it only with the hatch open, and strap it down for travel | 1 | $54.99 | $54.99 |
+| BLACK+DECKER EM720CPN-P microwave, 0.7 cu ft / **700W output** — Target TCIN 50568401, pickup San Antonio North — **PURCHASED 2026-09-06**. ⚠️ **Two things still open, one settled — see the power note in Section 7.** (a) 700W is the *output* rating; input draw for this class is **~1200W, UNVERIFIED** — read the nameplate. (b) ✅ **SETTLED: never run at the same time as the cooktop.** The van has ONE 1500W inverter feeding BOTH outlets, so the remaining watch item is pausing DELTA 3 AC charging before use. (c) **Home: Panel C's deck, flush with the passenger edge at the tailgate end, directly above the kitchen drawer** — beside the pantry tote, door facing the tailgate so it's used from outside with the hatch up. It is 17.3" W × 14" D × 10.2" H (~22 lb, sibling-model figure). **Its vents are on the back**, ~½" from the mattress foot: pull the mattress foot back or slide the microwave toward the tailgate before running it, and run it only with the hatch open. For travel it shares the tote's strap (Component 1) | 1 | $54.99 | $54.99 |
 | 120mm 12V fan + PWM temperature controller w/ NTC probe (W1209-style, fridge-bay cooling) | 1 | $15–20 | $15–20 |
 | 3" round snap-in soffit vents, 4-pack — 3 in the front wall's low intake row under the fan, 1 spare (**PURCHASED**) | 1 pack | $12 | $12 |
 | 12V fused distribution block (control panel) — **PURCHASED July 2026: Nilight 6-way blade fuse block w/ negative bus, waterproof cover, label stickers, fuse assortment included** (no separate ATO fuse pack needed) | 1 | $17.98 | $17.98 |
@@ -754,9 +747,9 @@ Every wooden joint's method — biscuit vs. screw — with the exact biscuit spa
 | Interior satin polyurethane for Panel C's deck and the drawer/tray surfaces things slide across (NOT spar urethane — H.5 note 5) | 1 qt | $20 | $20 |
 | Sandpaper, misc finishing supplies | — | $15 | $15 |
 | 6-outlet power strip, individual switches (Power strip 1 + Power strip 2) — CRST metal, **PURCHASED July 2026** | 2 | $25 | $50 |
-| UMETRE 9-Piece Detachable-Handle Induction Cookware Set — nests flat, its 11x11 box drops into the pot crate (Component 1); induction-compatible, dishwasher-safe — **PURCHASED July 2026** | 1 set | $45 | $45 |
+| UMETRE 9-Piece Detachable-Handle Induction Cookware Set — nests flat, its 11x11 box goes in the pantry tote (Component 1); induction-compatible, dishwasher-safe — **PURCHASED July 2026** | 1 set | $45 | $45 |
 | [PeaceOut Toyota Sienna Sliding Doors Bug Nets](https://peaceout.ca/en/products/toyota-sienna-front-sliding-doors-bug-nets) — Sienna-specific, sold as a pair (driver + passenger sliding doors), no-see-um mesh, magnetic + hook-and-loop attachment (temporary, no screws), carry bag included — lets both side doors stay open for ventilation while sleeping without bugs getting in. Real listed price is in CAD; $ figure here is an approximate USD conversion — confirm current exchange rate before ordering. | 1 pair | ~$197 (CAD $269.99) | ~$197 |
-| DELTA 3 drawer hardware: 1x1 pine locating cleats, 2 screw-eye D-rings + cam strap, 1" cable grommet (Panel A right drawer — see Renders) | 1 set | $15 | $15 |
+| DELTA 3 drawer hardware: rubber non-slip mat on the drawer floor (**no locating cleats** — owner, 30 Oct 2026), 2 D-rings on #8 × ⅝" screws ~7½" down from the box's top edge + cam strap, turn button on the frame's top rail (e.g. Wright Products V20A, or a 3" × ¾" ply tab), 1" cable grommet (Panel A right drawer — Power Drawer Tie-Down sheet) | 1 set | $15 | $15 |
 | WAVE 3 hose/cord storage hook, in the open utility bay (screwed up into the deck underside at the bay's kitchen side; bundle the hoses with their strap so nothing swings — see Renders) | 1 | $4 | $4 |
 | Non-slip mat, WAVE 3's point-of-use surface (Panel C's deck or the front seat — not the Panel A storage bay, see Renders) | 1 | $12 | $12 |
 | FOUND STORAGE — DELTA 3 drawer top tray (reclaims ~2.1" of dead headroom above the DELTA 3 stack — 13.75" box − 1/2" bottom − 11.16" stack: cables, the DELTA 3's own cords, dongles) — shallow lift-out bin, **build it 1.75" or shallower** | 1 | $8 | $8 |
@@ -768,7 +761,7 @@ Every wooden joint's method — biscuit vs. screw — with the exact biscuit spa
 
 ### Recommended purchase links — slides + electrical (checked July 2026)
 
-- **Rear pantry (prefab)**: [IRIS USA 12"W stackable drawer 3-pack, Home Depot #500163](https://www.homedepot.com/p/IRIS-1-Drawer-Stackable-Storage-Unit-in-Gray-12-in-W-x-8-39-in-H-3-Pack-500163/318989007) (buy 2 packs; 2×2 cluster + 2 spares) + a [1"×6' cam-buckle strap 4-pack](https://www.amazon.com/Masterwise-Lashing-Buckles-Adjustable-Securing/dp/B0B4WP4MFL) + [flush deck D-rings](https://www.amazon.com/US-Cargo-Control-Stainless-Environments/dp/B00SLTKIQ8) + [felt tape](https://www.amazon.com/Adhesive-Polyester-Protecting-Furniture-Surfaces/dp/B09H72KZ2G) + VELCRO ONE-WRAP 8"×1/2" ties.
+- **Rear pantry**: the 27-gallon Tough Box tote (bought) + a 1" × 8 ft cam strap with snap hooks; the anchors are 2 of the stainless footman loops already on hand.
 - **Panel B deep-storage totes**: [Sterilite 28-Qt under-bed lidded tote](https://www.amazon.com/Sterilite-16558010-28QT-Storage-Box/dp/B0042KXV28) ×2 — plain lidded totes on purpose (Panel B has no side access, so slide-drawer versions would waste money).
 - **Spare tire**: [RJ-MODINI kit, 2011-2026 Sienna incl. Hybrid](https://www.amazon.com/RJ-MODINI-2011-2026-Including-Changing-Storage/dp/B0F7QJXHWJ) ($349.95) — T155/85R18 on an 18x4 steel wheel with the factory 60.1mm hub-centric bore; at **28.5" rolling diameter it's the closest match to the ~29.1" OE tires** (−2%, vs −4.8% for the T145 kits — gentlest on the AWD systems). Includes a model-specific 2-ton jack, lug + ratchet wrench, 4 sockets, gloves, and cases (the tool case nests inside the wheel barrel). Skid + liner come from offcuts already in the build. (Alternatives compared: ValueSpare ~$270-385 steel/27.7", Modern Spare ~$350-460 alloy/27.7".)
 - **Spare hold-down hardware**: [NVAAV 1" stainless footman loops, 4-pack w/ screws](https://www.amazon.com/NVAAV-Stainless-Footman-Installation-Corvette/dp/B0D8BR83D4) (~$10, need 2) + [Cartman 1" x 12 ft cam-buckle lashing straps, 6-pack](https://www.amazon.com/CARTMAN-Lashing-Straps-600lbs-Carry/dp/B017902W8G) — **PURCHASED July 2026**: footman loops (2 packs) + a Masterwise 6-ft x 1" cam-strap multi-pack (the spare's over-stack run is ~5.5 ft, so 6 ft reaches; spares cover the pantry + DELTA 3 drawer straps).
@@ -924,31 +917,33 @@ Everything from Sections 3-4 reorganized around **10 self-contained components**
 
 Cut every piece for every component up front, per Section 3's cut list, before starting Component 1 — sand all edges once cut.
 
-### Component 1: Rear Pantry — Prefab Drawer Cluster + Pot Bay
+### Component 1: Rear Pantry — Tote + Microwave
 
-![Component 1 — finished component, accessory list & part list](renders/steps/comp-1-header.png)
-
-**The pantry is bought prefab drawer units** — no shelving to build, ~15 lb of drawers + hold-down. A **2×2 array (2 wide × 2 high) of IRIS USA 12"W stackable storage drawers** (Home Depot #500163, two 3-packs — use 4, keep 2 spares) sits on the **tailgate end of Panel C's deck** — a tailgate-end footprint **14.5" deep** so the deck carries the 14.3" units outright (V5 measured the hatch reserve at zero — there is nothing left to sit 0.3" proud into), leaving a **79.25" sleeping run**. The cluster is **24.2" W × 14.3" D × 16.8" H**, which leaves **~21.8" of open deck on the passenger side** for a **pot/pan crate** plus the relocated power/wiring. Nothing is screwed into the units — a **cleat pocket + one cam strap** hold them, so each drawer unit **lifts straight out** (removable, clears the measured 50" liftgate easily). The drawers contain their own contents. **Power strip 1 and the ROLL bubble level mount on the deck edge** in the 21.8" pot bay (still reached and read from the bed). Build Panel C (Component 4) first — the cluster just sits on its finished deck.
+**Changed 30 Oct 2026: the IRIS drawer cluster is out.** The rear pantry is one **27-gallon Tough Box tote** (black/yellow, CPC27GTBY; measured: bottom 15⅛ × 25", rim 20½ × 30.15", 14.3" tall) on the tailgate end of Panel C's deck, beside the **BLACK+DECKER microwave** (17.3" W × 14" D × 10.2" H). The pots' 11×11 box goes inside the tote, so there's no pot crate. **One cam strap holds both, and there are no cleats:** the rubber mat grips, the mattress stops them going forward, and the closed hatch stops them going back. Shop drawing: the **Tote + Microwave Strap Anchors** sheet at the end of this PDF.
 
 **Parts needed:**
 
-- **IRIS USA 12"W stackable storage drawers** (Home Depot model #500163, gray, sold as 3-packs at ~$30.29 — buy 2 packs) — **use 4 units**, 12.1" W × 14.3" D × 8.4" H each, stacked 2 wide × 2 high (2 spares for swap-in). The 14.3" depth is carried entirely by the deck: `pantry_len` is 14.5" because V5 measured the hatch reserve at zero, so nothing hangs proud
-- Hold-down cleats — ~1" × 1" birch strips (from the 3/4" sheet offcut), ~3–4 ft, screwed to the deck around the **cab side + both sides** of the cluster (tailgate side left open)
-- Cam-buckle tie-down strap — 1, ~1" nylon, across the drawer fronts to the deck D-rings (holds the drawers shut + snugs the stack)
-- Flush-mount deck D-rings — 2, screwed to the deck flanking the cluster
-- Anti-rattle felt/cloth tape — for the interlocking rails between the stacked units; + 2 small Velcro ties linking the top units to the bottom
-- Pot/pan bay — 1 rigid ~11" × 11" bin or crate (the pots' own cardboard box works short-term, but a rigid bin takes a strap and won't crush) + a corner cleat + a bungee
-- Power strip 1 + the ROLL bubble level — on the deck edge in the 21.8" bay (Power strip 1's cord run is Component 6; the PITCH bubble level still goes on the bed platform, Component 2)
+- 27-gallon Tough Box tote with lid (bought)
+- The black non-slip mat on the deck's tailgate end (Panel C sheet)
+- 2 stainless footman loops from the spares, on their own #10 × ¾" screws (or 2 surface clip D-rings on #8 × 1" screws). **Not** the recessed flush D-rings from the old pantry kit: they need a pocket cut, and the anchors go on the 1½" rail face
+- 1 × 1" cam strap with snap hooks, 8 ft
 
-**Build it (mostly placement + hold-down — there's no shelving to make):**
+**Layout** (looking forward from the tailgate):
 
-![Rear pantry layout](renders/rear-pantry-detail.png)
+- **Tote:** 25" side across the van, bottom flush with the deck's tailgate edge, ~1½" in from the driver edge. The bottom pokes ⅝" past the 14½" pantry end, and the foot of the mattress takes it (a 79¼" run for the 78" mattress). Its rim hangs ~2¾" past the deck's tailgate edge, ~33" off the floor. **Check at the van that the closed hatch clears it:** V5 was taken at deck height only. If it doesn't, the tote moves ~2" forward and the mattress no longer fits its run.
+- **Microwave:** flush with the passenger edge, door facing the tailgate. The gap to the tote closes from ~2¼" at the deck to ~⅜" at its top corner; that side has no vents. **Its vents are on the back**, ~½" from the mattress foot: pull the mattress foot back or slide the microwave out toward the tailgate before running it, and run it only with the hatch up.
 
-1. **Set the cluster.** Stack the 4 drawer units 2 wide × 2 high on the tailgate end of Panel C's deck, drawers facing the tailgate. Felt-tape the interlocking rails between the stacked units, and add a Velcro tie linking each top unit to the one below so the top row can't creep off under braking.
-2. **Cleat pocket.** Screw ~1" birch cleats to the deck hugging the cluster's **cab-facing side and both sides** — leave the **tailgate side open** for drawer access. The cab-side cleat is the critical one: it stops the cluster sliding forward under braking.
-3. **Strap the fronts.** Screw 2 flush D-rings to the deck flanking the cluster and run one cam-buckle strap across the drawer faces. Double duty — it keeps the drawers from sliding open under acceleration AND snugs the whole stack down. Unclip one end to open the drawers.
-4. **Pot/pan bay + power.** In the ~21.8" of open deck beside the cluster, set a rigid ~13" crate for pots/pans (their 11×11 box drops inside), held by a corner cleat + a bungee. Route Power strip 1's cord and the 12V/wiring along the deck's back edge behind the bin, and mount Power strip 1 + the ROLL bubble level on the deck edge where you can reach and read them from the bed.
-5. **Load it.** Dense/heavy items (canned goods) in the bottom drawers, boxed dry goods up top, pots in the bin — then cinch the front strap before driving.
+**Build it:**
+
+1. **Mark the anchors.** 7½" from the tailgate end, on the outside face of both side top rails. That's the middle of the tote's bottom and close to the microwave's middle, so the strap crosses square, and it's clear of the tailgate legs.
+2. **Fit the anchors.** A footman loop on each mark, centered on the rail's 1½" face (¾" below the deck top), screws in a level line along the rail; pilot first. They sit below the deck, so they take none of its width, and stand ~¾" into the ~2" to the van wall.
+3. **Mat down, tote and microwave in place.**
+4. **Strap.** Hook one end, run it up over the tote lid and down across the microwave's top, hook the other end, and cinch the buckle on top of the tote lid. It presses the whole lid but only the microwave's outer top corner; with the mat, that's enough for ~22 lb. Snug, not cranked: the microwave's case is thin sheet metal.
+5. **Load it.** Heavy things low in the tote. Re-cinch at the start of each drive.
+
+**Still open:** Power strip 1 and the ROLL bubble level were to go on the deck edge in the old pot bay, which the microwave now fills. Re-site them with the control cluster at Component 6.
+
+**Retired:** the 4 IRIS drawer units (6 bought — spares or returns), the pot crate (not bought), the pantry cleats, and the 2 recessed deck D-rings from the pantry kit (spares).
 
 ### Component 2: Panel A & Bed Platform
 
@@ -969,7 +964,7 @@ Panel A and Panel B share the same frame construction — neither has a top of i
 - Drawer box — 1 (right/DELTA 3 side only), 5 pieces: bottom 19.25"x21.25" (1/2" ply, into a 3/8" glued rabbet), 2 side walls 22"x13.75" + 2 front/back walls 18.5"x13.75" (cut at 20", trimmed 1.5" each) (**3/4" ply** — these are the parts no other leftover could hold, Section 3). Glue + **2× R3** per corner since it carries the 48 lb DELTA stack.
 - Drawer slide — 1 pair, 20" full-extension
 - Drawer catch — 1, friction catch or small turn latch
-- DELTA 3 drawer hardware (right drawer) — 1x1 pine locating cleats, 2 screw-eye D-rings + cam strap, 1" cable grommet
+- DELTA 3 drawer hardware (right drawer) — rubber non-slip mat (no locating cleats, as built), 2 D-rings + cam strap, a turn button on the frame's top rail, 1" cable grommet
 - WAVE 3 hold-down (left bay) — 2 screw-eye D-rings in the end bottom rails + 1 low-profile cam strap over the unit (no glide strips, no shelf)
 - Bed platform lumber — seven 1x4 x 8ft pine boards: five 42" slats + ten 17.5" slats + six 29" side rails — crosscuts only, no hardware (Bed Platform Detail render)
 - Panel B center bearer — 52¼" of 2x2 (two **26⅛"** pieces side by side, rough), out of the 2x2 frame stock; glued up, then trimmed to the measured gap less ¼" (~25⅞") — it is **drop-in** on 4× 1" corner braces
@@ -998,7 +993,7 @@ Panel A and Panel B share the same frame construction — neither has a top of i
 <div class="lego-num">4</div>
 <div class="lego-parts"><p class="lego-noparts">DELTA 3 drawer hardware (parts list above): pine cleats, 2 D-rings + cam strap, 1" grommet</p></div>
 <div class="lego-main"><img src="renders/delta3-wave3-detail.png" alt="DELTA 3 stack in Panel A's right drawer">
-<p class="lego-caption">In the right drawer, add the DELTA 3 fixtures: locating cleats glued/screwed to the drawer floor, D-rings + cam strap to hold the stack down in transit, and a cable grommet for the WAVE 3's charge cable. DELTA 3 Plus outboard (pull wall), Smart Extra Battery inboard — see Component 8.</p></div>
+<p class="lego-caption">In the right drawer, add the DELTA 3 fixtures: a rubber non-slip mat on the drawer floor (as built — no locating cleats), D-rings ~7½" down from the top edge + cam strap to hold the stack down in transit, and a cable grommet for the WAVE 3's charge cable. DELTA 3 Plus outboard (pull wall), Smart Extra Battery inboard — see Component 8.</p></div>
 </div>
 <div class="lego-step">
 <div class="lego-num">5</div>
@@ -1102,7 +1097,7 @@ Effective leg height = cut length + the 1" foot.</p>
 
 <figure class="photo-figure">
 <img src="photos/drawer-08-ecoflow-loaded.jpg" alt="Looking down into the open drawer with the DELTA 3 Plus and the Smart Extra Battery side by side and a cable running out through the cord slot">
-<figcaption><b>Loaded:</b> the DELTA 3 Plus and the Smart Extra Battery side by side, with the charging cable leaving through the cord slot. The cam strap goes across both units, D-ring to D-ring, before the van moves.</figcaption>
+<figcaption><b>Loaded:</b> the DELTA 3 Plus and the Smart Extra Battery side by side, with the charging cable leaving through the cord slot. The cam strap goes across both units, D-ring to D-ring, before the van moves. <b>As built (30 Oct): no locating cleats.</b> The rubber mat on the drawer floor holds the units, the strap pins them down, and a turn button on the frame's top rail keeps the drawer shut. Power Drawer Tie-Down sheet.</figcaption>
 </figure>
 
 ### Component 3: Panel B
@@ -1145,7 +1140,7 @@ Same frame construction as Panel A — and that's the whole build. **Panel B has
 
 ![Component 4 — finished component, accessory list & part list](renders/steps/comp-4-header.png)
 
-Build this one before Component 1 (Rear Pantry) — the prefab drawer cluster sits on this panel's finished deck at the tailgate end (cleat pocket + cam strap — no fasteners into the units), with no frame or top of its own.
+Build this one before Component 1 (Rear Pantry) — the pantry tote and the microwave sit on this panel's finished deck at the tailgate end (one cam strap to footman loops on the side rails — no fasteners into either), with no frame or top of its own.
 
 **Parts needed:**
 
@@ -1158,7 +1153,7 @@ Build this one before Component 1 (Rear Pantry) — the prefab drawer cluster si
 - Corner brackets — 4
 - Front wall — 1, 46" x 17", 1/2" ply, with the 120mm fan hole + one 1" grommet hole + three 3" low intake vent holes pre-cut (Panel C Front Wall render — every opening dimensioned)
 - 3" snap-in soffit vents — 3 (the low intake row in the front wall), from the 4-pack on hand
-- Non-slip mat — 1, ~14¼" × 43", black rubber, on the deck's pantry end (the ~14¼" of deck the mattress doesn't cover), cut around the pantry cleats and D-rings — **held with Velcro so it can be replaced**: loop side on the deck (stapled at each end), hook side on the mat, a strip all round ~1" in from the edge and none across the middle, where a ridge would rock the drawer stack. Test the adhesive on the mat's back first; contact cement if it won't hold. Full method: the Panel C Frame sheet, last step
+- Non-slip mat — 1, ~14¼" × 43", black rubber, on the deck's pantry end (the ~14¼" of deck the mattress doesn't cover), with no cutouts (the strap anchors are on the side rails, not the deck) — **held with Velcro so it can be replaced**: loop side on the deck (stapled at each end), hook side on the mat, a strip all round ~1" in from the edge and none across the middle, where a ridge would rock the drawer stack. Test the adhesive on the mat's back first; contact cement if it won't hold. Full method: the Panel C Frame sheet, last step
 - VELCRO Extreme Outdoor 1" × 10 ft — 2 rolls (heat-rated adhesive), for the mat
 - No divider, no drawers — the void stays fully open for Component 7 (Fridge & Kitchen Install)
 
@@ -1342,7 +1337,7 @@ Build this one before Component 1 (Rear Pantry) — the prefab drawer cluster si
 <div class="lego-num">1</div>
 <div class="lego-parts"><p class="lego-noparts">uses Panel A's right-drawer fixtures (Component 2, step 4)</p></div>
 <div class="lego-main"><img src="renders/delta3-wave3-detail.png" alt="DELTA 3 and WAVE 3 stowage detail">
-<p class="lego-caption">Stow the DELTA 3 Plus outboard (pull wall — it's what the WAVE 3 plugs into) and the Smart Extra Battery inboard, side by side over the locating cleats, cam strap over both. Connect the fridge DC line (via its fused car-plug→SAE adapter — connection point P1) and the AC charging cord (both routed in Component 6) to the DELTA 3 Plus's 12V car-power outlet and AC input port — it powers the fridge/fans continuously and gets charged from the front console while driving (Section 1).</p></div>
+<p class="lego-caption">Stow the DELTA 3 Plus outboard (pull wall — it's what the WAVE 3 plugs into) and the Smart Extra Battery inboard, side by side on the rubber mat (no locating cleats — owner, 30 Oct 2026), cam strap over both into D-rings ~7½" down from the box's top edge (#8 × ⅝" screws: the slides are on the other face of the ¾" wall). Turn the turn button down over the pull wall before the van moves (Power Drawer Tie-Down sheet). Connect the fridge DC line (via its fused car-plug→SAE adapter — connection point P1) and the AC charging cord (both routed in Component 6) to the DELTA 3 Plus's 12V car-power outlet and AC input port — it powers the fridge/fans continuously and gets charged from the front console while driving (Section 1).</p></div>
 </div>
 <div class="lego-step">
 <div class="lego-num">2</div>
@@ -1401,7 +1396,7 @@ Build this one before Component 1 (Rear Pantry) — the prefab drawer cluster si
 1. Sand and apply 2 coats of wood sealant/varnish to all plywood surfaces (especially edges) to prevent moisture damage.
 2. Install the curtain rod (tension rod + blackout fabric) between the front seats and the platform area for privacy.
 3. Test fit everything: confirm the cooktop's and Power strip 1's cords reach the REAR outlet, the DELTA 3's charging cord reaches the front console outlet, confirm the fridge's DC line reaches the DELTA 3 in Panel A with its disconnects seated at both seams, and confirm the tailgate closes with everything loaded.
-4. Do a full lift-out/reinstall dry run on Panel A, Panel B, and Panel C — gripping each by its exposed top rails, each should come free and drop back in without binding, rubbing, or forcing a bumper/pin out of place. For **Panel A and Panel B specifically**, also test lifting the one-piece bed platform off the box rails first (they have no top or lid of their own — the platform is the only thing capping them), then confirm each panel's drawers pull smoothly once it's clear. For **the rear pantry specifically**, loosen the cam strap and confirm each drawer unit lifts off Panel C cleanly and drops back into its cleat pocket.
+4. Do a full lift-out/reinstall dry run on Panel A, Panel B, and Panel C — gripping each by its exposed top rails, each should come free and drop back in without binding, rubbing, or forcing a bumper/pin out of place. For **Panel A and Panel B specifically**, also test lifting the one-piece bed platform off the box rails first (they have no top or lid of their own — the platform is the only thing capping them), then confirm each panel's drawers pull smoothly once it's clear. For **the rear pantry specifically**, unhook the cam strap and confirm the tote and the microwave lift off Panel C cleanly, and that the strap re-cinches square over both.
 
 *No diagram — finishing and test steps, not new construction.*
 
@@ -1458,7 +1453,7 @@ So **a single burner tops out at 1100W** — the 1800W on the box is the pair's 
 
 ### Cookware: UMETRE 9-Piece Detachable-Handle Induction Set (PURCHASED July 2026)
 
-The detachable-handle design is what won: the whole set nests flat and ships in an **11" x 11" box that drops straight into the rear pantry's ~13" pot crate** (Component 1). Induction-compatible (verified against the COOKTRON), dishwasher-safe. Trade-off, noted honestly: it's a nonstick coating rather than bare stainless, so pack silicone/wood utensils and expect to re-buy pans in a few seasons of camp abuse.
+The detachable-handle design is what won: the whole set nests flat and ships in an **11" x 11" box that goes straight into the rear pantry's tote** (Component 1). Induction-compatible (verified against the COOKTRON), dishwasher-safe. Trade-off, noted honestly: it's a nonstick coating rather than bare stainless, so pack silicone/wood utensils and expect to re-buy pans in a few seasons of camp abuse.
 
 ### Kitchen unit: bought product, no slide-out tray to build
 
@@ -1484,7 +1479,7 @@ All cooktop and power strip hardware costs are already folded into the master BO
 
 ## 8. Modular Lift-Out Design & Weight
 
-Panel A, Panel B, and Panel C each rest unbolted on the van floor — nothing is fastened down, and no module shares a frame rail with its neighbor. Pull the bumper strips free, lift any of the three out by their exposed 2x2 top rails (no tops or skirts in the way), and the sleeping deck is gone for normal minivan use; drop them back in and the alignment pins register everything in the same spot every time. The rear pantry is not one of these three lift-out modules — its prefab drawer units just sit on Panel C's deck behind the cleat pocket and strap (loosen the one cam strap, no tools, Component 1) — lift the drawer units out first and its deck is clear. **The fridge and kitchen unit are the one deliberate exception to "nothing is fastened down"** — see below.
+Panel A, Panel B, and Panel C each rest unbolted on the van floor — nothing is fastened down, and no module shares a frame rail with its neighbor. Pull the bumper strips free, lift any of the three out by their exposed 2x2 top rails (no tops or skirts in the way), and the sleeping deck is gone for normal minivan use; drop them back in and the alignment pins register everything in the same spot every time. The rear pantry is not one of these three lift-out modules — its tote and the microwave just sit on Panel C's deck under one strap (unhook it, no tools, Component 1) — lift them out first and its deck is clear. **The fridge and kitchen unit are the one deliberate exception to "nothing is fastened down"** — see below.
 
 ### Securing heavy components (fridge + kitchen unit)
 
@@ -1519,7 +1514,7 @@ Panel A, Panel B, and Panel C each rest unbolted on the van floor — nothing is
 
 | Module | Est. weight |
 |---|---|
-| Rear pantry — 4× prefab drawer units + pot bin (each unit lifts out on its own at ~3.2 lb) | ~15 lb total |
+| Rear pantry — 27-gal tote + strap (lifts out in one piece) | ~7 lb empty |
 | Panel A (incl. divider + 1 drawer box/slide + corner braces + 2 bottom rails + WAVE 3 D-rings/strap, no top) | ~37 lb (pull the DELTA 3 drawer box off its slides first and it drops to ~15 lb) |
 | Panel B (bare cube frame — bottom rails on all 4 faces + corner braces; no top, no divider, no drawers) | ~15 lb |
 | Panel C (frame + front bottom rail + deck + front wall + kitchen drawer & cheeks + control cluster backer — the fridge TRAY + slides stay bolted to the anchor board (strapped to the van, no holes), and the fridge/kitchen units are tracked separately below) | ~61 lb — the heavy one (unclip the kitchen drawer box from its slides first: ~48 lb) |
@@ -1528,7 +1523,7 @@ Panel A, Panel B, and Panel C each rest unbolted on the van floor — nothing is
 | EcoFlow DELTA 3 Plus + Smart Extra Battery (Panel A right drawer, included in that drawer's own weight above) | ~48 lb |
 | EcoFlow WAVE 3 (Panel A left bay, stored in place — it doesn't need removing for driving) | 33.7 lb |
 
-**Panel A (~37 lb) and Panel B (~15 lb) are comfortable one-person lifts; Panel C (~61 lb) is the outlier** — unclip its kitchen drawer box from the slides first (2 minutes, drops it to ~48 lb) or make it a two-person lift. A and B are well under the ~50 lb rule of thumb for a solo carry (weights in the table above), and Panel C gets under it once its kitchen drawer box is off. The rear pantry's **~15 lb** of prefab drawer units ride on top of Panel C when installed but lift out one at a time (~3.2 lb each — loosen the strap); each is a trivial one-hand lift even loaded.
+**Panel A (~37 lb) and Panel B (~15 lb) are comfortable one-person lifts; Panel C (~61 lb) is the outlier** — unclip its kitchen drawer box from the slides first (2 minutes, drops it to ~48 lb) or make it a two-person lift. A and B are well under the ~50 lb rule of thumb for a solo carry (weights in the table above), and Panel C gets under it once its kitchen drawer box is off. The rear pantry's tote (~7 lb empty) and the microwave (~22 lb) ride on top of Panel C when installed and lift out separately once the strap is unhooked.
 
 **Fit and quiet-in-transit checklist:**
 
@@ -1893,11 +1888,11 @@ The order to build in — **dependency-first, not the Component numbering.** Wor
 4. Hang the kitchen drawer; velcro the 2 utility bins into the open bay (no door).
 5. Cooling + control cluster: intake fan (blows IN), exhaust fan + NTC on the fridge's kitchen-facing wall, W1209 + fuse block + switches on the backer board in the open utility bay.
 
-**Phase 4 — Rear pantry (prefab)** (Component 1 — *needs Panel C's finished deck; nothing to build*)
-1. Stack the 4 IRIS drawer units 2×2 on the deck's tailgate end (felt tape + Velcro ties between rows).
-2. Screw the cleat pocket to the deck (cab side + both sides) + 2 flush D-rings.
-3. Run the cam strap across the drawer fronts; set the pot bin + corner cleat + bungee in the open bay.
-4. Mount Power strip 1 + the ROLL bubble level on the deck edge; route the cord.
+**Phase 4 — Rear pantry (tote + microwave)** (Component 1 — *needs Panel C's finished deck; nothing to build*)
+1. Screw a footman loop to the outside face of each side top rail, 7½" from the tailgate end.
+2. Mat down; set the tote (driver side) and the microwave (flush to the passenger edge).
+3. One cam strap over both, hooked to the two loops, buckle on the tote lid.
+4. Re-site Power strip 1 + the ROLL bubble level with the control cluster (Component 6).
 
 **Phase 5 — Panel A build-out (EcoFlow bays)** (Components 2 + 8)
 1. Right bay: R1-biscuited drawer box on a 20" slide + catch; DELTA 3 cleats + D-rings + a cable tray.
@@ -1930,7 +1925,7 @@ Consolidates Section 4's BOM into a shopping order with links. Prices are estima
 
 **Lumber & Plywood** — 3/4" Baltic birch sheet ($65), 1/2" Baltic birch sheet ($50), **no 3/8" material at all (those four parts come out of these two sheets' leftovers, ~−$50 and ~+16 lb; Section 3)**, 12× 2×2 pine 8ft ($96–180), 7× 1×4 pine 8ft ($35), 1× 1×3 pine 6ft ($6).
 
-**Frame / fasteners** — rear pantry: 2× IRIS 3-packs, Home Depot #500163 ($61) + cam strap/D-rings/felt/Velcro hold-down ($26) + pot crate ($15) + 2× Sterilite 28-Qt Panel B totes ($24) + spare hold-down hardware: footman loops + cam-strap 6-pack ($24) + the RJ-MODINI spare kit ($350 — stows in Panel B at the axle); corner brackets ×12 (*purchased* — 16 came in 2 packs, $20.54); diagonal corner braces ×8 (*purchased*, $24); seam draw-latches ×4 (*purchased* — houya toggle latches, $16); wood screws ($20); wood glue ($8); [Ryobi R-series biscuit assortment](https://www.amazon.com/) ($12); alignment dowel pins ($3); anti-rattle bumper strip (*purchased* — Shappy felt strips, 2× 120", $9.73).
+**Frame / fasteners** — rear pantry: 27-gal Tough Box tote (*bought*) + a 1" × 8 ft cam strap with snap hooks ($10) — the 2 IRIS 3-packs ($61) and the old hold-down kit ($26) were bought before the switch + 2× Sterilite 28-Qt Panel B totes ($24) + spare hold-down hardware: footman loops + cam-strap 6-pack ($24) + the RJ-MODINI spare kit ($350 — stows in Panel B at the axle); corner brackets ×12 (*purchased* — 16 came in 2 packs, $20.54); diagonal corner braces ×8 (*purchased*, $24); seam draw-latches ×4 (*purchased* — houya toggle latches, $16); wood screws ($20); wood glue ($8); [Ryobi R-series biscuit assortment](https://www.amazon.com/) ($12); alignment dowel pins ($3); anti-rattle bumper strip (*purchased* — Shappy felt strips, 2× 120", $9.73).
 
 **Drawers & slides** — Panel A drawer slides (GlideRite 20" 100lb 5-pack, *purchased*, $47); drawer catch ($3); kitchen-drawer slide 24" (*purchased* — Liberty 942405 soft-close, $37.63) + catch (*purchased*, WOOCH — but 2 are needed, verify); fridge slide 24" heavy-duty locking (VADANIA, *purchased*, $79).
 
@@ -1966,7 +1961,7 @@ Finished sizes; add saw kerf. Full context in Section 3.
 
 **1×4 pine — 7 boards (8ft), bed platform:** side rails 6× 29"; slats 5× 42" + 10× 17.5".
 
-**Trim / cleats / scrap:** DELTA 3 locating cleats 4× 1×1 blocks.
+**Trim / cleats / scrap:** none for the pantry or the DELTA 3 drawer (both held by rubber mats and straps, as built).
 
 ### Appendix E — Leveling: Block Calculator
 
@@ -1990,7 +1985,7 @@ Every component's weight, computed from the real material dimensions (Baltic bir
 | Panel C front wall (**½" birch**) | Structure | **9.6** | mid | intake fan + grommets; from the ½" sheet's leftover |
 | Fridge tray (**½" birch** + 2 1×3 side aprons) | Structure | **8.0** | rear | hangs between the side-mount slide rails; from the same leftover |
 | Kitchen drawer + ½" cheeks (birch) | Structure | 13.9 | rear | hung over the kitchen unit; 18" box |
-| Rear pantry: 4× IRIS 12"W drawer cluster + hold-down | Structure | 15.0 | rear | prefab 2×2 drawers (est.) + cleats/strap |
+| Rear pantry: 27-gal tote + strap | Structure | 7.0 *est.* | rear | was 15.0 for the IRIS cluster; the subtotals below still carry 15.0 |
 | Panel B: 2× Sterilite 28-Qt under-bed totes | Hardware/misc | 4.0 | mid | stacked ON the spare |
 | RJ-MODINI spare kit + jack (Panel B, flat at the axle) | Hardware/misc | 40.0 | mid | T155/85R18 steel-wheel kit + cleats/strap — VERIFY kit weight |
 | Bed platform (1×4 pine, 6 rails + 15 slats) | Structure | 23.8 | front | Panel A's fixed section + Panel B's 2 lift-out halves |
@@ -2008,6 +2003,8 @@ Every component's weight, computed from the real material dimensions (Baltic bir
 | Seam draw-latches (4) + pins + bumpers | Hardware/misc | 1.5 | mid | at the A/B + B/C seams |
 | Electrical (2 fans, controller, fuse, 2 strips, cords) | Hardware/misc | 6.0 | mid | cooling + power runs |
 | Cooktop + cookware (stowed) | Hardware/misc | 12.0 | rear | induction top + pots in the kitchen |
+
+*30 Oct 2026: the pantry tote is ~8 lb lighter than the IRIS cluster, and the ~22 lb microwave is not in this table — together about +14 lb on the totals below, not yet rolled in.*
 
 **Subtotals:** Structure **171.0** · Appliances **85.6** · Power/climate **81.7** · Bedding **35.0** · Hardware/misc **114.4**
 **Build total (added): ≈ 488 lb** — including Panel B's 2 storage totes (~4 lb), the **RJ-MODINI spare kit stowed at the axle (~40 lb)** — carried inside deliberately instead of on a hitch basket, which would have added its own 30–60 lb of carrier plus a ~1.4× lever on the rear axle — and the no-drill anchor board (~23 lb).

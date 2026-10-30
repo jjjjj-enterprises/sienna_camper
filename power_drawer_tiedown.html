@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Power Drawer Tie-Down</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#E9ECE7; --surface:#FBFCFA; --surface-2:#F1F4EF;
+  --ink:#16201C; --ink-2:#4E5A55; --ink-3:#79857F;
+  --rule:#C6CDC5; --rule-strong:#8E9A93;
+  --ply:#9A7A3E; --ply-fill:rgba(200,164,107,.30);
+  --amber:#B8661A; --amber-fill:rgba(201,118,27,.15);
+  --alert:#9E2C1B; --alert-fill:rgba(158,44,27,.09);
+  --good:#2C6349;
+  --font-d:Archivo,"Helvetica Neue",Arial,sans-serif;
+  --font-b:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+    --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+    --rule:#2F3833; --rule-strong:#56615A;
+    --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+    --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+    --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+    --good:#5FB78D;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+  --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+  --rule:#2F3833; --rule-strong:#56615A;
+  --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+  --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+  --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+  --good:#5FB78D;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-b); font-size:15px; line-height:1.55;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+.sheet{max-width:1080px; margin:0 auto; padding-block:28px 64px; padding-left:20px; padding-right:20px}
+
+/* ---- title block: a drawing title block, not a hero ---- */
+.tb{border:1.5px solid var(--ink); background:var(--surface)}
+.tb-head{display:flex; flex-wrap:wrap; align-items:flex-end; gap:6px 20px; padding:18px 20px 14px; border-bottom:1.5px solid var(--ink)}
+.tb-head h1{
+  font-family:var(--font-d); font-weight:700; font-size:clamp(25px,4.6vw,38px);
+  line-height:1.03; letter-spacing:-.018em; margin:0; text-wrap:balance;
+}
+.tb-head p{margin:0; color:var(--ink-2); font-size:14.5px; max-width:56ch}
+.tb-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr))}
+.tb-cell{padding:10px 14px 12px; border-right:1px solid var(--rule); border-top:1px solid var(--rule)}
+.tb-cell:first-child{border-top:0}
+.tb-cell .k{
+  font-family:var(--font-m); font-size:10.5px; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:3px;
+}
+.tb-cell .v{font-family:var(--font-m); font-size:15px; font-weight:500; font-variant-numeric:tabular-nums}
+.tb-cell .v small{font-family:var(--font-b); font-size:12.5px; color:var(--ink-2); display:block; font-weight:400; letter-spacing:0}
+
+/* ---- section headings ---- */
+section{margin-top:44px}
+.sec-h{display:flex; align-items:baseline; gap:12px; border-bottom:1.5px solid var(--ink); padding-bottom:7px; margin-bottom:18px}
+.sec-h .n{
+  font-family:var(--font-m); font-size:12px; font-weight:600; color:var(--ink-3);
+  letter-spacing:.09em; flex:none;
+}
+.sec-h h2{font-family:var(--font-d); font-weight:600; font-size:20px; letter-spacing:-.01em; margin:0; text-wrap:balance}
+.sec-h .aside{margin-left:auto; font-family:var(--font-m); font-size:11.5px; color:var(--ink-3); text-align:right}
+
+p{margin:0 0 12px; max-width:68ch}
+.lede{color:var(--ink-2)}
+a{color:inherit}
+code{font-family:var(--font-m); font-size:.92em; background:var(--surface-2); padding:1px 4px; border-radius:2px}
+strong{font-weight:600}
+
+/* ---- flags ---- */
+.flags{display:grid; gap:14px}
+.flag{
+  border:1px solid var(--alert); border-left-width:4px; background:var(--alert-fill);
+  padding:14px 16px 15px;
+}
+.flag h3{
+  font-family:var(--font-d); font-size:15.5px; font-weight:600; margin:0 0 7px;
+  color:var(--alert); display:flex; gap:9px; align-items:baseline; text-wrap:balance;
+}
+.flag h3 .tag{
+  font-family:var(--font-m); font-size:10px; letter-spacing:.1em; border:1px solid currentColor;
+  padding:1px 5px; flex:none; text-transform:uppercase;
+}
+.flag p{margin:0 0 8px; font-size:14px}
+.flag p:last-child{margin-bottom:0}
+.flag .math{
+  font-family:var(--font-m); font-size:13px; font-variant-numeric:tabular-nums;
+  background:var(--surface); border:1px solid var(--rule); padding:8px 11px; margin:9px 0;
+  display:block; overflow-x:auto; white-space:nowrap; color:var(--ink);
+}
+.flag .verdict{font-weight:600}
+
+/* ---- figures ---- */
+.figs{display:grid; gap:26px}
+@media (min-width:780px){ .figs.two{grid-template-columns:1fr 1fr} }
+figure{margin:0; border:1px solid var(--rule-strong); background:var(--surface); display:flex; flex-direction:column}
+figure svg{display:block; width:100%; height:auto; padding:10px 8px 0}
+figcaption{
+  border-top:1px solid var(--rule); padding:9px 13px 11px; font-size:13px; color:var(--ink-2);
+  margin-top:auto;
+}
+figcaption b{font-family:var(--font-m); font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink); display:block; margin-bottom:3px}
+
+svg .ply{fill:var(--ply-fill); stroke:var(--ink); stroke-width:1.7}
+svg .cav{fill:var(--surface); stroke:var(--ink); stroke-width:1.7}
+svg .unit{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.9}
+svg .blk{fill:var(--ink-2); stroke:none}
+svg .slide{fill:var(--ink); stroke:none}
+svg .ln{fill:none; stroke:var(--ink); stroke-width:1.7}
+svg .thin{fill:none; stroke:var(--rule-strong); stroke-width:1}
+svg .dash{fill:none; stroke:var(--ink-2); stroke-width:1.4; stroke-dasharray:6 4}
+svg .strap{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.5; stroke-dasharray:5 3}
+svg .strapln{fill:none; stroke:var(--amber); stroke-width:2.2}
+svg .ring{fill:none; stroke:var(--ink); stroke-width:2.4}
+svg .hole{fill:var(--paper); stroke:var(--ink); stroke-width:1.7}
+svg text{font-family:var(--font-m); fill:var(--ink-2)}
+svg .t-dim{font-size:12.5px; font-weight:500; font-variant-numeric:tabular-nums}
+svg .t-lab{font-size:12px; fill:var(--ink)}
+svg .t-sm{font-size:10.5px; fill:var(--ink-3)}
+svg .keydot{fill:var(--ink)}
+svg .keynum{font-size:11.5px; font-weight:600; fill:var(--surface)}
+
+/* ---- legend ---- */
+.legend{margin-top:16px; border:1px solid var(--rule); background:var(--surface)}
+.legend li{display:flex; gap:11px; padding:8px 13px; border-top:1px solid var(--rule); align-items:baseline}
+.legend li:first-child{border-top:0}
+.legend ol{margin:0; padding:0; list-style:none}
+.legend .n{
+  font-family:var(--font-m); font-size:11px; font-weight:600; color:var(--surface);
+  background:var(--ink); width:19px; height:19px; border-radius:50%; flex:none;
+  display:inline-flex; align-items:center; justify-content:center; transform:translateY(2px);
+}
+.legend .d{font-size:13.5px}
+.legend .d b{font-weight:600}
+.legend .d span{color:var(--ink-2)}
+
+/* ---- tables ---- */
+.tw{overflow-x:auto; border:1px solid var(--rule-strong); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:13.5px}
+th,td{padding:8px 12px; text-align:left; border-top:1px solid var(--rule); vertical-align:top}
+thead th{
+  border-top:0; border-bottom:1.5px solid var(--ink); font-family:var(--font-m);
+  font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:500;
+  white-space:nowrap;
+}
+td.num,th.num{font-family:var(--font-m); font-variant-numeric:tabular-nums; white-space:nowrap}
+tbody tr:nth-child(even){background:var(--surface-2)}
+td .note{display:block; color:var(--ink-2); font-size:12.5px; margin-top:2px}
+.ok{color:var(--good); font-weight:600}
+.tight{color:var(--alert); font-weight:600}
+
+/* ---- steps ---- */
+.steps{counter-reset:s; display:grid; gap:0; border:1px solid var(--rule-strong); background:var(--surface)}
+.step{display:grid; grid-template-columns:52px 1fr; border-top:1px solid var(--rule)}
+.step:first-child{border-top:0}
+.step .sn{
+  counter-increment:s; font-family:var(--font-m); font-size:16px; font-weight:600; color:var(--ink-3);
+  padding:14px 0 14px 16px; border-right:1px solid var(--rule); font-variant-numeric:tabular-nums;
+}
+.step .sn::before{content:counter(s,decimal-leading-zero)}
+.step .sb{padding:13px 16px 15px}
+.step h3{font-family:var(--font-d); font-size:15px; font-weight:600; margin:0 0 4px; text-wrap:balance}
+.step p{margin:0; font-size:13.8px; color:var(--ink-2); max-width:70ch}
+.step p + p{margin-top:7px}
+.step .hold{
+  display:inline-block; font-family:var(--font-m); font-size:10.5px; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--alert); border:1px solid var(--alert); padding:1px 5px; margin-bottom:6px;
+}
+
+footer{margin-top:52px; border-top:1px solid var(--rule); padding-top:14px; color:var(--ink-3); font-size:12.5px}
+footer p{max-width:72ch; margin:0 0 6px}
+
+@media print{
+  /* Letter with the same 0.65in margin as the main build plan, so these
+     pages sit flush with it when build_pdf.py appends them — and so the
+     stamped footer at 30pt lands clear of the content. */
+  @page{size:Letter; margin:0.65in}
+  :root{--paper:#fff; --surface:#fff; --surface-2:#f4f4f4}
+  body{font-size:10.5pt}
+  .sheet{max-width:none; padding:0}
+  section{break-inside:auto; margin-top:22px}
+  figure,.flag,.step,.tw{break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+<style>
+svg .mat{fill:url(#mat); stroke:var(--ink-2); stroke-width:1}
+svg .matln{fill:var(--ink); stroke:none}
+svg .latch{fill:var(--alert-fill); stroke:var(--alert); stroke-width:1.8}
+svg .frame{fill:var(--surface-2); stroke:var(--ink-2); stroke-width:1.4; stroke-dasharray:5 3}
+svg .hid{fill:none; stroke:var(--ink-3); stroke-width:1.3; stroke-dasharray:4 3}
+svg .ringd{fill:none; stroke:var(--ink-3); stroke-width:2; stroke-dasharray:3 2}
+svg .t-al{font-size:11.5px; fill:var(--alert); font-weight:600}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="tb">
+  <div class="tb-head">
+    <h1>Power Drawer Tie-Down</h1>
+    <p>The DELTA 3 drawer drawn from three directions, showing what holds the batteries in the box and what holds the box in the frame. Drawn as built from the bench photos: the slides are on the 22" side walls, and the drawer pulls out along them.</p>
+  </div>
+  <div class="tb-grid">
+    <div class="tb-cell"><span class="k">Box, outer</span><span class="v">20 × 22 × 13¾"<small>across × travel × height</small></span></div>
+    <div class="tb-cell"><span class="k">Units</span><span class="v">side by side<small>both 15.7" long, in the direction of travel</small></span></div>
+    <div class="tb-cell"><span class="k">Grip</span><span class="v">rubber mat<small>no cleats (owner, 30 Oct)</small></span></div>
+    <div class="tb-cell"><span class="k">Hold-down</span><span class="v">1 cam strap<small>2 D-rings, side wall to side wall</small></span></div>
+    <div class="tb-cell"><span class="k">Keep shut</span><span class="v">turn latch<small>on the frame's top rail, over the pull wall</small></span></div>
+    <div class="tb-cell"><span class="k">Scale</span><span class="v">16 px = 1"<small>all three views</small></span></div>
+  </div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <pattern id="mat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="7" height="7" fill="var(--surface-2)"/>
+      <line x1="0" y1="0" x2="0" y2="7" stroke="var(--ink-3)" stroke-width="1.6"/>
+    </pattern>
+  </defs>
+</svg>
+
+<section>
+  <div class="sec-h"><span class="n">A</span><h2>Top view</h2><span class="aside">looking down into the open box · side door at the bottom</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 600 520" role="img" aria-label="Top view of the drawer: two units side by side on a rubber mat, a cam strap across both into a D-ring on each side wall, slides outside the side walls, the cord slot in the left wall, and the turn latch on the frame rail beyond the pull wall">
+        <!-- slides on the outer faces of the 22in side walls -->
+        <rect class="slide" x="101" y="72" width="9" height="320"/>
+        <rect class="slide" x="430" y="72" width="9" height="320"/>
+        <text class="t-sm" x="94" y="232" text-anchor="middle" transform="rotate(-90 94 232)">20" SLIDE</text>
+        <text class="t-sm" x="452" y="232" text-anchor="middle" transform="rotate(90 452 232)">20" SLIDE</text>
+
+        <!-- box -->
+        <rect class="ply" x="110" y="60" width="320" height="352"/>
+        <rect class="cav" x="122" y="72" width="296" height="328"/>
+
+        <!-- rubber mat -->
+        <rect class="mat" x="126" y="76" width="288" height="320"/>
+
+        <!-- units -->
+        <rect class="unit" x="142.4" y="88" width="127.2" height="251.2"/>
+        <rect class="unit" x="269.6" y="88" width="128" height="251.2"/>
+        <text class="t-lab" x="206" y="150" text-anchor="middle">DELTA 3 PLUS</text>
+        <text class="t-sm"  x="206" y="166" text-anchor="middle">~28 lb</text>
+        <text class="t-lab" x="333.6" y="150" text-anchor="middle">EXTRA BATTERY</text>
+        <text class="t-sm"  x="333.6" y="166" text-anchor="middle">~20 lb</text>
+
+        <!-- cam strap across both, into a D-ring on each side wall -->
+        <rect class="strap" x="128" y="205.6" width="284" height="16"/>
+        <circle class="ring" cx="128" cy="213.6" r="6"/>
+        <circle class="ring" cx="412" cy="213.6" r="6"/>
+
+        <!-- cord slot, as built, in the left side wall near the back -->
+        <rect class="hole" x="110" y="100" width="12" height="16"/>
+
+        <!-- frame top rail beyond the pull wall, and the turn latch on it -->
+        <rect class="frame" x="70" y="412" width="400" height="24"/>
+        <text class="t-sm" x="452" y="428" text-anchor="end">frame top rail (above)</text>
+        <rect class="latch" x="258" y="403" width="24" height="30" rx="3"/>
+        <circle cx="270" cy="424" r="2.6" fill="var(--alert)"/>
+
+        <!-- pull direction -->
+        <path class="ln" d="M270 446 V482"/>
+        <path class="ln" d="M270 494 l-6 -12 h12 z" fill="var(--ink)"/>
+        <text class="t-sm" x="284" y="480">PULLS OUT · passenger side door</text>
+
+        <!-- dims -->
+        <path class="thin" d="M110 56 V30 M430 56 V30"/>
+        <path class="thin" d="M110 36 H430"/>
+        <text class="t-dim" x="270" y="28" text-anchor="middle">20" outer · 18½" clear</text>
+        <path class="thin" d="M470 60 H530 M470 412 H530"/>
+        <path class="thin" d="M524 60 V412"/>
+        <text class="t-dim" x="542" y="236" text-anchor="middle" transform="rotate(90 542 236)">22" outer (direction of travel)</text>
+        <path class="thin" d="M400 88 H496 M400 339.2 H496"/>
+        <path class="thin" d="M490 88 V339.2"/>
+        <text class="t-dim" x="482" y="214" text-anchor="middle" transform="rotate(90 482 214)">15.7"</text>
+        <path class="thin" d="M490 339.2 V400"/>
+        <text class="t-sm" x="500" y="374">3.8"</text>
+        <text class="t-sm" x="500" y="84">1"</text>
+
+        <!-- keys -->
+        <g>
+          <path class="thin" d="M110 108 H66"/><circle class="keydot" cx="56" cy="108" r="9.5"/><text class="keynum" x="56" y="112" text-anchor="middle">5</text>
+          <path class="thin" d="M128 213.6 H66"/><circle class="keydot" cx="56" cy="213.6" r="9.5"/><text class="keynum" x="56" y="217.6" text-anchor="middle">2</text>
+          <circle class="keydot" cx="206" cy="213.6" r="9.5"/><text class="keynum" x="206" y="217.6" text-anchor="middle">3</text>
+          <path class="thin" d="M200 370 V380 H66"/><circle class="keydot" cx="56" cy="380" r="9.5"/><text class="keynum" x="56" y="384" text-anchor="middle">1</text>
+          <path class="thin" d="M258 418 H222"/><circle class="keydot" cx="210" cy="460" r="9.5"/><path class="thin" d="M222 418 L212 450"/><text class="keynum" x="210" y="464" text-anchor="middle">4</text>
+        </g>
+      </svg>
+      <figcaption><b>Fig 1 — top view</b>Both units run the full way along the direction of travel. Nothing boxes them in now that the cleats are gone. The mat stops them sliding, and the strap pins them down across the width.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">B</span><h2>From the side door</h2><span class="aside">cut through the box at the strap line</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 600 400" role="img" aria-label="End view from the side door, cut at the strap: the strap runs from a D-ring five and a half inches up the left wall, over the top of the DELTA 3 Plus, down to the Extra Battery's outer top corner and into a D-ring on the right wall; the slides sit low on the walls' outer faces; an optional tray sits above">
+        <!-- frame top rail and bed above -->
+        <rect class="frame" x="70" y="86" width="400" height="24"/>
+        <text class="t-sm" x="476" y="102">frame top rail</text>
+
+        <!-- walls and bottom -->
+        <rect class="ply" x="110" y="110" width="12" height="220"/>
+        <rect class="ply" x="418" y="110" width="12" height="220"/>
+        <rect class="ply" x="122" y="322" width="296" height="8"/>
+        <!-- mat -->
+        <rect class="matln" x="122" y="319" width="296" height="3"/>
+
+        <!-- slides, low on the outer faces -->
+        <rect class="slide" x="101" y="292" width="9" height="28"/>
+        <rect class="slide" x="430" y="292" width="9" height="28"/>
+
+        <!-- units -->
+        <rect class="unit" x="142.4" y="141.4" width="127.2" height="177.6"/>
+        <rect class="unit" x="269.6" y="196.2" width="128" height="122.8"/>
+        <text class="t-lab" x="206" y="250" text-anchor="middle">DELTA 3 PLUS</text>
+        <text class="t-dim" x="206" y="267" text-anchor="middle">11.16"</text>
+        <text class="t-lab" x="333.6" y="276" text-anchor="middle">EXTRA</text>
+        <text class="t-dim" x="333.6" y="293" text-anchor="middle">7.8"</text>
+
+        <!-- optional tray -->
+        <rect class="dash" x="124" y="112" width="292" height="27"/>
+        <text class="t-sm" x="345" y="129" text-anchor="middle">optional tray, 1¾" or less</text>
+
+        <!-- strap -->
+        <path class="strapln" d="M128 234 L142.4 141.4 H269.6 L397.6 196.2 L412 234"/>
+        <rect class="ply" x="122" y="226" width="5" height="16"/>
+        <rect class="ply" x="413" y="226" width="5" height="16"/>
+        <circle class="ring" cx="130" cy="234" r="5.5"/>
+        <circle class="ring" cx="410" cy="234" r="5.5"/>
+
+        <!-- dims -->
+        <path class="thin" d="M60 110 H108 M60 330 H108"/>
+        <path class="thin" d="M66 110 V330"/>
+        <text class="t-dim" x="52" y="220" text-anchor="middle" transform="rotate(-90 52 220)">13¾"</text>
+        <path class="thin" d="M432 234 H500 M432 322 H500"/>
+        <path class="thin" d="M494 234 V322"/>
+        <text class="t-dim" x="512" y="278" text-anchor="middle" transform="rotate(90 512 278)">5½" up</text>
+        <path class="thin" d="M110 336 V356 M430 336 V356"/>
+        <path class="thin" d="M110 350 H430"/>
+        <text class="t-dim" x="270" y="372" text-anchor="middle">20"</text>
+
+        <!-- keys -->
+        <g>
+          <circle class="keydot" cx="206" cy="182" r="9.5"/><text class="keynum" x="206" y="186" text-anchor="middle">3</text>
+          <path class="thin" d="M412 240 L458 262"/><circle class="keydot" cx="468" cy="266" r="9.5"/><text class="keynum" x="468" y="270" text-anchor="middle">2</text>
+          <path class="thin" d="M250 320 L240 342"/>
+          <path class="thin" d="M101 306 H84"/><circle class="keydot" cx="74" cy="306" r="9.5"/><text class="keynum" x="74" y="310" text-anchor="middle">6</text>
+        </g>
+        <text class="t-sm" x="236" y="345" text-anchor="end">rubber mat (1)</text>
+      </svg>
+      <figcaption><b>Fig 2 — looking in from the side door</b>The units are different heights, so the strap pulls down on the whole DELTA top but only on the Extra Battery's outer top corner. The mat does the rest. Keep each D-ring high on its wall, at about 5½", where it's clear of the slide's screws on the other face.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">C</span><h2>From the side</h2><span class="aside">cut along the direction of travel, through the DELTA 3</span></div>
+  <div class="figs">
+    <figure>
+      <svg viewBox="0 0 600 400" role="img" aria-label="Side section along the direction of travel: the pull wall at left with its hand slot, the turn latch on the frame top rail hanging down over the pull wall, the DELTA 3 Plus on the mat with the strap crossing its top, the D-ring on the far wall, the cord slot near the back, and the slide behind the wall">
+        <!-- bed line and frame top rail at the pull end -->
+        <path class="hid" d="M60 84 H520"/>
+        <text class="t-sm" x="520" y="78" text-anchor="end">bed platform</text>
+        <rect class="frame" x="100" y="86" width="24" height="24"/>
+        <text class="t-sm" x="132" y="100">frame top rail</text>
+
+        <!-- turn latch on the rail's outer face, tongue down over the pull wall -->
+        <rect class="latch" x="93" y="92" width="7" height="36" rx="2"/>
+        <circle cx="96.5" cy="98" r="2.4" fill="var(--alert)"/>
+
+        <!-- pull wall with its hand slot -->
+        <rect class="ply" x="100" y="110" width="12" height="18"/>
+        <rect class="ply" x="100" y="152" width="12" height="178"/>
+        <!-- back wall -->
+        <rect class="ply" x="440" y="110" width="12" height="220"/>
+        <!-- bottom and mat -->
+        <rect class="ply" x="112" y="322" width="328" height="8"/>
+        <rect class="matln" x="112" y="319" width="328" height="3"/>
+
+        <!-- side wall behind: slide (dashed) and cord slot -->
+        <rect class="hid" x="120" y="292" width="320" height="28"/>
+        <text class="t-sm" x="446" y="348" text-anchor="end">dashed: 20" slide, on the wall's outside face</text>
+
+        <rect class="hid" x="400" y="160" width="12" height="72"/>
+        <!-- DELTA 3 -->
+        <rect class="unit" x="172.8" y="141.4" width="251.2" height="177.6"/>
+        <text class="t-lab" x="250" y="232" text-anchor="middle">DELTA 3 PLUS</text>
+        <!-- strap crossing its top, and its D-ring on the far wall -->
+        <rect x="290.4" y="137" width="16" height="5" fill="var(--amber)"/>
+        <path class="hid" d="M298.4 142 V228" stroke="var(--amber)"/>
+        <circle class="ringd" cx="298.4" cy="234" r="6"/>
+
+        <!-- pull arrow -->
+        <path class="ln" d="M90 240 H40"/>
+        <path class="ln" d="M28 240 l12 -6 v12 z" fill="var(--ink)"/>
+        <text class="t-sm" x="58" y="228" text-anchor="middle">PULLS OUT</text>
+
+        <!-- dims -->
+        <path class="thin" d="M100 336 V362 M452 336 V362"/>
+        <path class="thin" d="M100 356 H452"/>
+        <text class="t-dim" x="276" y="376" text-anchor="middle">22"</text>
+        <path class="thin" d="M112 300 V250 M172.8 300 V250"/>
+        <text class="t-sm" x="142" y="262" text-anchor="middle">3.8"</text>
+        <path class="thin" d="M466 141.4 H500 M466 322 H500"/>
+        <path class="thin" d="M494 141.4 V322"/>
+        <text class="t-dim" x="512" y="232" text-anchor="middle" transform="rotate(90 512 232)">11.16"</text>
+
+        <!-- keys -->
+        <g>
+          <path class="thin" d="M93 120 H66"/><circle class="keydot" cx="56" cy="120" r="9.5"/><text class="keynum" x="56" y="124" text-anchor="middle">4</text>
+          <path class="thin" d="M306 140 L340 116"/><circle class="keydot" cx="350" cy="110" r="9.5"/><text class="keynum" x="350" y="114" text-anchor="middle">3</text>
+          <path class="thin" d="M412 196 H446"/><circle class="keydot" cx="470" cy="196" r="9.5"/><text class="keynum" x="470" y="200" text-anchor="middle">5</text>
+          <path class="thin" d="M100 140 H66"/><text class="t-sm" x="16" y="156">hand slot</text>
+        </g>
+      </svg>
+      <figcaption><b>Fig 3 — side section</b>The drawer's own weight can't keep it shut, because the slides run free on a bend. The turn latch on the top rail's outer face swings down over the pull wall's top edge. Turn it 90° to open the drawer.</figcaption>
+    </figure>
+  </div>
+
+  <div class="legend">
+    <ol>
+      <li><span class="n">1</span><span class="d"><b>Rubber mat</b>, full floor, as built. <span>No cleats: the mat's grip, plus the strap's down-pull, keeps the units from walking.</span></span></li>
+      <li><span class="n">2</span><span class="d"><b>D-rings ×2</b>, one on the inside face of each side wall, about 5½" up: mark the screw center ~7½" down from the box's top edge. #8 × ⅝" screws, 3/32" pilot. <span>The wall is ¾" and the slide is screwed to the other face, so keep the screws ⅝" or shorter and well above the slide's band.</span></span></li>
+      <li><span class="n">3</span><span class="d"><b>Cam strap</b>, across the 18½" width, over both units. <span>Run it under the tray if you build one. Cinch it before the van moves.</span></span></li>
+      <li><span class="n">4</span><span class="d"><b>Turn latch</b> on the frame's top rail, tongue down over the pull wall. <span>This keeps the drawer shut. It's separate from the strap and not optional: 78 lb rolling open on a bend takes the slides with it. A friction catch also works. Bought: Wright Products V20A 1¾" (screw ~⅜" above the rail's bottom edge so it reaches ~1" onto the wall), or make a 3" × ¾" ply tab on a #8 × 1½" screw.</span></span></li>
+      <li><span class="n">5</span><span class="d"><b>Cord slot</b>, as built, near the back of the left side wall. <span>Leave slack for full extension.</span></span></li>
+      <li><span class="n">6</span><span class="d"><b>20" slides</b>, low on the side walls' outer faces. <span>For reference only: they're the reason the D-rings go high.</span></span></li>
+    </ol>
+  </div>
+</section>
+
+<footer><p>Drawn 30 Oct 2026 from the bench photos (drawer-05 to drawer-08). The DELTA 3 is on the cord-slot side, as photographed. Which side wall faces the cab isn't recorded, so the views say "side wall" rather than fore or aft.</p></footer>
+</div>
+</body>
+</html>
