@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fridge Bay Cooling</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#E9ECE7; --surface:#FBFCFA; --surface-2:#F1F4EF;
+  --ink:#16201C; --ink-2:#4E5A55; --ink-3:#79857F;
+  --rule:#C6CDC5; --rule-strong:#8E9A93;
+  --ply:#9A7A3E; --ply-fill:rgba(200,164,107,.30);
+  --amber:#B8661A; --amber-fill:rgba(201,118,27,.15);
+  --alert:#9E2C1B; --alert-fill:rgba(158,44,27,.09);
+  --good:#2C6349;
+  --font-d:Archivo,"Helvetica Neue",Arial,sans-serif;
+  --font-b:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+    --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+    --rule:#2F3833; --rule-strong:#56615A;
+    --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+    --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+    --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+    --good:#5FB78D;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+  --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+  --rule:#2F3833; --rule-strong:#56615A;
+  --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+  --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+  --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+  --good:#5FB78D;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-b); font-size:15px; line-height:1.55;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+.sheet{max-width:1080px; margin:0 auto; padding-block:28px 64px; padding-left:20px; padding-right:20px}
+
+/* ---- title block: a drawing title block, not a hero ---- */
+.tb{border:1.5px solid var(--ink); background:var(--surface)}
+.tb-head{display:flex; flex-wrap:wrap; align-items:flex-end; gap:6px 20px; padding:18px 20px 14px; border-bottom:1.5px solid var(--ink)}
+.tb-head h1{
+  font-family:var(--font-d); font-weight:700; font-size:clamp(25px,4.6vw,38px);
+  line-height:1.03; letter-spacing:-.018em; margin:0; text-wrap:balance;
+}
+.tb-head p{margin:0; color:var(--ink-2); font-size:14.5px; max-width:56ch}
+.tb-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr))}
+.tb-cell{padding:10px 14px 12px; border-right:1px solid var(--rule); border-top:1px solid var(--rule)}
+.tb-cell:first-child{border-top:0}
+.tb-cell .k{
+  font-family:var(--font-m); font-size:10.5px; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:3px;
+}
+.tb-cell .v{font-family:var(--font-m); font-size:15px; font-weight:500; font-variant-numeric:tabular-nums}
+.tb-cell .v small{font-family:var(--font-b); font-size:12.5px; color:var(--ink-2); display:block; font-weight:400; letter-spacing:0}
+
+/* ---- section headings ---- */
+section{margin-top:44px}
+.sec-h{display:flex; align-items:baseline; gap:12px; border-bottom:1.5px solid var(--ink); padding-bottom:7px; margin-bottom:18px}
+.sec-h .n{
+  font-family:var(--font-m); font-size:12px; font-weight:600; color:var(--ink-3);
+  letter-spacing:.09em; flex:none;
+}
+.sec-h h2{font-family:var(--font-d); font-weight:600; font-size:20px; letter-spacing:-.01em; margin:0; text-wrap:balance}
+.sec-h .aside{margin-left:auto; font-family:var(--font-m); font-size:11.5px; color:var(--ink-3); text-align:right}
+
+p{margin:0 0 12px; max-width:68ch}
+.lede{color:var(--ink-2)}
+a{color:inherit}
+code{font-family:var(--font-m); font-size:.92em; background:var(--surface-2); padding:1px 4px; border-radius:2px}
+strong{font-weight:600}
+
+/* ---- flags ---- */
+.flags{display:grid; gap:14px}
+.flag{
+  border:1px solid var(--alert); border-left-width:4px; background:var(--alert-fill);
+  padding:14px 16px 15px;
+}
+.flag h3{
+  font-family:var(--font-d); font-size:15.5px; font-weight:600; margin:0 0 7px;
+  color:var(--alert); display:flex; gap:9px; align-items:baseline; text-wrap:balance;
+}
+.flag h3 .tag{
+  font-family:var(--font-m); font-size:10px; letter-spacing:.1em; border:1px solid currentColor;
+  padding:1px 5px; flex:none; text-transform:uppercase;
+}
+.flag p{margin:0 0 8px; font-size:14px}
+.flag p:last-child{margin-bottom:0}
+.flag .math{
+  font-family:var(--font-m); font-size:13px; font-variant-numeric:tabular-nums;
+  background:var(--surface); border:1px solid var(--rule); padding:8px 11px; margin:9px 0;
+  display:block; overflow-x:auto; white-space:nowrap; color:var(--ink);
+}
+.flag .verdict{font-weight:600}
+
+/* ---- figures ---- */
+.figs{display:grid; gap:26px}
+@media (min-width:780px){ .figs.two{grid-template-columns:1fr 1fr} }
+figure{margin:0; border:1px solid var(--rule-strong); background:var(--surface); display:flex; flex-direction:column}
+figure svg{display:block; width:100%; height:auto; padding:10px 8px 0}
+figcaption{
+  border-top:1px solid var(--rule); padding:9px 13px 11px; font-size:13px; color:var(--ink-2);
+  margin-top:auto;
+}
+figcaption b{font-family:var(--font-m); font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink); display:block; margin-bottom:3px}
+
+svg .ply{fill:var(--ply-fill); stroke:var(--ink); stroke-width:1.7}
+svg .cav{fill:var(--surface); stroke:var(--ink); stroke-width:1.7}
+svg .unit{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.9}
+svg .blk{fill:var(--ink-2); stroke:none}
+svg .slide{fill:var(--ink); stroke:none}
+svg .ln{fill:none; stroke:var(--ink); stroke-width:1.7}
+svg .thin{fill:none; stroke:var(--rule-strong); stroke-width:1}
+svg .dash{fill:none; stroke:var(--ink-2); stroke-width:1.4; stroke-dasharray:6 4}
+svg .strap{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.5; stroke-dasharray:5 3}
+svg .strapln{fill:none; stroke:var(--amber); stroke-width:2.2}
+svg .ring{fill:none; stroke:var(--ink); stroke-width:2.4}
+svg .hole{fill:var(--paper); stroke:var(--ink); stroke-width:1.7}
+svg text{font-family:var(--font-m); fill:var(--ink-2)}
+svg .t-dim{font-size:12.5px; font-weight:500; font-variant-numeric:tabular-nums}
+svg .t-lab{font-size:12px; fill:var(--ink)}
+svg .t-sm{font-size:10.5px; fill:var(--ink-3)}
+svg .keydot{fill:var(--ink)}
+svg .keynum{font-size:11.5px; font-weight:600; fill:var(--surface)}
+
+/* ---- legend ---- */
+.legend{margin-top:16px; border:1px solid var(--rule); background:var(--surface)}
+.legend li{display:flex; gap:11px; padding:8px 13px; border-top:1px solid var(--rule); align-items:baseline}
+.legend li:first-child{border-top:0}
+.legend ol{margin:0; padding:0; list-style:none}
+.legend .n{
+  font-family:var(--font-m); font-size:11px; font-weight:600; color:var(--surface);
+  background:var(--ink); width:19px; height:19px; border-radius:50%; flex:none;
+  display:inline-flex; align-items:center; justify-content:center; transform:translateY(2px);
+}
+.legend .d{font-size:13.5px}
+.legend .d b{font-weight:600}
+.legend .d span{color:var(--ink-2)}
+
+/* ---- tables ---- */
+.tw{overflow-x:auto; border:1px solid var(--rule-strong); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:13.5px}
+th,td{padding:8px 12px; text-align:left; border-top:1px solid var(--rule); vertical-align:top}
+thead th{
+  border-top:0; border-bottom:1.5px solid var(--ink); font-family:var(--font-m);
+  font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:500;
+  white-space:nowrap;
+}
+td.num,th.num{font-family:var(--font-m); font-variant-numeric:tabular-nums; white-space:nowrap}
+tbody tr:nth-child(even){background:var(--surface-2)}
+td .note{display:block; color:var(--ink-2); font-size:12.5px; margin-top:2px}
+.ok{color:var(--good); font-weight:600}
+.tight{color:var(--alert); font-weight:600}
+
+/* ---- steps ---- */
+.steps{counter-reset:s; display:grid; gap:0; border:1px solid var(--rule-strong); background:var(--surface)}
+.step{display:grid; grid-template-columns:52px 1fr; border-top:1px solid var(--rule)}
+.step:first-child{border-top:0}
+.step .sn{
+  counter-increment:s; font-family:var(--font-m); font-size:16px; font-weight:600; color:var(--ink-3);
+  padding:14px 0 14px 16px; border-right:1px solid var(--rule); font-variant-numeric:tabular-nums;
+}
+.step .sn::before{content:counter(s,decimal-leading-zero)}
+.step .sb{padding:13px 16px 15px}
+.step h3{font-family:var(--font-d); font-size:15px; font-weight:600; margin:0 0 4px; text-wrap:balance}
+.step p{margin:0; font-size:13.8px; color:var(--ink-2); max-width:70ch}
+.step p + p{margin-top:7px}
+.step .hold{
+  display:inline-block; font-family:var(--font-m); font-size:10.5px; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--alert); border:1px solid var(--alert); padding:1px 5px; margin-bottom:6px;
+}
+
+footer{margin-top:52px; border-top:1px solid var(--rule); padding-top:14px; color:var(--ink-3); font-size:12.5px}
+footer p{max-width:72ch; margin:0 0 6px}
+
+@media print{
+  /* Letter with the same 0.65in margin as the main build plan, so these
+     pages sit flush with it when build_pdf.py appends them — and so the
+     stamped footer at 30pt lands clear of the content. */
+  @page{size:Letter; margin:0.65in}
+  :root{--paper:#fff; --surface:#fff; --surface-2:#f4f4f4}
+  body{font-size:10.5pt}
+  .sheet{max-width:none; padding:0}
+  section{break-inside:auto; margin-top:22px}
+  figure,.flag,.step,.tw{break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+<style>
+svg .rail{fill:var(--surface-2); stroke:var(--ink); stroke-width:1.5}
+svg .hid{fill:none; stroke:var(--ink-3); stroke-width:1.3; stroke-dasharray:4 3}
+svg .t-al{font-size:11.5px; fill:var(--alert); font-weight:600}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="tb">
+  <div class="tb-head">
+    <h1>Fridge Bay Cooling</h1>
+    <p>One intake fan in the hole already cut in Panel C's front wall, the control cluster on the wall's Panel B face in the driver column, and the temperature probe at the fridge's louvered end. No new cuts. Replaces the exhaust fan and the passenger-side cluster (31 Oct 2026).</p>
+  </div>
+  <div class="tb-grid">
+    <div class="tb-cell"><span class="k">Fan</span><span class="v">1 × 120mm<small>existing hole · 2nd fan spare</small></span></div>
+    <div class="tb-cell"><span class="k">Cluster</span><span class="v">driver column<small>x 1½–6", z 5–15½", ≤ 2¾" deep</small></span></div>
+    <div class="tb-cell"><span class="k">Probe</span><span class="v">louvered end<small>driver fixed rail, tailgate end</small></span></div>
+    <div class="tb-cell"><span class="k">W1209</span><span class="v">mode C<small>on ~95°F · off ~86°F</small></span></div>
+    <div class="tb-cell"><span class="k">Lift-out</span><span class="v">A first<small>then slide B 3" forward</small></span></div>
+    <div class="tb-cell"><span class="k">Status</span><span class="v">Drawn 31 Oct<small>holes already cut</small></span></div>
+  </div>
+</div>
+
+<section>
+  <div class="sec-h"><span class="n">A</span><h2>What changed, and why</h2><span class="aside">3 changes · 1 consequence</span></div>
+  <div class="flags">
+    <div class="flag"><h3><span class="tag">Dropped</span> The exhaust fan</h3><p>The plan put it "on the kitchen-facing wall," but there is no wall there: between the fridge's passenger slide rail and the kitchen unit is a 1⅝" gap, and a fan aimed across it blows into the kitchen's side. The fridge slides out the tailgate end, so a fan can't sit there either. One intake fan pushes the air instead, and the second fan is a spare. If the bay runs hot, it can go push-pull on the same hole later, on the Panel B face (about 1.1" deep with a guard). No cutting either way.</p></div>
+    <div class="flag"><h3><span class="tag">Moved</span> The control cluster, passenger → driver column</h3><p>The passenger site overlapped the passenger front leg, which stands 1-7/16" proud of the wall. The driver column (between the driver leg and where Panel B's totes start, x 1½–6") is clear, and it sits right above the grommet the wires use, close to the fan and the fridge.</p></div>
+    <div class="flag"><h3><span class="tag">Fixed</span> W1209 mode C, not H</h3><p>H is heating mode: the relay closes when it's <em>cold</em>. The fans want C (cooling): on when the bay warms up.</p></div>
+    <div class="flag"><h3><span class="tag">Consequence</span> Panels B and C no longer lift straight past each other</h3><p>Panel C's front legs hold Panel B 1-7/16" off the wall. The cluster stands up to 2¾" out, into the plane of Panel B's end rails. Lifted straight up, B's bottom end rail would hit it, and C lifted straight up would hit B's top end rail. <strong>To take them out: lift Panel A first, slide Panel B 3" forward, then lift it.</strong> Everyday use doesn't change.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">B</span><h2>The wall, from inside Panel B</h2><span class="aside">looking toward the tailgate · driver side on your RIGHT · 12 px = 1"</span></div>
+  <div class="figs"><figure><svg viewBox="0 0 720 360" role="img" aria-label="Panel C's front wall seen from inside Panel B, driver side on the right: the existing fan hole and three vents over the fridge, the grommet low by the driver leg, and the control cluster stacked in the driver column above the grommet: fuse block, W1209, and a two-switch plate">
+  <!-- Panel C top rail and legs (legs stand 1-7/16 proud of the wall) -->
+  <rect class="rail" x="60" y="78.0" width="552" height="18.0"/>
+  <rect class="ply" x="60" y="96.0" width="552" height="204.0"/>
+  <rect class="rail" x="594.0" y="96.0" width="18" height="204.0"/>
+  <rect class="rail" x="60" y="96.0" width="18" height="204.0"/>
+  <text class="t-sm" x="603.0" y="314.4" text-anchor="middle">driver leg</text>
+  <text class="t-sm" x="69" y="314.4" text-anchor="middle">passenger leg</text>
+  <path class="ln" d="M40 300 H640"/>
+
+  <!-- Panel B's end rails, in front of the wall (dashed) -->
+  <rect class="hid" x="60" y="87.0" width="552" height="18.0"/>
+  <rect class="hid" x="60" y="270.0" width="552" height="18.0"/>
+  <text class="t-sm" x="300" y="100.8" text-anchor="middle">Panel B's top end rail (in front, dashed)</text>
+  <text class="t-sm" x="300" y="283.8" text-anchor="middle">Panel B's bottom end rail (in front, dashed)</text>
+
+  <!-- existing openings -->
+  <circle class="hole" cx="478.7" cy="194.4" r="28.5"/>
+  <circle class="thin" cx="478.7" cy="194.4" r="17.7"/>
+  <circle class="thin" cx="478.7" cy="194.4" r="8.5"/>
+  <path class="thin" d="M450.2 194.4 H507.2 M478.7 165.9 V222.9"/>
+  <circle class="hole" cx="523.7" cy="250.5" r="18"/><circle class="hole" cx="478.7" cy="250.5" r="18"/><circle class="hole" cx="433.7" cy="250.5" r="18"/>
+  <circle class="hole" cx="585.0" cy="252.0" r="6"/>
+
+  <!-- cluster column and the totes' edge -->
+  <rect class="dash" x="540.0" y="112.8" width="54.0" height="129.6"/>
+  <path class="hid" d="M538.8 105.6 V268.8"/>
+  <text class="t-sm" x="534.8" y="134.4" text-anchor="end">totes start here (in Panel B) →</text>
+
+  <!-- cluster -->
+  <rect class="unit" x="547.2" y="183.4" width="39.6" height="56.6"/>
+  <text class="t-sm" x="567.0" y="208.8" text-anchor="middle">FUSE</text>
+  <text class="t-sm" x="567.0" y="220.8" text-anchor="middle">BLOCK</text>
+  <rect class="unit" x="555.0" y="145.2" width="24.0" height="31.2"/>
+  <rect x="559.2" y="150.0" width="15.6" height="8.4" fill="var(--alert)" opacity=".75"/>
+  <rect class="ply" x="540.0" y="115.2" width="54.0" height="24.0"/>
+  <circle class="ring" cx="579.0" cy="127.2" r="4.7"/>
+  <circle class="ring" cx="555.0" cy="127.2" r="4.7"/>
+
+  <!-- wires drop to the grommet -->
+  <path d="M580.8 240.0 L585.0 246.0" stroke="var(--alert)" stroke-width="2" fill="none"/>
+  <path d="M553.2 240.0 C553.2 256.8 577.2 256.8 580.8 252.0" stroke="var(--alert)" stroke-width="2" fill="none" stroke-dasharray="4 2"/>
+
+  <!-- keys -->
+  <g>
+    <path class="thin" d="M586.8 211.2 H628.0"/><circle class="keydot" cx="638.0" cy="211.2" r="9.5"/><text class="keynum" x="638.0" y="215.2" text-anchor="middle">1</text>
+    <path class="thin" d="M586.8 160.8 H628.0"/><circle class="keydot" cx="638.0" cy="160.8" r="9.5"/><text class="keynum" x="638.0" y="164.8" text-anchor="middle">2</text>
+    <path class="thin" d="M586.8 127.2 H628.0"/><circle class="keydot" cx="638.0" cy="127.2" r="9.5"/><text class="keynum" x="638.0" y="131.2" text-anchor="middle">3</text>
+    <path class="thin" d="M591.0 252.0 H626.4"/><circle class="keydot" cx="636.4" cy="252.0" r="9.5"/><text class="keynum" x="636.4" y="256.0" text-anchor="middle">4</text>
+    <circle class="keydot" cx="478.7" cy="194.4" r="9.5"/><text class="keynum" x="478.7" y="198.4" text-anchor="middle">5</text>
+  </g>
+  <text class="t-lab" x="442.2" y="198.4" text-anchor="end">FAN (existing hole)</text>
+  <text class="t-sm" x="478.7" y="295.2" text-anchor="middle"> </text>
+
+  <!-- dims along the top: from the driver edge -->
+  <path class="thin" d="M612.0 24 V40 M594.0 30 V40 M540.0 30 V40 M478.7 30 V40"/>
+  <path class="thin" d="M478.7 36 H612.0"/>
+  <text class="t-dim" x="567.0" y="28" text-anchor="middle">1½–6"</text>
+  <text class="t-dim" x="478.7" y="28" text-anchor="middle">11.1"</text>
+  <text class="t-sm" x="612.0" y="14" text-anchor="end">x measured from the driver edge</text>
+  <!-- heights -->
+  <path class="thin" d="M656.0 240.0 H676.0 M656.0 115.2 H676.0 M670.0 240.0 V115.2"/>
+  <text class="t-dim" x="684.0" y="177.6" text-anchor="middle" transform="rotate(90 684.0 177.6)">z 5–15½"</text>
+</svg><figcaption><b>Fig 1 — the front wall's Panel B face</b>Seen the way you'll see it with Panel B's driver-side bed-top half lifted, looking down toward the tailgate. The driver edge is on your right. The cluster stacks up the driver column above the grommet: fuse block, W1209, then the switch plate. Every wire drops to the grommet. Panel B's totes have to stay out of this column, and at least 2" off the wall in front of the fan.</figcaption></figure></div>
+  <div class="legend"><ol>
+    <li><span class="n">1</span><span class="d"><b>Fuse block</b> (Nilight 6-way, on hand), stood on end, z 5" to about 9¾". <span>Screwed straight to the wall with #8 × ⅞" pan heads. It's 2.01" deep. Studs at the bottom, toward the grommet.</span></span></li>
+    <li><span class="n">2</span><span class="d"><b>W1209</b> in its case (on hand), z about 10¼–13". <span>Two small screws through the case into the wall. <b>No Loctite or any threadlocker on the case screws:</b> it attacks the clear plastic and breaks it down. Display and buttons face you. Check its case is no more than 1¼" deep.</span></span></li>
+    <li><span class="n">3</span><span class="d"><b>Switch plate</b>, ½" ply 4½ × 2", z 13½–15½", on one 2x2 block (1½" deep) <span>with two #8 × 2¼" screws through the plate and block into the wall. SW1 FRIDGE and SW2 FANS glued into 20mm holes with E6000; their backs sit beside the block. Details: the Switch Plate sheet.</span></span></li>
+    <li><span class="n">4</span><span class="d"><b>Grommet</b> (existing, 1", z 4") <span>— carries the fridge feed and the probe lead into the bay, and the fan lead back out.</span></span></li>
+    <li><span class="n">5</span><span class="d"><b>Fan</b> (existing hole) <span>— on the plenum side, arrow toward the fridge, finger guard on this side. M4 × 50mm screws and nylon lock nuts through the guard, the wall and the fan's corners (guard ~1.5mm + wall 12.7mm + fan 25mm + nut ~5mm ≈ 44mm, so 40mm is too short). Push-pull later: M4 × 70mm.</span></span></li>
+  </ol></div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">C</span><h2>How deep it can stand</h2><span class="aside">cut through the cluster column · 24 px = 1"</span></div>
+  <div class="figs"><figure><svg viewBox="0 0 660 520" role="img" aria-label="Section through the cluster column: the wall, the fan beyond on the plenum side, and on the Panel B side the fuse block 2 inches deep, the W1209 about 1 inch, and the switch plate on a 1.5 inch block, all inside a 2.75 inch limit; Panel B's end rails sit 1-7/16 inch off the wall and its bottom end rail would rise through the cluster if Panel B were lifted straight up">
+  <path class="ln" d="M60 470.0 H620"/>
+  <text class="t-sm" x="80" y="486.0">floor</text>
+  <!-- wall -->
+  <rect class="ply" x="288.0" y="62.0" width="12" height="408.0"/>
+  <text class="t-sm" x="282.0" y="52.4" text-anchor="end">½" wall</text>
+  <text class="t-lab" x="140" y="134.0" text-anchor="middle">PLENUM</text>
+  <text class="t-sm" x="140" y="150.0" text-anchor="middle">(Panel C, fridge side)</text>
+  <text class="t-lab" x="560" y="134.0" text-anchor="middle">PANEL B</text>
+  <text class="t-sm" x="560" y="150.0" text-anchor="middle">(open between its rails)</text>
+  <!-- fan beyond, on the plenum face -->
+  <rect class="hid" x="264.0" y="202.2" width="24" height="113.3"/>
+  <text class="t-sm" x="261.6" y="258.8" text-anchor="end">fan, beyond →</text>
+  <path class="ln" d="M261.6 359.6 H194.4"/>
+  <path class="ln" d="M182.4 359.6 l12 -6 v12 z" fill="var(--ink)"/>
+  <text class="t-sm" x="228.0" y="377.6" text-anchor="middle">air in, through the fan</text>
+  <!-- Panel C leg (beside the cut) and Panel B end rails -->
+  <rect class="hid" x="300.0" y="62.0" width="34.5" height="408.0"/>
+  <text class="t-sm" x="317.3" y="86.0" text-anchor="middle">C's leg</text>
+  <rect class="rail" x="337.5" y="44.0" width="36.0" height="36.0"/>
+  <rect class="rail" x="337.5" y="410.0" width="36.0" height="36.0"/>
+  <text class="t-sm" x="379.2" y="62.0">B's top end rail</text>
+  <text class="t-sm" x="379.2" y="431.6">B's bottom end rail</text>
+  <!-- cluster: fuse block, W1209, switch plate on spacers -->
+  <rect class="unit" x="300.0" y="236.7" width="48.2" height="113.3"/>
+  <text class="t-sm" x="372.0" y="287.6">fuse block, 2.01" deep</text>
+  <rect class="unit" x="300.0" y="160.4" width="26.4" height="62.4"/>
+  <text class="t-sm" x="372.0" y="186.8">W1209 in its case, ~1"</text>
+  <rect class="hid" x="300.0" y="100.4" width="36.0" height="48.0"/>
+  <rect class="ply" x="336.0" y="100.4" width="12" height="48.0"/>
+  <rect class="hid" x="324.0" y="116.0" width="12.0" height="16.8"/>
+  <rect x="348.0" y="116.0" width="8.4" height="16.8" fill="var(--ink-2)"/>
+  <text class="t-sm" x="379.2" y="119.6">switch plate on a 1½" block, ~2⅜"</text>
+  <!-- the 2.75in limit -->
+  <path d="M366.0 23.6 V465.2" stroke="var(--alert)" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <text class="t-al" x="372.0" y="21.2">2¾" limit</text>
+  <!-- the lift-out sweep -->
+  <path d="M355.2 402.8 V182.0" stroke="var(--alert)" stroke-width="2" fill="none"/>
+  <path d="M355.2 172.4 l-6 10 h12 z" fill="var(--alert)"/>
+  <text class="t-al" x="379.2" y="359.6">lifted straight up, B's rail</text>
+  <text class="t-al" x="379.2" y="374.6">would hit the cluster</text>
+  <!-- dims -->
+  <path class="thin" d="M300.0 498.0 V512.0 M334.5 498.0 V512.0 M300.0 506.0 H334.5"/>
+  <text class="t-dim" x="317.3" y="498.0" text-anchor="middle">1-7/16"</text>
+</svg><figcaption><b>Fig 2 — section through the cluster</b>Everything on the Panel B face stays inside 2¾", short of Panel B's legs and blocks behind its end rails. The deepest part is the fuse block at 2.01". Anything past 1-7/16" sits in the plane of Panel B's end rails, so the panels come apart in order: A out, slide B forward 3", then lift.</figcaption></figure></div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">D</span><h2>Airflow and the probe</h2><span class="aside">plan of Panel C · front wall at the top · 10 px = 1"</span></div>
+  <div class="figs"><figure><svg viewBox="0 0 660 470" role="img" aria-label="Plan of Panel C, front wall at the top and tailgate at the bottom, driver side on the left: air from the fan enters the plenum, runs along the fridge and leaves at its louvered end at the tailgate; the probe sits at the tailgate end of the driver-side fixed rail and its lead runs forward along that rail to the grommet">
+  <!-- outline, wall, legs -->
+  <rect class="thin" x="170.0" y="60.0" width="460.0" height="357.5"/>
+  <rect class="ply" x="185.0" y="60.0" width="430.0" height="5"/>
+  <rect class="rail" x="170.0" y="60.0" width="15" height="15"/><rect class="rail" x="615.0" y="60.0" width="15" height="15"/><rect class="rail" x="170.0" y="402.5" width="15" height="15"/><rect class="rail" x="615.0" y="402.5" width="15" height="15"/>
+  <text class="t-sm" x="400.0" y="52.0" text-anchor="middle">front wall (Panel B beyond) · cab end</text>
+  <text class="t-sm" x="514.0" y="435.5" text-anchor="middle">tailgate end (open face)</text>
+  <!-- plenum -->
+  <rect class="dash" x="185.0" y="65.0" width="430.0" height="72.0"/>
+  <text class="t-sm" x="510.0" y="103.5" text-anchor="middle">plenum ~7" — keep empty</text>
+  <!-- fridge, rails, bay, kitchen -->
+  <rect class="unit" x="202.5" y="137.2" width="177.2" height="280.3"/>
+  <text class="t-lab" x="291.0" y="257.5" text-anchor="middle">FRIDGE</text>
+  <text class="t-sm" x="291.0" y="377.5" text-anchor="middle">louvered end</text>
+  <path d="M206.0 411.5 H376.0" stroke="var(--amber)" stroke-width="3" stroke-dasharray="3 3"/>
+  <rect class="slide" x="185.0" y="172.5" width="10.0" height="240.0"/>
+  <rect class="slide" x="387.2" y="172.5" width="10.0" height="240.0"/>
+    <rect class="cav" x="413.8" y="157.5" width="201.2" height="260.0"/>
+  <text class="t-lab" x="514.0" y="287.5" text-anchor="middle">KITCHEN</text>
+  <text class="t-sm" x="405.0" y="145.5" text-anchor="middle">bay 1⅝"</text>
+  <!-- fan on the wall's plenum face -->
+  <rect class="blk" x="257.5" y="65.0" width="47.2" height="10"/>
+  <text class="t-sm" x="281.0" y="89.0" text-anchor="middle">fan</text>
+  <!-- airflow -->
+  <g stroke="var(--good)" stroke-width="2.2" fill="none">
+    <path d="M281.0 77.5 V125.5"/>
+    <path d="M281.0 125.5 C310.0 133.5 390.0 127.5 405.0 167.5 V422.5"/>
+    <path d="M281.0 125.5 C250.0 131.5 199.0 131.5 199.0 167.5 V422.5"/>
+  </g>
+  <path d="M405.0 427.5 l-5 -9 h10 z" fill="var(--good)"/>
+  <path d="M199.0 427.5 l-5 -9 h10 z" fill="var(--good)"/>
+  <text class="t-sm" x="411.0" y="429.5" fill="var(--good)">air out</text>
+  <!-- grommet, probe lead, probe -->
+  <circle class="hole" cx="192.5" cy="62.5" r="5"/>
+  <path d="M192.5 65.5 V405.5" stroke="var(--alert)" stroke-width="1.8" stroke-dasharray="5 3" fill="none"/>
+  <circle cx="196.0" cy="408.5" r="5" fill="var(--alert)"/>
+  <path class="thin" d="M191.0 408.5 L140.0 437.5"/>
+  <text class="t-al" x="140.0" y="451.5" text-anchor="middle">probe</text>
+  <text class="t-sm" x="138.0" y="237.5" text-anchor="end">probe lead</text>
+  <text class="t-sm" x="138.0" y="251.5" text-anchor="end">+ fridge feed</text>
+  <text class="t-sm" x="138.0" y="265.5" text-anchor="end">along the driver</text>
+  <text class="t-sm" x="138.0" y="279.5" text-anchor="end">fixed rail</text>
+  <path class="thin" d="M140.0 243.5 L191.0 243.5"/>
+</svg><figcaption><b>Fig 3 — plan of Panel C</b>Air comes in through the fan (and the three vents under it), fills the empty plenum at the cab end, runs back along the fridge, and leaves past its louvered end at the open tailgate face. The probe sits in that outgoing air at the tailgate end of the driver-side fixed rail, which doesn't move when the fridge slides. Its lead and the fridge feed run forward along the same rail to the grommet. That run is about 40", right at the W1209 lead's ~39", so splice in about 2 ft of 2-conductor 22AWG.</figcaption></figure></div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">E</span><h2>Wiring</h2><span class="aside">schematic · P-numbers match Section 5</span></div>
+  <div class="figs"><figure><svg viewBox="0 0 700 430" role="img" aria-label="Wiring: the DELTA 3's 12-volt outlet through the fused car-plug adapter and two SAE seam disconnects to the fuse block; fuse 1, 10 amps, to the FRIDGE switch and through the grommet to the fridge socket; fuse 2, 3 amps, to the FANS switch and the W1209, whose relay K1 feeds the fan; every negative to the fuse block's negative bus; the probe plugs into the W1209">
+  <defs><style>.box{fill:var(--surface-2);stroke:var(--ink);stroke-width:1.5}.pos{stroke:var(--alert);stroke-width:2.2;fill:none}.neg{stroke:var(--ink);stroke-width:2.2;fill:none}.sig{stroke:var(--amber);stroke-width:2;fill:none;stroke-dasharray:5 3}</style></defs>
+  <rect class="box" x="20" y="30" width="160" height="58"/><text class="t-lab" x="100" y="54" text-anchor="middle">DELTA 3 12V out</text><text class="t-sm" x="100" y="72" text-anchor="middle">Panel A · P1 15A plug</text>
+  <rect class="box" x="210" y="38" width="110" height="42"/><text class="t-sm" x="265" y="56" text-anchor="middle">SAE A/B (P2)</text><text class="t-sm" x="265" y="70" text-anchor="middle">SAE B/C (P3)</text>
+  <path class="pos" d="M180 50 H210 M320 50 H350 V130"/>
+  <path class="neg" d="M180 68 H210 M320 68 H332 V130"/>
+  <rect class="box" x="300" y="130" width="120" height="150"/>
+  <text class="t-lab" x="360" y="150" text-anchor="middle">FUSE BLOCK (P5)</text>
+  <text class="t-sm" x="360" y="172" text-anchor="middle">F1 10A — fridge</text>
+  <text class="t-sm" x="360" y="190" text-anchor="middle">F2 3A — fans</text>
+  <text class="t-sm" x="360" y="208" text-anchor="middle">F3–F6 spare</text>
+  <rect x="310" y="252" width="100" height="18" fill="var(--ink)"/><text x="360" y="265" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--paper)" font-family="var(--font-m)">NEG BUS</text>
+  <rect class="box" x="480" y="140" width="110" height="44"/><text class="t-lab" x="535" y="160" text-anchor="middle">SW1 FRIDGE</text><text class="t-sm" x="535" y="176" text-anchor="middle">P6</text>
+  <path class="pos" d="M420 168 H480"/>
+  <path class="pos" d="M590 156 H640 V68"/>
+  <path class="neg" d="M535 184 V230 H418 V252"/>
+  <rect class="box" x="540" y="18" width="150" height="50"/><text class="t-sm" x="615" y="38" text-anchor="middle">through the grommet</text><text class="t-sm" x="615" y="56" text-anchor="middle">fridge socket P7–P8</text>
+  <path class="neg" d="M410 262 H668 V68"/>
+  <rect class="box" x="290" y="320" width="100" height="44"/><text class="t-lab" x="340" y="340" text-anchor="middle">SW2 FANS</text><text class="t-sm" x="340" y="356" text-anchor="middle">P9</text>
+  <path class="pos" d="M325 280 V320"/>
+  <path class="neg" d="M372 320 V270"/>
+  <rect class="box" x="430" y="310" width="160" height="70"/><text class="t-lab" x="510" y="330" text-anchor="middle">W1209 (P10)</text><text class="t-sm" x="510" y="348" text-anchor="middle">+12V · GND · K0 · K1</text><text class="t-sm" x="510" y="366" text-anchor="middle">K0 ← jumper from +12V</text>
+  <path class="pos" d="M390 342 H430"/>
+  <path class="neg" d="M450 310 V292 H396 V270"/>
+  <rect class="box" x="612" y="314" width="78" height="62"/><text class="t-lab" x="651" y="334" text-anchor="middle">FAN</text><text class="t-sm" x="651" y="350" text-anchor="middle">red ← K1</text><text class="t-sm" x="651" y="366" text-anchor="middle">(P12)</text>
+  <path class="pos" d="M590 338 H612"/>
+  <path class="neg" d="M651 314 V300 H404 V270"/>
+  <path class="sig" d="M510 380 V410 H40"/>
+  <text class="t-sm" x="46" y="402">NTC probe (P11): W1209 → grommet → driver fixed rail, tailgate end · extend ~2 ft</text>
+  <path class="pos" d="M20 120 H50"/><text class="t-sm" x="56" y="124">+12V</text>
+  <path class="neg" d="M20 140 H50"/><text class="t-sm" x="56" y="144">negative, all to the NEG bus</text>
+  <path class="sig" d="M20 160 H50"/><text class="t-sm" x="56" y="164">probe lead</text>
+</svg><figcaption><b>Fig 4 — wiring</b>The fridge DC line now ends at the fuse block on the Panel B face instead of passing through the grommet first. From there: F1 → SW1 → through the grommet to the fridge's socket; F2 → SW2 → W1209, whose relay (K1) feeds the fan. Every negative lands on the fuse block's NEG bus. With one fan there are no WAGO connectors: K1 goes straight to the fan's red (its plug cut off, its thin lead spliced to 18AWG).</figcaption></figure></div>
+  <div class="figs"><figure><svg viewBox="0 0 900 660" role="img" aria-label="Color wiring diagram: the DC line in lands red on the fuse block's +IN stud and black on its −IN stud; fuse 1, 10 amps, red to the FRIDGE switch's PWR tab, whose LOAD tab runs red through the grommet to the fridge socket; fuse 2, 3 amps, red to the FANS switch's PWR tab, whose LOAD tab runs red to the W1209's +12V screw; a short red jumper from +12V to K0; K1 red to the fan; black from each switch's GND tab, the W1209's GND screw, the fan and the socket to the NEG bus screws; the probe plugs into the W1209's white socket"><rect x="60" y="240" width="320" height="130" rx="6" fill="#2b2f36"/><text x="255" y="258" text-anchor="middle" font-size="11" font-weight="700" style="fill:#fff; font-family:var(--font-m)">FUSE BLOCK (P5)</text><circle cx="130" cy="280" r="7" fill="#c9ccd1" stroke="#777"/><rect x="121" y="294" width="18" height="24" rx="2" fill="#d62828"/><text x="130" y="332" text-anchor="middle" font-size="9" style="fill:#cfd3d8; font-family:var(--font-m)">1</text><circle cx="130" cy="352" r="7" fill="#c9ccd1" stroke="#777"/><circle cx="166" cy="280" r="7" fill="#c9ccd1" stroke="#777"/><rect x="157" y="294" width="18" height="24" rx="2" fill="#8e44ad"/><text x="166" y="332" text-anchor="middle" font-size="9" style="fill:#cfd3d8; font-family:var(--font-m)">2</text><circle cx="166" cy="352" r="7" fill="#c9ccd1" stroke="#777"/><circle cx="202" cy="280" r="7" fill="#c9ccd1" stroke="#777"/><rect x="193" y="294" width="18" height="24" rx="2" fill="none" stroke="#777" stroke-dasharray="3 2"/><text x="202" y="332" text-anchor="middle" font-size="9" style="fill:#cfd3d8; font-family:var(--font-m)">3</text><circle cx="202" cy="352" r="7" fill="#c9ccd1" stroke="#777"/><circle cx="238" cy="280" r="7" fill="#c9ccd1" stroke="#777"/><rect x="229" y="294" width="18" height="24" rx="2" fill="none" stroke="#777" stroke-dasharray="3 2"/><text x="238" y="332" text-anchor="middle" font-size="9" style="fill:#cfd3d8; font-family:var(--font-m)">4</text><circle cx="238" cy="352" r="7" fill="#c9ccd1" stroke="#777"/><circle cx="274" cy="280" r="7" fill="#c9ccd1" stroke="#777"/><rect x="265" y="294" width="18" height="24" rx="2" fill="none" stroke="#777" stroke-dasharray="3 2"/><text x="274" y="332" text-anchor="middle" font-size="9" style="fill:#cfd3d8; font-family:var(--font-m)">5</text><circle cx="274" cy="352" r="7" fill="#c9ccd1" stroke="#777"/><circle cx="310" cy="280" r="7" fill="#c9ccd1" stroke="#777"/><rect x="301" y="294" width="18" height="24" rx="2" fill="none" stroke="#777" stroke-dasharray="3 2"/><text x="310" y="332" text-anchor="middle" font-size="9" style="fill:#cfd3d8; font-family:var(--font-m)">6</text><circle cx="310" cy="352" r="7" fill="#c9ccd1" stroke="#777"/><circle cx="90" cy="310" r="12" fill="#c9ccd1" stroke="#d62828" stroke-width="3"/><circle cx="90" cy="310" r="4" fill="#777"/><text x="90" y="340" text-anchor="middle" font-size="10" font-weight="600" style="fill:#fff; font-family:var(--font-m)">+IN</text><circle cx="350" cy="310" r="12" fill="#c9ccd1" stroke="#c9ccd1" stroke-width="3"/><circle cx="350" cy="310" r="4" fill="#777"/><text x="350" y="340" text-anchor="middle" font-size="10" font-weight="600" style="fill:#fff; font-family:var(--font-m)">−IN</text><text x="96" y="363" text-anchor="middle" font-size="8.5" style="fill:#cfd3d8; font-family:var(--font-m)">NEG BUS ▸</text><rect x="405" y="330" width="140" height="140" rx="4" fill="#1d6b3a" stroke="#0f4223"/><rect x="418" y="340" width="84" height="34" rx="2" fill="#111"/><text x="460" y="365" text-anchor="middle" font-size="19" style="fill:#ff3b30; font-family:var(--font-m)">30.0</text><circle cx="510" cy="345" r="2.5" fill="#ff3b30"/><rect x="522" y="340" width="18" height="22" rx="1" fill="#f4f4f4" stroke="#999"/><rect x="433" y="386" width="14" height="14" rx="1" fill="#222"/><circle cx="440" cy="393" r="4" fill="#444"/><rect x="468" y="386" width="14" height="14" rx="1" fill="#222"/><circle cx="475" cy="393" r="4" fill="#444"/><rect x="503" y="386" width="14" height="14" rx="1" fill="#222"/><circle cx="510" cy="393" r="4" fill="#444"/><rect x="412" y="412" width="46" height="50" rx="2" fill="#151515"/><text x="435" y="441" text-anchor="middle" font-size="8" style="fill:#cfd3d8; font-family:var(--font-m)">relay</text><rect x="463" y="426" width="80" height="32" rx="2" fill="#2e9e5a" stroke="#14532d"/><circle cx="473" cy="442" r="7" fill="#1a3d26" stroke="#14532d"/><circle cx="473" cy="442" r="5" fill="#c9ccd1"/><line x1="469.5" y1="442" x2="476.5" y2="442" stroke="#555" stroke-width="1.5"/><text x="473" y="420" text-anchor="middle" font-size="8.5" font-weight="700" style="fill:#fff; font-family:var(--font-m)">K0</text><circle cx="494" cy="442" r="7" fill="#1a3d26" stroke="#14532d"/><circle cx="494" cy="442" r="5" fill="#c9ccd1"/><line x1="490.5" y1="442" x2="497.5" y2="442" stroke="#555" stroke-width="1.5"/><text x="494" y="420" text-anchor="middle" font-size="8.5" font-weight="700" style="fill:#fff; font-family:var(--font-m)">K1</text><circle cx="515" cy="442" r="7" fill="#1a3d26" stroke="#14532d"/><circle cx="515" cy="442" r="5" fill="#c9ccd1"/><line x1="511.5" y1="442" x2="518.5" y2="442" stroke="#555" stroke-width="1.5"/><text x="515" y="420" text-anchor="middle" font-size="8.5" font-weight="700" style="fill:#fff; font-family:var(--font-m)">+12V</text><circle cx="536" cy="442" r="7" fill="#1a3d26" stroke="#14532d"/><circle cx="536" cy="442" r="5" fill="#c9ccd1"/><line x1="532.5" y1="442" x2="539.5" y2="442" stroke="#555" stroke-width="1.5"/><text x="536" y="420" text-anchor="middle" font-size="8.5" font-weight="700" style="fill:#fff; font-family:var(--font-m)">GND</text><rect x="620" y="330" width="100" height="100" rx="8" fill="#2b2f36"/><circle cx="670" cy="380" r="42" fill="#3a3f47"/><text x="670" y="377" text-anchor="middle" font-size="11" font-weight="700" style="fill:#fff; font-family:var(--font-m)">FAN</text><text x="670" y="391" text-anchor="middle" font-size="9" style="fill:#cfd3d8; font-family:var(--font-m)">120mm (P12)</text><rect x="800" y="330" width="80" height="100" rx="6" fill="#2b2f36"/><circle cx="840" cy="378" r="20" fill="#111" stroke="#888" stroke-width="2"/><circle cx="840" cy="378" r="6" fill="#c9ccd1"/><text x="840" y="346" text-anchor="middle" font-size="9" font-weight="700" style="fill:#fff; font-family:var(--font-m)">FRIDGE</text><text x="840" y="416" text-anchor="middle" font-size="8.5" style="fill:#cfd3d8; font-family:var(--font-m)">SOCKET (P7)</text><circle cx="550" cy="230" r="40" fill="#2b2f36" stroke="#555" stroke-width="2"/><circle cx="550" cy="230" r="33" fill="none" stroke="#5a616b" stroke-width="1"/><rect x="524" y="220" width="8" height="20" fill="#c9a24a" stroke="#7a5f1e"/><text x="528" y="215" text-anchor="middle" font-size="8.5" font-weight="600" style="fill:#fff; font-family:var(--font-m)">GND</text><rect x="546" y="220" width="8" height="20" fill="#c9a24a" stroke="#7a5f1e"/><text x="550" y="253" text-anchor="middle" font-size="8.5" font-weight="600" style="fill:#fff; font-family:var(--font-m)">PWR</text><rect x="568" y="220" width="8" height="20" fill="#c9a24a" stroke="#7a5f1e"/><text x="572" y="215" text-anchor="middle" font-size="8.5" font-weight="600" style="fill:#fff; font-family:var(--font-m)">LOAD</text><text class="t-lab" x="502" y="228" text-anchor="end" font-weight="600">SW2 FANS</text><text class="t-sm" x="502" y="243" text-anchor="end">P9</text><circle cx="730" cy="230" r="40" fill="#2b2f36" stroke="#555" stroke-width="2"/><circle cx="730" cy="230" r="33" fill="none" stroke="#5a616b" stroke-width="1"/><rect x="704" y="220" width="8" height="20" fill="#c9a24a" stroke="#7a5f1e"/><text x="708" y="215" text-anchor="middle" font-size="8.5" font-weight="600" style="fill:#fff; font-family:var(--font-m)">GND</text><rect x="726" y="220" width="8" height="20" fill="#c9a24a" stroke="#7a5f1e"/><text x="730" y="253" text-anchor="middle" font-size="8.5" font-weight="600" style="fill:#fff; font-family:var(--font-m)">PWR</text><rect x="748" y="220" width="8" height="20" fill="#c9a24a" stroke="#7a5f1e"/><text x="752" y="253" text-anchor="middle" font-size="8.5" font-weight="600" style="fill:#fff; font-family:var(--font-m)">LOAD</text><text class="t-lab" x="682" y="228" text-anchor="end" font-weight="600">SW1 FRIDGE</text><text class="t-sm" x="682" y="243" text-anchor="end">P6</text><path d="M244 46 H350 V298" fill="none" stroke="var(--paper)" stroke-width="8.5" stroke-linejoin="round"/><path d="M244 46 H350 V298" fill="none" stroke="#1b1b1b" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M90 72 V298" fill="none" stroke="var(--paper)" stroke-width="8.5" stroke-linejoin="round"/><path d="M90 72 V298" fill="none" stroke="#d62828" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M130 273 V120 H730 V220" fill="none" stroke="var(--paper)" stroke-width="8.5" stroke-linejoin="round"/><path d="M130 273 V120 H730 V220" fill="none" stroke="#d62828" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M166 273 V150 H550 V220" fill="none" stroke="var(--paper)" stroke-width="7.2" stroke-linejoin="round"/><path d="M166 273 V150 H550 V220" fill="none" stroke="#d62828" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M752 220 V100 H840 V330" fill="none" stroke="var(--paper)" stroke-width="8.5" stroke-linejoin="round"/><path d="M752 220 V100 H840 V330" fill="none" stroke="#d62828" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M528 240 V275 H392 V530 H310 V359" fill="none" stroke="var(--paper)" stroke-width="7.2" stroke-linejoin="round"/><path d="M528 240 V275 H392 V530 H310 V359" fill="none" stroke="#1b1b1b" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M536 449 V545 H274 V359" fill="none" stroke="var(--paper)" stroke-width="7.2" stroke-linejoin="round"/><path d="M536 449 V545 H274 V359" fill="none" stroke="#1b1b1b" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M690 430 V560 H238 V359" fill="none" stroke="var(--paper)" stroke-width="7.2" stroke-linejoin="round"/><path d="M690 430 V560 H238 V359" fill="none" stroke="#1b1b1b" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M708 240 V280 H785 V575 H202 V359" fill="none" stroke="var(--paper)" stroke-width="7.2" stroke-linejoin="round"/><path d="M708 240 V280 H785 V575 H202 V359" fill="none" stroke="#1b1b1b" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M840 430 V590 H166 V359" fill="none" stroke="var(--paper)" stroke-width="7.2" stroke-linejoin="round"/><path d="M840 430 V590 H166 V359" fill="none" stroke="#1b1b1b" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M572 240 V490 H515 V449" fill="none" stroke="var(--paper)" stroke-width="7.2" stroke-linejoin="round"/><path d="M572 240 V490 H515 V449" fill="none" stroke="#d62828" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M494 449 V505 H650 V430" fill="none" stroke="var(--paper)" stroke-width="7.2" stroke-linejoin="round"/><path d="M494 449 V505 H650 V430" fill="none" stroke="#d62828" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M473 449 C473 476 515 476 515 449" fill="none" stroke="var(--paper)" stroke-width="6.6" stroke-linejoin="round"/><path d="M473 449 C473 476 515 476 515 449" fill="none" stroke="#d62828" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/><rect x="645" y="441" width="10" height="8" rx="2" fill="#9aa0a6"/><rect x="685" y="441" width="10" height="8" rx="2" fill="#9aa0a6"/><path d="M540 351 H560 V296" fill="none" stroke="var(--amber)" stroke-width="2.2" stroke-dasharray="5 3"/><circle cx="560" cy="291" r="5" fill="#222"/><text class="t-sm" x="552" y="300" text-anchor="end">probe (P11)</text><text class="t-lab" x="405" y="322" font-weight="600">W1209 (P10)</text><rect x="24" y="20" width="220" height="52" rx="4" fill="var(--surface-2)" stroke="var(--ink)" stroke-width="1.5"/><text class="t-lab" x="134" y="42" text-anchor="middle" font-weight="600">DC LINE IN</text><text class="t-sm" x="134" y="60" text-anchor="middle">16AWG red/black · from the B/C SAE</text><text class="t-sm" x="180" y="113">F1 · 10A · 16AWG · <tspan font-weight="600" style="fill:#b3261e">10"</tspan></text><text class="t-sm" x="180" y="143">F2 · 3A · 18AWG · <tspan font-weight="600" style="fill:#b3261e">10"</tspan></text><text class="t-sm" x="744" y="80" text-anchor="end">through the grommet</text><text class="t-sm" x="744" y="93" text-anchor="end">socket's own <tspan font-weight="600" style="fill:#b3261e">3 ft</tspan> lead</text><text class="t-sm" x="698" y="470">splices</text><text class="t-sm" x="466" y="492" text-anchor="end">jumper <tspan font-weight="600" style="fill:#b3261e">2"</tspan></text><text class="t-sm" x="578" y="470" font-weight="600" style="fill:#b3261e">8"</text><text class="t-sm" x="542" y="536" font-weight="600" style="fill:#b3261e">6"</text><text class="t-sm" x="600" y="500" font-weight="600" style="fill:#b3261e">12"</text><text class="t-sm" x="696" y="522" font-weight="600" style="fill:#b3261e">12"</text><text class="t-sm" x="791" y="522" font-weight="600" style="fill:#b3261e">12"</text><text class="t-sm" x="386" y="420" text-anchor="end" font-weight="600" style="fill:#b3261e">12"</text><text class="t-sm" x="400" y="626">all blacks → NEG bus screws (any free one)</text><text class="t-sm" x="400" y="644"><tspan font-weight="600" style="fill:#b3261e">red numbers</tspan> = cut length, slack included</text><path d="M24 620 H54" stroke="#d62828" stroke-width="3.5"/><text class="t-sm" x="60" y="624">+12V (red)</text><path d="M140 620 H170" stroke="#1b1b1b" stroke-width="3.5"/><text class="t-sm" x="176" y="624">negative (black)</text><path d="M24 640 H54" stroke="var(--amber)" stroke-width="2.2" stroke-dasharray="5 3"/><text class="t-sm" x="60" y="644">probe lead</text><text class="t-sm" x="140" y="644">thick = 16AWG · thin = 18AWG</text></svg><figcaption><b>Fig 5 — every wire, in color</b>The same circuit drawn the way the parts look from the back. Red is +12V and black is negative; the thick lines are 16AWG and the thin ones 18AWG. The W1209 is drawn as it sits in its case: one 4-screw block, K0 · K1 · +12V · GND left to right, wires entering from below. The switch tab labels are printed on the switches, but their order may differ from the drawing, so go by the label, not the position. The switches' GND tab only lights the rocker: without it the switch still works but stays dark. Fuse colors: 10A is red, 3A violet; a 5A (tan) is fine in F2 if the kit has no 3A.</figcaption></figure></div>
+  <div class="legend"><ol>
+    <li><span class="n">1</span><span class="d"><b>DC line in</b> → red on <b>+IN</b>, black on <b>−IN</b> <span>(#10 rings, done in the van).</span></span></li>
+    <li><span class="n">2</span><span class="d"><b>F1 (10A)</b> → SW1 FRIDGE <b>PWR</b>; SW1 <b>LOAD</b> → through the grommet → fridge socket red. <span>Socket black → NEG bus.</span></span></li>
+    <li><span class="n">3</span><span class="d"><b>F2 (3A)</b> → SW2 FANS <b>PWR</b>; SW2 <b>LOAD</b> → W1209 <b>+12V</b>.</span></li>
+    <li><span class="n">4</span><span class="d"><b>Jumper</b> W1209 <b>+12V → K0</b> <span>(2" of red; it shares the +12V screw with the wire from SW2).</span></span></li>
+    <li><span class="n">5</span><span class="d">W1209 <b>K1</b> → fan red. <span>Fan black → NEG bus. Both fan leads spliced to 18AWG.</span></span></li>
+    <li><span class="n">6</span><span class="d"><b>Blacks to the NEG bus:</b> SW1 GND, SW2 GND, W1209 GND, fan black, socket black. <span>Any free screw; one wire per screw.</span></span></li>
+    <li><span class="n">7</span><span class="d"><b>Probe</b> → the W1209's white socket. <span>Nothing else on the board uses it.</span></span></li>
+  </ol></div>
+  <div class="tw" style="margin-top:16px"><table>
+    <thead><tr><th>Wire</th><th>From → to</th><th>Color · gauge</th><th class="num">Cut</th></tr></thead>
+    <tbody>
+      <tr><td>F1 lead</td><td>fuse 1 → FRIDGE switch PWR</td><td>red 16AWG <span class="tight">(18AWG is fine for this short hop)</span></td><td class="num">10"</td></tr>
+      <tr><td>F2 lead</td><td>fuse 2 → FANS switch PWR</td><td>red 18AWG</td><td class="num">10"</td></tr>
+      <tr><td>Fans feed</td><td>FANS switch LOAD → W1209 +12V</td><td>red 18AWG</td><td class="num">8"</td></tr>
+      <tr><td>Jumper</td><td>W1209 +12V → K0</td><td>red 18AWG</td><td class="num">2"</td></tr>
+      <tr><td>Fan +</td><td>W1209 K1 → splice to the fan's red</td><td>red 18AWG</td><td class="num">12"</td></tr>
+      <tr><td>Fan −</td><td>fan's black splice → NEG bus</td><td>black 18AWG</td><td class="num">12"</td></tr>
+      <tr><td>Switch grounds</td><td>each switch's GND → NEG bus</td><td>black 18AWG</td><td class="num">2 × 12"</td></tr>
+      <tr><td>W1209 ground</td><td>W1209 GND → NEG bus</td><td>black 18AWG</td><td class="num">6"</td></tr>
+      <tr><td>Fridge socket</td><td>its own lead: red → FRIDGE LOAD, black → NEG bus</td><td>16AWG, comes on the socket</td><td class="num">3 ft</td></tr>
+      <tr><td>Probe extension</td><td>spliced into the probe's own ~1 ft lead</td><td>2-conductor 22AWG</td><td class="num">2 ft</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin:10px 0 0;font-size:13px;color:var(--ink-2)">Totals: about 3 ft of red 18AWG and 3½ ft of black. Every length has an inch or two of slack: cut long, route it, then trim before crimping. The fan's splices sit on the plenum side, just before the grommet, so the fan's own ~10" of lead covers the fan-to-grommet stretch. The socket's 3 ft lead reaches about 2 ft back from the wall along the driver fixed rail; zip-tie the socket there, and check the fridge's own cord reaches it from the fridge's power port with the fridge slid all the way out.</p>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">F</span><h2>Build order</h2><span class="aside">bench now · van later</span></div>
+  <div class="steps">
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Mount the fan</h3><p>On the plenum side of the existing hole, arrow on the frame pointing toward the fridge, finger guard on the Panel B side. Four M4 × 50mm screws and nylon lock nuts (40mm is too short: the stack is about 44mm). Run its lead along the plenum face to the grommet and through. The fan comes with a small 2-pin plug (red +, black −). Cut it off about 2" from the plug and keep the plug end for a spare-fan swap; the fan's leads are thin (~26AWG), so splice each to 18AWG with a solder joint and heat shrink (or fold the stripped end double before crimping). Red → W1209 K1, black → the NEG bus.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Mount the cluster</h3><p>Fuse block on end at z 5", W1209 above it, switch plate on its 2x2 block at the top (Switch Plate sheet): all in the driver column, x 1½–6". #8 × ⅞" screws for the fuse block and W1209, #8 × 2¼" for the switch plate, all stopping inside the ½" wall so nothing comes through on the plenum side. Check the stack stays inside 2¾" deep.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Pre-wire on the bench</h3><p>P6, P9, P10 and P12 (Fig 4). 18AWG red and black in the bay, ring terminals on the block's studs, ¼" female spades on the switch tabs. Crimp, tug-test, shrink. Jumper the W1209's +12V to K0. Leave the DC line's end and the fridge feed loose for the van.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Bench test and set the W1209</h3><p>Feed 12V to the block's +IN and −IN (the DELTA's car outlet through the SAE adapter). SW2 on. Set <b>mode C</b>, the setpoint about 30°C (86°F), and the hysteresis about 5°C, so it switches on near 35°C (95°F). Warm the probe in your hand and watch the relay LED and the fan; adjust until it does that. Fan off, SW1 on: the fridge feed should be live.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>In the van: power in</h3><p>Bring the fridge DC line from the B/C SAE (P3) to the block's +IN and −IN (P5): #10 ring terminals, M5 nuts.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>In the van: fridge feed and probe</h3><p>With the slides installed, run the fridge feed and the probe lead through the grommet and back along the driver fixed rail. Put the socket near the fridge's power port at the louvered end, with the slack loop clipped to the fixed rail (P7–P8). Zip-tie the probe tip at the rail's tailgate end, about 1" from the louvered end, in the moving air, not touching metal.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Run test</h3><p>Fridge on, everything closed up as for driving. After 30 minutes of the compressor running, the W1209 should read the bay's warm air and the fan should cycle on and off. If it runs nonstop and the reading keeps climbing, that's the cue for the push-pull second fan.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">G</span><h2>Parts</h2><span class="aside">most on hand</span></div>
+  <div class="tw"><table>
+    <thead><tr><th>Part</th><th class="num">Qty</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>GDSTIME 120mm 12V fan</td><td class="num">1 (+1 spare)</td><td><span class="ok">On hand.</span></td></tr>
+      <tr><td>W1209 + NTC probe (HiLetgo, in case)</td><td class="num">1 (+1 spare)</td><td><span class="ok">On hand.</span> Case ≤ 1¼" deep. No threadlocker on its screws (it eats the plastic).</td></tr>
+      <tr><td>Nilight 6-way fuse block, 10A + 3A blade fuses</td><td class="num">1</td><td><span class="ok">On hand.</span> 4.72 × 2.01" listed: measure the third side.</td></tr>
+      <tr><td>Ampper round rocker switches</td><td class="num">2</td><td><span class="ok">On hand</span> (10-pack). FRIDGE, FANS.</td></tr>
+      <tr><td>M4 × 50mm machine screws + nylon lock nuts</td><td class="num">4</td><td class="tight">To buy.</td></tr>
+      <tr><td>120mm fan finger guard</td><td class="num">1</td><td><span class="ok">On hand.</span></td></tr>
+      <tr><td>2-conductor 22AWG wire + heat shrink</td><td class="num">~2 ft</td><td><span class="ok">On hand.</span> Probe-lead extension.</td></tr>
+      <tr><td>18AWG red/black, #10 rings, ¼" spades, heat-shrink crimps</td><td class="num">—</td><td>As in Section 5.</td></tr>
+      <tr><td>½" ply offcut 4½ × 2" + 2" of 2x2</td><td class="num">1 + 1</td><td>From the offcuts. Switch Plate sheet.</td></tr>
+      <tr><td>#8 × 2¼" flat-head screws</td><td class="num">2</td><td>Switch plate. Exactly 2¼".</td></tr>
+      <tr><td>#8 × ⅞" pan-head screws</td><td class="num">~8</td><td>Into the ½" wall without coming through.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<footer><p>Drawn 31 Oct 2026 from the plan's front-wall numbers (fan hole x 11.1", z 8.8"; vents z 4⅛"; grommet x 2¼", z 4"), the Panel C width chain with the kitchen at 20⅛", and the owner's note that Panel C's frame and Panel B's end rail put ~3" of open space in front of the wall. The 3D model and the older fridge renders still show the exhaust fan and the passenger cluster; this sheet is right where they differ.</p></footer>
+</div>
+</body>
+</html>

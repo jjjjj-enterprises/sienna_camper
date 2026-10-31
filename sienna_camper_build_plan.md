@@ -34,10 +34,10 @@ The rear view above is too small-scale to label the fridge's 2 cooling fans and 
 
 | # | Component | Position | Fastening |
 |---|---|---|---|
-| 1 | Intake fan (120mm) — blows IN | X=11.11, Y=35.75 (Panel C's FRONT wall), Z=8.8 | 4× M4×20 machine screws over the wall's fan hole (see the Panel C Front Wall render) |
-| 2 | Exhaust fan (120mm) — blows INTO the open utility bay | X=19.72, Y=14.4, Z=8.8 | 4× M4×20 machine screws, 105mm bolt circle, into a plywood fan ring |
-| 3 | NTC temp sensor | X=18.22, Y=12.2, Z=8.8 | Adhesive thermal pad, or 1× #4 screw through its bracket tab |
-| 4 | Control cluster — switches + surge protector + W1209, **no enclosure** | X=40.4–45.4, Y=35.75 (Panel C's FRONT wall), Z=3.5–14.5 — on the wall's **Panel-B face**, standing ~2" off it | Screwed DIRECTLY to a backer board (3/4" offcut) on the wall; 4× #8×1" screws. Reached by lifting one of Panel B's lift-out bed-top halves |
+| 1 | Intake fan (120mm) — blows IN | X=11.11, Y=35.75 (Panel C's FRONT wall), Z=8.8 — on the wall's plenum face, finger guard on the Panel B face | 4× M4×50 machine screws + nylon lock nuts (40mm is too short: guard + ½" wall + 25mm fan + nut ≈ 44mm) through the guard, wall and fan (Fridge Bay Cooling sheet) |
+| 2 | ~~Exhaust fan~~ — **dropped 31 Oct 2026** | — | There is no wall to carry it (a 1⅝" gap to the kitchen's side), so the second fan is a spare; push-pull on fan 1's hole later if the bay runs hot (Fridge Bay Cooling sheet) |
+| 3 | NTC temp sensor | Tailgate end of the driver-side fixed slide rail, ~1" from the fridge's louvered end, in the outgoing air | Zip-tied to the fixed rail, not touching metal; lead extended ~2 ft forward along the rail to the grommet |
+| 4 | Control cluster — fuse block + 2 switches + W1209, **no enclosure** | X=1.5–6, Y=35.75 (Panel C's FRONT wall), Z=5–15.5 — on the wall's **Panel-B face**, driver column, **≤ 2¾" deep** | Fuse block and W1209 screwed straight to the wall, switches in a ½" ply plate on 1¼" spacers; #8×⅞" screws. Reached by lifting Panel B's driver-side bed-top half. Moved from the passenger column 31 Oct 2026 (Fridge Bay Cooling sheet) |
 | 5 | Anchor-board strips (driver and middle, under the slide rails) | ⅛" neoprene + ¾" ply, one-piece strips tied by two steel rungs set into their undersides; the fixed rails' risers bolt to them | ¼-20 machine screws into T-nuts from below — NO holes in the van (Anchor Board sheet) |
 | 6 | Kitchen tie-down: 2 straps | Front strap down to seat-latch hoops H2 and H4; rear strap down to an eye bolt in the kitchen riser's flange and a footman loop on the passenger strip | **2** ratchet straps (400 lb WLL), each dropped into a pair of the unit's own top-edge notches (Anchor Board sheet) |
 | 7 | WAVE 3 hose/cord hook | In the open bay, kitchen side — bundle the hoses so nothing swings out | 1× heavy-duty hook, #8×1.5" screw up into the deck underside |
@@ -54,7 +54,7 @@ survey. The airflow arrows on the sheet show cool air in at the front wall
 utility bay toward the tailgate — there is no door in the way. The CO monitor
 and fire extinguisher are owner-placed and deliberately not located here.
 
-And the electrical side — a schematic (not to physical scale) of how the fridge, both fans, and the NTC sensor are powered and wired — down to **every physical wire landing**: connection points P1–P12 are numbered on the diagram, each naming the exact terminal, connector type, and crimp, with the full list repeated in Section 5's connection-point table:
+And the electrical side — a schematic (not to physical scale) of how the fridge, the fan, and the NTC sensor are powered and wired — down to **every physical wire landing**: connection points P1–P12 are numbered on the diagram, each naming the exact terminal, connector type, and crimp, with the full list repeated in Section 5's connection-point table:
 
 ![Fridge wiring diagram](renders/fridge-wiring.svg)
 
@@ -74,8 +74,8 @@ And the electrical side — a schematic (not to physical scale) of how the fridg
 | **P8** | Fridge DC jack: fridge's own cord plug → socket; slack loop to the FIXED rail, 3 clips |
 | **P9** | SW2 FANS: F2(3A) red → PWR spade; LOAD spade → W1209 +12V; GND spade → NEG bus |
 | **P10** | W1209 screws: +12V, GND, K0 (jumper from +12V), K1 (fan feed) — strip 1/4", snug screws |
-| **P11** | NTC probe: plug on the W1209 header; TIP zip-tied at the kitchen-facing wall by the exhaust fan |
-| **P12** | WAGO 221 x2: K1 → both fan reds; fan blacks → one black → NEG bus — levers fully closed |
+| **P11** | NTC probe: plug on the W1209 header; lead through the grommet and back along the driver fixed rail (extend ~2 ft); TIP zip-tied at the rail's tailgate end by the louvered end |
+| **P12** | K1 → the fan's red; the fan's black → NEG bus (one fan since 31 Oct 2026, so no WAGO nuts). Cut off the fan's 2-pin plug and splice its thin leads to 18AWG (solder + heat shrink) |
 
 **What each box on the schematic holds**
 
@@ -98,12 +98,11 @@ And the electrical side — a schematic (not to physical scale) of how the fridg
 - PWR tab ← F2 · LOAD tab → W1209 "+12V" · GND tab → NEG bus
 - "+12V" ← SW2 LOAD · "GND" ← NEG bus (18AWG black)
 - "K0" ← short jumper from "+12V" · "K1" → fan feed wire
-- set: fans ON ~95F, OFF ~85F (P0=H mode, P1/P2 setpoints)
+- set: fan ON ~95F, OFF ~86F (P0=**C** cooling mode — not H, which is heating)
 - plug → W1209's
 - 2-pin probe header;
-- TIP by the exhaust fan
-- nut A: K1 feed → both fan REDS · nut B: both fan
-- BLACKS → one 18AWG black → NEG bus
+- TIP at the louvered end
+- K1 → the fan's red · the fan's black → NEG bus
 - cabin air IN
 - warm air OUT
 
@@ -380,7 +379,7 @@ The panels are open 2x2 frames — plywood skins exist only where something need
 | Panel A | **None** | Both bays face the side doors — a skirt would block the only access. Passenger side: DELTA 3 drawer. Driver side: WAVE 3 open bay. |
 | Panel B | **None** | Nothing to see or reach — it sits under the platform between A and C. Bare frame, deep storage from above. |
 | Panel C — front (B-facing) | **The ONE wall**: 1/2" ply, 46" x 17" | Mounts the 120mm intake fan, holds the three low intake vents, and passes the fridge DC line (one 1" grommet — Power strip 1 feeds off the rear outlet, not through this wall) — every opening dimensioned in the Panel C Front Wall render. |
-| Panel C — sides | None | The van wall is ~1" away; the exhaust fan still pulls a net flow across the fridge, so side leakage doesn't matter. |
+| Panel C — sides | None | The van wall is ~1" away; the intake fan still pushes a net flow along the fridge to the open tailgate face, so side leakage doesn't matter. |
 | Panel C — rear (tailgate) | None needed | Fully occupied already: fridge face + the open utility bay + kitchen unit face + kitchen drawer face. |
 
 With no tops and no skirts, every panel's top rails are exposed — **grip those to lift a panel out**.
@@ -399,9 +398,8 @@ Two coordinate conventions, each picked to match how you'd actually stand at the
 | Kitchen unit (JAGAHAHA) | C | 24.5–44.5 | 0–26 | 0–11.8 |
 | Fridge (BougeRV Rocky 40) | C | 2–19.7 (slide rails flank at ~0.6–1.5 and ~20.2–21.2) | 0–28.74 | 0.5–16.67 (hanging tray + fridge) |
 | Intake fan (120mm) | C | 11.11 (on the front wall) | ~35 (Panel C's front wall) | 8.8 |
-| Exhaust fan (120mm) | C | 19.7 (fridge's kitchen-facing wall) | ~14.4 | 8.8 |
-| NTC temp sensor | C | ~18.2 (just inside the fridge's exhaust wall) | ~12.2 | 8.8 |
-| Control cluster (switches, surge protector, W1209) | C | 40.4–45.4 | 35.75 (Panel C's FRONT wall) | 3.5–14.5 — on the wall's Panel-B face, standing ~2" off it into Panel B's bay |
+| NTC temp sensor | C | ~2.5 (tailgate end of the driver fixed rail) | ~1 | ~3 |
+| Control cluster (fuse block, 2 switches, W1209) | C | 1.5–6 (driver column) | 35.75 (Panel C's FRONT wall) | 5–15.5 — on the wall's Panel-B face, ≤ 2¾" deep (Fridge Bay Cooling sheet) |
 | Power strip 2 (cooktop) | C | ~34.5–37.5 | ~26 (kitchen unit's front face) | ~1.5 |
 | Right drawer (the only one) | A | 23.75–43.75 | 3.5–25.5 | 0–13.75 |
 | Center divider | A | 22.25–23.75 | 1.5–27.5 | 0–16.25 |
@@ -411,7 +409,7 @@ Two coordinate conventions, each picked to match how you'd actually stand at the
 
 Coordinates for the fixed/structural items (drawers, panels, fridge, kitchen) come directly from `params.scad`/`platform.scad`'s real geometry. Power strip 1/2 positions are schematic markers in the 2D diagrams (approximate, not separately modeled in the 3D assembly) — confirm exact placement against the real frame once built.
 
-**Fridge clearance vs. the manual (CR04001, saved user manual):** BougeRV asks for **200 mm of free air at the compressor end and 100 mm at the sides** — free-convection numbers the enclosed bay can't offer (the van wall is ~1" away). The forced cross-flow above is the substitute, and the manual makes the geometry work in its favor: the compressor, louvers, control panel, and power port are **all at ONE end** (manual-confirmed — this answers measurement row #4), and Component 7 faces that end toward the tailgate. So intake air enters at the front wall, washes down the bay past the fridge, and the exhaust fan on the kitchen-facing wall pulls it out across the louvered end into the open utility bay, where it exits straight toward the tailgate (no door in the way). Two things keep that substitution honest: the louvered end must stay unblocked (the plenum strip in front of the appliances stays empty — see the access notes below), and the NTC probe + controller exist precisely to prove the airflow is doing its job — if the fans can't hold the bay near ambient, the fix is more airflow, not less clearance. Confirm the louver faces on the physical unit when it arrives (measurement row #4).
+**Fridge clearance vs. the manual (CR04001, saved user manual):** BougeRV asks for **200 mm of free air at the compressor end and 100 mm at the sides** — free-convection numbers the enclosed bay can't offer (the van wall is ~1" away). The forced cross-flow above is the substitute, and the manual makes the geometry work in its favor: the compressor, louvers, control panel, and power port are **all at ONE end** (manual-confirmed — this answers measurement row #4), and Component 7 faces that end toward the tailgate. So intake air enters at the front wall, fills the plenum, washes down the bay past the fridge, and leaves across the louvered end at the open tailgate face (one intake fan since 31 Oct 2026; the planned exhaust fan had no wall to mount on). Two things keep that substitution honest: the louvered end must stay unblocked (the plenum strip in front of the appliances stays empty — see the access notes below), and the NTC probe + controller exist precisely to prove the airflow is doing its job — if the fans can't hold the bay near ambient, the fix is more airflow, not less clearance. Confirm the louver faces on the physical unit when it arrives (measurement row #4).
 
 ### How under-deck storage is accessed, by panel
 
@@ -612,7 +610,7 @@ Photographed doing it (Sept 3 2026). Four things here that no drawing was tellin
 | WAVE 3 hold-down | 2 screw-eye D-rings in Panel A's two END bottom rails, either side of the WAVE 3, + 1 low-profile cam strap fore-aft over the unit — it sits straight on the bay floor (no shelf, no glide strips, no slide hardware), and the strap stops it bouncing into the ~2.8" of headroom or walking out the bay's open driver-side face |
 | Wood screws | 1.25" for plywood-to-frame, 2" for frame-to-frame joints |
 | Corner brackets | 2" or 3" steel L-brackets, 12 total (4 per module x 3 modules — the rear pantry has no frame of its own, no brackets needed) |
-| Cable grommets | 1" diameter, 7 needed (1 cooktop line, 1 Power strip 1 line — both short rear-outlet hops, 3 fridge DC line, 2 DELTA 3 AC charging line — see Section 5) |
+| Cable grommets | 1" diameter, 7 needed (1 cooktop line, 1 Power strip 1 line — both short rear-outlet hops, 3 fridge DC line, 2 DELTA 3 AC charging line — see Section 5). **Plastic desk grommets for a 1" hole in wood, not rubber snap-in grommets** — see the warning under the BOM |
 | Hand-hold holes | **None** — with no tops or skirts, every panel's 2x2 top rails are exposed; grip those to lift. |
 | Anti-rattle bumper strips | 2 strips (one at each lift-out seam: A/B, B/C — the pantry and fridge/kitchen aren't lift-out modules, so no seams of their own). Adhesive-backed felt or closed-cell foam weatherstrip |
 | Alignment dowel pins | 4 pins (2 per seam x 2 seams), 3/8" dowel rod, ~3/4" long, friction-fit into a matching hole on each module face |
@@ -703,7 +701,7 @@ Every wooden joint's method — biscuit vs. screw — with the exact biscuit spa
 | RV leveling blocks, Lynx-style 10-pack + 1 wheel chock (per-site leveling at the WHEELS — see the Block Calculator note, Appendix E) | 1 | $40 | $40 |
 | **HEST Dually Long mattress** ([hest.com/products/dually](https://hest.com/products/dually) — 78" x 50" x 4" solid foam, memory-foam top, washable waterproof cover INCLUDED; no air chambers) | 1 | $530–590 | $530–590 |
 | — Budget fallback: DIY 2-layer foam (queen 4" HD base + 1.5" memory topper, both cut to 50" x 78" with a serrated/electric knife + spray adhesive + a separate waterproof cover) — swaps in for the HEST at ~$185–255 total | (alt) | ($185–255) | ($0 in total below) |
-| Cable grommets (1 cooktop line, 1 Power strip 1's line — both short hops to the rear outlet now, 3 fridge DC line, 2 DELTA 3 AC charging line) — EASYEAH 20-pack covers all 7, **PURCHASED** | 1 pack | $10 | $10 |
+| Cable grommets (1 cooktop line, 1 Power strip 1's line — both short hops to the rear outlet now, 3 fridge DC line, 2 DELTA 3 AC charging line) — **1" plastic desk grommets for wood** (e.g. Rockler 1" standard). The EASYEAH rubber 20-pack bought in July **does not fit plywood** — see the warning below | 7 | ~$2 | ~$14 |
 | 16 AWG extension cord (household AC-rated — cooktop to the REAR outlet, short + slack loop for the slide) | 1 | $8 | $8 |
 | 16 AWG extension cord (household AC-rated — Power strip 1 to the REAR outlet beside it, short) | 1 | $8 | $8 |
 | **HDX 30 ft. 16/3 Extension Cord Reel — 4 grounded outlets + surge protector, gray** — **PURCHASED 2026-09-06, $29.98.** **This adds SHORE POWER:** without it, every AC path in this plan runs off the van's 1500W inverter (engine on) or the DELTA 3's battery, with no way to take an external outlet. With the reel the DELTA 3 charges from a campground pedestal or a house outlet **without idling the van**, and its surge protection guards the DELTA 3 and the fridge electronics against notoriously rough pedestal power. ⚠️ **Two hard limits — see the shore-power note in Section 5** | 1 | $29.98 | $29.98 |
@@ -727,7 +725,7 @@ Every wooden joint's method — biscuit vs. screw — with the exact biscuit spa
 | 120mm 12V fan + PWM temperature controller w/ NTC probe (W1209-style, fridge-bay cooling) | 1 | $15–20 | $15–20 |
 | 3" round snap-in soffit vents, 4-pack — 3 in the front wall's low intake row under the fan, 1 spare (**PURCHASED**) | 1 pack | $12 | $12 |
 | 12V fused distribution block (control panel) — **PURCHASED July 2026: Nilight 6-way blade fuse block w/ negative bus, waterproof cover, label stickers, fuse assortment included** (no separate ATO fuse pack needed) | 1 | $17.98 | $17.98 |
-| Illuminated toggle switches (SW1 fridge, SW2 fans, SW3 spare — the cooktop is AC, switched at Power strip 2) | 3 | $5 | $15 |
+| Illuminated toggle switches (SW1 fridge, SW2 fans — the cooktop is AC, switched at Power strip 2) | 2 | $5 | $15 |
 | **Windmill Smart Fan 2-in-1 air circulator** (personal comfort, Power Strip 1) — **PURCHASED July 2026** | 1 | $69 | $69 |
 | Anchor board — three ¾" ply strips, one piece each (cut from the ¾" sheet's offcut) + ¼-20 T-nuts and 1" button heads for the 2 risers (Anchor Board sheet) | 1 | $10 | $10 |
 | Steel flat bar 3" x 48" x 3/16" (Steelworks 11679, Lowe's) — the 2 rungs under the anchor board, cut to 46" | 2 | $20 | $40 |
@@ -738,7 +736,7 @@ Every wooden joint's method — biscuit vs. screw — with the exact biscuit spa
 | DEWALT 4-1/2" cut-off wheels, 5-pack — aluminum oxide, 7/8" arbor, angle grinder. Cuts the 2 rungs from the flat bar and the 2 riser angles from the angle stock (H.8). Cut **dry** — never put fluid on an abrasive wheel — **PURCHASED 2026-09-05** | 1 pack | $6.46 | $6.46 |
 | Tap Magic 30004P ProTap cutting fluid, 4 oz — for the **drilling** that follows the cuts: the 2 rungs' screw holes, the 2 riser angles' 1/4-20 holes, and the anchor board's steel work generally. Nothing to do with the cut-off wheels — **PURCHASED 2026-09-06** | 1 | $4.98 | $4.98 |
 | Neoprene rubber sheet, ⅛" × 16" × 60" roll — cut into strips under the anchor board's strips | 1 | $20 | $20 |
-| Blue medium-strength threadlocker (Loctite 242 or equivalent — on the anchor board's machine screws) | 1 bottle | $8 | $8 |
+| Blue medium-strength threadlocker (Loctite 242 or equivalent — on the anchor board's machine screws only; **never on the W1209's clear plastic case or any plastic part**: it breaks the plastic down) | 1 bottle | $8 | $8 |
 | Erickson ratchet straps (01415), 400 lb WLL / 1,200 lb break, 1" x 10' (2: kitchen unit, front to H2/H4 and rear to the footman loops; 3 optional backups to the striker loops; 3 spare) | 2 packs of 4 | $32 | $64 |
 | Fridge hold-down — 1 low-profile cam strap + 2 screw-eye D-rings (hooks to the fridge's 2 end handles, down to the tray's side apron — keeps the fridge from lifting off the tray in a hard stop) | 1 set | $10 | $10 |
 | Cable clips for the fridge DC line's slide-travel slack (3, screwed to the slide's fixed outer rail — same VIPMOON-type clip as the cooktop run, buy links below) | 3 | $1 | $3 |
@@ -760,6 +758,8 @@ Every wooden joint's method — biscuit vs. screw — with the exact biscuit spa
 **EcoFlow DELTA 3 Plus + Smart Extra Battery and WAVE 3 (already owned, not priced here)** — see the DELTA 3/WAVE 3 stowage detail in Renders and Section 1.
 
 ### Recommended purchase links — slides + electrical (checked July 2026)
+
+**⚠️ Don't buy rubber snap-in grommets (like the EASYEAH pack) for this build.** They're made for sheet metal about 1/16" thick and will not seat in ½" or ¾" plywood, let alone a 2×2 rail. Buy **1" plastic desk grommets** instead — a lip plus a push-in sleeve, made for a 1" hole in wood (e.g. [Rockler 1" standard plastic grommet](https://rockler.com/1-standard-plastic-grommet)). Check the cord's plug passes the grommet's opening, or pick one with a slotted cap. **As built:** the EASYEAH grommets were already bought, so each had one flange cut off and was glued into its hole with E6000 — that works if you already own them.
 
 - **Rear pantry**: the 27-gallon Tough Box tote (bought) + a 1" × 8 ft cam strap with snap hooks; the anchors are 2 of the stainless footman loops already on hand.
 - **Panel B deep-storage totes**: [Sterilite 28-Qt under-bed lidded tote](https://www.amazon.com/Sterilite-16558010-28QT-Storage-Box/dp/B0042KXV28) ×2 — plain lidded totes on purpose (Panel B has no side access, so slide-drawer versions would waste money).
@@ -785,7 +785,7 @@ Specific products verified against this plan's specs, full URLs shown for copy-p
 <tr><td>16 AWG cord, ~3-4ft (DELTA 3 AC charging line, front console to Panel A — household AC-rated, no seam crossing)</td><td>DEWENWILS 3ft 16AWG SJTW indoor/outdoor extension cord, ETL listed, 2-pack (~$13) — same product as the cooktop line above, 1 pack covers this with a spare</td><td><a href="https://www.amazon.com/DEWENWILS-Extension-Weatherproof-Outdoor-Grounded/dp/B0891VDLV5">https://www.amazon.com/DEWENWILS-Extension-Weatherproof-Outdoor-Grounded/dp/B0891VDLV5</a></td></tr>
 <tr><td>2-way AC outlet tap (REAR outlet — Power strip 1 + the cooktop share it; the front console outlet is the DELTA 3's alone)</td><td>GE Outlet Extender Wall Tap, UL listed, 125VAC (~$5-13)</td><td><a href="https://www.amazon.com/GE-Adapter-Grounded-Outlets-52203/dp/B00006IBFC">https://www.amazon.com/GE-Adapter-Grounded-Outlets-52203/dp/B00006IBFC</a></td></tr>
 <tr><td>Leg leveling feet — 12 needed (buy 3 four-packs); 3/8-16 leveling feet WITH T-nut kit, 330 lb per foot</td><td>Heavy Duty Furniture Levelers w/ T-Nut Kit, 4-pack (~$12/pack)</td><td><a href="https://www.amazon.com/Furniture-Levelers-Adjustable-Leveling-Cabinets-Sofa/dp/B081ZT4Q4G">https://www.amazon.com/Furniture-Levelers-Adjustable-Leveling-Cabinets-Sofa/dp/B081ZT4Q4G</a></td></tr>
-<tr><td>1" cable grommets — need 7 (the 20-pack covers all pass-throughs) — <strong>PURCHASED</strong> (July 2026)</td><td>EASYEAH 1" rubber grommets, 20-pack ($9.99)</td><td><a href="https://www.amazon.com/Diameter-Hole%EF%BC%8CRubber-Synthetic-Protection-Double-Sided/dp/B085S6S6KH">https://www.amazon.com/Diameter-Hole%EF%BC%8CRubber-Synthetic-Protection-Double-Sided/dp/B085S6S6KH</a></td></tr>
+<tr><td>1" cable grommets — need 7. <strong>⚠️ The EASYEAH rubber pack (bought July 2026) does NOT fit:</strong> it's for thin sheet metal and won't seat in ½"–¾" plywood. Buy 1" plastic desk grommets for wood instead (e.g. <a href="https://rockler.com/1-standard-plastic-grommet">Rockler 1" standard</a>). As built: one flange cut off each EASYEAH grommet, glued in with E6000</td><td>EASYEAH 1" rubber grommets, 20-pack ($9.99) — <strong>do not buy</strong></td><td><a href="https://www.amazon.com/Diameter-Hole%EF%BC%8CRubber-Synthetic-Protection-Double-Sided/dp/B085S6S6KH">https://www.amazon.com/Diameter-Hole%EF%BC%8CRubber-Synthetic-Protection-Double-Sided/dp/B085S6S6KH</a></td></tr>
 <tr><td>6-outlet power strips, individual switches — need 2</td><td>CRST 6-outlet metal strip, individual switches, 1200J (~$25 each)</td><td><a href="https://www.amazon.com/CRST-Individual-Protectors-ECO-Friendly-Protector/dp/B097JH3W3W">https://www.amazon.com/CRST-Individual-Protectors-ECO-Friendly-Protector/dp/B097JH3W3W</a></td></tr>
 <tr><td>Cord clips — ~10-12 along the cooktop cord run</td><td>VIPMOON 100x 1/4" R-type nylon screw-mount clamps w/ screws (~$9) — screw-mount, NOT adhesive: stick-on clips let go under vehicle vibration and temperature swings. Size up to 3/8" if the SAE cable measures over ~0.28"</td><td><a href="https://www.amazon.com/VIPMOON-Mounting-Fastener-Electrical-Management/dp/B07HGZ83JB">https://www.amazon.com/VIPMOON-Mounting-Fastener-Electrical-Management/dp/B07HGZ83JB</a></td></tr>
 </table>
@@ -813,9 +813,9 @@ Every purchased electrical component at its real position — icon-based top-dow
 | 5 | 2-way outlet tap at the rear outlet — Power strip 1 and the cooktop share it |
 | 6 | 1" grommets — deck-edge exits for the two short AC cords |
 | 7 | Power strip 2 — ON the slide-out kitchen unit (cooktop); cord slack for the slide, fed from the rear outlet |
-| 8 | Control cluster (no enclosure) — on Panel C's FRONT wall, Panel-B face (Section 2 below) |
+| 8 | Control cluster (no enclosure) — on Panel C's FRONT wall, Panel-B face, driver column (Fridge Bay Cooling sheet) |
 | 9 | Intake fan, 120mm — on Panel C's FRONT wall, over the fridge's B-facing end |
-| 10 | Exhaust fan, 120mm, into the open bay + NTC probe inside the bay at that wall, in the hot exhaust |
+| 10 | NTC probe — tailgate end of the driver fixed rail, at the fridge's louvered end (the exhaust fan was dropped 31 Oct 2026) |
 | 11 | Fridge DC line — DELTA 3 (Panel A) forward to the fridge (Panel C), its own dedicated run |
 | 12 | SAE quick-disconnects — on the fridge DC line, one at each seam it crosses |
 | 13 | DELTA 3 AC charging cord — the front console's ONE outlet (1500W, verified) to Panel A's drawer |
@@ -833,12 +833,12 @@ Every purchased electrical component at its real position — icon-based top-dow
 - get their own fused circuit (5A is plenty)
 - D 3x Ampper switches (fridge / cooktop strip / fans) — 20mm holes in the
 - backer board's face (no enclosure)
-- FAN MOUNTING — face-on, both fans identical hardware
-- NTC probe: zip-tie 1-2" from the exhaust cutout
+- FAN MOUNTING — face-on (one fan; the second is a spare)
+- NTC probe: zip-tie at the driver fixed rail's tailgate end, ~1" from the louvered end
 - Cut a 4.5" round hole (or 4.5" square) in the wall; fan mounts over it with
 - 4x #8 x 1-1/4" screws through the corner holes. Grill goes on the AIR-ENTRY side.
 - Arrow on the fan's side frame shows its blow direction — point it per the labels above.
-- Wiring: both fans in parallel off the W1209 relay (Section 5 wiring schematic).
+- Wiring: the fan off the W1209 relay (Section 5 wiring schematic). *This render predates 31 Oct 2026 — the Fridge Bay Cooling sheet is current.*
 
 **The fridge (and its fan system) now runs off the DELTA 3 stack, not the van's rear outlet** — see the "Why the fridge and fan system now run off the DELTA 3 stack" note in Section 1 for the full reasoning (reliability while people are away from the vehicle, backed by real runtime/recharge numbers). This means the fridge needs a cord — a DC line from the DELTA 3 (Panel A's right drawer) forward to the fridge (Panel C), crossing both module seams (A/B and B/C). It is the only cord in the build that crosses them; the cooktop and Power strip 1 both run short cords to the van's rear outlet and cross none. The Sienna's rear 12V accessory outlet is simply unused now — nothing in this design plugs into it, so it's free for anything else later.
 
@@ -881,14 +881,14 @@ The ONE 16AWG SAE line runs DELTA 3 → fuse block; **both** circuits branch at 
 | P2 | Panel A/B seam | SAE quick-disconnect #1 — the OYMSAE cord ends mate; zip-tie a strain-relief loop each side of the seam |
 | P3 | Panel B/C seam | SAE quick-disconnect #2 — same part; both disconnects hang slack, never taut |
 | P4 | Panel C front wall, low driver side | 1" grommet — the cord just passes through into the fridge bay, no termination |
-| P5 | Nilight 6-way fuse block, main studs (in the utility bay) | Red → **+IN** stud, black → **−IN** stud: strip 3/8", crimp #10 heat-shrink ring terminals, M5 nuts snug. F1 = 10A ATO (fridge), F2 = 3A ATO (fans), F3–F6 spare |
+| P5 | Nilight 6-way fuse block, main studs (on the front wall's Panel B face, driver column) | Red → **+IN** stud, black → **−IN** stud: strip 3/8", crimp #10 heat-shrink ring terminals, M5 nuts snug. F1 = 10A ATO (fridge), F2 = 3A ATO (fans), F3–F6 spare |
 | P6 | SW1 "FRIDGE" — Ampper rocker, 3 spade tabs | F1's 16AWG red → **PWR** tab; **LOAD** tab → pigtail red; **GND** tab → neg bus (powers the glow ring). 0.25" female spade crimps on all 3 |
 | P7 | SAE → female 12V socket pigtail | SAE end mates toward SW1's LOAD side; the socket zip-ties in the utility bay near the fridge's kitchen-facing wall |
 | P8 | Fridge DC input jack | The fridge's OWN 12V cord: plug → socket, plug → fridge. Slack loop for the 24" slide, clipped to the FIXED rail (step 5 above) |
 | P9 | SW2 "FANS" — Ampper rocker | F2's 18AWG red → **PWR** tab; **LOAD** tab → W1209 "+12V"; **GND** tab → neg bus |
-| P10 | W1209 controller — 4 screw terminals | **+12V** ← SW2 LOAD; **GND** ← neg bus (18AWG black); **K0** ← short jumper from +12V; **K1** → fan feed wire. Strip 1/4", screws snug. Settings: P0 = H mode, fans ON ~95°F / OFF ~85°F |
-| P11 | W1209 2-pin probe header | NTC probe plug clicks on; the probe TIP zip-ties inside the bay at the fridge's kitchen-facing wall, next to the exhaust fan |
-| P12 | WAGO 221-413 lever nuts (×2) | Nut A: K1 feed → both fan REDS. Nut B: both fan BLACKS → one 18AWG black → neg bus. Levers fully closed, tug-test every wire |
+| P10 | W1209 controller — 4 screw terminals | **+12V** ← SW2 LOAD; **GND** ← neg bus (18AWG black); **K0** ← short jumper from +12V; **K1** → fan feed wire. Strip 1/4", screws snug. Settings: mode C (cooling), fans ON ~95°F / OFF ~86°F |
+| P11 | W1209 2-pin probe header | NTC probe plug clicks on; the lead runs through the grommet and back along the driver fixed rail (extend ~2 ft with 2-conductor 22AWG, soldered and heat-shrunk); the TIP zip-ties at the rail's tailgate end, ~1" from the louvered end |
+| P12 | W1209 K1 → fan | K1 → the fan's red; the fan's black → neg bus. One fan, so no lever nuts. Tug-test every wire |
 
 **Wire + termination spec:** main run = the OYMSAE cord's own 16AWG; in-bay branches = 18AWG red/black hookup wire. Crimps: heat-shrink #10 rings (block studs) and 0.25" female spades (switch tabs) — crimp, tug-test, then shrink. SW3 is a spare on the panel (the cooktop is 120V AC, switched at Power strip 2's own outlet switch).
 
@@ -1287,9 +1287,9 @@ Build this one before Component 1 (Rear Pantry) — the pantry tote and the micr
 </div>
 <div class="lego-step">
 <div class="lego-num">4</div>
-<div class="lego-parts"><p class="lego-noparts">2 fans + controller/NTC probe + control cluster on its backer board</p></div>
+<div class="lego-parts"><p class="lego-noparts">1 fan + W1209/NTC probe + control cluster (Fridge Bay Cooling sheet)</p></div>
 <div class="lego-main"><img src="renders/fridge-wiring.png" alt="Fridge wiring schematic">
-<p class="lego-caption">Bolt the intake fan over the front wall's fan hole (Component 4 step 3 — blowing IN) and snap the three 3" soffit vents into the wall's vent holes below it (cool floor-level air in), install the exhaust fan + NTC probe (NTC just INSIDE the bay at the fridge's kitchen-facing wall, in the hot exhaust airflow, feeding the controller — it blows the warm air INTO the open utility bay and straight out toward the tailgate), and the control panel enclosure (switches + surge protector) at the back of the open bay, screwed to a backer board (the 3/4" sheet's offcut) hung from the deck underside — every switch reachable by just reaching into the bay. Wire everything per the schematic's numbered connection points (P1–P12 — the exact terminal, connector, and crimp for every wire is in Section 5's connection-point table). The CO monitor and fire extinguisher are owner-placed — position them yourself once the build is in the van (the CO monitor stays battery-powered and unwired either way).</p></div>
+<p class="lego-caption">Bolt the intake fan over the front wall's fan hole (Component 4 step 3 — blowing IN) and snap the three 3" soffit vents into the wall's vent holes below it (cool floor-level air in), put the NTC probe at the tailgate end of the driver-side fixed rail, by the fridge's louvered end, in the outgoing air, and mount the control cluster (fuse block, W1209, FRIDGE and FANS switches) on the front wall's Panel B face in the driver column, no more than 2¾" deep — reached by lifting Panel B's driver-side bed-top half. There is no exhaust fan (31 Oct 2026). Layout, depths and build order: the Fridge Bay Cooling sheet. Wire everything per the schematic's numbered connection points (P1–P12 — the exact terminal, connector, and crimp for every wire is in Section 5's connection-point table). The CO monitor and fire extinguisher are owner-placed — position them yourself once the build is in the van (the CO monitor stays battery-powered and unwired either way).</p></div>
 </div>
 <div class="lego-step">
 <div class="lego-num">5</div>
@@ -1517,7 +1517,7 @@ Panel A, Panel B, and Panel C each rest unbolted on the van floor — nothing is
 | Rear pantry — 27-gal tote + strap (lifts out in one piece) | ~7 lb empty |
 | Panel A (incl. divider + 1 drawer box/slide + corner braces + 2 bottom rails + WAVE 3 D-rings/strap, no top) | ~37 lb (pull the DELTA 3 drawer box off its slides first and it drops to ~15 lb) |
 | Panel B (bare cube frame — bottom rails on all 4 faces + corner braces; no top, no divider, no drawers) | ~15 lb |
-| Panel C (frame + front bottom rail + deck + front wall + kitchen drawer & cheeks + control cluster backer — the fridge TRAY + slides stay bolted to the anchor board (strapped to the van, no holes), and the fridge/kitchen units are tracked separately below) | ~61 lb — the heavy one (unclip the kitchen drawer box from its slides first: ~48 lb) |
+| Panel C (frame + front bottom rail + deck + front wall + kitchen drawer & cheeks + control cluster — the fridge TRAY + slides stay bolted to the anchor board (strapped to the van, no holes), and the fridge/kitchen units are tracked separately below) | ~61 lb — the heavy one (unclip the kitchen drawer box from its slides first: ~48 lb) |
 | BougeRV Rocky 40 fridge (empty weight, manual spec) | 40.6 lb / 18.4 kg (realistically 60-90 lb loaded — why it's on a 379 lb locking slide, not a lift-out module) |
 | JAGAHAHA kitchen unit (real product weight) | 45 lb |
 | EcoFlow DELTA 3 Plus + Smart Extra Battery (Panel A right drawer, included in that drawer's own weight above) | ~48 lb |
@@ -1737,29 +1737,18 @@ drawer under the deck 1.2". It mounts on **Panel C's front wall, on the
 wall's Panel-B face** — the one surface in the build with real space: 46" × 17"
 carrying only a 4.75" fan hole, a 9"×2" louver and a single 1" grommet.
 
-**Where exactly.** The owner confirmed that **the spare is centered in Panel B**, and that fixes what stands
-against this wall: a 28.5" spare centered in 46" spans **x 8.75–37.25**, and the
-two 16.9" totes stacked on it span **6.1–39.9**. So the wall's clear area isn't
-the middle at all — it's a **~6" full-height column at each end**. The cluster is
-therefore tall and narrow, **X 40.4–45.4", Z 3.5–14.5"**, in the passenger
-column. It lands over the passenger front leg (x 41–42.5), which is better screw
-purchase than the wall itself. `params.scad` asserts it clears the fan, the louver, the
-grommet, the spare and the totes, and stays on the wall.
+**Where exactly (re-sited 31 Oct 2026).** The spare is centered in Panel B (x 8.75–37.25) and the totes stacked on it span 6.1–39.9, so the wall's clear area is a ~6" column at each end. The first site, the passenger column (X 40.4–45.4"), overlapped the passenger front leg, which stands 1-7/16" proud of the wall. The cluster now sits in the **driver column, X 1.5–6", Z 5–15.5"**, right above the grommet the wires use and close to the fan and the fridge.
 
-**Build order note:** fit the wall and drive its perimeter screws *before*
-mounting the cluster — it covers the two leg screws at x 41.75.
+**How deep it can stand.** Panel C's front legs hold Panel B 1-7/16" off the wall, and Panel B's end frame is open between its bottom and top end rails, so there is ~3" before Panel B's legs; the cluster keeps to **2¾"**. Anything past 1-7/16" sits in the plane of Panel B's end rails, so **B and C no longer lift straight past each other: lift Panel A out first, slide Panel B 3" forward, then lift it.**
 
 Panel A was ruled out for a physical reason rather than a spatial one — its
 drawer has excellent access, but the W1209's thermistor lead is about 39" and
 its probe must sit in the **fridge** bay, roughly 59" away through two seams.
 
-**Access:** lift one of Panel B's two lift-out bed-top halves and reach down the
-front wall. Panel B is top-loaded by design — the side doors don't reach it — so
-this is the access route the panel already has, not a new one. The spare and totes are
-accounted for in `params.scad`.
+**Access:** lift Panel B's driver-side bed-top half and reach down the front wall. Panel B is top-loaded by design — the side doors don't reach it — so this is the access route the panel already has. Keep Panel B's totes out of the driver column and at least 2" off the wall in front of the fan.
 
 **What the bay is.** Not a mounting location: an **air path and a finger
-gap**. The exhaust fan blows the fridge bay's warm air through it and out the
+gap**. Part of the fridge bay's warm air leaves through it to the
 open tailgate face, and at 1.28" × 17" it presents **21.8 sq in** of cross
 section against the 120mm fan's own **17.7 sq in** aperture, so it does not
 choke the flow — `params.scad` asserts exactly that.
@@ -1886,7 +1875,7 @@ The order to build in — **dependency-first, not the Component numbering.** Wor
 2. Bench-build the no-drill anchor board (strips + steel rungs + risers, Anchor Board sheet), set it in the van on its neoprene, and chain the risers' eye bolts to the 3rd-row seat-latch hoops H1 and H2; nothing is drilled into the van. *Re-check the chains and straps after the first drive.* **The hybrid's 12V battery access panel is at the passenger rear corner (under the rear outlet) and stays reachable by unstrapping/sliding the kitchen out.**
 3. Fridge on its tray + locking slide (driver corner); kitchen unit strapped down (passenger corner). Let the fridge stand 12h before first power-up.
 4. Hang the kitchen drawer; velcro the 2 utility bins into the open bay (no door).
-5. Cooling + control cluster: intake fan (blows IN), exhaust fan + NTC on the fridge's kitchen-facing wall, W1209 + fuse block + switches on the backer board in the open utility bay.
+5. Cooling + control cluster: one intake fan (blows IN) in the front wall's hole; the cluster (fuse block, W1209, 2 switches) on the wall's Panel B face, driver column; the NTC probe at the driver fixed rail's tailgate end (Fridge Bay Cooling sheet).
 
 **Phase 4 — Rear pantry (tote + microwave)** (Component 1 — *needs Panel C's finished deck; nothing to build*)
 1. Screw a footman loop to the outside face of each side top rail, 7½" from the tailgate end.
@@ -1933,7 +1922,7 @@ Consolidates Section 4's BOM into a shopping order with links. Prices are estima
 
 **Fridge & kitchen** — [BougeRV Rocky 40](https://www.bougerv.com/products/rocky-12v-camp-fridge) ($400–500 less JULY7 coupon, **PURCHASED**); [JAGAHAHA slide-out kitchen](https://www.amazon.com/dp/B0FLDCNYZX) ($300–350, **PURCHASED**); [COOKTRON induction cooktop](https://www.amazon.com/dp/B09MCR1SDT) ($190); UMETRE 9-piece detachable-handle cookware set (purchased) ($65–90).
 
-**Electrical & cooling** — 120mm 12V fans ×2 ($18–20); W1209 controller + probe ($10); Nilight fuse block (*purchased*, $18); Ampper switches 10-pack (*purchased*, $9); 3" snap-in soffit vents ×3 (*purchased*, 4-pack); grommets (EASYEAH 20-pack, *purchased*, $10); power strips ×2 ($50); AC cords ($24 — two short rear-outlet hops + the DELTA 3 charging line); fridge DC cord + SAE seam disconnects (one OYMSAE 2-pack does both, purchased, $22); 2-way rear-outlet tap ($5); cord clips ($9); fused car-plug→SAE adapter + SAE→12V-socket pigtail ($18); 18AWG hookup wire, crimp assortment + WAGO lever nuts ($30).
+**Electrical & cooling** — 120mm 12V fans ×2 ($18–20); W1209 controller + probe ($10); Nilight fuse block (*purchased*, $18); Ampper switches 10-pack (*purchased*, $9); 3" snap-in soffit vents ×3 (*purchased*, 4-pack); grommets (1" plastic desk grommets for wood, ~$14 — **not** the EASYEAH rubber pack, which won't seat in plywood; see Section 4); power strips ×2 ($50); AC cords ($24 — two short rear-outlet hops + the DELTA 3 charging line); fridge DC cord + SAE seam disconnects (one OYMSAE 2-pack does both, purchased, $22); 2-way rear-outlet tap ($5); cord clips ($9); fused car-plug→SAE adapter + SAE→12V-socket pigtail ($18); 18AWG hookup wire, crimp assortment + WAGO lever nuts ($30).
 
 **Anchoring (no-drill, Section 8)** — Erickson ratchet straps, 2 4-packs ($64); eye bolts, ¼" chain and quick links for the hoop connections ($30); two 3" × 3/16" × 48" steel flat bars for the rungs ($40); 2 more quick links for the hoop loops ($8); anchor-board T-nuts and screws ($15); ⅛" neoprene ($20); fridge-slide steel riser angles ×2 ($24).
 
@@ -2001,7 +1990,7 @@ Every component's weight, computed from the real material dimensions (Baltic bir
 | Anchor board (3 ¾" ply strips + 2 3" steel rungs) + straps + neoprene | Hardware/misc | 22.8 | rear | no-drill tie-down chassis at Panel C, strapped to the seat-latch hoops (Section 8) |
 | Corner brackets, braces, screws, glue | Hardware/misc | 6.0 | mid | spread across all modules |
 | Seam draw-latches (4) + pins + bumpers | Hardware/misc | 1.5 | mid | at the A/B + B/C seams |
-| Electrical (2 fans, controller, fuse, 2 strips, cords) | Hardware/misc | 6.0 | mid | cooling + power runs |
+| Electrical (1 fan, controller, fuse, 2 strips, cords) | Hardware/misc | 6.0 | mid | cooling + power runs |
 | Cooktop + cookware (stowed) | Hardware/misc | 12.0 | rear | induction top + pots in the kitchen |
 
 *30 Oct 2026: the pantry tote is ~8 lb lighter than the IRIS cluster, and the ~22 lb microwave is not in this table — together about +14 lb on the totals below, not yet rolled in.*

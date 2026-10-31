@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Switch Plate</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#E9ECE7; --surface:#FBFCFA; --surface-2:#F1F4EF;
+  --ink:#16201C; --ink-2:#4E5A55; --ink-3:#79857F;
+  --rule:#C6CDC5; --rule-strong:#8E9A93;
+  --ply:#9A7A3E; --ply-fill:rgba(200,164,107,.30);
+  --amber:#B8661A; --amber-fill:rgba(201,118,27,.15);
+  --alert:#9E2C1B; --alert-fill:rgba(158,44,27,.09);
+  --good:#2C6349;
+  --font-d:Archivo,"Helvetica Neue",Arial,sans-serif;
+  --font-b:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+    --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+    --rule:#2F3833; --rule-strong:#56615A;
+    --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+    --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+    --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+    --good:#5FB78D;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+  --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+  --rule:#2F3833; --rule-strong:#56615A;
+  --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+  --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+  --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+  --good:#5FB78D;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-b); font-size:15px; line-height:1.55;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+.sheet{max-width:1080px; margin:0 auto; padding-block:28px 64px; padding-left:20px; padding-right:20px}
+
+/* ---- title block: a drawing title block, not a hero ---- */
+.tb{border:1.5px solid var(--ink); background:var(--surface)}
+.tb-head{display:flex; flex-wrap:wrap; align-items:flex-end; gap:6px 20px; padding:18px 20px 14px; border-bottom:1.5px solid var(--ink)}
+.tb-head h1{
+  font-family:var(--font-d); font-weight:700; font-size:clamp(25px,4.6vw,38px);
+  line-height:1.03; letter-spacing:-.018em; margin:0; text-wrap:balance;
+}
+.tb-head p{margin:0; color:var(--ink-2); font-size:14.5px; max-width:56ch}
+.tb-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr))}
+.tb-cell{padding:10px 14px 12px; border-right:1px solid var(--rule); border-top:1px solid var(--rule)}
+.tb-cell:first-child{border-top:0}
+.tb-cell .k{
+  font-family:var(--font-m); font-size:10.5px; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:3px;
+}
+.tb-cell .v{font-family:var(--font-m); font-size:15px; font-weight:500; font-variant-numeric:tabular-nums}
+.tb-cell .v small{font-family:var(--font-b); font-size:12.5px; color:var(--ink-2); display:block; font-weight:400; letter-spacing:0}
+
+/* ---- section headings ---- */
+section{margin-top:44px}
+.sec-h{display:flex; align-items:baseline; gap:12px; border-bottom:1.5px solid var(--ink); padding-bottom:7px; margin-bottom:18px}
+.sec-h .n{
+  font-family:var(--font-m); font-size:12px; font-weight:600; color:var(--ink-3);
+  letter-spacing:.09em; flex:none;
+}
+.sec-h h2{font-family:var(--font-d); font-weight:600; font-size:20px; letter-spacing:-.01em; margin:0; text-wrap:balance}
+.sec-h .aside{margin-left:auto; font-family:var(--font-m); font-size:11.5px; color:var(--ink-3); text-align:right}
+
+p{margin:0 0 12px; max-width:68ch}
+.lede{color:var(--ink-2)}
+a{color:inherit}
+code{font-family:var(--font-m); font-size:.92em; background:var(--surface-2); padding:1px 4px; border-radius:2px}
+strong{font-weight:600}
+
+/* ---- flags ---- */
+.flags{display:grid; gap:14px}
+.flag{
+  border:1px solid var(--alert); border-left-width:4px; background:var(--alert-fill);
+  padding:14px 16px 15px;
+}
+.flag h3{
+  font-family:var(--font-d); font-size:15.5px; font-weight:600; margin:0 0 7px;
+  color:var(--alert); display:flex; gap:9px; align-items:baseline; text-wrap:balance;
+}
+.flag h3 .tag{
+  font-family:var(--font-m); font-size:10px; letter-spacing:.1em; border:1px solid currentColor;
+  padding:1px 5px; flex:none; text-transform:uppercase;
+}
+.flag p{margin:0 0 8px; font-size:14px}
+.flag p:last-child{margin-bottom:0}
+.flag .math{
+  font-family:var(--font-m); font-size:13px; font-variant-numeric:tabular-nums;
+  background:var(--surface); border:1px solid var(--rule); padding:8px 11px; margin:9px 0;
+  display:block; overflow-x:auto; white-space:nowrap; color:var(--ink);
+}
+.flag .verdict{font-weight:600}
+
+/* ---- figures ---- */
+.figs{display:grid; gap:26px}
+@media (min-width:780px){ .figs.two{grid-template-columns:1fr 1fr} }
+figure{margin:0; border:1px solid var(--rule-strong); background:var(--surface); display:flex; flex-direction:column}
+figure svg{display:block; width:100%; height:auto; padding:10px 8px 0}
+figcaption{
+  border-top:1px solid var(--rule); padding:9px 13px 11px; font-size:13px; color:var(--ink-2);
+  margin-top:auto;
+}
+figcaption b{font-family:var(--font-m); font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink); display:block; margin-bottom:3px}
+
+svg .ply{fill:var(--ply-fill); stroke:var(--ink); stroke-width:1.7}
+svg .cav{fill:var(--surface); stroke:var(--ink); stroke-width:1.7}
+svg .unit{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.9}
+svg .blk{fill:var(--ink-2); stroke:none}
+svg .slide{fill:var(--ink); stroke:none}
+svg .ln{fill:none; stroke:var(--ink); stroke-width:1.7}
+svg .thin{fill:none; stroke:var(--rule-strong); stroke-width:1}
+svg .dash{fill:none; stroke:var(--ink-2); stroke-width:1.4; stroke-dasharray:6 4}
+svg .strap{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.5; stroke-dasharray:5 3}
+svg .strapln{fill:none; stroke:var(--amber); stroke-width:2.2}
+svg .ring{fill:none; stroke:var(--ink); stroke-width:2.4}
+svg .hole{fill:var(--paper); stroke:var(--ink); stroke-width:1.7}
+svg text{font-family:var(--font-m); fill:var(--ink-2)}
+svg .t-dim{font-size:12.5px; font-weight:500; font-variant-numeric:tabular-nums}
+svg .t-lab{font-size:12px; fill:var(--ink)}
+svg .t-sm{font-size:10.5px; fill:var(--ink-3)}
+svg .keydot{fill:var(--ink)}
+svg .keynum{font-size:11.5px; font-weight:600; fill:var(--surface)}
+
+/* ---- legend ---- */
+.legend{margin-top:16px; border:1px solid var(--rule); background:var(--surface)}
+.legend li{display:flex; gap:11px; padding:8px 13px; border-top:1px solid var(--rule); align-items:baseline}
+.legend li:first-child{border-top:0}
+.legend ol{margin:0; padding:0; list-style:none}
+.legend .n{
+  font-family:var(--font-m); font-size:11px; font-weight:600; color:var(--surface);
+  background:var(--ink); width:19px; height:19px; border-radius:50%; flex:none;
+  display:inline-flex; align-items:center; justify-content:center; transform:translateY(2px);
+}
+.legend .d{font-size:13.5px}
+.legend .d b{font-weight:600}
+.legend .d span{color:var(--ink-2)}
+
+/* ---- tables ---- */
+.tw{overflow-x:auto; border:1px solid var(--rule-strong); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:13.5px}
+th,td{padding:8px 12px; text-align:left; border-top:1px solid var(--rule); vertical-align:top}
+thead th{
+  border-top:0; border-bottom:1.5px solid var(--ink); font-family:var(--font-m);
+  font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:500;
+  white-space:nowrap;
+}
+td.num,th.num{font-family:var(--font-m); font-variant-numeric:tabular-nums; white-space:nowrap}
+tbody tr:nth-child(even){background:var(--surface-2)}
+td .note{display:block; color:var(--ink-2); font-size:12.5px; margin-top:2px}
+.ok{color:var(--good); font-weight:600}
+.tight{color:var(--alert); font-weight:600}
+
+/* ---- steps ---- */
+.steps{counter-reset:s; display:grid; gap:0; border:1px solid var(--rule-strong); background:var(--surface)}
+.step{display:grid; grid-template-columns:52px 1fr; border-top:1px solid var(--rule)}
+.step:first-child{border-top:0}
+.step .sn{
+  counter-increment:s; font-family:var(--font-m); font-size:16px; font-weight:600; color:var(--ink-3);
+  padding:14px 0 14px 16px; border-right:1px solid var(--rule); font-variant-numeric:tabular-nums;
+}
+.step .sn::before{content:counter(s,decimal-leading-zero)}
+.step .sb{padding:13px 16px 15px}
+.step h3{font-family:var(--font-d); font-size:15px; font-weight:600; margin:0 0 4px; text-wrap:balance}
+.step p{margin:0; font-size:13.8px; color:var(--ink-2); max-width:70ch}
+.step p + p{margin-top:7px}
+.step .hold{
+  display:inline-block; font-family:var(--font-m); font-size:10.5px; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--alert); border:1px solid var(--alert); padding:1px 5px; margin-bottom:6px;
+}
+
+footer{margin-top:52px; border-top:1px solid var(--rule); padding-top:14px; color:var(--ink-3); font-size:12.5px}
+footer p{max-width:72ch; margin:0 0 6px}
+
+@media print{
+  /* Letter with the same 0.65in margin as the main build plan, so these
+     pages sit flush with it when build_pdf.py appends them — and so the
+     stamped footer at 30pt lands clear of the content. */
+  @page{size:Letter; margin:0.65in}
+  :root{--paper:#fff; --surface:#fff; --surface-2:#f4f4f4}
+  body{font-size:10.5pt}
+  .sheet{max-width:none; padding:0}
+  section{break-inside:auto; margin-top:22px}
+  figure,.flag,.step,.tw{break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+<style>
+svg .rail{fill:var(--surface-2); stroke:var(--ink); stroke-width:1.5}
+svg .hid{fill:none; stroke:var(--ink-3); stroke-width:1.3; stroke-dasharray:4 3}
+svg .t-al{font-size:11.5px; fill:var(--alert); font-weight:600}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="tb">
+  <div class="tb-head">
+    <h1>Switch Plate</h1>
+    <p>The FRIDGE and FANS switches in a ½" plywood plate, held 1½" off Panel C's front wall by one 2x2 block so their bodies and wires have room behind. It is the top of the control cluster in the driver column, above the W1209 (Fridge Bay Cooling sheet). The switches are glued in with E6000. The fridge socket is <em>not</em> on this plate (see below).</p>
+  </div>
+  <div class="tb-grid">
+    <div class="tb-cell"><span class="k">Plate</span><span class="v">4½ × 2"<small>½" ply offcut</small></span></div>
+    <div class="tb-cell"><span class="k">Block</span><span class="v">2" of 2x2<small>1½ × 1½ × 2", no ripping</small></span></div>
+    <div class="tb-cell"><span class="k">Holes</span><span class="v">2 × ~20mm<small>measure the switch body</small></span></div>
+    <div class="tb-cell"><span class="k">Depth</span><span class="v">≈ 2⅜"<small>limit 2¾"</small></span></div>
+    <div class="tb-cell"><span class="k">Fixing</span><span class="v">2 × #8 × 2¼"<small>flat head, through block</small></span></div>
+    <div class="tb-cell"><span class="k">Where</span><span class="v">x 1½–6", z 13½–15½"<small>front wall, Panel B face</small></span></div>
+  </div>
+</div>
+
+<section>
+  <div class="sec-h"><span class="n">A</span><h2>Front view</h2><span class="aside">as you see it from Panel B · 80 px = 1"</span></div>
+  <div class="figs"><figure><svg viewBox="0 0 620 330" role="img" aria-label="Front view of the switch plate, 4.5 by 2 inches: two switch holes three-quarters of an inch from each end and centered top to bottom, the standoff block hidden behind the middle, and two screw holes on the centerline half an inch from the top and bottom">
+  <rect class="ply" x="120.0" y="70.0" width="360.0" height="160.0"/>
+  <rect class="hid" x="240.0" y="70.0" width="120.0" height="160.0"/>
+  <text class="t-sm" x="300.0" y="154.0" text-anchor="middle">block behind</text>
+  <circle class="hid" cx="180.0" cy="150.0" r="36.8"/>
+  <circle class="hole" cx="180.0" cy="150.0" r="32.0"/>
+  <text class="t-lab" x="180.0" y="154.0" text-anchor="middle" font-weight="600">FANS</text>
+  <circle class="hid" cx="420.0" cy="150.0" r="36.8"/>
+  <circle class="hole" cx="420.0" cy="150.0" r="32.0"/>
+  <text class="t-lab" x="420.0" y="154.0" text-anchor="middle" font-weight="600">FRIDGE</text>
+  <circle class="hole" cx="300.0" cy="110.0" r="6"/><circle cx="300.0" cy="110.0" r="2" fill="var(--ink)"/>
+  <circle class="hole" cx="300.0" cy="190.0" r="6"/><circle cx="300.0" cy="190.0" r="2" fill="var(--ink)"/>
+  <path class="thin" d="M120.0 238.0 V272.0 M480.0 238.0 V272.0 M120.0 264.0 H480.0"/>
+  <text class="t-dim" x="300.0" y="259.0" text-anchor="middle">4½"</text>
+  <path class="thin" d="M120.0 40.0 H180.0 M120.0 32.0 V64.0 M180.0 32.0 V114.0"/>
+  <text class="t-dim" x="150.0" y="35.0" text-anchor="middle">¾"</text>
+  <path class="thin" d="M480.0 40.0 H420.0 M480.0 32.0 V64.0 M420.0 32.0 V114.0"/>
+  <text class="t-dim" x="450.0" y="35.0" text-anchor="middle">¾"</text>
+  <path class="thin" d="M112.0 70.0 H76.0 M112.0 230.0 H76.0 M84.0 70.0 V230.0"/>
+  <text class="t-dim" x="78.0" y="154.0" text-anchor="end">2"</text>
+  <path class="thin" d="M488.0 150.0 H524.0 M488.0 70.0 H524.0 M516.0 70.0 V150.0"/>
+  <text class="t-dim" x="522.0" y="114.0">1"</text>
+  <text class="t-sm" x="522.0" y="128.0">(centered)</text>
+  <path class="thin" d="M300.0 102.0 V48.0"/>
+  <text class="t-sm" x="300.0" y="42.0" text-anchor="middle">#8 screws, ½" from top and bottom</text>
+</svg><figcaption><b>Fig 1 — the plate</b>Two switch holes ¾" in from each end and centered top to bottom. The block sits behind the middle (dashed), clear of both switch bodies by about ⅓", and the two screws go through the plate and the block on its centerline. The dashed rings are the switch bezels, which cover the hole edge. Either switch can go on either side; label them.</figcaption></figure></div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">B</span><h2>Top view, cut across the plate</h2><span class="aside">wall at the left · 60 px = 1"</span></div>
+  <div class="figs"><figure><svg viewBox="0 0 680 470" role="img" aria-label="Top view cut across the plate: the half-inch wall at the left, the 1.5 inch standoff block against it in the middle, the half-inch plate across the front, and the two switches through the plate with their bodies and tabs in the space beside the block; two 2.25 inch screws go through the plate and block and a quarter inch into the wall; the face of the switches stands about 2 and 3 eighths inches off the wall, inside the 2.75 inch limit">
+  <rect class="ply" x="170.0" y="46.0" width="30.0" height="318.0"/>
+  <text class="t-sm" x="164.0" y="58.0" text-anchor="end">½" wall</text>
+  <text class="t-sm" x="164.0" y="72.0" text-anchor="end">(plenum behind)</text>
+  <rect class="rail" x="200.0" y="160.0" width="90.0" height="90.0"/>
+  <text class="t-sm" x="245.0" y="227.0" text-anchor="middle">2x2 block</text>
+  <rect class="ply" x="290.0" y="70.0" width="30.0" height="270.0"/>
+  <rect x="275.0" y="91.0" width="45.0" height="48.0" fill="var(--ink-2)"/>
+  <rect x="320.0" y="87.4" width="7" height="55.2" fill="var(--ink)"/>
+  <rect x="327.0" y="97.0" width="15.0" height="36.0" rx="3" fill="var(--ink-3)"/>
+  <rect x="257.0" y="112.0" width="18.0" height="6" fill="#c9a24a"/>
+  <rect x="230.0" y="109.0" width="27.0" height="12" rx="2" fill="#d62828"/>
+  <path d="M230.0 115.0 h-10 q-6 0 -6 8 v22.8" fill="none" stroke="#d62828" stroke-width="3"/>
+  <rect x="275.0" y="271.0" width="45.0" height="48.0" fill="var(--ink-2)"/>
+  <rect x="320.0" y="267.4" width="7" height="55.2" fill="var(--ink)"/>
+  <rect x="327.0" y="277.0" width="15.0" height="36.0" rx="3" fill="var(--ink-3)"/>
+  <rect x="257.0" y="292.0" width="18.0" height="6" fill="#c9a24a"/>
+  <rect x="230.0" y="289.0" width="27.0" height="12" rx="2" fill="#d62828"/>
+  <path d="M230.0 295.0 h-10 q-6 0 -6 8 v22.8" fill="none" stroke="#d62828" stroke-width="3"/>
+  <path d="M320.0 205.0 H185.0" stroke="var(--ink)" stroke-width="3"/>
+  <path d="M320.0 199.0 L312.0 205.0 L320.0 211.0 z" fill="var(--ink)"/>
+  <path d="M365.0 46.0 V364.0" stroke="var(--alert)" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <text class="t-al" x="371.0" y="58.0">2¾" limit</text>
+  <text class="t-sm" x="373.0" y="119.0">rocker</text>
+  <text class="t-sm" x="373.0" y="209.0">#8 × 2¼" flat head</text>
+  <text class="t-sm" x="373.0" y="223.0">tip ¼" into the wall</text>
+  <path class="thin" d="M200.0 362.0 V378.0 M290.0 362.0 V378.0 M200.0 370.0 H290.0"/>
+  <text class="t-dim" x="245.0" y="365.0" text-anchor="middle">1½"</text>
+  <path class="thin" d="M290.0 362.0 V378.0 M320.0 362.0 V378.0 M290.0 370.0 H320.0"/>
+  <text class="t-dim" x="305.0" y="365.0" text-anchor="middle">½"</text>
+  <path class="thin" d="M200.0 392.0 V408.0 M344.0 392.0 V408.0 M200.0 400.0 H344.0"/>
+  <text class="t-dim" x="272.0" y="418.0" text-anchor="middle">≈ 2⅜" to the rocker</text>
+</svg><figcaption><b>Fig 2 — how deep it stands</b>The block holds the plate 1½" off the wall, which leaves the back of the switch and its tabs (about ½" behind the plate) and the push-on spades room to sit beside the block, with the wires turning down and out the open bottom. The rocker ends about 2⅜" off the wall, inside the cluster's 2¾" limit. The screws are 2¼": the plate and block are 2" together, so the tip goes ¼" into the ½" wall and nothing comes through on the plenum side. Never use 2½" here.</figcaption></figure></div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">C</span><h2>Build</h2><span class="aside">bench</span></div>
+  <div class="steps">
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Cut the two parts</h3><p>Plate: 4½ × 2" from a ½" ply offcut. Block: a 2" crosscut off a 2x2 offcut (1½ × 1½ × 2"). Square ends on the block matter: it's what holds the plate flat to the wall.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Lay out</h3><p>On the plate's good face: hole centers ¾" in from each end, 1" down. Screw centers on the middle line (2¼" from either end), ½" from the top and bottom. Pencil the block's outline on the back, 1½" in from each end.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Drill the switch holes</h3><p>Measure the switch body just behind the bezel. It's usually 20mm, so a 13/16" spade or Forstner bit. Drill a test hole in scrap first and check the switch slides in snug. Drill the plate from the front face with scrap clamped behind so the back doesn't splinter.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Dry-fit the switches</h3><p>Push each one in from the front. The snap clips on the sides are made for thin panels and will fight ½" ply; if a switch won't seat, snip its clips off flush with side cutters. The glue holds it instead.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Glue on the block</h3><p>Wood glue, block centered on the back inside its outline, clamped for an hour. Then drill the two screw holes through the plate and block (⅛" pilot, then 5/32" through the plate) and countersink the front so the heads sit flush.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Glue in the switches</h3><p>Sand the edges. Thin bead of E6000 on the back of each bezel, push the switch in, both turned the same way (ON at the top), and tape across them while it cures: 24 hours before you push spades on. Keep glue out of the rocker and off the tabs.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Wire, then mount</h3><p>Push the spades on per Fig 5 of the Fridge Bay Cooling sheet: PWR from the fuse, LOAD out, GND to the NEG bus. Then hold the plate at x 1½–6", bottom at z 13½", and drive the two #8 × 2¼" screws. To get at the wires later, back out the two screws and the whole plate comes forward.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">D</span><h2>Why the fridge socket isn't on the plate</h2><span class="aside">it lives in the fridge bay</span></div>
+  <div class="flags">
+    <div class="flag"><h3><span class="tag">Socket</span> Next to the fridge, not the switches</h3><p>The fridge's cord ends in a car plug about 1" across, and it would have to reach from the fridge's power port at the tailgate end, through the wall, to this plate. The plug won't pass the 1" grommet beside the other wires, and the fridge slides out, so its cord needs slack at the fridge end anyway. The socket (Nilight 10027W: socket on a 3 ft 16AWG lead) lives in the bay instead. Its lead runs through the grommet to the cluster, and the socket is zip-tied to the driver fixed rail by the fridge's power port. Cut its red ring terminal off and crimp a ¼" female spade for the FRIDGE switch's LOAD tab; its black goes to the NEG bus.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">E</span><h2>Parts</h2><span class="aside">mostly offcuts</span></div>
+  <div class="tw"><table>
+    <thead><tr><th>Part</th><th class="num">Qty</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>½" plywood, 4½ × 2"</td><td class="num">1</td><td>Offcut.</td></tr>
+      <tr><td>2x2, 2" long</td><td class="num">1</td><td>Offcut.</td></tr>
+      <tr><td>Ampper round rocker switches</td><td class="num">2</td><td><span class="ok">On hand</span> (10-pack).</td></tr>
+      <tr><td>E6000</td><td class="num">—</td><td><span class="ok">On hand.</span></td></tr>
+      <tr><td>Wood glue</td><td class="num">—</td><td><span class="ok">On hand.</span></td></tr>
+      <tr><td>#8 × 2¼" flat-head wood screws</td><td class="num">2</td><td class="tight">2¼" exactly: 2" doesn't reach the wall, 2½" comes through it.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<footer><p>Drawn 31 Oct 2026. Switch sizes are typical for 20mm round rockers (about 23mm bezel, body and tabs about ½" past a ½" plate); measure yours before drilling. Replaces the plan's two 1¼" spacers with one 2x2 block so nothing needs ripping.</p></footer>
+</div>
+</body>
+</html>
