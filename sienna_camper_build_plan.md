@@ -74,7 +74,7 @@ And the electrical side — a schematic (not to physical scale) of how the fridg
 | **P8** | Fridge DC jack: fridge's own cord plug → socket; slack loop to the FIXED rail, 3 clips |
 | **P9** | SW2 FANS: F2(3A) red → PWR spade; LOAD spade → W1209 +12V; GND spade → NEG bus |
 | **P10** | W1209 screws: +12V, GND, K0 (jumper from +12V), K1 (fan feed) — strip 1/4", snug screws |
-| **P11** | NTC probe: plug on the W1209 header; lead through the grommet and back along the driver fixed rail (extend ~2 ft); TIP zip-tied at the rail's tailgate end by the louvered end |
+| **P11** | NTC probe: plug on the W1209 header; lead through the grommet and back along the driver fixed rail (~4½ ft run; the stock lead is 2 ft, so use a 2 m probe); TIP zip-tied at the rail's tailgate end by the louvered end |
 | **P12** | K1 → the fan's red; the fan's black → NEG bus (one fan since 31 Oct 2026, so no WAGO nuts). Cut off the fan's 2-pin plug and splice its thin leads to 18AWG (solder + heat shrink) |
 
 **What each box on the schematic holds**
@@ -887,7 +887,7 @@ The ONE 16AWG SAE line runs DELTA 3 → fuse block; **both** circuits branch at 
 | P8 | Fridge DC input jack | The fridge's OWN 12V cord: plug → socket, plug → fridge. Slack loop for the 24" slide, clipped to the FIXED rail (step 5 above) |
 | P9 | SW2 "FANS" — Ampper rocker | F2's 18AWG red → **PWR** tab; **LOAD** tab → W1209 "+12V"; **GND** tab → neg bus |
 | P10 | W1209 controller — 4 screw terminals | **+12V** ← SW2 LOAD; **GND** ← neg bus (18AWG black); **K0** ← short jumper from +12V; **K1** → fan feed wire. Strip 1/4", screws snug. Settings: mode C (cooling), fans ON ~95°F / OFF ~86°F |
-| P11 | W1209 2-pin probe header | NTC probe plug clicks on; the lead runs through the grommet and back along the driver fixed rail (extend ~2 ft with 2-conductor 22AWG, soldered and heat-shrunk); the TIP zip-ties at the rail's tailgate end, ~1" from the louvered end |
+| P11 | W1209 2-pin probe header | NTC probe plug clicks on; the lead runs through the grommet and back along the driver fixed rail (~4½ ft run and the stock lead is 2 ft: use a 10K 3950 NTC probe with a 2 m lead, or splice 3 ft of 2-conductor wire, soldered and heat-shrunk); the TIP zip-ties at the rail's tailgate end, ~1" from the louvered end |
 | P12 | W1209 K1 → fan | K1 → the fan's red; the fan's black → neg bus. One fan, so no lever nuts. Tug-test every wire |
 
 **Wire + termination spec:** main run = the OYMSAE cord's own 16AWG; in-bay branches = 18AWG red/black hookup wire. Crimps: heat-shrink #10 rings (block studs) and 0.25" female spades (switch tabs) — crimp, tug-test, then shrink. SW3 is a spare on the panel (the cooktop is 120V AC, switched at Power strip 2's own outlet switch).
