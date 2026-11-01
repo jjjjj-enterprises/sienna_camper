@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kitchen Tie-Down</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#E9ECE7; --surface:#FBFCFA; --surface-2:#F1F4EF;
+  --ink:#16201C; --ink-2:#4E5A55; --ink-3:#79857F;
+  --rule:#C6CDC5; --rule-strong:#8E9A93;
+  --ply:#9A7A3E; --ply-fill:rgba(200,164,107,.30);
+  --amber:#B8661A; --amber-fill:rgba(201,118,27,.15);
+  --alert:#9E2C1B; --alert-fill:rgba(158,44,27,.09);
+  --good:#2C6349;
+  --font-d:Archivo,"Helvetica Neue",Arial,sans-serif;
+  --font-b:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+    --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+    --rule:#2F3833; --rule-strong:#56615A;
+    --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+    --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+    --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+    --good:#5FB78D;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111614; --surface:#191F1C; --surface-2:#212925;
+  --ink:#E5EAE4; --ink-2:#A2ADA7; --ink-3:#7B8680;
+  --rule:#2F3833; --rule-strong:#56615A;
+  --ply:#C9A46B; --ply-fill:rgba(176,142,85,.24);
+  --amber:#E8993F; --amber-fill:rgba(232,153,63,.17);
+  --alert:#E4735A; --alert-fill:rgba(228,115,90,.13);
+  --good:#5FB78D;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-b); font-size:15px; line-height:1.55;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+.sheet{max-width:1080px; margin:0 auto; padding-block:28px 64px; padding-left:20px; padding-right:20px}
+
+/* ---- title block: a drawing title block, not a hero ---- */
+.tb{border:1.5px solid var(--ink); background:var(--surface)}
+.tb-head{display:flex; flex-wrap:wrap; align-items:flex-end; gap:6px 20px; padding:18px 20px 14px; border-bottom:1.5px solid var(--ink)}
+.tb-head h1{
+  font-family:var(--font-d); font-weight:700; font-size:clamp(25px,4.6vw,38px);
+  line-height:1.03; letter-spacing:-.018em; margin:0; text-wrap:balance;
+}
+.tb-head p{margin:0; color:var(--ink-2); font-size:14.5px; max-width:56ch}
+.tb-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr))}
+.tb-cell{padding:10px 14px 12px; border-right:1px solid var(--rule); border-top:1px solid var(--rule)}
+.tb-cell:first-child{border-top:0}
+.tb-cell .k{
+  font-family:var(--font-m); font-size:10.5px; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:3px;
+}
+.tb-cell .v{font-family:var(--font-m); font-size:15px; font-weight:500; font-variant-numeric:tabular-nums}
+.tb-cell .v small{font-family:var(--font-b); font-size:12.5px; color:var(--ink-2); display:block; font-weight:400; letter-spacing:0}
+
+/* ---- section headings ---- */
+section{margin-top:44px}
+.sec-h{display:flex; align-items:baseline; gap:12px; border-bottom:1.5px solid var(--ink); padding-bottom:7px; margin-bottom:18px}
+.sec-h .n{
+  font-family:var(--font-m); font-size:12px; font-weight:600; color:var(--ink-3);
+  letter-spacing:.09em; flex:none;
+}
+.sec-h h2{font-family:var(--font-d); font-weight:600; font-size:20px; letter-spacing:-.01em; margin:0; text-wrap:balance}
+.sec-h .aside{margin-left:auto; font-family:var(--font-m); font-size:11.5px; color:var(--ink-3); text-align:right}
+
+p{margin:0 0 12px; max-width:68ch}
+.lede{color:var(--ink-2)}
+a{color:inherit}
+code{font-family:var(--font-m); font-size:.92em; background:var(--surface-2); padding:1px 4px; border-radius:2px}
+strong{font-weight:600}
+
+/* ---- flags ---- */
+.flags{display:grid; gap:14px}
+.flag{
+  border:1px solid var(--alert); border-left-width:4px; background:var(--alert-fill);
+  padding:14px 16px 15px;
+}
+.flag h3{
+  font-family:var(--font-d); font-size:15.5px; font-weight:600; margin:0 0 7px;
+  color:var(--alert); display:flex; gap:9px; align-items:baseline; text-wrap:balance;
+}
+.flag h3 .tag{
+  font-family:var(--font-m); font-size:10px; letter-spacing:.1em; border:1px solid currentColor;
+  padding:1px 5px; flex:none; text-transform:uppercase;
+}
+.flag p{margin:0 0 8px; font-size:14px}
+.flag p:last-child{margin-bottom:0}
+.flag .math{
+  font-family:var(--font-m); font-size:13px; font-variant-numeric:tabular-nums;
+  background:var(--surface); border:1px solid var(--rule); padding:8px 11px; margin:9px 0;
+  display:block; overflow-x:auto; white-space:nowrap; color:var(--ink);
+}
+.flag .verdict{font-weight:600}
+
+/* ---- figures ---- */
+.figs{display:grid; gap:26px}
+@media (min-width:780px){ .figs.two{grid-template-columns:1fr 1fr} }
+figure{margin:0; border:1px solid var(--rule-strong); background:var(--surface); display:flex; flex-direction:column}
+figure svg{display:block; width:100%; height:auto; padding:10px 8px 0}
+figcaption{
+  border-top:1px solid var(--rule); padding:9px 13px 11px; font-size:13px; color:var(--ink-2);
+  margin-top:auto;
+}
+figcaption b{font-family:var(--font-m); font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink); display:block; margin-bottom:3px}
+
+svg .ply{fill:var(--ply-fill); stroke:var(--ink); stroke-width:1.7}
+svg .cav{fill:var(--surface); stroke:var(--ink); stroke-width:1.7}
+svg .unit{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.9}
+svg .blk{fill:var(--ink-2); stroke:none}
+svg .slide{fill:var(--ink); stroke:none}
+svg .ln{fill:none; stroke:var(--ink); stroke-width:1.7}
+svg .thin{fill:none; stroke:var(--rule-strong); stroke-width:1}
+svg .dash{fill:none; stroke:var(--ink-2); stroke-width:1.4; stroke-dasharray:6 4}
+svg .strap{fill:var(--amber-fill); stroke:var(--amber); stroke-width:1.5; stroke-dasharray:5 3}
+svg .strapln{fill:none; stroke:var(--amber); stroke-width:2.2}
+svg .ring{fill:none; stroke:var(--ink); stroke-width:2.4}
+svg .hole{fill:var(--paper); stroke:var(--ink); stroke-width:1.7}
+svg text{font-family:var(--font-m); fill:var(--ink-2)}
+svg .t-dim{font-size:12.5px; font-weight:500; font-variant-numeric:tabular-nums}
+svg .t-lab{font-size:12px; fill:var(--ink)}
+svg .t-sm{font-size:10.5px; fill:var(--ink-3)}
+svg .keydot{fill:var(--ink)}
+svg .keynum{font-size:11.5px; font-weight:600; fill:var(--surface)}
+
+/* ---- legend ---- */
+.legend{margin-top:16px; border:1px solid var(--rule); background:var(--surface)}
+.legend li{display:flex; gap:11px; padding:8px 13px; border-top:1px solid var(--rule); align-items:baseline}
+.legend li:first-child{border-top:0}
+.legend ol{margin:0; padding:0; list-style:none}
+.legend .n{
+  font-family:var(--font-m); font-size:11px; font-weight:600; color:var(--surface);
+  background:var(--ink); width:19px; height:19px; border-radius:50%; flex:none;
+  display:inline-flex; align-items:center; justify-content:center; transform:translateY(2px);
+}
+.legend .d{font-size:13.5px}
+.legend .d b{font-weight:600}
+.legend .d span{color:var(--ink-2)}
+
+/* ---- tables ---- */
+.tw{overflow-x:auto; border:1px solid var(--rule-strong); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:13.5px}
+th,td{padding:8px 12px; text-align:left; border-top:1px solid var(--rule); vertical-align:top}
+thead th{
+  border-top:0; border-bottom:1.5px solid var(--ink); font-family:var(--font-m);
+  font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:500;
+  white-space:nowrap;
+}
+td.num,th.num{font-family:var(--font-m); font-variant-numeric:tabular-nums; white-space:nowrap}
+tbody tr:nth-child(even){background:var(--surface-2)}
+td .note{display:block; color:var(--ink-2); font-size:12.5px; margin-top:2px}
+.ok{color:var(--good); font-weight:600}
+.tight{color:var(--alert); font-weight:600}
+
+/* ---- steps ---- */
+.steps{counter-reset:s; display:grid; gap:0; border:1px solid var(--rule-strong); background:var(--surface)}
+.step{display:grid; grid-template-columns:52px 1fr; border-top:1px solid var(--rule)}
+.step:first-child{border-top:0}
+.step .sn{
+  counter-increment:s; font-family:var(--font-m); font-size:16px; font-weight:600; color:var(--ink-3);
+  padding:14px 0 14px 16px; border-right:1px solid var(--rule); font-variant-numeric:tabular-nums;
+}
+.step .sn::before{content:counter(s,decimal-leading-zero)}
+.step .sb{padding:13px 16px 15px}
+.step h3{font-family:var(--font-d); font-size:15px; font-weight:600; margin:0 0 4px; text-wrap:balance}
+.step p{margin:0; font-size:13.8px; color:var(--ink-2); max-width:70ch}
+.step p + p{margin-top:7px}
+.step .hold{
+  display:inline-block; font-family:var(--font-m); font-size:10.5px; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--alert); border:1px solid var(--alert); padding:1px 5px; margin-bottom:6px;
+}
+
+footer{margin-top:52px; border-top:1px solid var(--rule); padding-top:14px; color:var(--ink-3); font-size:12.5px}
+footer p{max-width:72ch; margin:0 0 6px}
+
+@media print{
+  /* Letter with the same 0.65in margin as the main build plan, so these
+     pages sit flush with it when build_pdf.py appends them — and so the
+     stamped footer at 30pt lands clear of the content. */
+  @page{size:Letter; margin:0.65in}
+  :root{--paper:#fff; --surface:#fff; --surface-2:#f4f4f4}
+  body{font-size:10.5pt}
+  .sheet{max-width:none; padding:0}
+  section{break-inside:auto; margin-top:22px}
+  figure,.flag,.step,.tw{break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+<style>
+svg .rail{fill:var(--surface-2); stroke:var(--ink); stroke-width:1.5}
+svg .hid{fill:none; stroke:var(--ink-3); stroke-width:1.3; stroke-dasharray:4 3}
+svg .slide{fill:var(--ink); stroke:none}
+svg .t-al{font-size:11.5px; fill:var(--alert); font-weight:600}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="tb">
+  <div class="tb-head">
+    <h1>Kitchen Tie-Down</h1>
+    <p>The kitchen unit sits on the folded seat between the anchor board's middle and passenger strips and is held by two 1" ratchet straps over its top: the front one hooked to seat-latch hoops H2 and H4, the rear one from an eye bolt on the middle strip to a footman loop on the passenger strip. No holes in the van.</p>
+  </div>
+  <div class="tb-grid">
+    <div class="tb-cell"><span class="k">Front strap</span><span class="v">H2 → H4<small>front notches · hooks on the ⅝" bars</small></span></div>
+    <div class="tb-cell"><span class="k">Rear strap</span><span class="v">eye → loop<small>rear notches</small></span></div>
+    <div class="tb-cell"><span class="k">Eye bolt</span><span class="v">11" from hatch<small>kitchen riser's 2nd T-nut</small></span></div>
+    <div class="tb-cell"><span class="k">Footman loop</span><span class="v">9½–12½"<small>passenger strip, lengthwise</small></span></div>
+    <div class="tb-cell"><span class="k">Screws</span><span class="v">2 × #8 × ⅝"<small>flat head, not 1¼"</small></span></div>
+    <div class="tb-cell"><span class="k">Straps</span><span class="v">2 × 1" ratchet<small>Erickson, on hand</small></span></div>
+  </div>
+</div>
+
+<section>
+  <div class="sec-h"><span class="n">A</span><h2>Plan</h2><span class="aside">front of the van at the top · driver side left · 12 px = 1"</span></div>
+  <div class="figs"><figure><svg viewBox="0 0 720 470" role="img" aria-label="Plan of Panel C, front of the van at the top and the hatch at the bottom, driver side on the left: the three anchor-board strips, the kitchen unit between the middle and passenger strips, the front strap from hoop H2 over the unit's front notches to hoop H4, and the rear strap from an eye bolt on the middle strip over the unit's rear notches to a footman loop on the passenger strip"><path class="ln" d="M58.0 410.0 H634.0"/><text class="t-sm" x="346.0" y="428.0" text-anchor="middle">hatch (tailgate)</text><text class="t-sm" x="346.0" y="42.8" text-anchor="middle">↑ front of the van</text><rect class="hid" x="100.0" y="92.0" width="232.5" height="282.0"/><text class="t-sm" x="216.4" y="242.0" text-anchor="middle">fridge on its slides</text><rect class="ply" x="70.0" y="104.0" width="30.0" height="270.0"/><rect class="ply" x="332.5" y="104.0" width="30.0" height="270.0"/><rect class="ply" x="604.0" y="104.0" width="18.0" height="270.0"/><rect class="rail" x="362.5" y="81.5" width="241.5" height="310.5" fill-opacity=".85"/><text class="t-lab" x="483.2" y="234.0" text-anchor="middle" font-weight="600">KITCHEN UNIT</text><text class="t-sm" x="483.2" y="249.0" text-anchor="middle">20⅛ × 25⅞", top seen from above</text><rect class="slide" x="362.5" y="354.5" width="4.2" height="19.5"/><rect class="slide" x="599.8" y="354.5" width="4.2" height="19.5"/><rect class="slide" x="362.5" y="102.5" width="4.2" height="18.0"/><rect class="slide" x="599.8" y="102.5" width="4.2" height="18.0"/><rect x="109.0" y="69.2" width="36.0" height="9.6" rx="3" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/><text class="t-sm" x="127.0" y="63.2" text-anchor="middle" font-weight="600">H1</text><rect x="349.0" y="69.2" width="36.0" height="9.6" rx="3" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/><text class="t-sm" x="367.0" y="63.2" text-anchor="middle" font-weight="600">H2</text><rect x="427.0" y="69.2" width="36.0" height="9.6" rx="3" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/><text class="t-sm" x="445.0" y="63.2" text-anchor="middle" font-weight="600">H3</text><rect x="553.0" y="69.2" width="36.0" height="9.6" rx="3" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/><text class="t-sm" x="571.0" y="63.2" text-anchor="middle" font-weight="600">H4</text><path d="M367.0 74.0 L364.9 111.5 H601.6 L571.0 74.0" fill="none" stroke="var(--amber)" stroke-width="5" stroke-linejoin="round" opacity=".9"/><path d="M347.5 278.0 L364.9 364.2 H601.6 L613.0 278.0" fill="none" stroke="var(--amber)" stroke-width="5" stroke-linejoin="round" opacity=".9"/><rect x="512.0" y="104.5" width="28" height="14" rx="2" fill="var(--ink)"/><text x="526.0" y="115.0" text-anchor="middle" font-size="8" style="fill:var(--paper); font-family:var(--font-m)">ratchet</text><rect x="512.0" y="357.2" width="28" height="14" rx="2" fill="var(--ink)"/><text x="526.0" y="367.8" text-anchor="middle" font-size="8" style="fill:var(--paper); font-family:var(--font-m)">ratchet</text><circle cx="347.5" cy="278.0" r="7" fill="none" stroke="var(--good)" stroke-width="3"/><rect x="609.0" y="260.0" width="8" height="36.0" rx="2" fill="none" stroke="var(--good)" stroke-width="3"/><text class="t-sm" x="337.5" y="282.0" text-anchor="end">eye bolt, 11" (Fig 4)</text><text class="t-sm" x="630.0" y="272.0">footman</text><text class="t-sm" x="630.0" y="285.0">loop</text><text class="t-sm" x="630.0" y="298.0">9½–12½"</text><text class="t-sm" x="630.0" y="311.0">(Fig 3)</text><text class="t-sm" x="630.0" y="368.2">rear notches</text><text class="t-sm" x="630.0" y="115.5">front notches</text><text class="t-sm" x="630.0" y="78.0">hoops, 28"</text><text class="t-sm" x="85.0" y="388.0" text-anchor="middle">strip</text></svg><figcaption><b>Fig 1 — both straps from above</b>The front strap hooks the bars of hoops H2 and H4 (28" from the hatch, just past the unit's front end), runs up and across the top through the front notches. The rear strap runs from the eye bolt on the middle strip, across the top through the rear notches, to the footman loop on the passenger strip. Each ratchet sits on the passenger half of the top where you can reach it from the tailgate. H2 also carries the fridge-side chain; the strap's hook and the chain share the bar.</figcaption></figure></div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">B</span><h2>End view</h2><span class="aside">looking forward from the hatch · 14 px = 1"</span></div>
+  <div class="figs"><figure><svg viewBox="0 0 560 300" role="img" aria-label="End view looking forward from the hatch: the kitchen unit sits on the seat between the middle and passenger strips; the rear strap runs from the eye bolt on the riser flange over the middle strip, up over the top of the unit through its rear notches, and down to the footman loop on the passenger strip, with the ratchet on the passenger-side run"><path class="ln" d="M40.0 260.0 H467.0"/><text class="t-sm" x="42.8" y="276.0">folded seat</text><rect class="ply" x="108.2" y="249.5" width="35.0" height="10.5"/><rect class="ply" x="425.0" y="249.5" width="21.0" height="10.5"/><rect class="blk" x="108.6" y="246.8" width="28.0" height="2.7"/><rect class="blk" x="108.6" y="207.5" width="2.7" height="42.0"/><text class="t-sm" x="104.4" y="212.4" text-anchor="end">kitchen riser</text><rect class="rail" x="143.2" y="98.3" width="281.8" height="161.7"/><text class="t-lab" x="284.1" y="179.1" text-anchor="middle" font-weight="600">KITCHEN UNIT</text><text class="t-sm" x="284.1" y="195.1" text-anchor="middle">11.55" tall</text><path d="M125.8 240.5 L141.8 96.9 H426.4 L435.5 245.3" fill="none" stroke="var(--amber)" stroke-width="5" stroke-linejoin="round"/><circle cx="125.8" cy="240.5" r="6" fill="var(--surface)" stroke="var(--good)" stroke-width="3"/><path d="M426.5 249.5 q9 -12 18 0" fill="none" stroke="var(--good)" stroke-width="3"/><rect x="421.5" y="169.0" width="14" height="30" rx="2" fill="var(--ink)"/><text class="t-sm" x="443.0" y="178.8">ratchet</text><text class="t-sm" x="103.0" y="243.2" text-anchor="end">eye bolt</text><text class="t-sm" x="435.5" y="276.0" text-anchor="middle">loop</text><text class="t-sm" x="284.1" y="88.3" text-anchor="middle">strap through the rear notches, flat on the top</text></svg><figcaption><b>Fig 2 — the rear strap over the unit</b>From the eye bolt on the riser flange, the strap rises almost straight up the unit's driver face, lies flat across the top in the rear notches, and comes down the passenger face to the footman loop. The ratchet goes on the passenger-side run so it doesn't rub the fridge. The front strap does the same thing at the front notches, its ends dropping to the hoops instead.</figcaption></figure></div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">C</span><h2>Footman loop</h2><span class="aside">detail · 60 px = 1" · typical 1" stainless loop</span></div>
+  <div class="figs"><figure><svg viewBox="0 0 700 330" role="img" aria-label="Footman loop detail: top view of a stainless footman loop lengthwise on the 1.5 inch passenger strip, two countersunk screw holes at its ends and a raised bridge in the middle with the strap passing under it across the strip; side view showing the bridge arching up and two number 8 by five-eighths inch flat-head screws stopping inside the three-quarter inch strip"><text class="t-lab" x="70" y="34" font-weight="600">TOP</text><rect class="ply" x="46.0" y="60.0" width="168.0" height="90.0"/><rect x="121.0" y="27.0" width="18.0" height="156.0" fill="var(--amber)" opacity=".55"/><rect x="70.0" y="88.5" width="120.0" height="33.0" rx="8" fill="#c9ccd1" stroke="var(--ink)" stroke-width="1.6"/><rect x="100.0" y="85.5" width="60.0" height="39.0" rx="6" fill="#e3e5e8" stroke="var(--ink)" stroke-width="1.6"/><circle cx="85.0" cy="105.0" r="7" fill="#9aa0a6" stroke="var(--ink)"/><path d="M81.0 105.0 h8 M85.0 101.0 v8" stroke="var(--ink)" stroke-width="1.4"/><circle cx="175.0" cy="105.0" r="7" fill="#9aa0a6" stroke="var(--ink)"/><path d="M171.0 105.0 h8 M175.0 101.0 v8" stroke="var(--ink)" stroke-width="1.4"/><text class="t-sm" x="145.0" y="42.0">← strap under the bridge, across the strip</text><path class="thin" d="M46.0 164.0 V176.0 M214.0 164.0 V176.0"/><path class="thin" d="M224.0 60.0 H244.0 M224.0 150.0 H244.0 M238.0 60.0 V150.0"/><text class="t-dim" x="248.0" y="109.0">1½" strip</text><text class="t-sm" x="46.0" y="192.0">loop lengthwise, centered across the strip, 9½–12½" from the hatch</text><text class="t-lab" x="70" y="207.0" font-weight="600">SIDE</text><rect class="ply" x="46.0" y="255.0" width="168.0" height="45.0"/><path d="M70.0 255.0 H100.0 C106.0 225.0 154.0 225.0 160.0 255.0 H190.0" fill="none" stroke="var(--ink)" stroke-width="5" stroke-linecap="round"/><rect x="121.0" y="244.2" width="18.0" height="6.2" fill="var(--amber)"/><path d="M78.0 253.2 L92.0 253.2 L87.0 258.0 L87.0 291.0 L85.0 294.0 L83.0 291.0 L83.0 258.0 Z" fill="#6b7076"/><path d="M168.0 253.2 L182.0 253.2 L177.0 258.0 L177.0 291.0 L175.0 294.0 L173.0 291.0 L173.0 258.0 Z" fill="#6b7076"/><path class="thin" d="M224.0 255.0 H244.0 M224.0 300.0 H244.0 M238.0 255.0 V300.0"/><text class="t-dim" x="248.0" y="281.5">¾" strip</text><text class="t-sm" x="248.0" y="297.5">#8 × ⅝" flat heads stop ⅛" short</text><text class="t-sm" x="248.0" y="311.5">of the bottom (not 1¼")</text></svg><figcaption><b>Fig 3 — the loop on the passenger strip</b>Lengthwise along the strip, centered across its 1½" width, so the strap passes under the bridge crosswise, the way it pulls. Two #8 × ⅝" flat heads in 3/32" pilots: ⅝" stops ⅛" short of the strip's bottom face, where 1¼" would come out under it. Drawn as a typical 2" loop; set yours in the same place and mark its holes from the part.</figcaption></figure></div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">D</span><h2>Rear eye bolt</h2><span class="aside">section at the kitchen riser's 2nd T-nut · 70 px = 1"</span></div>
+  <div class="figs"><figure><svg viewBox="0 0 640 225" role="img" aria-label="Section through the middle strip at the kitchen riser's second T-nut: the T-nut pressed in from below, the riser flange and a washer on top of the strip, and the cut-down eye bolt threaded down through them into the T-nut, its tip stopping short of the strip's bottom face; the eye sits on top facing the passenger side"><rect class="ply" x="176.0" y="127.5" width="168.0" height="52.5"/><rect x="176.0" y="180.0" width="168.0" height="8.8" fill="#3a3f47"/><text class="t-sm" x="169.0" y="186.0" text-anchor="end">neoprene</text><text class="t-sm" x="169.0" y="157.8" text-anchor="end">¾" middle strip</text><rect x="233.8" y="175.6" width="52.5" height="4.4" fill="#9aa0a6" stroke="var(--ink)"/><rect x="248.8" y="145.0" width="22.4" height="30.6" fill="#c9ccd1" stroke="var(--ink)"/><text class="t-sm" x="351.0" y="159.0">T-nut (from below)</text><rect class="blk" x="190.0" y="114.2" width="140.0" height="13.3"/><rect x="235.5" y="110.0" width="49.0" height="4.2" fill="#c9ccd1" stroke="var(--ink)"/><text class="t-sm" x="351.0" y="119.8">riser flange + washer</text><rect x="251.2" y="110.0" width="17.5" height="61.2" fill="#7d838c" stroke="var(--ink)"/><rect x="244.6" y="101.6" width="30.8" height="8.4" fill="#7d838c" stroke="var(--ink)"/><ellipse cx="260.0" cy="71.5" rx="29.4" ry="29.4" fill="none" stroke="#7d838c" stroke-width="12.6"/><text class="t-sm" x="316.0" y="68.0">eye, turned toward the</text><text class="t-sm" x="316.0" y="82.0">passenger-side loop</text><path d="M291.5 171.2 H347.5" stroke="var(--alert)" stroke-width="1.5" stroke-dasharray="4 3"/><text class="t-al" x="351.0" y="175.2">tip stops ⅛" above the bottom</text></svg><figcaption><b>Fig 4 — the eye bolt in place of a button head</b>The Hillman ¼" eye bolt replaces the button head in the kitchen riser's second T-nut, 11" from the hatch, and clamps the flange the same way. Cut it so its shank is the same length as the button head it replaces: it must reach well into the T-nut but stop short of the strip's bottom face, or it digs into the seat. Thread a nut on before cutting and back it off to clean the threads. Turn the eye toward the passenger side before the last snug.</figcaption></figure></div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">E</span><h2>Steps</h2><span class="aside">board now · van last</span></div>
+  <div class="steps">
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Footman loop</h3><p>On the passenger strip, lengthwise, 9½–12½" from the hatch (the strip starts 3" from the hatch, so 6½–9½" from its back end), centered across. Mark the holes from the loop, drill 3/32" pilots about ½" deep, and drive two #8 × ⅝" flat heads.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Rear eye bolt</h3><p>Take out the button head in the kitchen riser's second T-nut. Thread a nut onto a Hillman ¼" eye bolt, hold the button head beside it, cut the shank to the same length, and back the nut off to clean the cut threads. Screw it in with a washer, eye toward the passenger side.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>Dry-fit the straps</h3><p>Set the kitchen unit in place and lay both straps over it in their notches. Check that neither rubs a sharp edge, that each ratchet lands on the passenger half of the top, and that the front hooks reach H2's and H4's bars.</p></div></div>
+    <div class="step"><div class="sn"></div><div class="sb"><h3>In the van: last</h3><p>After the fridge tray is bolted down and its chains are tightened with the fridge loaded: kitchen unit in, both straps hooked, ratcheted snug (snug, not cranked), tails tied off. Push the unit hard front, back and sideways: it shouldn't move. Check again after the first drive.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><span class="n">F</span><h2>Parts</h2><span class="aside">one to buy</span></div>
+  <div class="tw"><table>
+    <thead><tr><th>Part</th><th class="num">Qty</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>Erickson 1" ratchet strap</td><td class="num">2</td><td><span class="ok">On hand.</span></td></tr>
+      <tr><td>Stainless footman loop</td><td class="num">1</td><td><span class="ok">On hand.</span></td></tr>
+      <tr><td>#8 × ⅝" flat-head wood screws</td><td class="num">2</td><td><span class="ok">On hand</span> (spares from the rung packs).</td></tr>
+      <tr><td>Hillman ¼" × 2½" forged eye bolt + nut (Lowe's 491456)</td><td class="num">1</td><td class="tight">Ordered (the 3rd of 3). Cut to the button head's length.</td></tr>
+      <tr><td>¼" flat washer</td><td class="num">1</td><td>Under the eye bolt's collar on the flange.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<footer><p>Drawn 1 Nov 2026 from the Anchor Board sheet: strips at 0–2½", 21⅞–24⅜" and 44½–46" from the driver line, 3–25½" from the hatch; seat-latch hoops 28" from the hatch at 4¾, 24¾, 31¼ and 41¾"; kitchen unit 20⅛ × 25⅞ × 11.55", 1½" in from the hatch and the passenger line, strap notches 1½–3⅛" and 22⅝–24⅛" from its hatch end. The footman loop is drawn at a typical size; place yours the same way.</p></footer>
+</div>
+</body>
+</html>

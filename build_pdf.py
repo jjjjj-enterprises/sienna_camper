@@ -33,7 +33,7 @@ PDF_PATH = ROOT / "Project_Smores.pdf"
 # markdown sections, so they cannot go through the markdown pipeline above.
 # Chrome prints each one on its own and the pages are concatenated onto the
 # end of the plan — see append_drawing_sheets().
-DRAWING_SHEETS = [ROOT / "power_drawer_assembly.html", ROOT / "power_drawer_tiedown.html", ROOT / "panel_b_assembly.html", ROOT / "panel_c_assembly.html", ROOT / "tote_strap_anchors.html", ROOT / "fridge_bay_cooling.html", ROOT / "switch_plate.html", ROOT / "fridge_tray_assembly.html", ROOT / "riser_angles.html", ROOT / "bed_platform_assembly.html", ROOT / "fridge_slides_assembly.html", ROOT / "anchor_board_assembly.html", ROOT / "kitchen_drawer_assembly.html"]
+DRAWING_SHEETS = [ROOT / "power_drawer_assembly.html", ROOT / "power_drawer_tiedown.html", ROOT / "panel_b_assembly.html", ROOT / "panel_c_assembly.html", ROOT / "tote_strap_anchors.html", ROOT / "fridge_bay_cooling.html", ROOT / "switch_plate.html", ROOT / "fridge_tray_assembly.html", ROOT / "riser_angles.html", ROOT / "bed_platform_assembly.html", ROOT / "bed_risers.html", ROOT / "fridge_slides_assembly.html", ROOT / "anchor_board_assembly.html", ROOT / "kitchen_tiedown.html", ROOT / "kitchen_drawer_assembly.html"]
 
 CSS = """
 @page { size: Letter; margin: 0.65in; }
@@ -193,6 +193,7 @@ img[alt^="Component "] { display: block; width: 100%; height: auto;
     border-top: 1px solid #d8bcbc; font-weight: 600; color: #111; }
 .cover-foot { margin-top: 22pt; padding-top: 12pt; color: #666;
     font-size: 8.5pt; border-top: 1px solid #d7dfe6; }
+mark { background: #fff1a8; color: inherit; padding: 0 2px; }
 """
 
 # The cover sheet. Deliberately plain HTML rather than markdown in the
