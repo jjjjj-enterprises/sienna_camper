@@ -130,7 +130,7 @@ figure img { width: 100%; height: auto; }
    `figure img { width: 100% }` rule above would blow one up to a full page
    each; cap the HEIGHT and let the width follow. */
 .photo-figure { text-align: center; }
-.photo-figure img { width: auto; height: auto; max-width: 100%; max-height: 4in; }
+.photo-figure img { width: auto; height: auto; max-width: 100%; max-height: 3.3in; }
 figcaption {
     font-size: 9pt;
     color: #555;
@@ -321,7 +321,7 @@ def append_drawing_sheets(pdf_path, sheets):
                 "--no-pdf-header-footer",
                 f"--print-to-pdf={out}",
                 "--print-to-pdf-no-header",
-                "--virtual-time-budget=10000",
+                "--virtual-time-budget=60000",  # 10s let a 50 MB photo set print half-loaded
                 f"file://{html}",
             ],
             capture_output=True, text=True, cwd=ROOT,
@@ -494,7 +494,7 @@ def main():
                 "Rear pantry layout", "Spare tire stowage", "Panel A detail", "Panel B detail",
                 "Panel C detail", "Bed frame detail",
                 "Leveling foot detail", "Panel C front wall detail",
-                "Joinery and fastener guide"]:
+                "Joinery and fastener guide", "Nighttime van + tent cooling setup"]:
         html_body = re.sub(
             rf'<p><img alt="{re.escape(alt)}" src="([^"]+)"[^>]*/?></p>',
             rf'<figure class="floorplan-figure"><img src="\1"><figcaption>{alt}</figcaption></figure>',
@@ -524,7 +524,7 @@ def main():
             "--no-pdf-header-footer",
             f"--print-to-pdf={PDF_PATH}",
             "--print-to-pdf-no-header",
-            "--virtual-time-budget=10000",
+            "--virtual-time-budget=60000",  # 10s let a 50 MB photo set print half-loaded
             f"file://{HTML_PATH}",
         ],
         capture_output=True, text=True, cwd=ROOT,

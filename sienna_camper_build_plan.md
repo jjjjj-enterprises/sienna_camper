@@ -1119,6 +1119,60 @@ Effective leg height = cut length + the 1" foot.</p>
 <figcaption><b>Loaded:</b> the DELTA 3 Plus and the Smart Extra Battery side by side, with the charging cable leaving through the cord slot. The cam strap goes across both units, D-ring to D-ring, before the van moves. <b>As built (30 Oct): no locating cleats.</b> The rubber mat on the drawer floor holds the units, the strap pins them down, and a turn button on the frame's top rail keeps the drawer shut. Power Drawer Tie-Down sheet.</figcaption>
 </figure>
 
+<figure class="photo-figure">
+<img src="photos/drawer-09-top-view.jpg" alt="Looking straight down into the empty battery drawer with a black neoprene liner on its floor">
+<figcaption><b>The drawer from above, neoprene floor in.</b> The rubber is what keeps the two units from sliding, so the box needs no locating cleats inside it.</figcaption>
+</figure>
+
+#### The bed platform, as actually built — from the bench
+
+**All three pieces are built**: Panel A's screwed-down section and Panel B's two lift-out halves. The sizes are in Step 5 and on the Bed Platform Assembly sheet. These photos add the method.
+
+<figure class="photo-figure">
+<img src="photos/bed-08-slat-spacer-panel-b.jpg" alt="A Panel B bed half on the garage floor with two slats in place and a marked plywood spacer between them">
+<figcaption><b>One spacer sets every gap.</b> Lay a slat, butt the spacer against it, lay the next. <b>The number pencilled on this spacer is from before the Nov 1 length fix and is wrong</b>: use the gap in Step 5 and the Bed Platform Detail table.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/bed-09-slat-spacer-panel-a.jpg" alt="Panel A's bed section frame on the garage floor with a slat in place and a marked spacer block below it">
+<figcaption><b>The same on Panel A's section.</b> Same warning about the pencilled number: go by the plan.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/bed-02-ends-clamped.jpg" alt="A pine slat clamped at its end to a rail with two quick-grip clamps">
+<figcaption><b>Clamp both ends of each slat to the rails before any screw goes in</b>, so the slat's top stays flush with the rails and nothing walks while you drive.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/bed-03-corner-clamped.jpg" alt="Two yellow bar clamps holding a bed frame corner together with an extra board underneath">
+<figcaption><b>Clamp the corners for screwing, with a spare board underneath.</b> The board spreads the clamping force so the jaws don't dent or rack the joint.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/bed-10-screw-setup.jpg" alt="A clamped bed frame corner, a box of Kreg 1-1/4 inch pocket screws and a drill with a long square-drive bit">
+<figcaption><b>The setup for screwing the pieces together:</b> the corner clamped, the 1¼" Kreg pocket screws, and a long #2 square-drive bit that reaches down into the pocket.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/bed-04-pocket-jig.jpg" alt="The blue Kreg pocket-hole jig clamped to the end of a pine slat with a yellow bar clamp">
+<figcaption><b>Drilling the pocket holes:</b> the jig clamped to the slat end, two holes per end.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/bed-05-jig-side.jpg" alt="Side view of the pocket-hole jig clamped to the end of a board">
+<figcaption>The jig from the side. Set it and the bit's stop collar for the thickness of the stock you're drilling, as in Step 5.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/bed-07-kreg-kit.jpg" alt="A Kreg Pocket-Hole Jig 320 box, a pack of Kreg 1-1/4 inch pocket screws and the blue jig on a pine board">
+<figcaption><b>The kit:</b> Kreg Pocket-Hole Jig 320 (the stepped bit is in the box) and Kreg SML-C125 1¼" coarse-thread pocket screws.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/bed-01-three-pieces.jpg" alt="Three slatted pine bed platform pieces standing on edge in the garage, one large and two smaller">
+<figcaption><b>All three pieces, finished.</b> The big one screws down on Panel A; the two halves lift out of Panel B on their own.</figcaption>
+</figure>
+
 ### Component 3: Panel B
 
 ![Component 3 — finished component, accessory list & part list](renders/steps/comp-3-header.png)
@@ -1197,6 +1251,28 @@ Build this one before Component 1 (Rear Pantry) — the pantry tote and the micr
 </div>
 </div>
 
+#### Panel C, as actually built — from the bench
+
+<figure class="photo-figure">
+<img src="photos/panel-c-04-front-wall-holes.jpg" alt="Panel C's pine frame on the garage floor with its plywood front wall attached, showing the fan hole and round vent holes">
+<figcaption><b>The front wall, cut with its openings before it went on</b>: the 120mm fan hole, the three 3" intake vents under it, and the grommet hole for the fridge's DC line (Step 3).</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/panel-c-01-corner-braces.jpg" alt="A package of Everbilt 2-1/2 inch double wide corner braces">
+<figcaption><b>Braces on the front face</b>, added to stiffen the front legs: Everbilt 2½" double-wide corner braces.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/panel-c-02-mat-on-deck.jpg" alt="Panel C's frame with a black rubber mat on its deck, clamped at the edges with wood strips under the clamps">
+<figcaption><b>Clamping the non-slip mat down onto its Velcro</b> at the pantry end of the deck. Strips of wood under the clamps spread the force along the edge.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/panel-c-03-velcro.jpg" alt="A box of VELCRO brand Extreme Outdoor fasteners on the black rubber mat">
+<figcaption><b>VELCRO Extreme Outdoor</b>, loop side on the deck and hook side on the mat, so the mat can come up and be replaced.</figcaption>
+</figure>
+
 ### Component 5: Anti-Rattle Bumpers, Alignment Pins & Seam Draw-Latches
 
 <mark>**As built (7 Nov 2026): hose clamps instead of draw latches.** One stainless #48 hose clamp around each pair of back-to-back bottom rails, two per seam, between the legs, over a strip of speaker carpet, screw housing outward or under. See the change note at the top.</mark>
@@ -1223,6 +1299,23 @@ Build this one before Component 1 (Rear Pantry) — the pantry tote and the micr
 <p class="lego-caption">The alignment pins only <em>locate</em> the modules; the draw latches <em>clamp</em> them together. Mount one over-center draw latch on each SIDE of each seam (4 total: both sides of A/B and B/C), <strong>low on the bottom-rail band (~1.75" up), over the inset leg line</strong> — hand-reachable from the side door / tailgate. The base plate screws to one module's leg/rail, the hooked bail + lever to its neighbour's; flip the handle to pull the two modules tight against the bumper strip, flip to release. This ties the three boxes into one rigid beam: the bed platform already couples the Panel A + B <em>tops</em>, and a low latch completes a top-and-bottom couple that kills sway and rattle. It stays fully modular — the latches are hand-released, so any panel still lifts out in seconds. <strong>Honest scope:</strong> this buys rigidity and quiet, not a higher weight rating — the cube-framed boxes are already strong (5× margin at the feet). Don't rely on the latches to carry more load; their job is to stop relative motion between modules. <b>From the drawing:</b> SEAM DRAW-LATCHES — clamp the 3 lift-out modules into one rigid beam (Component 5) 4 latches total: one each side of BOTH the A/B and B/C seams, low on the bottom-rail band (~1.75" up, hand-reach). Alignment pins LOCATE the modules; the latches PULL them tight against the bumper strip. Hand-released — panels still lift out in seconds. (front seats upper-left, tailgate lower-right; the bed platform already ties the Panel A + B tops) base plate on one leg, hooked bail + lever on the other;.</p></div>
 </div>
 </div>
+
+#### Anti-rattle, as actually built — from the bench
+
+<figure class="photo-figure">
+<img src="photos/panel-b-03-velcro-layout.jpg" alt="A black-painted panel frame on the garage floor with gray Velcro pads on its top rails and two slatted bed halves above it">
+<figcaption><b>Velcro pads on Panel B's top rails</b>, where the bed halves sit. They keep the halves from rattling on the road.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/panel-b-01-carpet-end-cap.jpg" alt="A piece of black carpet cut in a cross shape lying on plywood beside scissors">
+<figcaption><b>A carpet end cap for each 2x2 cross bar end</b>, cut as a cross 4½" × 4½" so its four arms fold down the sides of the bar's end.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/panel-b-02-spray-adhesive.jpg" alt="A can of spray adhesive standing on a black-painted panel frame">
+<figcaption>The spray adhesive used to glue the carpet caps down.</figcaption>
+</figure>
 
 ### Component 6: Cord Runs — Cooktop, Power Strip 1, Fridge DC & DELTA 3 Charging
 
@@ -1268,6 +1361,13 @@ Build this one before Component 1 (Rear Pantry) — the pantry tote and the micr
 </div>
 </div>
 
+#### The fridge line's channel, as built
+
+<figure class="photo-figure">
+<img src="photos/cable-01-channel-carpet-caps.jpg" alt="A black-painted frame with a white slotted cable channel fixed to it, a carpet cap glued over the bottom end of a 2x2 and an unglued cap laid on top of a post">
+<figcaption><b>The white channel carries the power cable from the EcoFlow to the fridge.</b> Also in the shot: a carpet end cap fully installed on the bottom end of a 2x2, and at the top one laid out to show its shape before it's glued down.</figcaption>
+</figure>
+
 ### Component 7: Fridge & Kitchen Install
 
 ![Component 7 — finished component, accessory list & part list](renders/steps/comp-7-header.png)
@@ -1293,6 +1393,7 @@ Build this one before Component 1 (Rear Pantry) — the pantry tote and the micr
 <div class="lego-parts"><p class="lego-noparts">no parts — inspection only</p></div>
 <div class="lego-main">
 <p class="lego-caption"><strong>The October 2026 van survey sets this component</strong>: the folded-seat surface is solid to 24¾" from the hatch; from 26" forward the side trim closes the van to 42"; and the 3rd-row seats' four latch hoops sit in the headrest trough 28" from the hatch, their bars 1⅞" below the loaded seat surface, at 4¾", 24¾", 31¼" and 41¾" from Panel C's driver line. Those hoops are the anchors.</p>
+</div>
 </div>
 <div class="lego-step">
 <div class="lego-num">2</div>
@@ -1337,6 +1438,144 @@ Build this one before Component 1 (Rear Pantry) — the pantry tote and the micr
 <p class="lego-caption">Hang the kitchen drawer in the dead air above the kitchen unit (Kitchen Drawer Detail render; Kitchen Drawer sheet): biscuit the box corners (2x R1 each + glue, Joinery & Fastener Guide), mount the 24" slides on the box and the two 1/2" ply cheeks, run the 18" x 26" x 4.5" box (~17" x 3.5" clear inside) into the cheeks, and <b>build the whole thing into one squared unit on the bench</b>: three ¾" spreaders glued and screwed between the cheek tops, diagonals checked. Then, with Panel C standing on its feet, lift the unit up under the deck on props, push it against the rear and side cleats, and screw down through the deck (2" screws every 6" into the cheeks, 2 into each spreader) and through the outer cheek into the side cleat. <em>As built, the drawer was not made as a squared unit: the cheeks were fitted loose with Panel C tilted, which was nearly impossible to line up and broke a rear leg. The squared unit is the recommended way.</em> It clears the kitchen's lid by 1/2", passes under the tailgate-face rail, and pulls out the open tailgate like everything else in Panel C. Give its face a magnetic catch so nothing rattles in transit. Utensils, cutting board, flat dry goods, the cooktop's griddle plate.</p></div>
 </div>
 </div>
+
+#### The anchor board, as actually built — from the bench
+
+<figure class="photo-figure">
+<img src="photos/anchor-01-flat-bar-label.jpg" alt="The label on hot-rolled steel flat bar reading 3/16 inch by 3 inch by 4 feet">
+<figcaption><b>The rungs' steel:</b> hot-rolled flat bar, 3/16" × 3" × 4 ft, from Lowe's, cut to 46".</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/anchor-02-strips-grooved.jpg" alt="Three plywood strips with T-nuts set in them and routed grooves across them where the steel rungs sit">
+<figcaption><b>The three strips, grooved for the rungs.</b> The lighter bands are the grooves the bar sits in, flush with the underside; the round fittings are the T-nuts the riser angles bolt into.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/anchor-03-router-jig.jpg" alt="A plywood router jig clamped over a strip, guide boards forming a channel across it">
+<figcaption><b>A jig for the plunge router.</b> Guide boards clamped either side set the groove to the bar's width, so every groove matches.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/anchor-04-router-in-jig.jpg" alt="A plunge router sitting in the clamped jig on a plywood strip">
+<figcaption>The router in the jig. The plunge depth sets how far the bar sinks in: flush with the strip's underside.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/anchor-06-neoprene-clamped.jpg" alt="Yellow bar clamps pressing a plywood caul down onto black rubber glued to the strips">
+<figcaption><b>Gluing the neoprene to the strips' undersides.</b> A plywood caul between the clamps and the rubber spreads the pressure over the whole strip.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/anchor-07-van-test-fit.jpg" alt="The anchor board with the fridge slides and tray on the folded third-row seats, seen through the open tailgate">
+<figcaption><b>Test fit in the van</b>, on the folded third row. Nothing is drilled into the van.</figcaption>
+</figure>
+
+#### The fridge slides and hold-downs, as actually built — from the bench
+
+<figure class="photo-figure">
+<img src="photos/fridge-01-step-bit-tape.jpg" alt="A step drill bit in a drill press over a black steel angle, with blue tape on the bit at one step">
+<figcaption><b>Drilling the riser angles on the drill press.</b> Blue tape on the step bit marks the step to stop at, so every hole comes out the same size.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/fridge-02-drill-press-riser.jpg" alt="A drill press bit going through a black steel angle with steel shavings around the hole">
+<figcaption>A pilot hole going through the riser angle, the angle clamped so it can't spin.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/fridge-07-drill-bits.jpg" alt="Two red Milwaukee cases with twist drill bits and two step drill bits">
+<figcaption><b>The metal bits:</b> twist bits for pilots, step bits to open them up. They drilled the riser angles, the strips, and the risers' holes for the hold-down eye bolts.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/fridge-03-slide-bolted-riser.jpg" alt="A heavy-duty slide bolted to a steel riser angle with a hex key, a wrench and a bottle of threadlocker">
+<figcaption><b>Bolting a slide to its riser</b>: hex key, wrench and blue Loctite on every bolt.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/fridge-04-cereal-box-spacer.jpg" alt="A heavy-duty slide clamped to a riser angle on the bench with a strip of cereal-box cardboard under it">
+<figcaption><b>The shim is a cereal box.</b> A strip of its cardboard under the slide sets it just up from the bottom of the riser while the holes are marked.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/holddown-01-eye-bolt-two-nuts.jpg" alt="A stainless eye bolt through the end of a black steel riser angle, held by two nuts">
+<figcaption><b>The hold-down:</b> the eye bolt through the riser's front end that the chain runs from. Blue Loctite and a jam nut, so it can't back off.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/holddown-02-before-trim.jpg" alt="An eye bolt through a riser angle with a long threaded end below the nuts">
+<figcaption>Before trimming: the extra bolt below the nuts comes off.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/holddown-03-both-risers.jpg" alt="Both riser angles with their eye bolts installed, long bolt ends still showing">
+<figcaption><b>Both hold-downs</b>, before the extra length was cut off with a Dremel cutting disc.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/fridge-06-tray-tie-downs.jpg" alt="The plywood fridge tray on its slides with metal tie-down loops on its side apron">
+<figcaption><b>Tie-down points on the fridge tray</b>, for the cam strap through the fridge's end handles.</figcaption>
+</figure>
+
+#### The kitchen tie-downs and kitchen drawer, as actually built — from the bench
+
+<figure class="photo-figure">
+<img src="photos/kitchen-02-tie-downs.jpg" alt="Kitchen tie-down hardware: a silver loop at the top and a black anchor at the bottom">
+<figcaption><b>Kitchen tie-downs, installed:</b> silver loop at the top, black anchor at the bottom.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/kdrawer-01-biscuits.jpg" alt="Two plywood drawer sides with glue and two wooden biscuits at each end">
+<figcaption><b>The kitchen drawer box:</b> ½" ply, two R1 biscuits per corner, glued.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/kdrawer-02-corner-clamps.jpg" alt="The kitchen drawer box glued up, held square by red corner clamps and pipe clamps">
+<figcaption>Glued up in corner clamps and pipe clamps. A square box is what lets the slides run.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/kdrawer-03-bottom-screwed.jpg" alt="The kitchen drawer box upside down with its plywood bottom glued and screwed on">
+<figcaption><b>The bottom glued and screwed on under the walls</b>: no rabbet, the 18" × 26" bottom is the box's outer footprint.</figcaption>
+</figure>
+
+#### The fridge bay's fan cooling, as actually built — from the bench
+
+<figure class="photo-figure">
+<img src="photos/cooling-01-parts-laid-out.jpg" alt="Fan controller parts: the clear acrylic case pieces in their paper, a W1209 board, a blade fuse block and small parts">
+<figcaption><b>The parts:</b> the W1209 thermostat and its clear case, still in its paper, beside the Nilight fuse block.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/cooling-02-w1209-in-case.jpg" alt="The W1209 thermostat board in its clear case, showing its display, buttons, relay and screw terminals">
+<figcaption><b>The W1209, cased.</b> +12V and GND power it; K0 and K1 switch the fan feed; the probe plugs into the white header. No threadlocker near the case.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/cooling-03-switch-diagram.jpg" alt="The wiring diagram for an Ampper illuminated round rocker switch, with the switch on it">
+<figcaption><b>The Ampper switch's own diagram.</b> Power in, load out, and a ground for the lamp.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/cooling-04-fuse-block-wired.jpg" alt="A six-way fuse block wired with red and black leads, two rocker switches in a wood block above it and the W1209 below">
+<figcaption><b>Two fused circuits</b>, the fridge on F1 (10A) and the fans on F2 (3A), each through its own switch in the plate on its 2x2 block.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/cooling-05-cluster-on-wall.jpg" alt="Panel C's front wall with the fuse block, switches, W1209 and a 120mm fan on it, three round vent holes below">
+<figcaption><b>Laid out on the wall's Panel B face</b>, driver column, reached by lifting Panel B's driver-side bed half.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/cooling-06-multimeter.jpg" alt="A hand holding a red digital multimeter with its probes">
+<figcaption><b>Meter every circuit on the bench</b> before it goes in the van.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/cooling-07-finished.jpg" alt="The finished cluster on Panel C's front wall: switch plate, fuse block, W1209, a guarded 120mm fan, grommets and three screened vents">
+<figcaption><b>Done:</b> the intake fan behind its finger guard, three screened 3" vents under it, and the fuse block and W1209 held on with Velcro, so a yanked wire pulls the part off the wall instead of tearing the wiring.</figcaption>
+</figure>
 
 ### Component 8: EcoFlow Stowage (DELTA 3 + WAVE 3)
 
