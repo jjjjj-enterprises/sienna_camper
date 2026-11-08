@@ -102,6 +102,10 @@ The same hole goes in every one of the 12 legs, in the **bottom** end grain:
 
 Bore it **before the leg goes into the frame** — once the frame is together the hole is nearly impossible to keep square, and squareness here is what keeps the finished foot vertical.
 
+<div class="warn">
+<strong>Lessons from the build (7 Nov 2026).</strong> Make sure the bore is <strong>centered</strong>: off center, the foot stands crooked and the thin side of the wall can split. And when you screw frame parts to the legs, <strong>miss where the leveling-foot bolts go</strong>: the bore runs 1-3/4" up from the bottom, and a screw that reaches it can jam the insert's threads so the foot won't turn. Keep any screw into a leg's bottom 1-3/4" at least 3/8" off center.
+</div>
+
 Method:
 
 1. Mark the center by drawing both diagonals of the end grain.
