@@ -284,7 +284,7 @@ module section1_content() {
     wire(delta3_charge_cord, 0.3, marker_col(14));
     mmarker(13, 37, y_front + 4);
 
-    // 14: DELTA 3 drawer grommet — WAVE 3 charge cable exit (Panel A right drawer)
+    // 14: DELTA 3 drawer cord slot — the charging line's exit, cut in the drawer wall (Panel A right drawer)
     translate([34, y_ab - 1.6]) grommet_icon();
     mmarker(14, 34, y_ab - 5);
 }

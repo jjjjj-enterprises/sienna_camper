@@ -255,7 +255,7 @@ footer p{max-width:72ch; margin:0 0 6px}
   <div class="sec-h"><span class="n">B</span><h2>Plan view</h2><span class="aside">looking down into the open box · 1:1 proportions</span></div>
   <div class="figs">
     <figure>
-      <svg viewBox="-46 0 566 496" role="img" aria-label="Plan view of the power drawer showing the DELTA 3 Plus outboard, the Smart Extra Battery inboard, four locating cleats, the cam strap and D-rings, and the cable grommet in a fore-aft wall">
+      <svg viewBox="-46 0 566 496" role="img" aria-label="Plan view of the power drawer showing the DELTA 3 Plus outboard, the Smart Extra Battery inboard, four locating cleats, the cam strap and D-rings, and the cord slot in a fore-aft wall">
         <!-- slides on the outer faces of the two 22in side walls -->
         <rect class="slide" x="71" y="72" width="9" height="320"/>
         <rect class="slide" x="400" y="72" width="9" height="320"/>
@@ -283,8 +283,8 @@ footer p{max-width:72ch; margin:0 0 6px}
         <circle class="ring" cx="99" cy="232" r="6"/>
         <circle class="ring" cx="381" cy="232" r="6"/>
 
-        <!-- 1in cable grommet, in a fore-aft wall (the side pair carries the slides) -->
-        <circle class="hole" cx="340" cy="62" r="8"/>
+        <!-- cord slot, cut through a fore-aft wall before glue-up (no grommet; the side pair carries the slides) -->
+        <rect class="hole" x="322" y="57" width="36" height="10" rx="5"/>
 
         <!-- pull direction -->
         <path class="ln" d="M67 232 H-12"/>
@@ -334,7 +334,7 @@ footer p{max-width:72ch; margin:0 0 6px}
       <li><span class="n">2</span><span class="d"><b>Smart Extra Battery</b> — 8.0 × 15.7 × 7.8", ~20 lb. <span>Inboard — runtime only, reached far less often.</span></span></li>
       <li><span class="n">3</span><span class="d"><b>Locating cleats ×4</b> — 1×1 pine blocks, glue + 1¼" screws. <span>Bracket the 15.95 × 15.7" footprint at its corners so the stack cannot walk on the slide.</span></span></li>
       <li><span class="n">4</span><span class="d"><b>Cam strap + 2 screw-eye D-rings</b> <span>— strap runs across the 20" width, over both units, into a D-ring at each side wall.</span></span></li>
-      <li><span class="n">5</span><span class="d"><b>1" cable grommet</b> <span>— in a <em>fore-aft</em> wall, not a side wall: the side pair's outer faces are where the slides land. Leave slack for full extension.</span></span></li>
+      <li><span class="n">5</span><span class="d"><b>Cord slot</b> <span>— cut through a <em>fore-aft</em> wall before glue-up, not a side wall: the side pair's outer faces are where the slides land. No grommet. Leave slack for full extension.</span></span></li>
       <li><span class="n">6</span><span class="d"><b>Side wall ×2 — 22 × 13¾"</b>, ¾" ply. <span>Full depth, continuous under the slide (Flag 2).</span></span></li>
       <li><span class="n">7</span><span class="d"><b>Front/back wall ×2 — 18½ × 13¾"</b>, ¾" ply. <span>Between the side walls (Flag 2).</span></span></li>
       <li><span class="n">8</span><span class="d"><b>20" full-extension slide pair</b>, 100 lb class. <span>One side to the frame's outer rail, the other to Panel A's center divider.</span></span></li>
@@ -550,7 +550,7 @@ footer p{max-width:72ch; margin:0 0 6px}
     </div></div>
     <div class="step"><div class="sn"></div><div class="sb">
       <h3>Fit the drawer's fixtures</h3>
-      <p>Four 1×1 cleats glued and screwed to the floor, bracketing the 15.95 × 15.7" footprint. Two screw-eye D-rings at the side walls on the strap's line. The 1" grommet goes in a <strong>fore-aft</strong> wall — the side walls' outer faces belong to the slides — with enough cable slack for full extension.</p>
+      <p>Four 1×1 cleats glued and screwed to the floor, bracketing the 15.95 × 15.7" footprint. Two screw-eye D-rings at the side walls on the strap's line. The cable leaves through the cord slot, cut in a <strong>fore-aft</strong> wall before glue-up (no grommet) — the side walls' outer faces belong to the slides — with enough cable slack for full extension.</p>
     </div></div>
     <div class="step"><div class="sn"></div><div class="sb">
       <h3>Load and strap</h3>
@@ -565,7 +565,7 @@ footer p{max-width:72ch; margin:0 0 6px}
 
 <footer>
   <p>Drawn from <code>sienna_camper_build_plan.md</code> (Sections 3 and 6, Components 2 and 8) and <code>params.scad</code>. Figures are to scale in both axes; they are assembly drawings, not templates — do not scale off a print.</p>
-  <p><b>Model not yet matched:</b> <code>params.scad</code> carries <code>delta3_tray_h = 2</code>, and <code>renders/sheet-cut-2.svg</code> draws a 20 × 22 bottom on the ½" sheet. Where they differ from this sheet, this sheet is right.</p>
+  <p><b>Model not yet matched:</b> <code>renders/sheet-cut-2.svg</code> draws a 20 × 22 bottom on the ½" sheet. Where they differ from this sheet, this sheet is right.</p>
 </footer>
 
 </div>

@@ -754,7 +754,7 @@ Every wooden joint's method — biscuit vs. screw — with the exact biscuit spa
 | #8 x ⅝" flat-head wood screws, 12-pack (Everbilt 825381) — rungs up into the strips, chamfered into the steel | 1 | $1.38 | $1.38 |
 | DEWALT 4-1/2" cut-off wheels, 5-pack — aluminum oxide, 7/8" arbor, angle grinder. Cuts the 2 rungs from the flat bar and the 2 riser angles from the angle stock (H.8). Cut **dry** — never put fluid on an abrasive wheel — **PURCHASED 2026-09-05** | 1 pack | $6.46 | $6.46 |
 | Tap Magic 30004P ProTap cutting fluid, 4 oz — for the **drilling** that follows the cuts: the 2 rungs' screw holes, the 2 riser angles' 1/4-20 holes, and the anchor board's steel work generally. Nothing to do with the cut-off wheels — **PURCHASED 2026-09-06** | 1 | $4.98 | $4.98 |
-| Neoprene rubber sheet, ⅛" × 16" × 60" roll — cut into strips under the anchor board's strips | 1 | $20 | $20 |
+| [Innconee neoprene rubber sheet, ⅛" × 16" × 60" roll](https://www.amazon.com/dp/B0DN6RSKVW) — the build's one non-slip material. **Roll 1:** cut into strips under the anchor board's strips. **Roll 2:** the DELTA 3 drawer floor (installed) and the WAVE 3 point-of-use mat (~21 × 12") — **PURCHASED 2026-09-23** | 2 rolls | $30.99 | $61.98 |
 | Blue medium-strength threadlocker (Loctite 242 or equivalent — on the anchor board's machine screws only; **never on the W1209's clear plastic case or any plastic part**: it breaks the plastic down) | 1 bottle | $8 | $8 |
 | Erickson ratchet straps (01415), 400 lb WLL / 1,200 lb break, 1" x 10' (2: kitchen unit, front to H2/H4 and rear to the footman loops; 3 optional backups to the striker loops; 3 spare) | 2 packs of 4 | $32 | $64 |
 | Fridge hold-down — 1 low-profile cam strap + 2 screw-eye D-rings (hooks to the fridge's 2 end handles, down to the tray's side apron — keeps the fridge from lifting off the tray in a hard stop) | 1 set | $10 | $10 |
@@ -766,10 +766,8 @@ Every wooden joint's method — biscuit vs. screw — with the exact biscuit spa
 | 6-outlet power strip, individual switches (Power strip 1 + Power strip 2) — CRST metal, **PURCHASED July 2026** | 2 | $25 | $50 |
 | UMETRE 9-Piece Detachable-Handle Induction Cookware Set — nests flat, its 11x11 box goes in the pantry tote (Component 1); induction-compatible, dishwasher-safe — **PURCHASED July 2026** | 1 set | $45 | $45 |
 | [PeaceOut Toyota Sienna Sliding Doors Bug Nets](https://peaceout.ca/en/products/toyota-sienna-front-sliding-doors-bug-nets) — Sienna-specific, sold as a pair (driver + passenger sliding doors), no-see-um mesh, magnetic + hook-and-loop attachment (temporary, no screws), carry bag included — lets both side doors stay open for ventilation while sleeping without bugs getting in. Real listed price is in CAD; $ figure here is an approximate USD conversion — confirm current exchange rate before ordering. | 1 pair | ~$197 (CAD $269.99) | ~$197 |
-| DELTA 3 drawer hardware: rubber non-slip mat on the drawer floor (**no locating cleats** — owner, 30 Oct 2026), 2 D-rings on #8 × ⅝" screws ~7½" down from the box's top edge + cam strap, turn button on the frame's top rail (e.g. Wright Products V20A, or a 3" × ¾" ply tab), 1" cable grommet (Panel A right drawer — Power Drawer Tie-Down sheet) | 1 set | $15 | $15 |
+| DELTA 3 drawer hardware: rubber non-slip mat on the drawer floor (**no locating cleats** — owner, 30 Oct 2026), 2 D-rings on #8 × ⅝" screws ~7½" down from the box's top edge + cam strap, turn button on the frame's top rail (e.g. Wright Products V20A, or a 3" × ¾" ply tab) (Panel A right drawer — Power Drawer Tie-Down sheet; no grommet, the charging line leaves through the cord slot cut in the drawer wall) | 1 set | $15 | $15 |
 | WAVE 3 hose/cord storage hook, in the open utility bay (screwed up into the deck underside at the bay's kitchen side; bundle the hoses with their strap so nothing swings — see Renders) | 1 | $4 | $4 |
-| Non-slip mat, WAVE 3's point-of-use surface (Panel C's deck or the front seat — not the Panel A storage bay, see Renders) | 1 | $12 | $12 |
-| FOUND STORAGE — DELTA 3 drawer top tray (reclaims ~2.1" of dead headroom above the DELTA 3 stack — 13.75" box − 1/2" bottom − 11.16" stack: cables, the DELTA 3's own cords, dongles) — shallow lift-out bin, **build it 1.75" or shallower** | 1 | $8 | $8 |
 | FOUND STORAGE — utility-bay bins (the open bay's spare volume beside the control panel: dish soap, sponges, utility odds) + hook-and-loop tape under each (no door holds them in) | 2 | $4 | $8 |
 | [EcoFlow WAVE Series Car Vent Kit](https://us.ecoflow.com/products/wave-car-vent-kit) — official accessory, WAVE 2/3 compatible, velcro window seal + duct pass-throughs, no permanent modification (no-tent sleeping configuration, Section 1) — **PURCHASED July 2026** (order EFUS-426448, $40) | 1 | $40 | $40 |
 | SRS airbag emulators, Sienna 2nd row — **PURCHASED July 2026**: 0651 Round x2 + 5522 "Square" x2 (shipped). Click into the van-side yellow floor plugs when the seats are out so the airbag system reads normally (Section 9). **VERIFY before seat-removal day that the 5522 mates with the Sienna's rectangular floor plug** | 1 set | ~$60 | ~$60 |
@@ -811,7 +809,7 @@ Specific products verified against this plan's specs, full URLs shown for copy-p
 
 Slides + electrical together run **~$290-305**. These links satisfy the corresponding BOM rows above — don't double-count.
 
-**Estimated total (summing the BOM table above): ~$3,569–3,939 with the fridge + kitchen included, or ~$2,869–3,089 if you already own equivalents** — the owner-supplied CO monitor and fire extinguisher aren't priced here. The itemized BOM table is the authoritative figure. It includes the bought HEST Dually Long mattress (~$530–590, cover included — the DIY 2-layer fallback, ~$185–255, stays in the BOM as the budget swap), a real BougeRV Rocky 40 + JAGAHAHA kitchen (~$700–850 combined, Rocky price UNVERIFIED), the fridge cooling/control electronics (2 fans, controller, sensor, surge protector, ~$85–120 combined), the no-drill securing hardware — rated straps, the anchor board's steel rungs, chain hardware and neoprene (~$140, Section 8) — and the RJ-MODINI spare kit (~$350, Appendix F). Two optional material upgrades are documented but NOT in the total above — poplar top-rails (~$25–40) and aluminum corner braces (~$10–15), see Section 3's "Material options & upgrades."
+**Estimated total (summing the BOM table above): ~$3,591–3,961 with the fridge + kitchen included, or ~$2,891–3,111 if you already own equivalents** (Oct 1: +$22 net — the second neoprene roll, $42 more, replaced the $12 WAVE 3 mat, and the $8 DELTA 3 drawer top tray was dropped) — the owner-supplied CO monitor and fire extinguisher aren't priced here. The itemized BOM table is the authoritative figure. It includes the bought HEST Dually Long mattress (~$530–590, cover included — the DIY 2-layer fallback, ~$185–255, stays in the BOM as the budget swap), a real BougeRV Rocky 40 + JAGAHAHA kitchen (~$700–850 combined, Rocky price UNVERIFIED), the fridge cooling/control electronics (2 fans, controller, sensor, surge protector, ~$85–120 combined), the no-drill securing hardware — rated straps, the anchor board's steel rungs, chain hardware and neoprene (~$140, Section 8) — and the RJ-MODINI spare kit (~$350, Appendix F). Two optional material upgrades are documented but NOT in the total above — poplar top-rails (~$25–40) and aluminum corner braces (~$10–15), see Section 3's "Material options & upgrades."
 
 ---
 
@@ -838,7 +836,7 @@ Every purchased electrical component at its real position — icon-based top-dow
 | 11 | Fridge DC line — DELTA 3 (Panel A) forward to the fridge (Panel C), its own dedicated run |
 | 12 | SAE quick-disconnects — on the fridge DC line, one at each seam it crosses |
 | 13 | DELTA 3 AC charging cord — the front console's ONE outlet (1500W, verified) to Panel A's drawer |
-| 14 | DELTA 3 drawer grommet — WAVE 3 charge cable exit (see the stowage detail) |
+| 14 | DELTA 3 drawer cord slot — the charging line's exit, cut through the drawer wall (no grommet; see the stowage detail) |
 
 
 
@@ -983,7 +981,7 @@ Panel A and Panel B share the same frame construction — neither has a top of i
 - Drawer box — 1 (right/DELTA 3 side only), 5 pieces: bottom 19.25"x21.25" (1/2" ply, into a 3/8" glued rabbet), 2 side walls 22"x13.75" + 2 front/back walls 18.5"x13.75" (cut at 20", trimmed 1.5" each) (**3/4" ply** — these are the parts no other leftover could hold, Section 3). Glue + **2× R3** per corner since it carries the 48 lb DELTA stack.
 - Drawer slide — 1 pair, 20" full-extension
 - Drawer catch — 1, friction catch or small turn latch
-- DELTA 3 drawer hardware (right drawer) — rubber non-slip mat (no locating cleats, as built), 2 D-rings + cam strap, a turn button on the frame's top rail, 1" cable grommet
+- DELTA 3 drawer hardware (right drawer) — rubber non-slip mat (no locating cleats, as built), 2 D-rings + cam strap, a turn button on the frame's top rail (no grommet — the cord slot is cut in the drawer wall)
 - WAVE 3 hold-down (left bay) — 2 screw-eye D-rings in the end bottom rails + 1 low-profile cam strap over the unit (no glide strips, no shelf)
 - Bed platform lumber — seven 1x4 x 8ft pine boards: five 42" slats + ten 17.5" slats + six 29" side rails — crosscuts only, no hardware (Bed Platform Detail render)
 - Panel B center bearer — 52¼" of 2x2 (two **26⅛"** pieces side by side, rough), out of the 2x2 frame stock; glued up, then trimmed to the measured gap less ¼" (~25⅞") — it is **drop-in** on 4× 1" corner braces
@@ -1010,9 +1008,9 @@ Panel A and Panel B share the same frame construction — neither has a top of i
 </div>
 <div class="lego-step">
 <div class="lego-num">4</div>
-<div class="lego-parts"><p class="lego-noparts">DELTA 3 drawer hardware (parts list above): pine cleats, 2 D-rings + cam strap, 1" grommet</p></div>
+<div class="lego-parts"><p class="lego-noparts">DELTA 3 drawer hardware (parts list above): rubber mat, 2 D-rings + cam strap, turn button</p></div>
 <div class="lego-main"><img src="renders/delta3-wave3-detail.png" alt="DELTA 3 stack in Panel A's right drawer">
-<p class="lego-caption">In the right drawer, add the DELTA 3 fixtures: a rubber non-slip mat on the drawer floor (as built — no locating cleats), D-rings ~7½" down from the top edge + cam strap to hold the stack down in transit, and a cable grommet for the WAVE 3's charge cable. DELTA 3 Plus outboard (pull wall), Smart Extra Battery inboard — see Component 8.</p></div>
+<p class="lego-caption">In the right drawer, add the DELTA 3 fixtures: a rubber non-slip mat on the drawer floor (as built — no locating cleats), D-rings ~7½" down from the top edge + cam strap to hold the stack down in transit, and the cable leaves through the cord slot cut in the drawer wall before glue-up (no grommet). DELTA 3 Plus outboard (pull wall), Smart Extra Battery inboard — see Component 8.</p></div>
 </div>
 <div class="lego-step">
 <div class="lego-num">5</div>
@@ -1586,9 +1584,9 @@ Build this one before Component 1 (Rear Pantry) — the pantry tote and the micr
 - EcoFlow DELTA 3 Plus + Smart Extra Battery, EcoFlow WAVE 3 (already owned, not priced)
 - WAVE 3 hose/cord storage hook
 - WAVE 3 hold-down: 2 screw-eye D-rings + 1 low-profile cam strap (Component 2's left bay)
-- Non-slip mat (camp-use point of use — Panel C's deck or the front seat, not the storage bay)
+- Non-slip mat from neoprene roll 2 (camp-use point of use — Panel C's deck or the front seat, not the storage bay)
 - EcoFlow WAVE Series Car Vent Kit (no-tent sleeping configuration only)
-- FOUND STORAGE: DELTA 3 drawer top tray (shallow lift-out bin) + 2 utility-bay bins (velcroed — Component 7 step 5)
+- FOUND STORAGE: 2 utility-bay bins (velcroed — Component 7 step 5)
 
 **Battery placement — low and counterbalanced.** Heavy batteries want to sit **low and centered**, and this design already gets both most of the way there: the DELTA 3 stack (~48 lb) rides in Panel A's floor-level under-deck drawer — about as **low** as it can go. On the **lateral** axis it looks off to one side (passenger), but the ~34 lb WAVE 3 sits in the **opposite** (driver) bay of the same Panel A, so the two heaviest movable items counterbalance each other — the whole build's lateral center of mass ends up only **~1.1" off centerline** (Appendix F), which is trivial on a ~4,500 lb van. So the "get it centered" concern is effectively already answered. Don't use a longer drawer to slide the DELTA to the true centerline: a 48 lb load cantilevered at the end of a long slide is tippy when open and hard on the hardware, it fouls the bed-platform cantilever near Panel B, and it wouldn't free clean storage (the drawer sweeps its own travel path). If you still want to nudge it inboard for free, shift Panel A's center divider a couple inches toward the driver side to re-center the DELTA bay. See **Appendix F** for the full weight-distribution analysis.
 
@@ -2143,7 +2141,7 @@ The order to build in — **dependency-first, not the Component numbering.** Wor
 4. Re-site Power strip 1 + the ROLL bubble level with the control cluster (Component 6).
 
 **Phase 5 — Panel A build-out (EcoFlow bays)** (Components 2 + 8)
-1. Right bay: R1-biscuited drawer box on a 20" slide + catch; DELTA 3 cleats + D-rings + a cable tray.
+1. Right bay: R3-biscuited drawer box on a 20" slide + catch, cord slot in the wall; rubber mat on the floor + D-rings + cam strap.
 2. Left bay: no shelf, no glide strips — the WAVE 3 sits on the bay floor. 2 D-rings in the end bottom rails + a cam strap fore-aft over the unit.
 
 **Phase 6 — Bed platform** (Component 2 — *needs Panel A & B built*)

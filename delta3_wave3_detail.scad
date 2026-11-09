@@ -6,8 +6,9 @@
 // stack inside (Plus outboard, Battery inboard); the WAVE 3 sits on
 // the left bay's floor under a cam strap, hooked to 2 D-rings on the
 // end bottom rails (the overhead shelf and the glide strips were
-// dropped, Sept 2026). The DELTA's found-storage tray is shown lifted
-// above the stack. Clearances are in the side list.
+// dropped, Sept 2026; the DELTA's found-storage tray and the drawer's
+// 1" grommet were dropped Oct 2026 — the cable leaves through a slot cut
+// in the drawer wall). Clearances are in the side list.
 //
 // Render with: openscad -o renders/delta3-wave3-detail.svg delta3_wave3_detail.scad
 // ============================================================
@@ -55,10 +56,8 @@ module drawing() {
     // DELTA 3 Plus (outboard) + Smart Extra Battery (inboard) inside it
     wbox([dx0 + pull + drw_w - delta3_plus_width - 0.4, RS + 2, 1], [delta3_plus_width, delta3_length, delta3_plus_height]);
     wbox([dx0 + pull + 0.4, RS + 2, 1], [delta3_batt_width, delta3_length, delta3_batt_height]);
-    // found-storage lift-out tray in the dead air on top of the stack
-    wbox([dx0 + pull + 0.4, RS + 2, 1 + delta3_plus_height + 0.4], [drw_w - 0.8, delta3_length, delta3_tray_h]);
     // cam strap over both units + locating cleats
-    ifill("Crimson") translate([dx0 + pull, RS + delta3_length*0.5, 1 + delta3_plus_height + delta3_tray_h + 0.6]) cube([drw_w, 0.8, 0.6]);
+    ifill("Crimson") translate([dx0 + pull, RS + delta3_length*0.5, 1 + delta3_plus_height + 0.2]) cube([drw_w, 0.8, 0.6]);
     iarrow([dx0 + pull - 1.5, RS + drw_d/2, drw_h/2], [dx0 + 2, RS + drw_d/2, drw_h/2], 0.6);
     color(INK) dash2d(p2([dx0 + pull, RS + drw_d/2, 0.5]), p2([dx0, RS + drw_d/2, 0.5]), 0.16, 1.4);
 
@@ -78,16 +77,14 @@ module drawing() {
     }
 
     // ---- markers ---------------------------------------------------
-    // Anchors 5 and 6 share an x,y (the WAVE 3 bay) and differ only in
+    // Anchors 4 and 5 share an x,y (the WAVE 3 bay) and differ only in
     // z, so their leaders MUST be thrown apart in page space or the two
-    // badges land on top of each other. Same for 1 and 3, which are the
-    // DELTA stack and the tray directly above it.
+    // badges land on top of each other.
     marker3d(1, [dx0 + pull + drw_w - delta3_plus_width/2, RS + delta3_length/2, 1 + delta3_plus_height], [12, 5]);
     marker3d(2, [dx0 + pull + delta3_batt_width/2, RS + delta3_length/2, 1 + delta3_batt_height], [-11, 5]);
-    marker3d(3, [dx0 + pull + drw_w/2, RS + delta3_length/2, 1 + delta3_plus_height + delta3_tray_h/2], [2, 13]);
-    marker3d(4, [dx0 + pull + drw_w, RS + delta3_length*0.5, drw_h + 1], [12, -5]);
-    marker3d(5, [wv_x0 + wave3_width/2, wv_y0 + wave3_depth/2, wave3_height], [-14, -3]);
-    marker3d(6, [sx, wv_y0 + wave3_depth, wave3_height], [-13, 10]);
+    marker3d(3, [dx0 + pull + drw_w, RS + delta3_length*0.5, drw_h + 1], [12, -5]);
+    marker3d(4, [wv_x0 + wave3_width/2, wv_y0 + wave3_depth/2, wave3_height], [-14, -3]);
+    marker3d(5, [sx, wv_y0 + wave3_depth, wave3_height], [-13, 10]);
 
     // ---- title block + parts list, STACKED BELOW the drawing -------
     // This sheet renders at 2500x4700 (portrait). The title lines used
@@ -104,15 +101,12 @@ module drawing() {
     cap("DELTA 3 Plus outboard (the WAVE 3 plugs into it), Extra Battery", TX, -27.4, 1.2, "left");
     cap("inboard; ~48 lb in a normal drawer — no E-track. The WAVE 3", TX, -29.6, 1.2, "left");
     cap("sits on the raw bay floor, cam-strapped to 2 D-rings.", TX, -31.8, 1.2, "left");
-    cap(str("Found storage: a ~", round((drawer_height - delta3_plus_height)*10)/10,
-            "\" lift-out tray tops the DELTA stack,"), TX, -35, 1.2, "left");
-    cap("The WAVE 3's hoses live on the hook in Panel C's utility bay.", TX, -37.2, 1.2, "left");
+    cap("The WAVE 3's hoses live on the hook in Panel C's utility bay.", TX, -35, 1.2, "left");
 
     side_list(TX, -42, [
-        [str("DELTA 3 Plus — ", delta3_plus_width, "\"x", delta3_length, "\"x", delta3_plus_height, "\", ~28 lb"), "outboard (pull wall); cam-strapped over locating cleats"],
+        [str("DELTA 3 Plus — ", delta3_plus_width, "\"x", delta3_length, "\"x", delta3_plus_height, "\", ~28 lb"), "outboard (pull wall); cam-strapped, on the rubber floor mat"],
         [str("Smart Extra Battery — ", delta3_batt_width, "\"x", delta3_length, "\", ~20 lb"), "inboard — extra runtime only, grabbed less often"],
-        [str("Lift-out tray — reclaims ~", round((drawer_height - delta3_plus_height)*10)/10, "\" dead air"), "cables, the DELTA's own cords, dongles"],
-        ["Cam strap + D-rings + 1\" grommet", "strap over both units; WAVE 3 charge cable exits the grommet"],
+        ["Cam strap + D-rings + cord slot", "strap over both units; the charging line exits a slot in the drawer wall"],
         [str("WAVE 3 — ", wave3_width, "\"x", wave3_depth, "\"x", wave3_height, "\", ", wave3_weight, " lb"), str("raw bay, ", round((wave3_bay_width - wave3_width)*100)/100, "\" clear — a boxed drawer would NOT fit")],
         ["Cam strap + 2 D-rings (WAVE 3)", "fore-aft over the top, D-rings on the end bottom rails — no bounce, no walk-out"],
     ]);

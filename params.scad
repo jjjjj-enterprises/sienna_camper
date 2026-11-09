@@ -1068,7 +1068,6 @@ wave3_bay_width = panel_width/2 - frame_rail_sz - drawer_divider_t/2; // raw ope
 // along with its glide strips: the unit sits straight on the bay floor
 // under a cam strap between 2 D-rings on Panel A's frame, and its
 // hoses live on the hook in Panel C's utility bay.
-delta3_tray_h  = 2;                       // shallow tray on top of the DELTA 3 stack (was 3 — the deck recess cut the drawer's clear height to 13.375in over the 11.16in stack)
 wave3_strap_w  = 1;                        // low-profile cam strap over the WAVE 3, D-ring to D-ring
 wave3_intake_hose_dia  = 6; // in
 wave3_exhaust_hose_dia = 5; // in
