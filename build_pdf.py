@@ -14,6 +14,7 @@ other option, but the CLI only exposes it as all-or-nothing (it
 drags in the URL and the date), so the footer is drawn with
 reportlab and merged in with pypdf instead.
 """
+import datetime
 import io
 import re
 import subprocess
@@ -177,23 +178,29 @@ img[alt^="Component "] { display: block; width: 100%; height: auto;
    here — Chrome's print layout doesn't stretch the box to the page, so
    the rule is dead weight. The cover simply flows from the top. */
 .cover { page-break-after: always; }
-.cover-head { border-bottom: 3px solid #2c3e50; padding-bottom: 12pt; }
-.cover-head h1 { font-size: 30pt; margin: 0 0 4pt; letter-spacing: -0.5pt; }
+.cover-head { border-bottom: 3px solid #2c3e50; padding-bottom: 8pt; }
+.cover-head h1 { font-size: 26pt; margin: 0 0 3pt; letter-spacing: -0.5pt; }
 .cover-head .cover-sub { color: #555; font-size: 13pt; margin: 0; }
-.cover-head .cover-meta { color: #777; font-size: 9.5pt; margin: 10pt 0 0; }
+.cover-head .cover-meta { color: #777; font-size: 9pt; margin: 6pt 0 0; }
 .cover-warn { border: 2.5px solid #8a1c1c; border-radius: 3pt;
-    background: #fdf6f5; padding: 14pt 18pt; margin: 26pt 0 0; }
+    background: #fdf6f5; padding: 10pt 15pt; margin: 0; }
 .cover-warn h2 { border: none; color: #8a1c1c; font-size: 14pt;
-    margin: 0 0 8pt; padding: 0; page-break-before: avoid;
+    margin: 0 0 5pt; padding: 0; page-break-before: avoid;
     text-transform: uppercase; letter-spacing: 0.4pt; }
-.cover-warn p { font-size: 9.7pt; margin: 7pt 0; }
-.cover-warn ul { font-size: 9.7pt; margin: 7pt 0 7pt 0; padding-left: 16pt; }
-.cover-warn li { margin: 4pt 0; }
-.cover-warn .accept { margin-top: 12pt; padding-top: 10pt;
+.cover-warn p { font-size: 8.5pt; margin: 4pt 0; line-height: 1.3; }
+.cover-warn ul { font-size: 8.5pt; margin: 5pt 0; padding-left: 15pt; line-height: 1.3; }
+.cover-warn li { margin: 2.5pt 0; }
+.cover-warn .accept { margin-top: 8pt; padding-top: 7pt;
     border-top: 1px solid #d8bcbc; font-weight: 600; color: #111; }
-.cover-foot { margin-top: 22pt; padding-top: 12pt; color: #666;
+.cover-foot { margin-top: 9pt; padding-top: 6pt; color: #666;
     font-size: 8.5pt; border-top: 1px solid #d7dfe6; }
 mark { background: #fff1a8; color: inherit; padding: 0 2px; }
+/* Work-in-progress notice: the build isn't finished and the plan still
+   changes, so say so before anyone cuts from an old copy. */
+.cover-wip { margin: 12pt 0 12pt 0; padding: 7pt 12pt; border: 2px solid #c77a12;
+    background: #fff6e5; border-radius: 4pt; font-size: 9pt; line-height: 1.3; color: #3a2a10; }
+.cover-wip strong.tag { display: block; font-size: 11.5pt; letter-spacing: .06em;
+    color: #9a5a00; margin-bottom: 3pt; }
 """
 
 # The cover sheet. Deliberately plain HTML rather than markdown in the
@@ -206,6 +213,14 @@ COVER = """
     <p class="cover-sub">Toyota Sienna Modular Camper Conversion — Full Build Plan</p>
     <p class="cover-meta">Vehicle measurements surveyed and verified Aug 1, 2026.
        Dimensions in this document drive real cuts — re-measure your own vehicle before building.</p>
+  </div>
+
+  <div class="cover-wip">
+    <strong class="tag">WORK IN PROGRESS — DRAFT OF {draft_date}</strong>
+    The van is still being built and this plan is still changing. Parts,
+    dimensions and steps may be revised as the build goes on. Download a
+    fresh copy from smoresoutdoors.life/project-smores/ before you buy or cut
+    anything.
   </div>
 
   <div class="cover-warn">
@@ -287,13 +302,13 @@ TEMPLATE = """<!doctype html>
 <body>
 {cover}
 <h1 class="doctitle">Project S'mores</h1>
-<p class="subtitle">Full Build Plan — Modular Lift-Out Design</p>
+<p class="subtitle">Full Build Plan — Modular Lift-Out Design · Work-in-progress draft</p>
 {toc}
 {body}
 </body></html>
 """
 
-FOOTER_TITLE = "Project S'mores — Sienna Camper Build Plan"
+FOOTER_TITLE = "Project S'mores build plan — DRAFT, in progress"
 FOOTER_NOTE = "Build at your own risk — see the disclaimer on the cover"
 
 
@@ -514,7 +529,11 @@ def main():
     )
 
     toc_html = build_toc(headings)
-    full_html = TEMPLATE.format(css=CSS, cover=COVER, toc=toc_html, body=html_body)
+    # Dated so a reader holding a printout can tell how old it is. Plain
+    # replace, not .format(): the cover is HTML and may grow braces.
+    draft_date = datetime.date.today().strftime("%B %-d, %Y")
+    cover = COVER.replace("{draft_date}", draft_date)
+    full_html = TEMPLATE.format(css=CSS, cover=cover, toc=toc_html, body=html_body)
     HTML_PATH.write_text(full_html)
     print(f"wrote {HTML_PATH}")
 
