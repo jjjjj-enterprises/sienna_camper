@@ -22,6 +22,7 @@ Two-person setup, 2nd row seats **removed entirely** (3rd row folded flat; seat 
 > - **Panel B floor:** a drop-in floor of ½" plywood, <b>23¾" × 36"</b>, rests on Panel B's two bottom end rails (no spacer), between the legs side to side and stopping just short of the frame ends. It keeps stowed things off the 2nd-row seat slider, which stands 2½" above the van floor. Measure the 36" between your own legs and take ⅛" off. A 1" finger hole near one edge lifts it out. To get it in, slide one end down under a top end rail, then drop the other end in.
 > - **Control cluster:** the fuse block and W1209 are held on with Velcro, so a pulled wire releases the Velcro instead of the wiring (Fridge Bay Cooling sheet).
 > - **Leg feet:** center the insert bore, and keep frame screws off the bore's line (see the LEG BOTTOM spec below).
+> - **Fridge leg (9 Nov):** a removable 2x2 leg, 24½" plus a leveling foot, screws up into a T-nut in the tray 2" in from its outer end when the fridge is pulled out (25½" from the extended tray to the ground). Fridge Tray sheet, Section I.
 
 **Vehicle measurements** — the van was surveyed on Aug 1 2026 and every dimension in this plan comes from that survey. The full record (V1–V10 interior/opening measurements, F1–F8 rear-floor survey, and the few items still open) is **Appendix A**.
 
