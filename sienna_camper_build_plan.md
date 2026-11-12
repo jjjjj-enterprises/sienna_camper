@@ -12,7 +12,7 @@ Two-person setup, 2nd row seats **removed entirely** (3rd row folded flat; seat 
 >
 > - **Length: Panel B is 24", not 29", so the platform is 88.75" overall, not 93.75".** The 93¾" hatch-to-seatback length (V1) was measured with the front seats all the way forward. Nobody drives like that, and it leaves no room to reach the seatback map pockets. **Set the front seats where you want them first (your driving position, with some gap behind them so you can get to the map pockets), then measure hatch to seatbacks and size Panel B to what's left.** <mark>**Install with the front seats' slides in their rearmost position**, so the platform fits even with the seats all the way back; slide them forward to where you drive afterward.</mark> Panel B's frame at 24": long side rails 21" (24" less two 1½" end rails), center bearer cut to the measured gap less ¼" (about 20¾"), short bottom side rails about 18" between the legs. Bed-platform halves for Panel B: 24" side rails, 4 slats each instead of 5, gaps 3⅓". **As built:** the halves were already assembled, so 5⅛" came off one end of each (23⅞", 4 slats, 1½" of open rail at that end, left open on purpose for adjusting later).
 > - **Height: Panels A and B have to come up.** Panel A comes up 4.75" at both ends. Panel B comes up 4.25" at the windshield end and 0.5" at the tailgate end. **For a new build, make the legs longer by those amounts:** Panel A's legs 16.75" → 21.5"; Panel B's windshield-end legs 16.75" → 21", tailgate-end legs 16.75" → 17.25". <mark>**As built** (legs already cut and footed), **changed 7 Nov 2026: the lift goes under the legs, on the floor.** The floor padding squishes under a foot's small pad, so blocks between the panel frame and the bed frame (the first as-built fix) are dropped. One runner per side, two 2x6s and a 1x6 laid flat (3¾"), 34" long, runs front to back under Panel A's four legs and Panel B's two windshield-end legs; a 6" piece of 1x6 goes under each of Panel B's tailgate-end legs and Panel C's driver-side windshield-end leg; Panel C's tailgate-end legs stand on the old comb's metal straps, laid front to back under the anchor board. The bed platform sits straight on the frames. Check Panel A with a level: 3¾" plus the feet's ½" is ½" short of its 4¾", and a second 1x6 on the runners fixes it (Floor Runners sheet).</mark>
-> - **The spare tire is out for now.** It rode flat in Panel B (28½" across), and a 24" Panel B has only about 21" between its end rails. Anything in this plan that stows the spare (or the RJ-MODINI kit) in Panel B is superseded.
+> - **The spare tire rides outside now (owner, 11 Nov): on the bike rack or a roof carrier, not decided yet.** It rode flat in Panel B (28½" across), and a 24" Panel B has only about 21" between its end rails. Anything in this plan that stows the spare (or the RJ-MODINI kit) in Panel B is superseded.
 > - **No relief notches.** The 3"-wide notches for the old comb's backup straps (Panel B's end bottom rail, Panel C's front bottom rail, blocks and wall) are dropped from the plan. If yours are already cut, leave them; nothing needs them.
 > - The 3D model, the renders and most shop sheets still show the 29" Panel B, the original leg lengths and the spare. Where they differ, this note is right.
 
@@ -763,7 +763,6 @@ Every wooden joint's method — biscuit vs. screw — with the exact biscuit spa
 | Erickson ratchet straps (01415), 400 lb WLL / 1,200 lb break, 1" x 10' (2: kitchen unit, front to H2/H4 and rear to the footman loops; 3 optional backups to the striker loops; 3 spare) | 2 packs of 4 | $32 | $64 |
 | Fridge hold-down — 1 low-profile cam strap + 2 screw-eye D-rings (hooks to the fridge's 2 end handles, down to the tray's side apron — keeps the fridge from lifting off the tray in a hard stop) | 1 set | $10 | $10 |
 | Cable clips for the fridge DC line's slide-travel slack (3, screwed to the slide's fixed outer rail — same VIPMOON-type clip as the cooktop run, buy links below) | 3 | $1 | $3 |
-| Tension rod + blackout curtain fabric | 1 | $40 | $40 |
 | **BEHR Premium Plus 1 qt. Black Flat Low Odor Interior Paint & Primer** (130004) — **matte black on all three frames**. ~52 sq ft of frame surface vs ~100 sq ft/coat, so one quart covers two coats with margin; paint-and-primer in one because raw pine drinks the first coat. Low-odor / GREENGUARD Gold, which matters in a vehicle you sleep in. **Apply AFTER assembly — see the paint note in Section 3** — **PURCHASED 2026-09-06** | 1 qt | $17.48 | $17.48 |
 | Interior satin polyurethane for Panel C's deck and the drawer/tray surfaces things slide across (NOT spar urethane — H.5 note 5) | 1 qt | $20 | $20 |
 | Sandpaper, misc finishing supplies | — | $15 | $15 |
@@ -1717,21 +1716,19 @@ Build this one before Component 1 (Rear Pantry) — the pantry tote and the micr
 </div>
 </div>
 
-### Component 10: Final Assembly, Curtain & Test Fit
+### Component 10: Final Assembly & Test Fit
 
 ![Component 10 — finished component, accessory list & part list](renders/steps/comp-10-header.png)
 
 **Parts needed:**
 
-- Tension rod + blackout curtain fabric
 - Wood sealant/varnish, sandpaper/misc finishing supplies
 
 **Steps:**
 
 1. Sand and apply 2 coats of wood sealant/varnish to all plywood surfaces (especially edges) to prevent moisture damage.
-2. Install the curtain rod (tension rod + blackout fabric) between the front seats and the platform area for privacy.
-3. Test fit everything: confirm the cooktop's and Power strip 1's cords reach the REAR outlet, the DELTA 3's charging cord reaches the front console outlet, confirm the fridge's DC line reaches the DELTA 3 in Panel A with its disconnects seated at both seams, and confirm the tailgate closes with everything loaded.
-4. Do a full lift-out/reinstall dry run on Panel A, Panel B, and Panel C — gripping each by its exposed top rails, each should come free and drop back in without binding, rubbing, or forcing a bumper/pin out of place. For **Panel A and Panel B specifically**, also test lifting the one-piece bed platform off the box rails first (they have no top or lid of their own — the platform is the only thing capping them), then confirm each panel's drawers pull smoothly once it's clear. For **the rear pantry specifically**, unhook the cam strap and confirm the tote and the microwave lift off Panel C cleanly, and that the strap re-cinches square over both.
+2. Test fit everything: confirm the cooktop's and Power strip 1's cords reach the REAR outlet, the DELTA 3's charging cord reaches the front console outlet, confirm the fridge's DC line reaches the DELTA 3 in Panel A with its disconnects seated at both seams, and confirm the tailgate closes with everything loaded.
+3. Do a full lift-out/reinstall dry run on Panel A, Panel B, and Panel C — gripping each by its exposed top rails, each should come free and drop back in without binding, rubbing, or forcing a bumper/pin out of place. For **Panel A and Panel B specifically**, also test lifting the one-piece bed platform off the box rails first (they have no top or lid of their own — the platform is the only thing capping them), then confirm each panel's drawers pull smoothly once it's clear. For **the rear pantry specifically**, unhook the cam strap and confirm the tote and the microwave lift off Panel C cleanly, and that the strap re-cinches square over both.
 
 *No diagram — finishing and test steps, not new construction.*
 
@@ -2254,7 +2251,7 @@ The order to build in — **dependency-first, not the Component numbering.** Wor
 **Phase 9 — Install in the van** (Components 10 + 8)
 1. Set Panel A → B → C; register the alignment pins.
 2. Connect power + stow the DELTA 3 stack and WAVE 3; load Panel B — RJ-MODINI spare flat on its skid (liner under), valve up, tool case in the wheel, 2 totes on top, cam strap to the footman loops.
-3. Lay the platform → HEST mattress → tension-rod curtain.
+3. Lay the platform → HEST mattress.
 
 **Phase 10 — Commission & test** (Component 10) — *critical*
 1. Lift-out / reinstall dry run (each panel by its top rails; pantry drawer units by loosening the cam strap).
@@ -2282,7 +2279,7 @@ Consolidates Section 4's BOM into a shopping order with links. Prices are estima
 
 **Anchoring (no-drill, Section 8)** — Erickson ratchet straps, 2 4-packs ($64); eye bolts, ¼" chain and quick links for the hoop connections ($30); two 3" × 3/16" × 48" steel flat bars for the rungs ($40); 2 more quick links for the hoop loops ($8); anchor-board T-nuts and screws ($15); ⅛" neoprene ($20); fridge-slide steel riser angles ×2 ($24).
 
-**Comfort & interior** — [HEST Dually Long mattress](https://hest.com/products/dually) ($530–590); Windmill Smart fan ($69, PURCHASED); tension rod + blackout curtain ($40); [PeaceOut Sienna bug nets](https://peaceout.ca/en/products/toyota-sienna-front-sliding-doors-bug-nets) (~$197); [EcoFlow WAVE vent kit](https://us.ecoflow.com/products/wave-car-vent-kit) ($39); non-slip mat ($12); WAVE 3 hose hook ($4); WAVE 3 D-rings + cam strap ($11); DELTA 3 drawer hardware ($15).
+**Comfort & interior** — [HEST Dually Long mattress](https://hest.com/products/dually) ($530–590); Windmill Smart fan ($69, PURCHASED); [PeaceOut Sienna bug nets](https://peaceout.ca/en/products/toyota-sienna-front-sliding-doors-bug-nets) (~$197); [EcoFlow WAVE vent kit](https://us.ecoflow.com/products/wave-car-vent-kit) ($39); non-slip mat ($12); WAVE 3 hose hook ($4); WAVE 3 D-rings + cam strap ($11); DELTA 3 drawer hardware ($15).
 
 **Found storage** — DELTA 3 drawer tray ($8); utility-bay bins ×2 + hook-and-loop tape ($8).
 
