@@ -10,6 +10,10 @@ You don't need git. Pick one of the
 [issue forms](../../issues/new/choose), fill it in and attach photos if you have
 them. We'll fold it into the plan and credit you if you'd like.
 
+Issues are for things that should change the plan. Questions, ideas and photos
+of your own build go in [Discussions](../../discussions): **Q&A**, **Ideas**
+and **Show and tell**.
+
 ## Editing the plan yourself
 
 1. Open [`sienna_camper_build_plan.md`](sienna_camper_build_plan.md) on GitHub

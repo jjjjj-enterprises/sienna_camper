@@ -1,5 +1,11 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Ask a question
+    url: https://github.com/jjjjj-enterprises/sienna_camper/discussions/categories/q-a
+    about: Questions go in Discussions Q&A, where the answers stay findable for the next builder.
+  - name: Show off your build, or share an idea
+    url: https://github.com/jjjjj-enterprises/sienna_camper/discussions
+    about: Photos of your own build, ideas and general camper talk.
   - name: No GitHub account? Use the contact form
     url: https://smoresoutdoors.life/contact.html
     about: Send a correction or a build report through the S'more's Outdoors site instead.

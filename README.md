@@ -23,7 +23,11 @@ plan can get. No git needed:
   dimension, part or step that's wrong.
 - **[Tell us how your build went](../../issues/new?template=built-it.yml)**: what
   fit in your van, what didn't, what you'd change. Photos welcome.
-- **[Ask a question](../../issues/new?template=question.yml)**
+- **[Ask a question](../../discussions/categories/q-a)** in Discussions, where
+  the answers stay findable for the next person.
+- **[Show off your build](../../discussions/categories/show-and-tell)**, or
+  just talk camper conversions, in
+  [Discussions](../../discussions).
 
 Each one needs a free GitHub account. If you don't have one, use the
 [contact form on the site](https://smoresoutdoors.life/contact.html) instead.
