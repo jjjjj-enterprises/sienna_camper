@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: No GitHub account? Use the contact form
+    url: https://smoresoutdoors.life/contact.html
+    about: Send a correction or a build report through the S'more's Outdoors site instead.
+  - name: Build log, photos and parts list
+    url: https://smoresoutdoors.life/project-smores/
+    about: Everything built so far, with what each part actually cost.

@@ -289,9 +289,9 @@ COVER = """
   </div>
 
   <div class="cover-foot">
-    Free to view, share, and build from for personal, non-commercial use only.
-    Commercial use, resale, or redistribution for profit is prohibited without
-    prior written permission. &copy; 2026 JJJJJ Enterprises, LLC — all rights reserved.
+    &copy; 2026 JJJJJ Enterprises, LLC. Licensed under CC BY-NC-SA 4.0: free to
+    view, share, build from and adapt for personal, non-commercial use, with credit.
+    Commercial use or resale needs written permission.
   </div>
 </div>
 """

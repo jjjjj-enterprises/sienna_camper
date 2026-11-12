@@ -1,0 +1,45 @@
+name: I built it
+description: Tell us how your build went, what fit, what didn't and what you'd change.
+title: "Build report: "
+labels: ["build report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Whether you built the whole thing or one drawer, we'd love to hear how it went.
+  - type: input
+    id: van
+    attributes:
+      label: Your van
+      placeholder: "e.g. 2022 Sienna LE FWD, 8-passenger"
+    validations:
+      required: true
+  - type: textarea
+    id: built
+    attributes:
+      label: What did you build?
+      description: The whole platform, or which parts?
+    validations:
+      required: true
+  - type: textarea
+    id: worked
+    attributes:
+      label: What worked as written?
+  - type: textarea
+    id: changed
+    attributes:
+      label: What didn't fit, or what did you change?
+      description: Measurements help the most.
+  - type: textarea
+    id: photos
+    attributes:
+      label: Photos
+      description: Drag and drop images here. Strip location data if you'd rather not share it.
+  - type: dropdown
+    id: credit
+    attributes:
+      label: Credit in the plan?
+      description: If we use your report, may we mention you?
+      options:
+        - "Yes, by my GitHub name"
+        - "No, keep it anonymous"

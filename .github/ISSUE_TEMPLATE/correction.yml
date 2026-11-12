@@ -1,0 +1,40 @@
+name: Correction
+description: A dimension, part, link or step in the plan is wrong or unclear.
+title: "Correction: "
+labels: ["correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! Corrections from people who actually build it are the most useful thing this plan gets.
+  - type: input
+    id: where
+    attributes:
+      label: Where in the plan?
+      description: PDF page number, section or component name, or the sheet's title.
+      placeholder: "e.g. page 112, Component 6, step 4"
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What does it say, and what's wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: right
+    attributes:
+      label: What should it say?
+      description: Say whether you measured it yourself, and how.
+    validations:
+      required: true
+  - type: input
+    id: van
+    attributes:
+      label: Your van (if it's about fit)
+      placeholder: "e.g. 2023 Sienna XLE AWD"
+  - type: textarea
+    id: photos
+    attributes:
+      label: Photos
+      description: Drag and drop images here if they help.
