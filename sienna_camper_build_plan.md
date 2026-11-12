@@ -2761,7 +2761,37 @@ Two secondary items: **the bikes will obscure the license plate and rear lights*
 
 **Why this exists:** the official [EcoFlow WAVE Car Vent Kit](https://us.ecoflow.com/products/wave-car-vent-kit) (BOM, $40) is a nylon sleeve with an elastic edge. On the Sienna's sliding door it doesn't fit well and can't hold the hoses: they sag, shift, and pull the fabric out of place. This appendix replaces it with a **rigid window insert**: a plastic panel that sits in the window channels, pinched by the raised glass, with both hoses locked into it. The fabric kit is cut up and reused as the weather skirt.
 
-**Status:** designed, not built. Every dimension below comes from the measuring sheet at the end of this appendix. **Fill that in first**, then cut a cardboard template before any plastic. This is the no-tent configuration (Section 1): tailgate shut, WAVE 3 venting out a side window instead of the open tailgate.
+**Status:** designed, not built; most measurements taken 12 Nov 2026 (below). Every dimension below comes from the measuring sheet at the end of this appendix. **Fill that in first**, then cut a cardboard template before any plastic. This is the no-tent configuration (Section 1): tailgate shut, WAVE 3 venting out a side window instead of the open tailgate.
+
+#### Measured on the van (owner, 12 Nov 2026)
+
+Driver-side slider (the door nearest Panel A's WAVE 3 bay). Taken with the measuring sheet; three numbers are photo estimates and are marked so.
+
+| # | Measurement | Value |
+|---|---|---|
+| J3 | Width at top, inside edge to inside edge | **34"** |
+| J4 | Width at the glass line, glass fully down | ~33⅜" (photo estimate) |
+| J1 | Top of opening to top of glass, middle, glass fully down | **12⅝"** (photos read 13" to 13⅞" near the ends) |
+| — | Glass that stays up when fully down | ~4" (photo estimate); the glass doesn't retract all the way |
+| J7 | Top channel depth | **⅜"** |
+| J8 / J9 | Front / rear side channel depth | **¾"** each |
+| J10 | Front-top corner | A **6⅞" radius** curve, but it is interior trim **behind** the glass: the glass slides in front of it. The channels and the panel can be square; the curve only limits where a hose can come through from inside |
+| J11 | Glass thickness | **3 mm** (about ⅛") |
+| J12 / J13 | Intake collar: body / face | **6 1/16"** / ~6⅜" (face from a photo) |
+| J15 / J16 | Exhaust collar: body / face | **5"** / ~5⅛" (face from a photo) |
+| J14 / J17 | Collar length | ~1" to 1¼" (photo estimate) |
+| J18 | Hose length, unit to window | intake **54"**, exhaust **55"** |
+| J20 | Door trim to platform edge, door shut | **4½"** |
+| J21–J23 | Deck height, drain port, drain tube | not yet measured |
+
+**The panel these numbers give (Option B):**
+
+- **Width 34 11/16".** Tuck ⅜" into each side channel: 34" + ⅜" + ⅜" − 1/16". To fit it, push one end fully into its ¾" channel, swing the other end past the frame (it clears by 1/16"), then center it.
+- **Height 9¾"**, which leaves the glass about 9" down: 9" opening + ⅜" into the top channel + ⅜" where the U-channel trim meets the glass.
+- **Holes:** intake **6⅛"**, exhaust **5 1/16"**, both centered 4⅞" down from the panel's top edge (mid-height of the 9" opening). Intake center **9" back from the front edge of the opening**, exhaust center **9" forward of the rear edge**, so **16" apart**. At 9" back, the intake hole stays inside the 6⅞" corner trim by about ⅝".
+- **U-channel trim** sized for a ⅛" panel; the 3 mm glass bears on it from below.
+
+**The one problem the numbers turn up: the 4½" gap.** The 6" intake hose won't pass through a 4½" door-to-platform gap without being squashed flat, which chokes its airflow. Before cutting plastic, check how the hoses reach the window: whether they can climb past the deck edge somewhere wider, come up through the front gap behind the seats, or route over the deck. That routing also sets the hose lengths (54" and 55" now).
 
 #### What it has to do
 
@@ -2850,7 +2880,7 @@ Two secondary items: **the bikes will obscure the license plate and rear lights*
 
 #### Open questions before building
 
-1. **Which door?** The panel goes in the slider nearest the unit. Section 1 stores the WAVE 3 in Panel A's left bay (driver side) and runs it on the front passenger seat for no-tent sleeping; if it will run under the platform instead, decide where.
+1. **Which door?** Settled 12 Nov 2026: the **driver-side** slider, nearest Panel A's WAVE 3 bay. Open instead: **hose routing past the 4½" door-to-platform gap** (see the measurements above).
 2. **Airflow in the bay.** If it runs under the platform, check its cold-air outlet isn't blowing into the deck underside. Panel A's bay has about 2.8" of headroom.
 
 <div class="pagebreak"></div>
