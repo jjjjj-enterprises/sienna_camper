@@ -2757,8 +2757,6 @@ Two secondary items: **the bikes will obscure the license plate and rear lights*
 
 **Not rolled into Appendix F's totals on purpose.** The 218 lb is a bolt-on carried some trips and not others, so folding it into the ≈488 lb build total would misstate the van's permanent weight. If you decide to make the rack permanent, add it to `weight_budget.py` as a `rear` zone line and re-run — the fore-aft center of mass and the rear-third share will both move noticeably.
 
-<div class="pagebreak"></div>
-
 ### Appendix J — WAVE 3 Window Vent Panel (DRAFT, not yet built)
 
 **Why this exists:** the official [EcoFlow WAVE Car Vent Kit](https://us.ecoflow.com/products/wave-car-vent-kit) (BOM, $40) is a nylon sleeve with an elastic edge. On the Sienna's sliding door it doesn't fit well and can't hold the hoses: they sag, shift, and pull the fabric out of place. This appendix replaces it with a **rigid window insert**: a plastic panel that sits in the window channels, pinched by the raised glass, with both hoses locked into it. The fabric kit is cut up and reused as the weather skirt.
@@ -2800,7 +2798,7 @@ Two secondary items: **the bikes will obscure the license plate and rear lights*
 **Sizing, from the measuring sheet:**
 
 - **Panel width** = window width (J3 or J4, whichever is larger) + front channel depth (J8) + rear channel depth (J9) − 1/8", so the panel flexes into the channels.
-- **Panel height** = opening height at your chosen drop (J5) + top channel depth (J7) + 3/8" for the glass to grip.
+- **Panel height** = the largest drop at your chosen setting (J1, J5 front, J5 rear) + top channel depth (J7) + 3/8" for the glass to grip.
 - **Hole diameter** = collar body outside diameter (J12, J15) + 1/16".
 - **Hole spacing:** intake toward the front, exhaust toward the rear, as far apart as the panel allows, and **at least 12" center to center.** Keep at least 1" of plastic between any hole and the panel edge.
 - **Minimum window drop:** larger collar diameter + 2" of plastic + the channel tuck. For a ~6" collar, about 9".
@@ -2859,57 +2857,235 @@ Two secondary items: **the bikes will obscure the license plate and rear lights*
 
 #### Measuring sheet: WAVE 3 window vent panel
 
-Print this page and fill it in at the van. Measure in inches to the nearest 1/16". Do the window rows at three drops, measured down from the top of the opening to the top of the glass. Photograph each spot as you measure it.
+Print this page and write your numbers **in the boxes on the drawings**, in inches to the nearest 1/16". Boxes split into 6" / 9" / 12" take one number at each window drop (lower the glass until the top of the glass is that far below the top of the opening). How to take each measurement is on the next page.
 
 <table class="measure-sheet"><tr><th style="width:13%">Van (year, model)</th><td style="width:30%"></td><th style="width:12%">Door (driver / passenger)</th><td style="width:15%"></td><th style="width:7%">Date</th><td style="width:23%"></td></tr></table>
 
-<table class="measure-sheet">
-<tr><th>#</th><th>Window opening</th><th>How to measure</th><th>6" drop</th><th>9" drop</th><th>12" drop</th></tr>
-<tr><td>J1</td><td>Actual drop</td><td>Top of opening to top of glass, at the middle</td><td></td><td></td><td></td></tr>
-<tr><td>J2</td><td>Window sill height</td><td>Cargo floor to top of glass</td><td></td><td></td><td></td></tr>
-<tr><td>J3</td><td>Width at top</td><td>Inside edge to inside edge of the frame, just below the top</td><td></td><td></td><td></td></tr>
-<tr><td>J4</td><td>Width at glass line</td><td>Same, at the top of the glass</td><td></td><td></td><td></td></tr>
-<tr><td>J5</td><td>Opening height</td><td>Top of glass to top of opening, at front, middle, rear (write all three)</td><td></td><td></td><td></td></tr>
-</table>
+<div class="sheet-svg"><svg viewBox="0 0 720 800" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:6.9in;display:block;margin:2pt auto;">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#555"/></marker><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#999" stroke-width="1.2"/></pattern></defs>
+<rect x="2" y="2" width="716" height="440" fill="none" stroke="#b8c0c8"/>
+<text x="12" y="20" font-size="13" text-anchor="start" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">1  Window, seen from inside the van (glass partly down)</text>
+<rect x="128" y="74" width="404" height="318" rx="10" fill="#eef0f2" stroke="#888"/>
+<path d="M150,340 L150,120 Q150,92 178,92 L482,92 Q510,92 510,120 L510,340 Z" fill="#fff" stroke="#333" stroke-width="2"/>
+<rect x="150" y="200" width="360" height="140" fill="#dceefb" stroke="none"/>
+<line x1="150" y1="200" x2="510" y2="200" stroke="#2b6cb0" stroke-width="2.5"/>
+<text x="504" y="214" font-size="9" text-anchor="end" font-weight="normal" fill="#2b6cb0" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">top of glass</text>
+<line x1="150" y1="318" x2="510" y2="318" stroke="#2b6cb0" stroke-width="1" stroke-dasharray="5,4"/>
+<text x="504" y="313" font-size="9" text-anchor="end" font-weight="normal" fill="#2b6cb0" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">glass fully down</text>
+<rect x="100" y="404" width="520" height="10" fill="url(#hatch)" stroke="none"/>
+<line x1="100" y1="404" x2="620" y2="404" stroke="#333" stroke-width="1.5"/>
+<text x="110" y="428" font-size="9" text-anchor="start" font-weight="normal" fill="#555" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">cargo floor</text>
+<line x1="430" y1="424" x2="330" y2="424" stroke="#333" stroke-width="1.2"/>
+<path d="M330,424 l8,-4 l0,8 z" fill="#333"/>
+<text x="440" y="428" font-size="9" text-anchor="start" font-weight="normal" fill="#333" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">front of van</text>
+<line x1="150" y1="92" x2="150" y2="54" stroke="#999" stroke-width="1"/>
+<line x1="510" y1="92" x2="510" y2="54" stroke="#999" stroke-width="1"/>
+<line x1="150" y1="60" x2="510" y2="60" stroke="#555" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<rect x="300.0" y="47.0" width="60" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="292" y="64" font-size="10.5" text-anchor="end" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J3</text>
+<text x="366" y="64" font-size="9" text-anchor="start" font-weight="normal" fill="#222" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">width at top</text>
+<line x1="196" y1="92" x2="196" y2="200" stroke="#555" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<rect x="145.0" y="133.0" width="102" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="147.5" y="141.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">6"</text>
+<line x1="179.0" y1="133.0" x2="179.0" y2="159.0" stroke="#222" stroke-width="0.8"/>
+<text x="181.5" y="141.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">9"</text>
+<line x1="213.0" y1="133.0" x2="213.0" y2="159.0" stroke="#222" stroke-width="0.8"/>
+<text x="215.5" y="141.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">12"</text>
+<text x="196" y="124" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J5 front</text>
+<line x1="330" y1="92" x2="330" y2="200" stroke="#555" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<rect x="279.0" y="133.0" width="102" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="281.5" y="141.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">6"</text>
+<line x1="313.0" y1="133.0" x2="313.0" y2="159.0" stroke="#222" stroke-width="0.8"/>
+<text x="315.5" y="141.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">9"</text>
+<line x1="347.0" y1="133.0" x2="347.0" y2="159.0" stroke="#222" stroke-width="0.8"/>
+<text x="349.5" y="141.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">12"</text>
+<text x="330" y="124" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J1 middle</text>
+<line x1="464" y1="92" x2="464" y2="200" stroke="#555" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<rect x="413.0" y="133.0" width="102" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="415.5" y="141.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">6"</text>
+<line x1="447.0" y1="133.0" x2="447.0" y2="159.0" stroke="#222" stroke-width="0.8"/>
+<text x="449.5" y="141.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">9"</text>
+<line x1="481.0" y1="133.0" x2="481.0" y2="159.0" stroke="#222" stroke-width="0.8"/>
+<text x="483.5" y="141.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">12"</text>
+<text x="464" y="124" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J5 rear</text>
+<line x1="150" y1="226" x2="510" y2="226" stroke="#555" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<rect x="279.0" y="213.0" width="102" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="281.5" y="221.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">6"</text>
+<line x1="313.0" y1="213.0" x2="313.0" y2="239.0" stroke="#222" stroke-width="0.8"/>
+<text x="315.5" y="221.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">9"</text>
+<line x1="347.0" y1="213.0" x2="347.0" y2="239.0" stroke="#222" stroke-width="0.8"/>
+<text x="349.5" y="221.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">12"</text>
+<text x="274" y="230" font-size="10.5" text-anchor="end" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J4</text>
+<text x="384" y="230" font-size="9" text-anchor="start" font-weight="normal" fill="#222" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">width at glass</text>
+<line x1="150" y1="92" x2="96" y2="92" stroke="#999" stroke-width="1"/>
+<line x1="150" y1="318" x2="96" y2="318" stroke="#999" stroke-width="1"/>
+<line x1="104" y1="92" x2="104" y2="318" stroke="#555" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<rect x="79.0" y="249.0" width="50" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="104" y="244" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J6</text>
+<text x="104" y="290" font-size="8.5" text-anchor="middle" font-weight="normal" fill="#555" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">glass</text>
+<text x="104" y="300" font-size="8.5" text-anchor="middle" font-weight="normal" fill="#555" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">fully down</text>
+<circle cx="159" cy="101" r="18" fill="none" stroke="#c0392b" stroke-width="1.3" stroke-dasharray="3,2"/>
+<line x1="142" y1="86" x2="70" y2="60" stroke="#c0392b" stroke-width="1"/>
+<text x="40" y="40" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J10 corner</text>
+<rect x="12.0" y="47.0" width="56" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="40" y="84" font-size="8.5" text-anchor="middle" font-weight="normal" fill="#555" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">square, or</text>
+<text x="40" y="95" font-size="8.5" text-anchor="middle" font-weight="normal" fill="#555" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">radius</text>
+<line x1="510" y1="200" x2="600" y2="200" stroke="#999" stroke-width="1"/>
+<line x1="588" y1="200" x2="588" y2="404" stroke="#555" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<rect x="575.0" y="287.0" width="90" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="577.5" y="295.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">6"</text>
+<line x1="605.0" y1="287.0" x2="605.0" y2="313.0" stroke="#222" stroke-width="0.8"/>
+<text x="607.5" y="295.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">9"</text>
+<line x1="635.0" y1="287.0" x2="635.0" y2="313.0" stroke="#222" stroke-width="0.8"/>
+<text x="637.5" y="295.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">12"</text>
+<text x="620" y="278" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J2 sill height</text>
+<text x="620" y="326" font-size="8.5" text-anchor="middle" font-weight="normal" fill="#555" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">floor to top of glass</text>
+<rect x="461.0" y="21.0" width="78" height="18" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="463.5" y="29.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">6"</text>
+<line x1="487.0" y1="21.0" x2="487.0" y2="39.0" stroke="#222" stroke-width="0.8"/>
+<text x="489.5" y="29.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">9"</text>
+<line x1="513.0" y1="21.0" x2="513.0" y2="39.0" stroke="#222" stroke-width="0.8"/>
+<text x="515.5" y="29.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">12"</text>
+<text x="560" y="26" font-size="8.5" text-anchor="start" font-weight="normal" fill="#555" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">= one number at each</text>
+<text x="560" y="37" font-size="8.5" text-anchor="start" font-weight="normal" fill="#555" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">window drop</text>
+<rect x="2" y="452" width="234" height="346" fill="none" stroke="#b8c0c8"/>
+<text x="12" y="470" font-size="12" text-anchor="start" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">2  Window channel, cut</text>
+<text x="12" y="484" font-size="9" text-anchor="start" font-weight="normal" fill="#555" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">through (top channel shown)</text>
+<rect x="42" y="498" width="130" height="22" fill="url(#hatch)" stroke="#888"/>
+<path d="M77,520 L77,590 M127,520 L127,590" stroke="#333" stroke-width="3" fill="none"/>
+<rect x="97" y="548" width="10" height="92" fill="#dceefb" stroke="#2b6cb0"/>
+<text x="114" y="636" font-size="9" text-anchor="start" font-weight="normal" fill="#2b6cb0" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">glass</text>
+<line x1="127" y1="590" x2="162" y2="590" stroke="#999" stroke-width="1"/>
+<line x1="152" y1="520" x2="152" y2="590" stroke="#555" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="158" y="560" font-size="9" text-anchor="start" font-weight="normal" fill="#555" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">depth</text>
+<line x1="82" y1="612" x2="97" y2="612" stroke="#555" stroke-width="1"/>
+<line x1="107" y1="612" x2="122" y2="612" stroke="#555" stroke-width="1"/>
+<path d="M97,612 l-6,-3 l0,6 z M107,612 l6,-3 l0,6 z" fill="#555"/>
+<text x="42" y="616" font-size="9" text-anchor="start" font-weight="normal" fill="#555" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">thickness</text>
+<text x="14" y="676" font-size="10.5" text-anchor="start" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J7</text>
+<text x="46" y="676" font-size="9.5" text-anchor="start" font-weight="normal" fill="#222" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">top channel depth</text>
+<rect x="172.0" y="659.0" width="56" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="14" y="707" font-size="10.5" text-anchor="start" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J8</text>
+<text x="46" y="707" font-size="9.5" text-anchor="start" font-weight="normal" fill="#222" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">front side depth</text>
+<rect x="172.0" y="690.0" width="56" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="14" y="738" font-size="10.5" text-anchor="start" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J9</text>
+<text x="46" y="738" font-size="9.5" text-anchor="start" font-weight="normal" fill="#222" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">rear side depth</text>
+<rect x="172.0" y="721.0" width="56" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="14" y="769" font-size="10.5" text-anchor="start" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J11</text>
+<text x="46" y="769" font-size="9.5" text-anchor="start" font-weight="normal" fill="#222" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">glass thickness</text>
+<rect x="172.0" y="752.0" width="56" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<rect x="243" y="452" width="234" height="346" fill="none" stroke="#b8c0c8"/>
+<text x="253" y="470" font-size="12" text-anchor="start" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">3  Hose end collar, side view</text>
+<rect x="283" y="500" width="12" height="96" fill="#555" stroke="#222"/>
+<rect x="295" y="510" width="62" height="76" fill="#888" stroke="#222"/>
+<rect x="357" y="506" width="80" height="84" fill="#ccc" stroke="#555"/>
+<line x1="363" y1="506" x2="363" y2="590" stroke="#999" stroke-width="1"/>
+<line x1="372" y1="506" x2="372" y2="590" stroke="#999" stroke-width="1"/>
+<line x1="381" y1="506" x2="381" y2="590" stroke="#999" stroke-width="1"/>
+<line x1="390" y1="506" x2="390" y2="590" stroke="#999" stroke-width="1"/>
+<line x1="399" y1="506" x2="399" y2="590" stroke="#999" stroke-width="1"/>
+<line x1="408" y1="506" x2="408" y2="590" stroke="#999" stroke-width="1"/>
+<line x1="417" y1="506" x2="417" y2="590" stroke="#999" stroke-width="1"/>
+<line x1="426" y1="506" x2="426" y2="590" stroke="#999" stroke-width="1"/>
+<line x1="435" y1="506" x2="435" y2="590" stroke="#999" stroke-width="1"/>
+<text x="397" y="602" font-size="9" text-anchor="middle" font-weight="normal" fill="#555" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">hose</text>
+<line x1="269" y1="500" x2="269" y2="596" stroke="#555" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="259" y="552" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">A</text>
+<line x1="326" y1="510" x2="326" y2="586" stroke="#fff" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="339" y="552" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">B</text>
+<line x1="283" y1="610" x2="283" y2="618" stroke="#999" stroke-width="1"/>
+<line x1="357" y1="590" x2="357" y2="618" stroke="#999" stroke-width="1"/>
+<line x1="283" y1="614" x2="357" y2="614" stroke="#555" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="320" y="630" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">C</text>
+<text x="413" y="652" font-size="8" text-anchor="middle" font-weight="bold" fill="#222" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">Intake</text>
+<text x="453" y="652" font-size="8" text-anchor="middle" font-weight="bold" fill="#222" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">Exhaust</text>
+<text x="257" y="674" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">A</text>
+<text x="269" y="674" font-size="9.5" text-anchor="start" font-weight="normal" fill="#222" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J13/16 lip dia</text>
+<rect x="393.0" y="657.0" width="80" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<line x1="433.0" y1="657.0" x2="433.0" y2="683.0" stroke="#222" stroke-width="0.8"/>
+<text x="257" y="701" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">B</text>
+<text x="269" y="701" font-size="9.5" text-anchor="start" font-weight="normal" fill="#222" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J12/15 body dia</text>
+<rect x="393.0" y="684.0" width="80" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<line x1="433.0" y1="684.0" x2="433.0" y2="710.0" stroke="#222" stroke-width="0.8"/>
+<text x="257" y="728" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">C</text>
+<text x="269" y="728" font-size="9.5" text-anchor="start" font-weight="normal" fill="#222" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J14/17 length</text>
+<rect x="393.0" y="711.0" width="80" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<line x1="433.0" y1="711.0" x2="433.0" y2="737.0" stroke="#222" stroke-width="0.8"/>
+<text x="269" y="755" font-size="9.5" text-anchor="start" font-weight="normal" fill="#222" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J18 hose length</text>
+<rect x="393.0" y="738.0" width="80" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<line x1="433.0" y1="738.0" x2="433.0" y2="764.0" stroke="#222" stroke-width="0.8"/>
+<text x="269" y="782" font-size="9.5" text-anchor="start" font-weight="normal" fill="#222" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J19 tightest bend</text>
+<rect x="393.0" y="765.0" width="80" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<line x1="433.0" y1="765.0" x2="433.0" y2="791.0" stroke="#222" stroke-width="0.8"/>
+<rect x="484" y="452" width="234" height="346" fill="none" stroke="#b8c0c8"/>
+<text x="494" y="470" font-size="12" text-anchor="start" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">4  Door and platform,</text>
+<text x="494" y="484" font-size="9" text-anchor="start" font-weight="normal" fill="#555" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">looking forward, door shut</text>
+<line x1="490" y1="700" x2="712" y2="700" stroke="#333" stroke-width="1.5"/>
+<rect x="490" y="700" width="222" height="8" fill="url(#hatch)" stroke="none"/>
+<rect x="688" y="540" width="10" height="160" fill="#eef0f2" stroke="#333"/>
+<rect x="690" y="494" width="6" height="46" fill="#dceefb" stroke="#2b6cb0"/>
+<text x="684" y="650" font-size="8.5" text-anchor="end" font-weight="normal" fill="#555" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">door</text>
+<rect x="524" y="585" width="120" height="12" fill="#d9b98a" stroke="#7a5c2e"/>
+<rect x="634" y="597" width="8" height="103" fill="#d9b98a" stroke="#7a5c2e"/>
+<text x="564" y="580" font-size="8.5" text-anchor="middle" font-weight="normal" fill="#7a5c2e" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">platform deck</text>
+<rect x="546" y="626" width="74" height="74" fill="#fff" stroke="#333"/>
+<text x="583" y="666" font-size="9" text-anchor="middle" font-weight="normal" fill="#222" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">WAVE 3</text>
+<circle cx="620" cy="690" r="3.5" fill="#2b6cb0"/>
+<line x1="644" y1="585" x2="644" y2="556" stroke="#999" stroke-width="1"/>
+<line x1="644" y1="562" x2="688" y2="562" stroke="#555" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<rect x="632.0" y="525.0" width="44" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="654" y="518" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J20 gap</text>
+<line x1="524" y1="585" x2="498" y2="585" stroke="#999" stroke-width="1"/>
+<line x1="506" y1="585" x2="506" y2="700" stroke="#555" stroke-width="1" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<rect x="492.0" y="632.0" width="44" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="514" y="622" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J21</text>
+<text x="514" y="670" font-size="8.5" text-anchor="middle" font-weight="normal" fill="#555" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">deck ht</text>
+<text x="496" y="739" font-size="10.5" text-anchor="start" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J22</text>
+<text x="528" y="739" font-size="9.5" text-anchor="start" font-weight="normal" fill="#222" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">drain port height</text>
+<rect x="655.0" y="722.0" width="50" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="496" y="773" font-size="10.5" text-anchor="start" font-weight="bold" fill="#1a3a5c" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">J23</text>
+<text x="528" y="773" font-size="9.5" text-anchor="start" font-weight="normal" fill="#222" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">drain tube</text>
+<rect x="648.0" y="756.0" width="64" height="26" fill="#fff" stroke="#222" stroke-width="1.2"/>
+<text x="650.5" y="764.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">dia</text>
+<line x1="680.0" y1="756.0" x2="680.0" y2="782.0" stroke="#222" stroke-width="0.8"/>
+<text x="682.5" y="764.0" font-size="7" text-anchor="start" font-weight="normal" fill="#888" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round" font-family="DejaVu Sans, sans-serif">length</text>
+</svg></div>
 
-<table class="measure-sheet">
-<tr><th>#</th><th>Channels and glass</th><th>How to measure</th><th>Your number</th></tr>
-<tr><td>J6</td><td>Lowest the glass goes</td><td>Run it fully down. Top of opening to top of glass</td><td></td></tr>
-<tr><td>J7</td><td>Top channel depth</td><td>Slide a zip tie up into the channel until it stops; mark and measure</td><td></td></tr>
-<tr><td>J8</td><td>Front side channel depth</td><td>Same, into the front run channel</td><td></td></tr>
-<tr><td>J9</td><td>Rear side channel depth</td><td>Same, into the rear run channel</td><td></td></tr>
-<tr><td>J10</td><td>Top corners</td><td>Square or curved? If curved, the radius (trace onto paper)</td><td></td></tr>
-<tr><td>J11</td><td>Glass thickness</td><td>Calipers at the top edge (sizes the U-channel)</td><td></td></tr>
-</table>
+<div class="pagebreak"></div>
 
-<table class="measure-sheet">
-<tr><th>#</th><th>Hoses</th><th>How to measure</th><th>Intake</th><th>Exhaust</th></tr>
-<tr><td>J12 / J15</td><td>Collar body, outside diameter</td><td>Calipers, or wrap a paper strip and divide its length by 3.14</td><td></td><td></td></tr>
-<tr><td>J13 / J16</td><td>Collar lip diameter</td><td>The widest ring at the end. Write "none" if there's no lip</td><td></td><td></td></tr>
-<tr><td>J14 / J17</td><td>Collar length</td><td>From the lip to where the hose starts</td><td></td><td></td></tr>
-<tr><td>J18</td><td>Hose length, unit to window</td><td>Along the route it will take, with a little slack</td><td></td><td></td></tr>
-<tr><td>J19</td><td>Tightest bend without a kink</td><td>Bend it gently; measure the inside radius</td><td></td><td></td></tr>
-</table>
+#### How to take each measurement
 
-<table class="measure-sheet">
-<tr><th>#</th><th>Clearances and drain</th><th>How to measure</th><th>Your number</th></tr>
-<tr><td>J20</td><td>Door trim to platform edge</td><td>Door closed and latched: the gap the hoses climb through</td><td></td></tr>
-<tr><td>J21</td><td>Deck height at the door</td><td>Cargo floor to top of the platform deck</td><td></td></tr>
-<tr><td>J22</td><td>Unit drain port height</td><td>Floor to the drain port, unit where it will run</td><td></td></tr>
-<tr><td>J23</td><td>Drain tube outside diameter and length</td><td>Calipers; full length</td><td></td></tr>
+<table class="measure-howto">
+<tr><th>#</th><th>Measurement</th><th>How</th></tr>
+<tr><td>J1</td><td>Drop, middle</td><td>Top of the opening to the top of the glass, at the middle. Set the glass to 6", 9", 12" by this number</td></tr>
+<tr><td>J2</td><td>Sill height</td><td>Cargo floor to the top of the glass, at each drop</td></tr>
+<tr><td>J3</td><td>Width at top</td><td>Inside edge to inside edge of the frame, just below the top</td></tr>
+<tr><td>J4</td><td>Width at glass line</td><td>Same, at the top of the glass, at each drop</td></tr>
+<tr><td>J5</td><td>Drop, front and rear</td><td>Top of the opening to the top of the glass near each end, at each drop. Shows whether the top edge slopes</td></tr>
+<tr><td>J6</td><td>Lowest the glass goes</td><td>Run it fully down. Top of the opening to the top of the glass</td></tr>
+<tr><td>J7–J9</td><td>Channel depths</td><td>Slide a zip tie into the channel until it stops; mark it at the channel mouth and measure. Top, front side, rear side</td></tr>
+<tr><td>J10</td><td>Top corners</td><td>Square, or the radius of the curve (trace the corner onto paper)</td></tr>
+<tr><td>J11</td><td>Glass thickness</td><td>Calipers at the top edge of the glass (sizes the U-channel trim)</td></tr>
+<tr><td>J12–J17</td><td>Hose collars</td><td>Calipers, or wrap a paper strip and divide its length by 3.14. A = widest ring at the end (write "none" if there's no lip); B = the body behind it; C = lip to where the hose starts</td></tr>
+<tr><td>J18</td><td>Hose length</td><td>Unit to window, along the route it will take, with a little slack</td></tr>
+<tr><td>J19</td><td>Tightest bend</td><td>Bend it gently until just before it kinks; measure the inside radius</td></tr>
+<tr><td>J20</td><td>Door to platform gap</td><td>Door shut and latched: the gap the hoses climb through</td></tr>
+<tr><td>J21</td><td>Deck height</td><td>Cargo floor to the top of the platform deck, at the door</td></tr>
+<tr><td>J22</td><td>Drain port height</td><td>Floor to the drain port, unit in its running spot</td></tr>
+<tr><td>J23</td><td>Drain tube</td><td>Outside diameter, and full length</td></tr>
 </table>
 
 <table class="measure-sheet">
 <tr><th>Result</th><th>Formula</th><th>Your number</th></tr>
-<tr><td>Chosen drop</td><td>Larger collar + 2" + channel tuck (≥ ~9" for a 6" collar)</td><td></td></tr>
+<tr><td>Chosen drop</td><td>Larger collar (B) + 2" + channel tuck (≥ ~9" for a 6" collar)</td><td></td></tr>
 <tr><td>Panel width</td><td>Larger of J3/J4 + J8 + J9 − 1/8"</td><td></td></tr>
-<tr><td>Panel height</td><td>J5 at the chosen drop + J7 + 3/8"</td><td></td></tr>
+<tr><td>Panel height</td><td>Largest J1/J5 at the chosen drop + J7 + 3/8"</td><td></td></tr>
 <tr><td>Intake hole</td><td>J12 + 1/16"</td><td></td></tr>
 <tr><td>Exhaust hole</td><td>J15 + 1/16"</td><td></td></tr>
 <tr><td>Hole spacing</td><td>As wide as the panel allows, ≥ 12" center to center</td><td></td></tr>
 </table>
 
-**Photos to take:** both hose ends (side view, showing the lip), each top window corner, the door-to-platform gap with the door closed, and the unit in its running spot.
+**Photos to take:** both hose ends (side view, showing the lip), each top window corner, the door-to-platform gap with the door shut, and the unit in its running spot.
 
 <div class="pagebreak"></div>
 

@@ -171,6 +171,9 @@ img[alt^="Component "] { display: block; width: 100%; height: auto;
 .measure-sheet td { height: 22pt; vertical-align: middle; }
 .measure-sheet tr:nth-child(even) td { background: #fff; }
 .measure-sheet td:first-child { white-space: nowrap; font-weight: 600; }
+.measure-howto { font-size: 8.4pt; margin: 4pt 0 8pt 0; }
+.measure-howto th, .measure-howto td { padding: 2.5pt 5pt; }
+.measure-howto td:first-child { white-space: nowrap; font-weight: 600; }
 .buy-links td:first-child, .buy-links td:nth-child(2) { word-break: normal; }
 .buy-links a { font-size: 8pt; font-family: monospace; }
 
