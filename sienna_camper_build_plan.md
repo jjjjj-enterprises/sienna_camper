@@ -24,6 +24,7 @@ Two-person setup, 2nd row seats **removed entirely** (3rd row folded flat; seat 
 > - **Control cluster:** the fuse block and W1209 are held on with Velcro, so a pulled wire releases the Velcro instead of the wiring (Fridge Bay Cooling sheet).
 > - **Leg feet:** center the insert bore, and keep frame screws off the bore's line (see the LEG BOTTOM spec below).
 > - **Fridge leg (9 Nov):** a Benro A38FD monopod (flip locks, fold-out base, 39.7 lb, about 21" folded) screws up into a ⅜"-16 T-nut flush in the tray, 2" in from its outer end, when the fridge is pulled out (25½" from the extended tray to the ground, and plenty of adjustment for uneven ground). Fridge Tray sheet, Section I.
+> - **DELTA 3 charging, as built (11 Nov):** a power strip rides in the battery drawer, strapped down with the two units. The DELTA 3's charging cord plugs into the strip, and the strip's own cord leaves through a <b>hole added in the drawer's back wall</b> to reach the van's front AC outlet. The fridge's DC line runs from the DELTA 3's DC output along the cable channel on Panel B to the fridge controller (fuse block and switches) on Panel C, then to the fridge. Photos in order, outlet to fridge: Component 6, "The power path, as built". The seam clamps are photographed under Component 5.
 
 **Vehicle measurements** — the van was surveyed on Aug 1 2026 and every dimension in this plan comes from that survey. The full record (V1–V10 interior/opening measurements, F1–F8 rear-floor survey, and the few items still open) is **Appendix A**.
 
@@ -1317,6 +1318,30 @@ Build this one before Component 1 (Rear Pantry) — the pantry tote and the micr
 <figcaption>The spray adhesive used to glue the carpet caps down.</figcaption>
 </figure>
 
+#### The seam clamps, in the van (11 Nov 2026)
+
+<p>Four stainless hose clamps, two per seam, one each side. Each goes around a pair of back-to-back bottom rails, over a strip of speaker carpet (see the change note at the top).</p>
+
+<figure class="photo-figure">
+<img src="photos/clamp-01-driver-ab.jpg" alt="A stainless hose clamp around two carpeted, black-painted bottom rails at the seam between Panels A and B, beside the seat rail">
+<figcaption><b>Driver side, A/B seam.</b></figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/clamp-02-driver-bc.jpg" alt="A stainless hose clamp around the bottom rails at the B/C seam, with a red and black wire passing through a grommet in the plywood wall above it">
+<figcaption><b>Driver side, B/C seam.</b> Above it, the wires for the DC socket and the temperature sensor pass through a grommet in Panel C's front wall.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/clamp-03-passenger-ab.jpg" alt="A stainless hose clamp around two carpeted bottom rails at the A/B seam, next to the seat track, with a black strap draped over the frame">
+<figcaption><b>Passenger side, A/B seam.</b></figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/clamp-04-passenger-bc.jpg" alt="A stainless hose clamp around a carpeted bottom-rail pair at the B/C seam, the white cable channel beside it">
+<figcaption><b>Passenger side, B/C seam</b>, with the end of the white cable channel beside it.</figcaption>
+</figure>
+
 ### Component 6: Cord Runs — Cooktop, Power Strip 1, Fridge DC & DELTA 3 Charging
 
 ![Component 6 — finished component, accessory list & part list](renders/steps/comp-6-header.png)
@@ -1366,6 +1391,55 @@ Build this one before Component 1 (Rear Pantry) — the pantry tote and the micr
 <figure class="photo-figure">
 <img src="photos/cable-01-channel-carpet-caps.jpg" alt="A black-painted frame with a white slotted cable channel fixed to it, a carpet cap glued over the bottom end of a 2x2 and an unglued cap laid on top of a post">
 <figcaption><b>The white channel carries the power cable from the EcoFlow to the fridge.</b> Also in the shot: a carpet end cap fully installed on the bottom end of a 2x2, and at the top one laid out to show its shape before it's glued down.</figcaption>
+</figure>
+
+#### The power path, as built: van outlet to fridge (11 Nov 2026)
+
+<p>In order, from the van's front AC outlet to the fridge. <mark><strong>As built:</strong> the DELTA 3 charges through a power strip in the drawer, and the strip's cord, not the DELTA 3's own, runs to the front outlet through a hole added in the drawer's back wall</mark> (change note at the top).</p>
+
+<figure class="photo-figure">
+<img src="photos/power-01-strip-front-outlet.jpg" alt="Inside the battery drawer, a black power strip with red lit switches beside the EcoFlow, its cord-lock plug head showing a green protected light">
+<figcaption><b>1. Into the strip.</b> The EcoFlow plugs into this power strip, and the strip plugs into the van's front AC outlet.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/power-02-drawer-cord-hole.jpg" alt="The power strip strapped across the EcoFlow units in the drawer, its cord leaving through a round hole in the drawer's back wall">
+<figcaption><b>2. A hole in the drawer's back wall</b>, added so the strip's cord can reach the front outlet.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/power-03-drawer-strapped.jpg" alt="Looking down into the battery drawer: the DELTA 3 Plus and the Smart Extra Battery side by side with the power strip, a cam strap across all three">
+<figcaption><b>3. The drawer, everything connected and strapped down.</b></figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/power-04-dc-out-short-cable.jpg" alt="The back of the DELTA 3 with a short DC cable plugged into its DC output and a coil of red and black wire bundled with a strap">
+<figcaption><b>4. DC out.</b> A short cable from the DELTA 3's DC output connects to the fridge system's line.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/power-05-dc-out-to-controller.jpg" alt="Red and black DC wire coiled beside the EcoFlow, a red light showing on the unit">
+<figcaption><b>5. The DC line leaves the drawer</b>, headed for the controller.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/power-06-channel-closed.jpg" alt="A white slotted cable channel along Panel B's bottom rail with the red and black line in it, the fan and fuse block cluster on Panel C's wall in the background">
+<figcaption><b>6. Panel B's cable channel, closed</b>, carrying the line from the EcoFlow to the fridge controller.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/power-07-channel-open.jpg" alt="The white slotted cable channel inside Panel B seen from above, a carpeted rail over it and the control cluster in the background">
+<figcaption><b>7. The same channel, open.</b></figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/power-08-controller-switches.jpg" alt="The control cluster on Panel C's wall: fuse block, W1209 reading 22.6, two blue-lit rocker switches in a wood block, and the guarded fan">
+<figcaption><b>8. The controller.</b> Both the FRIDGE and FANS switches are on. This is before the switch plate moved to the hatch end (change note at the top).</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/power-09-fridge-on.jpg" alt="The fridge on its slide in Panel C, strapped down, its display lit, under the black-topped deck">
+<figcaption><b>9. Power at the fridge.</b> End of the line.</figcaption>
 </figure>
 
 ### Component 7: Fridge & Kitchen Install
@@ -1659,6 +1733,28 @@ Build this one before Component 1 (Rear Pantry) — the pantry tote and the micr
 4. Do a full lift-out/reinstall dry run on Panel A, Panel B, and Panel C — gripping each by its exposed top rails, each should come free and drop back in without binding, rubbing, or forcing a bumper/pin out of place. For **Panel A and Panel B specifically**, also test lifting the one-piece bed platform off the box rails first (they have no top or lid of their own — the platform is the only thing capping them), then confirm each panel's drawers pull smoothly once it's clear. For **the rear pantry specifically**, unhook the cam strap and confirm the tote and the microwave lift off Panel C cleanly, and that the strap re-cinches square over both.
 
 *No diagram — finishing and test steps, not new construction.*
+
+#### Almost done: the van on 11 Nov 2026
+
+<figure class="photo-figure">
+<img src="photos/done-01-bed-side-door.jpg" alt="Through the Sienna's open sliding door: the mattress on the platform, the EcoFlow drawer and a storage box strapped under Panel B">
+<figcaption><b>From the side door:</b> the EcoFlow drawer, storage under Panel B, and the mattress.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/done-02-kitchen-out-side.jpg" alt="The open tailgate at dusk: the fridge on its slide, the kitchen pulled out on its legs with the sink and the induction cooktop, the microwave on the deck above">
+<figcaption><b>The kitchen out:</b> microwave, drawer, fridge, sink and cooktop.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/done-03-kitchen-out-rear.jpg" alt="Straight on at the open tailgate: the fridge on the left, the kitchen extended on its legs on the right, the mattress and microwave above">
+<figcaption><b>Kitchen extended</b>, from behind: microwave, drawer, fridge, sink and cooktop.</figcaption>
+</figure>
+
+<figure class="photo-figure">
+<img src="photos/done-04-all-stowed.jpg" alt="The open tailgate with everything stowed: the fridge strapped on the left, the kitchen closed on the right, the mattress on the platform above">
+<figcaption><b>Everything stowed:</b> kitchen, drawer and fridge in, ready to close the hatch.</figcaption>
+</figure>
 
 ---
 

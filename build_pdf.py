@@ -87,7 +87,7 @@ th, td {
     text-align: left;
     vertical-align: top;
 }
-h4 { font-size: 11pt; color: #26496b; margin: 14pt 0 4pt 0; }
+h4 { font-size: 11pt; color: #26496b; margin: 14pt 0 4pt 0; break-after: avoid; page-break-after: avoid; }
 /* h5 exists only inside Appendix A (the measurement survey): its own
    V1-V10 / F1-F8 items sit one level deeper than the other appendices
    need, because the whole survey was demoted when it moved out of
