@@ -364,7 +364,7 @@ The WAVE 3 is **stored** in Panel A's left bay either way (see the DELTA 3/WAVE 
 **No tent (sleeping in the Sienna alone, tailgate closed):** with the tailgate shut for security/weather, there's no gap to vent hoses through and nothing to usefully blow into at the tailgate — so the WAVE 3 instead moves to the front of the van:
 
 - Move the WAVE 3 forward to the front passenger seat (seatback reclined or folded flat, whichever the unit sits more level on) — the only open seat/floor space once Panels A/B/C fill the rear cargo area. A non-slip mat or a simple bungee strap around the seat frame keeps it from sliding off during setup; it isn't a permanent mount, just an occasional-use position.
-- Vent the hoses out a front window using the **[EcoFlow WAVE Series Car Vent Kit](https://us.ecoflow.com/products/wave-car-vent-kit)** — a real EcoFlow accessory, **$39, officially compatible with both WAVE 2 and WAVE 3**: a 47.2" x 27.6" waterproof, UV-resistant nylon cover that velcros over the window opening (window cracked, not removed) with sealed duct pass-throughs for both hoses. 15-second install, no permanent modification, fully reversible.
+- Vent the hoses out a front window using the **[EcoFlow WAVE Series Car Vent Kit](https://us.ecoflow.com/products/wave-car-vent-kit)** — a real EcoFlow accessory, **$39, officially compatible with both WAVE 2 and WAVE 3**: a 47.2" x 27.6" waterproof, UV-resistant nylon cover that velcros over the window opening (window cracked, not removed) with sealed duct pass-throughs for both hoses. 15-second install, no permanent modification, fully reversible. **On the sliding door it fits poorly and can't hold the hoses; Appendix J replaces it with a rigid window panel and has a measuring sheet (draft, not yet built).**
 - With the front window sealed around the hoses and every other window/door shut, the WAVE 3 conditions the **entire sealed cabin**, not just the back — likely more effective in this configuration than the tent setup, since the whole volume it's blowing into is the one you're sleeping in.
 - Power cord routes back to the DELTA 3 stack in Panel A's drawer — roughly the same length run as the induction cooktop's own forward cord (Section 5), just the opposite direction (front seat instead of tailgate). Budget for an extension or a quick-disconnect if the stock WAVE 3 cord doesn't reach.
 - **This configuration seals the cabin more tightly than the tent setup, with no open tailgate providing passive fresh-air exchange — the owner-placed low-level CO monitor (see the safety note above; Section 4) matters even more here.** Confirm it's active and audible from the sleeping position before using this configuration, same engine-exhaust-while-idling risk as always, just less passive ventilation to dilute it.
@@ -1927,6 +1927,7 @@ These references consolidate the plan into sheets you actually work from. Four a
 - **Build Sequence** — https://claude.ai/code/artifact/eff00cab-1e69-4a54-8eec-2d9346072e92
 - **Leveling Block Calculator** — https://claude.ai/code/artifact/149333c6-8f02-47a2-915f-52d26d9059d9
 - **Weight Budget** — spreadsheet in the repo as `weight_budget.csv`
+- **WAVE 3 Window Vent Panel** — Appendix J, with a printable measuring sheet to fill in at the van
 
 Appendices B and C consolidate Sections 4 and 3; Appendix B (build order), Appendix E (leveling calculator), and Appendix F (weight budget) are new here. **Appendix H is the one you hand to somebody else** — the Home Depot order and the cut-desk instructions, written out so an associate can work from it without reading the rest of this plan.
 
@@ -2755,6 +2756,160 @@ Two secondary items: **the bikes will obscure the license plate and rear lights*
 6. **Re-aim the headlights** after the rack is on and loaded — this adds to the rear squat Appendix F already calls for re-aiming after.
 
 **Not rolled into Appendix F's totals on purpose.** The 218 lb is a bolt-on carried some trips and not others, so folding it into the ≈488 lb build total would misstate the van's permanent weight. If you decide to make the rack permanent, add it to `weight_budget.py` as a `rear` zone line and re-run — the fore-aft center of mass and the rear-third share will both move noticeably.
+
+<div class="pagebreak"></div>
+
+### Appendix J — WAVE 3 Window Vent Panel (DRAFT, not yet built)
+
+**Why this exists:** the official [EcoFlow WAVE Car Vent Kit](https://us.ecoflow.com/products/wave-car-vent-kit) (BOM, $40) is a nylon sleeve with an elastic edge. On the Sienna's sliding door it doesn't fit well and can't hold the hoses: they sag, shift, and pull the fabric out of place. This appendix replaces it with a **rigid window insert**: a plastic panel that sits in the window channels, pinched by the raised glass, with both hoses locked into it. The fabric kit is cut up and reused as the weather skirt.
+
+**Status:** designed, not built. Every dimension below comes from the measuring sheet at the end of this appendix. **Fill that in first**, then cut a cardboard template before any plastic. This is the no-tent configuration (Section 1): tailgate shut, WAVE 3 venting out a side window instead of the open tailgate.
+
+#### What it has to do
+
+1. Hold both hoses firmly, so they can't slide in or out.
+2. Seal the opening against outside air, rain and bugs.
+3. Keep intake and exhaust apart outside, so the unit doesn't breathe its own exhaust.
+4. Pass the condensate drain tube (but see the drain note: gravity limits this).
+5. Install or remove in a few minutes, with no drilling and no change to the van.
+6. Let the sliding door close and latch with the window only partway down.
+7. Store flat.
+
+#### Three options, simplest to sturdiest
+
+| Option | Design | Pros | Cons |
+|---|---|---|---|
+| A | **Stiffened fabric kit.** A coroplast backer inside the EcoFlow sleeve, with holes for the hose collars | ~$15, one evening, stores flat | Still relies on the elastic for fit and seal; the hoses can still tug it out of place |
+| **B (recommended)** | **Rigid window insert.** A 1/8" ABS panel in the window's top and side channels, its bottom edge pinched by the raised glass, hoses locked into it, fabric skirt over the corner gaps | Solid hose hold, good seal, ~2 minutes to install, nothing on the van changes | Needs careful measuring; one panel fits one door |
+| C | **Sandwich panel with exterior hoods.** Two ABS layers with foam between, plus short elbows outside to aim intake and exhaust apart | Stiffest; best separation and rain shedding | Heavier, bulkier to store; the outside parts come off before the door opens |
+
+**Option B is the plan.** The window channel and glass do the holding, not fabric, and the panel stores flat beside the mattress.
+
+#### Layout (Option B)
+
+<div style="page-break-inside: avoid; break-inside: avoid;"><pre><code>        top window channel (panel edge tucked in)
+ +--------------------------------------------------+
+ |                                                  |
+ |   ( INTAKE )                      ( EXHAUST )    |   &lt;- holes centered
+ |   toward front                    toward rear    |      at mid-height
+ |                                     o drain 3/8" |
+ +--------------------------------------------------+
+        U-channel rubber on the bottom edge; glass rises into it
+</code></pre></div>
+
+**Sizing, from the measuring sheet:**
+
+- **Panel width** = window width (J3 or J4, whichever is larger) + front channel depth (J8) + rear channel depth (J9) − 1/8", so the panel flexes into the channels.
+- **Panel height** = opening height at your chosen drop (J5) + top channel depth (J7) + 3/8" for the glass to grip.
+- **Hole diameter** = collar body outside diameter (J12, J15) + 1/16".
+- **Hole spacing:** intake toward the front, exhaust toward the rear, as far apart as the panel allows, and **at least 12" center to center.** Keep at least 1" of plastic between any hole and the panel edge.
+- **Minimum window drop:** larger collar diameter + 2" of plastic + the channel tuck. For a ~6" collar, about 9".
+
+#### How the hoses lock in
+
+1. Push each hose's own end collar through its hole from inside until the collar's lip stops against the panel. The lip stops it pulling out into the van.
+2. From outside, tighten a worm-drive clamp around the collar body, flush against the panel. The clamp is bigger than the hole, so the collar can't slide back in.
+3. **If a collar has no lip,** mount a galvanized HVAC start collar of the same size instead: fold its tabs flat against the inside face, slip the hose over it, and clamp.
+4. Hang the hose's weight from a Velcro loop on the inside of the panel so it doesn't lever on the collar.
+
+#### Reusing the EcoFlow fabric kit
+
+- **Duct pass-through sleeves:** cut them out and use them as rain boots around each collar on the outside face, held by the same worm-drive clamp.
+- **Main nylon sheet:** cut a ~3" skirt and fix it along the panel's top and side edges with Velcro or foam tape. It covers the corner gaps where the flat panel meets the curved window frame.
+- **Velcro strips:** the skirt fasteners and the hose-support loop.
+
+#### Materials (~$70–90)
+
+| Item | Source | Cost |
+|---|---|---|
+| 1/8" black ABS sheet, 24" × 24" (or 4 mm coroplast for a trial panel) | Amazon / Home Depot | ~$20 (coroplast ~$10) |
+| Rubber U-channel edge trim for 1/8" panels, 10 ft | Amazon | ~$10 |
+| Closed-cell EVA foam or D-profile weatherstrip, ½" | Home Depot | ~$8 |
+| Worm-drive clamps sized to each collar (or start collars, ~$5 each, if the collars have no lip) | Home Depot | $5–15 |
+| 3/8" rubber grommet (drain) | Hardware store | ~$2 |
+| Sticky-back Velcro | Amazon | ~$8 |
+| Cardboard for the template | — | free |
+| EcoFlow WAVE Car Vent Kit, cut up for the skirt and boots | Already owned (BOM) | — |
+
+#### Build and install
+
+1. **Template first.** Lower the window to your chosen drop. Fit cardboard into the channels and raise the glass until it pinches the cardboard, trimming until it fits. Mark the hole positions on it.
+2. **Cut the plastic.** Trace the template onto ABS. Score and snap the straight edges; cut the curves and holes with a fine-blade jigsaw or hole saw. Sand all edges smooth.
+3. **Edges.** U-channel trim on the bottom edge, foam on the top and side edges.
+4. **Fittings.** Collars and clamps, drain grommet, fabric skirt and boots, hose-support loop.
+5. **Install.** Lower the window, tuck the panel into the top channel, flex it into the side channels, then raise the glass in **short taps**. Auto-up has pinch protection and reverses if you hold the switch. Connect the hoses.
+6. **Remove.** Disconnect the hoses, lower the glass, lift the panel out, store it flat.
+
+#### Rain, heat, bugs, security
+
+- **Condensate drain:** the tube **cannot run uphill** to a window above the unit. Gravity drainage only works downhill. With the WAVE 3 on the floor, drain into a bottle on the floor instead, and check the WAVE 3 manual for which modes produce runoff. The grommet is only useful if the unit sits at window height.
+- **Rain:** the fabric boots over the collars and the top skirt shed most of it; the glass seals the bottom edge.
+- **Separation:** 12"+ between holes is usually enough. If you see recirculation, add a short downward fabric sleeve on the exhaust.
+- **Heat:** ABS handles a hot van, but the exhaust collar gets warm in heat mode. Keep fabric clear of the collar mouth.
+- **Bugs:** the panel and skirt close everything except the hose bores, and the unit's own intake filter covers those.
+- **Security:** anyone outside can push the panel in. It's fine with you inside; don't leave the van parked and unattended with it installed. The sliding door can't be opened with the hoses connected, so get in and out by another door.
+- **CO:** the cabin is sealed tighter than the tent setup. The CO monitor note in Section 1 applies.
+
+#### Open questions before building
+
+1. **Which door?** The panel goes in the slider nearest the unit. Section 1 stores the WAVE 3 in Panel A's left bay (driver side) and runs it on the front passenger seat for no-tent sleeping; if it will run under the platform instead, decide where.
+2. **Airflow in the bay.** If it runs under the platform, check its cold-air outlet isn't blowing into the deck underside. Panel A's bay has about 2.8" of headroom.
+
+<div class="pagebreak"></div>
+
+#### Measuring sheet: WAVE 3 window vent panel
+
+Print this page and fill it in at the van. Measure in inches to the nearest 1/16". Do the window rows at three drops, measured down from the top of the opening to the top of the glass. Photograph each spot as you measure it.
+
+<table class="measure-sheet"><tr><th style="width:13%">Van (year, model)</th><td style="width:30%"></td><th style="width:12%">Door (driver / passenger)</th><td style="width:15%"></td><th style="width:7%">Date</th><td style="width:23%"></td></tr></table>
+
+<table class="measure-sheet">
+<tr><th>#</th><th>Window opening</th><th>How to measure</th><th>6" drop</th><th>9" drop</th><th>12" drop</th></tr>
+<tr><td>J1</td><td>Actual drop</td><td>Top of opening to top of glass, at the middle</td><td></td><td></td><td></td></tr>
+<tr><td>J2</td><td>Window sill height</td><td>Cargo floor to top of glass</td><td></td><td></td><td></td></tr>
+<tr><td>J3</td><td>Width at top</td><td>Inside edge to inside edge of the frame, just below the top</td><td></td><td></td><td></td></tr>
+<tr><td>J4</td><td>Width at glass line</td><td>Same, at the top of the glass</td><td></td><td></td><td></td></tr>
+<tr><td>J5</td><td>Opening height</td><td>Top of glass to top of opening, at front, middle, rear (write all three)</td><td></td><td></td><td></td></tr>
+</table>
+
+<table class="measure-sheet">
+<tr><th>#</th><th>Channels and glass</th><th>How to measure</th><th>Your number</th></tr>
+<tr><td>J6</td><td>Lowest the glass goes</td><td>Run it fully down. Top of opening to top of glass</td><td></td></tr>
+<tr><td>J7</td><td>Top channel depth</td><td>Slide a zip tie up into the channel until it stops; mark and measure</td><td></td></tr>
+<tr><td>J8</td><td>Front side channel depth</td><td>Same, into the front run channel</td><td></td></tr>
+<tr><td>J9</td><td>Rear side channel depth</td><td>Same, into the rear run channel</td><td></td></tr>
+<tr><td>J10</td><td>Top corners</td><td>Square or curved? If curved, the radius (trace onto paper)</td><td></td></tr>
+<tr><td>J11</td><td>Glass thickness</td><td>Calipers at the top edge (sizes the U-channel)</td><td></td></tr>
+</table>
+
+<table class="measure-sheet">
+<tr><th>#</th><th>Hoses</th><th>How to measure</th><th>Intake</th><th>Exhaust</th></tr>
+<tr><td>J12 / J15</td><td>Collar body, outside diameter</td><td>Calipers, or wrap a paper strip and divide its length by 3.14</td><td></td><td></td></tr>
+<tr><td>J13 / J16</td><td>Collar lip diameter</td><td>The widest ring at the end. Write "none" if there's no lip</td><td></td><td></td></tr>
+<tr><td>J14 / J17</td><td>Collar length</td><td>From the lip to where the hose starts</td><td></td><td></td></tr>
+<tr><td>J18</td><td>Hose length, unit to window</td><td>Along the route it will take, with a little slack</td><td></td><td></td></tr>
+<tr><td>J19</td><td>Tightest bend without a kink</td><td>Bend it gently; measure the inside radius</td><td></td><td></td></tr>
+</table>
+
+<table class="measure-sheet">
+<tr><th>#</th><th>Clearances and drain</th><th>How to measure</th><th>Your number</th></tr>
+<tr><td>J20</td><td>Door trim to platform edge</td><td>Door closed and latched: the gap the hoses climb through</td><td></td></tr>
+<tr><td>J21</td><td>Deck height at the door</td><td>Cargo floor to top of the platform deck</td><td></td></tr>
+<tr><td>J22</td><td>Unit drain port height</td><td>Floor to the drain port, unit where it will run</td><td></td></tr>
+<tr><td>J23</td><td>Drain tube outside diameter and length</td><td>Calipers; full length</td><td></td></tr>
+</table>
+
+<table class="measure-sheet">
+<tr><th>Result</th><th>Formula</th><th>Your number</th></tr>
+<tr><td>Chosen drop</td><td>Larger collar + 2" + channel tuck (≥ ~9" for a 6" collar)</td><td></td></tr>
+<tr><td>Panel width</td><td>Larger of J3/J4 + J8 + J9 − 1/8"</td><td></td></tr>
+<tr><td>Panel height</td><td>J5 at the chosen drop + J7 + 3/8"</td><td></td></tr>
+<tr><td>Intake hole</td><td>J12 + 1/16"</td><td></td></tr>
+<tr><td>Exhaust hole</td><td>J15 + 1/16"</td><td></td></tr>
+<tr><td>Hole spacing</td><td>As wide as the panel allows, ≥ 12" center to center</td><td></td></tr>
+</table>
+
+**Photos to take:** both hose ends (side view, showing the lip), each top window corner, the door-to-platform gap with the door closed, and the unit in its running spot.
 
 <div class="pagebreak"></div>
 

@@ -167,6 +167,10 @@ img[alt^="Component "] { display: block; width: 100%; height: auto;
 /* purchase-links table: full URLs shown for copy-paste — break
    anywhere so an 80-char Amazon URL can't blow out the page width */
 .buy-links td { word-break: break-all; }
+/* Appendix J measuring sheet: blank cells are write-in boxes */
+.measure-sheet td { height: 22pt; vertical-align: middle; }
+.measure-sheet tr:nth-child(even) td { background: #fff; }
+.measure-sheet td:first-child { white-space: nowrap; font-weight: 600; }
 .buy-links td:first-child, .buy-links td:nth-child(2) { word-break: normal; }
 .buy-links a { font-size: 8pt; font-family: monospace; }
 
