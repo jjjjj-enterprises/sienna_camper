@@ -2781,7 +2781,7 @@ Driver-side slider (the door nearest Panel A's WAVE 3 bay). Taken with the measu
 | J15 / J16 | Exhaust collar: body / face | **5"** / ~5⅛" (face from a photo) |
 | J14 / J17 | Collar length | ~1" to 1¼" (photo estimate) |
 | J18 | Hose length, unit to window | intake **54"**, exhaust **55"** |
-| J20 | Door trim to platform edge, door shut | **4½"** |
+| J20 | Door trim to platform edge, door shut | 4½" as first measured, **to re-measure**: the hoses do fit, so this reading is likely off |
 | J21–J23 | Deck height, drain port, drain tube | not yet measured |
 
 **The panel these numbers give (Option B):**
@@ -2791,7 +2791,7 @@ Driver-side slider (the door nearest Panel A's WAVE 3 bay). Taken with the measu
 - **Holes:** intake **6⅛"**, exhaust **5 1/16"**, both centered 4⅞" down from the panel's top edge (mid-height of the 9" opening). Intake center **9" back from the front edge of the opening**, exhaust center **9" forward of the rear edge**, so **16" apart**. At 9" back, the intake hole stays inside the 6⅞" corner trim by about ⅝".
 - **U-channel trim** sized for a ⅛" panel; the 3 mm glass bears on it from below.
 
-**The one problem the numbers turn up: the 4½" gap.** The 6" intake hose won't pass through a 4½" door-to-platform gap without being squashed flat, which chokes its airflow. Before cutting plastic, check how the hoses reach the window: whether they can climb past the deck edge somewhere wider, come up through the front gap behind the seats, or route over the deck. That routing also sets the hose lengths (54" and 55" now).
+**Re-measure J20.** A 4½" gap would squash the 6" intake hose, but the owner reports the hoses do fit past the platform, so the first reading is likely off. Re-measure J20 along with J21–J23; none of them change the panel itself.
 
 #### What it has to do
 
@@ -2880,7 +2880,7 @@ Driver-side slider (the door nearest Panel A's WAVE 3 bay). Taken with the measu
 
 #### Open questions before building
 
-1. **Which door?** Settled 12 Nov 2026: the **driver-side** slider, nearest Panel A's WAVE 3 bay. Open instead: **hose routing past the 4½" door-to-platform gap** (see the measurements above).
+1. **Which door?** Settled 12 Nov 2026: the **driver-side** slider, nearest Panel A's WAVE 3 bay. Still to re-measure: J20 (door-to-platform gap) and J21–J23.
 2. **Airflow in the bay.** If it runs under the platform, check its cold-air outlet isn't blowing into the deck underside. Panel A's bay has about 2.8" of headroom.
 
 <div class="pagebreak"></div>
