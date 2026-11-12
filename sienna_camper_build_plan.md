@@ -2761,7 +2761,7 @@ Two secondary items: **the bikes will obscure the license plate and rear lights*
 
 **Why this exists:** the official [EcoFlow WAVE Car Vent Kit](https://us.ecoflow.com/products/wave-car-vent-kit) (BOM, $40) is a nylon sleeve with an elastic edge. On the Sienna's sliding door it doesn't fit well and can't hold the hoses: they sag, shift, and pull the fabric out of place. This appendix replaces it with a **rigid window insert**: a plastic panel that sits in the window channels, pinched by the raised glass, with both hoses locked into it. The fabric kit is cut up and reused as the weather skirt.
 
-**Status:** designed, not built; most measurements taken 12 Nov 2026 (below). Every dimension below comes from the measuring sheet at the end of this appendix. **Fill that in first**, then cut a cardboard template before any plastic. This is the no-tent configuration (Section 1): tailgate shut, WAVE 3 venting out a side window instead of the open tailgate.
+**Status:** designed, not built; measured 12 Nov 2026 (below), so the panel is ready to template and cut. Every dimension below comes from the measuring sheet at the end of this appendix. **Fill that in first**, then cut a cardboard template before any plastic. This is the no-tent configuration (Section 1): tailgate shut, WAVE 3 venting out a side window instead of the open tailgate.
 
 #### Measured on the van (owner, 12 Nov 2026)
 
@@ -2771,18 +2771,20 @@ Driver-side slider (the door nearest Panel A's WAVE 3 bay). Taken with the measu
 |---|---|---|
 | J3 | Width at top, inside edge to inside edge | **34"** |
 | J4 | Width at the glass line, glass fully down | ~33⅜" (photo estimate) |
-| J1 | Top of opening to top of glass, middle, glass fully down | **12⅝"** (photos read 13" to 13⅞" near the ends) |
+| J1 | Top of opening to top of glass, middle, glass fully down | **12¾"** (re-measured; first reading 12⅝") |
 | — | Glass that stays up when fully down | ~4" (photo estimate); the glass doesn't retract all the way |
 | J7 | Top channel depth | **⅜"** |
-| J8 / J9 | Front / rear side channel depth | **¾"** each |
+| J8 / J9 | Front / rear side channel depth | **¾"** each (J8 re-checked) |
 | J10 | Front-top corner | A **6⅞" radius** curve, but it is interior trim **behind** the glass: the glass slides in front of it. The channels and the panel can be square; the curve only limits where a hose can come through from inside |
 | J11 | Glass thickness | **3 mm** (about ⅛") |
+| K1 | From inside: bottom edge of the top trim to the top of the glass, middle, glass fully down | **12¾"**, the same as J1: the top trim doesn't hang below the top of the opening, so it can't cover the hose holes |
 | J12 / J13 | Intake collar: body / face | **6 1/16"** / ~6⅜" (face from a photo) |
 | J15 / J16 | Exhaust collar: body / face | **5"** / ~5⅛" (face from a photo) |
 | J14 / J17 | Collar length | ~1" to 1¼" (photo estimate) |
 | J18 | Hose length, unit to window | intake **54"**, exhaust **55"** |
-| J20 | Door trim to platform edge, door shut | 4½" as first measured, **to re-measure**: the hoses do fit, so this reading is likely off |
-| J21–J23 | Deck height, drain port, drain tube | not yet measured |
+| J20 | Door trim to platform edge, door shut, where the hoses pass | **7"** (re-measured; the first 4½" was taken in the wrong spot). Clears the 6" intake hose |
+| J21 | Deck height, cargo floor to top of deck, at the door | **22¾"** |
+| J22 / J23 | Drain port, drain tube | not needed: the owner handles the condensate separately |
 
 **The panel these numbers give (Option B):**
 
@@ -2791,7 +2793,7 @@ Driver-side slider (the door nearest Panel A's WAVE 3 bay). Taken with the measu
 - **Holes:** intake **6⅛"**, exhaust **5 1/16"**, both centered 4⅞" down from the panel's top edge (mid-height of the 9" opening). Intake center **9" back from the front edge of the opening**, exhaust center **9" forward of the rear edge**, so **16" apart**. At 9" back, the intake hole stays inside the 6⅞" corner trim by about ⅝".
 - **U-channel trim** sized for a ⅛" panel; the 3 mm glass bears on it from below.
 
-**Re-measure J20.** A 4½" gap would squash the 6" intake hose, but the owner reports the hoses do fit past the platform, so the first reading is likely off. Re-measure J20 along with J21–J23; none of them change the panel itself.
+**Nothing left to measure.** The re-measured J20 (7") clears the 6" intake hose, and K1 shows the top trim stays clear of the holes. Next step: the cardboard template.
 
 #### What it has to do
 
@@ -2880,7 +2882,7 @@ Driver-side slider (the door nearest Panel A's WAVE 3 bay). Taken with the measu
 
 #### Open questions before building
 
-1. **Which door?** Settled 12 Nov 2026: the **driver-side** slider, nearest Panel A's WAVE 3 bay. Still to re-measure: J20 (door-to-platform gap) and J21–J23.
+1. **Which door?** Settled 12 Nov 2026: the **driver-side** slider, nearest Panel A's WAVE 3 bay. All measurements are in (12 Nov 2026).
 2. **Airflow in the bay.** If it runs under the platform, check its cold-air outlet isn't blowing into the deck underside. Panel A's bay has about 2.8" of headroom.
 
 <div class="pagebreak"></div>
@@ -3103,6 +3105,7 @@ Print this page and write your numbers **in the boxes on the drawings**, in inch
 <tr><td>J21</td><td>Deck height</td><td>Cargo floor to the top of the platform deck, at the door</td></tr>
 <tr><td>J22</td><td>Drain port height</td><td>Floor to the drain port, unit in its running spot</td></tr>
 <tr><td>J23</td><td>Drain tube</td><td>Outside diameter, and full length</td></tr>
+<tr><td>K1</td><td>Top trim, from inside</td><td>Glass fully down: bottom edge of the inside top trim down to the top of the glass, at the middle. If it's less than J1, the trim hangs below the opening; keep the hole tops below it</td></tr>
 </table>
 
 <table class="measure-sheet">
